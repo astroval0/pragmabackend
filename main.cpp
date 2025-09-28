@@ -70,7 +70,7 @@ static auto HEALTH_JSON =
 
 // these jwt strings are ones from our captures.
 // the game might only check that they look valid, not that they are signed by anyone
-// if it starts validating them, we will have to mint real ones or stub that code
+// if it starts validating them, we will have to make real ones
 static auto QUEUE_JSON =
     R"(
 {
