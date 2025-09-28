@@ -22,6 +22,3 @@ target_compile_definitions(pragmabackend PRIVATE BOOST_ERROR_CODE_HEADER_ONLY)
 add_compile_definitions(_WIN32_WINNT=0x0A00) # target at least win10
 target_link_libraries(pragmabackend PRIVATE Boost::beast)
 target_link_libraries(pragmabackend PRIVATE Boost::asio)
-target_include_directories(pragmabackend PRIVATE
-        ${boost_beast_INCLUDE_DIRS}
-)
