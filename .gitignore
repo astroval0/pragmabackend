@@ -372,7 +372,7 @@ OpenCover/
 ASALocalRun/
 
 # MSBuild Binary and Structured Log
-*.binlog
+**.binlog
 MSBuild_Logs/
 
 # AWS SAM Build and Temporary Artifacts folder
@@ -505,4 +505,8 @@ http-client.private.env.json
 
 # Apifox Helper cache
 .idea/.cache/.Apifox_Helper
-.idea/ApifoxUploaderProjectSetting.xml
+.idea/ApifoxUploaderProjectSetting.xmli
+# tmp vim files
+*~
+# vcpkg folders
+vcpkg_installed
