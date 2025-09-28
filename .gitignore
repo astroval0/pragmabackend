@@ -506,3 +506,7 @@ http-client.private.env.json
 # Apifox Helper cache
 .idea/.cache/.Apifox_Helper
 .idea/ApifoxUploaderProjectSetting.xml
+# tmp vim files
+*~
+# vcpkg folders
+vcpkg_installed
