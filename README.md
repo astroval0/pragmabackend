@@ -1,1 +1,3 @@
-# no idea what to put here tbh we all have everything in discord
+git clone https://github.com/astroval0/pragmabackend
+cd pragmabackend
+git submodule update
