@@ -9,7 +9,6 @@ void StaticResponseProcessorHTTP::Process(http::request<http::string_body> const
 	sock->send(m_res);
 }
 
-void StaticResponseProcessorWS::Process(boost::beast::flat_buffer packet, boost::beast::websocket::stream<boost::asio::ip::tcp::socket>* sock) {
-	sock->text(true);
-	sock->write(m_res);
+void StaticResponseProcessorWS::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) {
+	sock.SendPacket(m_res);
 }

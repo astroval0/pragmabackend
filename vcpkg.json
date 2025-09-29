@@ -5,6 +5,8 @@
     "boost-beast",
     "boost-asio",
     "openssl",
-    "spdlog"
+    "spdlog",
+    "boost-bimap",
+    "nlohmann-json"
   ]
 }
