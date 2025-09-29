@@ -23,6 +23,8 @@
 #include <spdlog/logger.h>
 #include <ctime>
 #include <memory>
+#include <SpectreWebsocket.h>
+#include <SpectreWebsocketRequest.h>
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
@@ -130,7 +132,7 @@ static constexpr auto AUTH_JSON =
 // maybe load distribution probe or some shit i still dont know what this does
 static constexpr auto GATEWAY_JSON = R"({"gateway":"3"})"; //todo split game and social gateways
 
-std::string stripQueryParams(const std::string& url) {
+static std::string stripQueryParams(const std::string& url) {
     size_t pos = url.find('?');
     if (pos != std::string::npos) {
         return url.substr(0, pos);
@@ -164,57 +166,40 @@ void session(tcp::socket sock, ssl::context& tls_ctx) {
 
         wss.next_layer().handshake(ssl::stream_base::server); // tls server handshake on the underlying stream
 
-        beast::flat_buffer buffer; // http parser scratch
-        http::request<http::string_body> req; // incoming request lives here
+        // detect websocket upgrade and switch protocols if requested
+        if (websocket::is_upgrade(req)) {
+            websocket::stream<tcp::socket> rawSock(std::move(sock));
+            SpectreWebsocket sock(rawSock);
+            logger->info("upgraded connection with " + rawSock.next_layer().remote_endpoint().address().to_string() + ":" + std::to_string(rawSock.next_layer().remote_endpoint().port()) + " to websocket");
+            rawSock.accept(req); // handshake done, we are now speaking ws
 
-        http::read(wss.next_layer(), buffer, req); // blocking read over tls
-
-        if (websocket::is_upgrade(req)) { // client asked to switch to ws
-            auto ep = beast::get_lowest_layer(wss).remote_endpoint(); // log who connected
-            logger->info("upgraded connection with " + ep.address().to_string() + ":" + std::to_string(ep.port()) + " to websocket");
-
-            wss.accept(req); // ws handshake done, we are now speaking ws
-
-            for (;;) { // simple echo so clients have something to chew on
-                beast::flat_buffer wsbuf; // ws frame buffer
-                wss.read(wsbuf); // blocks until peer sends or closes
-                wss.text(true); // text frames only for now
-                wss.write(asio::buffer(R"({"echo":"ok"})")); // fixed reply. not mirroring payload yet
+            // basic echo loop so clients have something to talk to
+            for (;;) {
+                beast::flat_buffer wsbuf;
+                rawSock.read(wsbuf); // this blocks until a message arrives or the peer closes
+                SpectreWebsocketRequest req(sock, wsbuf);
+                auto route = Registry::WEBSOCKET_ROUTES.find(req.GetRequestType());
+                if (route == Registry::WEBSOCKET_ROUTES.end()) {
+                    logger->warn("no packet processor found for WS requestType: " + req.GetRequestType().GetName());
+                    continue;
+                }
+                route->second->Process(req, sock);
             }
         }
 
         auto target = stripQueryParams(std::string(req.target())); // remove ?query so routing is stable
-
-        http::response<http::string_body> res; // http reply
-        res.version(req.version()); // mirror client http version
-        res.set(http::field::content_type, "application/json"); // game expects json
-        res.keep_alive(false); // no keepalive loop here
-
-        //this needs changing lol
-        if (target == "/v1/info") {
-            res.result(http::status::ok);
-            res.body() = INFO_JSON;
-        } else if (target == "/v1/spectre/healthcheck-status") {
-            res.result(http::status::ok);
-            res.body() = HEALTH_JSON;
-        } else if (target == "/v1/loginqueue/getinqueuev1") {
-            res.result(http::status::ok);
-            res.body() = QUEUE_JSON;
-        } else if (target == "/v1/account/authenticateorcreatev2") {
-            res.result(http::status::ok);
-            res.body() = AUTH_JSON;
-        } else if (target == "/v1/gateway") {
-            res.result(http::status::ok);
-            res.body() = GATEWAY_JSON;
-        } else {
-            logger->warn("missing a handler for http route " + target); // reminder
+        HTTPPacketProcessor* processor = Registry::HTTP_ROUTES[target];
+        if (processor == nullptr) {
+            logger->warn("missing a handler for http route " + target);
+            // send a 404 if no processor found
+            http::response<http::string_body> res;
             res.result(http::status::not_found);
             res.body() = "{}";
+            res.prepare_payload();
+            http::write(sock, res);
+            return;
         }
-
-        res.prepare_payload(); // sets content length for us
-        http::write(wss.next_layer(), res); // write over tls
-
+        processor->Process(req, &sock);
     } catch (std::exception& e) {
         logger->error("session error: "); // any parse/handshake/io error ends up here
         logger->error(e.what());          // print the reason so we can fix it
