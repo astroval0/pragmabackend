@@ -4,12 +4,15 @@
 
 #include <boost/asio.hpp>
 #include <boost/beast/core.hpp>
-#include <boost/beast/core/buffers_to_string.hpp>
 #include <boost/beast/http.hpp>
+#include <boost/beast/websocket/ssl.hpp>
+#include <boost/asio/ssl.hpp>
 #include <boost/beast/websocket.hpp>
+#include <boost/beast/ssl.hpp>
 #include <iostream>
 #include <string>
 #include <thread>
+#include <filesystem>
 #include <Registry.h>
 #include <PacketProcessor.h>
 #include <StaticResponseProcessor.h>
@@ -28,6 +31,8 @@ namespace beast = boost::beast;
 namespace http = beast::http;
 namespace websocket = beast::websocket;
 using tcp = asio::ip::tcp;
+namespace ssl = asio::ssl;
+
 static std::shared_ptr<spdlog::logger> logger;
 
 void SetupLogger() {
@@ -61,20 +66,20 @@ R"(
     "authenticateBackend":{
         "host":"127.0.0.1",
         "port":7777,
-        "protocol":"http",
-        "scheme":"http"
+        "protocol":"https",
+        "scheme":"https"
     },
     "socialBackend":{
         "host":"127.0.0.1",
         "port":7777,
-        "protocol":"http",
-        "webSocketProtocol":"ws"
+        "protocol":"https",
+        "webSocketProtocol":"wss"
     },
     "gameBackend":{
         "host":"127.0.0.1",
         "port":7777,
-        "protocol":"http",
-        "webSocketProtocol":"ws"
+        "protocol":"https",
+        "webSocketProtocol":"wss"
     },
     "gameShardId":"00000000-0000-0000-0000-000000000001"
 }
@@ -135,17 +140,31 @@ static std::string stripQueryParams(const std::string& url) {
     return url;
 }
 
-// this handles one tcp connection
-// either it upgrades to websocket and we loop forever
-// or its plain http and we answer once and we are done
-// todo: handle https
-static void session(tcp::socket sock) {
-    try {
-        beast::flat_buffer buffer; // http parser scratch space
-        http::request<http::string_body> req;
+static std::string cert_path(const char* f){ return (std::filesystem::path(CERT_DIR)/f).string(); }
 
-        // blocking read
-        http::read(sock, buffer, req);
+// load TLS certs / keys
+// we terminate TLS here so the game can speak https / wss to us directly
+static void ConfigureTlsContext(ssl::context& ctx) {
+    ctx.set_options(
+        ssl::context::default_workarounds
+        | ssl::context::no_sslv2
+        | ssl::context::no_sslv3
+        | ssl::context::no_tlsv1
+        | ssl::context::no_tlsv1_1
+        | ssl::context::single_dh_use
+    );
+
+
+    ctx.use_certificate_chain_file(cert_path("server.crt"));
+    ctx.use_private_key_file(cert_path("server.key"), ssl::context::file_format::pem);
+}
+
+void session(tcp::socket sock, ssl::context& tls_ctx) {
+    try {
+        using tls_stream = ssl::stream<tcp::socket>; // tls wrapper around a plain tcp socket
+        websocket::stream<tls_stream> wss{std::move(sock), tls_ctx}; // build tls inside ws so we don't copy /move ssl streams
+
+        wss.next_layer().handshake(ssl::stream_base::server); // tls server handshake on the underlying stream
 
         // detect websocket upgrade and switch protocols if requested
         if (websocket::is_upgrade(req)) {
@@ -167,7 +186,8 @@ static void session(tcp::socket sock) {
                 route->second->Process(req, sock);
             }
         }
-        auto target = stripQueryParams(std::string(req.target()));
+
+        auto target = stripQueryParams(std::string(req.target())); // remove ?query so routing is stable
         HTTPPacketProcessor* processor = Registry::HTTP_ROUTES[target];
         if (processor == nullptr) {
             logger->warn("missing a handler for http route " + target);
@@ -180,18 +200,16 @@ static void session(tcp::socket sock) {
             return;
         }
         processor->Process(req, &sock);
-        // no keep alive loop here. if you want it, wrap read and write in a while loop
     } catch (std::exception& e) {
-        // any parse error, socket close, or ws close lands here
-        logger->error("session error: ");
-        logger->error(e.what());
+        logger->error("session error: "); // any parse/handshake/io error ends up here
+        logger->error(e.what());          // print the reason so we can fix it
     }
 }
 
 void RegisterHandlers() {
     logger->info("Registering handlers...");
     Registry::HTTP_ROUTES["/v1/info"] = new StaticResponseProcessorHTTP("/v1/info", asio::buffer(INFO_JSON, sizeof(INFO_JSON)));
-    Registry::HTTP_ROUTES["/v1/spectre/healthcheck-status"] = new StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(INFO_JSON, sizeof(HEALTH_JSON)));
+    Registry::HTTP_ROUTES["/v1/spectre/healthcheck-status"] = new StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(HEALTH_JSON, sizeof(HEALTH_JSON)));
     Registry::HTTP_ROUTES["/v1/loginqueue/getinqueuev1"] = new StaticResponseProcessorHTTP("/v1/loginqueue/getinqueuev1", asio::buffer(QUEUE_JSON, sizeof(QUEUE_JSON)));
     Registry::HTTP_ROUTES["/v1/account/authenticateorcreatev2"] = new StaticResponseProcessorHTTP("/v1/account/authenticateorcreatev2", asio::buffer(AUTH_JSON, sizeof(AUTH_JSON)));
     Registry::HTTP_ROUTES["/v1/gateway"] = new StaticResponseProcessorHTTP("/v1/gateway", asio::buffer(GATEWAY_JSON, sizeof(GATEWAY_JSON)));
@@ -205,14 +223,23 @@ int main() {
     RegisterHandlers();
     try {
         asio::io_context ioc; // we use sync ops but asio still wants an io_context around
+
+        // tls setup. load cert / key
+        ssl::context tls_ctx(ssl::context::tls_server);
+        ConfigureTlsContext(tls_ctx);
+
         tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), 7777));
 
         // accept loop forever. each client gets one detached thread
-        // if you want to shut down clean, do not detach, keep thread handles
+        // if we want to shut down clean, don't detach, keep thread handles
         for (;;) {
             tcp::socket sock(ioc);
             acc.accept(sock); // blocks until a client connects
-            std::thread(&session, std::move(sock)).detach();
+
+            // each session owns its TLS handshake and stream
+            std::thread([s = std::move(sock), &tls_ctx]() mutable {
+                session(std::move(s), tls_ctx);
+            }).detach();
         }
     } catch (std::exception& e) {
         logger->error("fatal exception: ");
