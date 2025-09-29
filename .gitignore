@@ -510,3 +510,13 @@ http-client.private.env.json
 *~
 # vcpkg folders
 vcpkg_installed
+/.idea/.gitignore
+/.idea/AICommit.xml
+/.idea/copilot.data.migration.agent.xml
+/.idea/copilot.data.migration.ask.xml
+/.idea/copilot.data.migration.edit.xml
+/.idea/editor.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/pragmabackend.iml
+/.idea/vcs.xml
