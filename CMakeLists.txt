@@ -18,13 +18,7 @@ add_executable(pragmabackend main.cpp)
 
 find_package(Boost REQUIRED COMPONENTS beast)
 find_package(boost_asio CONFIG REQUIRED)
-find_package(spdlog CONFIG REQUIRED)
 target_compile_definitions(pragmabackend PRIVATE BOOST_ERROR_CODE_HEADER_ONLY)
-file(GLOB_RECURSE packetimplementors "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Implementation/*.cpp")
-target_sources(pragmabackend PRIVATE ${packetimplementors})
 add_compile_definitions(_WIN32_WINNT=0x0A00) # target at least win10
-add_compile_definitions(FMT_UNICODE=0)
 target_link_libraries(pragmabackend PRIVATE Boost::beast)
 target_link_libraries(pragmabackend PRIVATE Boost::asio)
-target_link_libraries(pragmabackend PRIVATE spdlog::spdlog_header_only)
-target_include_directories(pragmabackend PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Model")
