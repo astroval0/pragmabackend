@@ -23,16 +23,16 @@ public:
 
 class StaticResponseProcessorWS : public WebsocketPacketProcessor {
 protected:
-	std::string m_type;
+	SpectreRpcType& m_type;
 	json& m_res;
 public:
-	StaticResponseProcessorWS(std::string type, json& res) : m_type(type), m_res(res) {
+	StaticResponseProcessorWS(SpectreRpcType& type, json& res) : m_type(type), m_res(res) {
 		Registry::WEBSOCKET_ROUTES[type] = this;
 	}
 
 	void Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) override;
 
-	std::string GetType() override {
+	const SpectreRpcType& GetType() override {
 		return m_type;
 	}
 };

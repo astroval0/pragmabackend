@@ -208,11 +208,11 @@ void session(tcp::socket sock, ssl::context& tls_ctx) {
 
 void RegisterHandlers() {
     logger->info("Registering handlers...");
-    Registry::HTTP_ROUTES["/v1/info"] = new StaticResponseProcessorHTTP("/v1/info", asio::buffer(INFO_JSON, sizeof(INFO_JSON)));
-    Registry::HTTP_ROUTES["/v1/spectre/healthcheck-status"] = new StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(HEALTH_JSON, sizeof(HEALTH_JSON)));
-    Registry::HTTP_ROUTES["/v1/loginqueue/getinqueuev1"] = new StaticResponseProcessorHTTP("/v1/loginqueue/getinqueuev1", asio::buffer(QUEUE_JSON, sizeof(QUEUE_JSON)));
-    Registry::HTTP_ROUTES["/v1/account/authenticateorcreatev2"] = new StaticResponseProcessorHTTP("/v1/account/authenticateorcreatev2", asio::buffer(AUTH_JSON, sizeof(AUTH_JSON)));
-    Registry::HTTP_ROUTES["/v1/gateway"] = new StaticResponseProcessorHTTP("/v1/gateway", asio::buffer(GATEWAY_JSON, sizeof(GATEWAY_JSON)));
+    StaticResponseProcessorHTTP("/v1/info", asio::buffer(INFO_JSON, sizeof(INFO_JSON)));
+    StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(HEALTH_JSON, sizeof(HEALTH_JSON)));
+    StaticResponseProcessorHTTP("/v1/loginqueue/getinqueuev1", asio::buffer(QUEUE_JSON, sizeof(QUEUE_JSON)));
+    StaticResponseProcessorHTTP("/v1/account/authenticateorcreatev2", asio::buffer(AUTH_JSON, sizeof(AUTH_JSON)));
+    StaticResponseProcessorHTTP("/v1/gateway", asio::buffer(GATEWAY_JSON, sizeof(GATEWAY_JSON)));
 }
 
 // the main accept loop

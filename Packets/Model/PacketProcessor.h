@@ -5,6 +5,7 @@
 #include <boost/beast/websocket.hpp>
 #include <boost/asio.hpp>
 #include <SpectreWebsocketRequest.h>
+#include <SpectreRpcType.h>
 
 namespace http = boost::beast::http;
 
@@ -19,5 +20,5 @@ class WebsocketPacketProcessor {
 public:
 	virtual void Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) = 0;
 	virtual ~WebsocketPacketProcessor() = default;
-	virtual std::string GetType() = 0;
+	virtual const SpectreRpcType& GetType() = 0;
 };
