@@ -10,47 +10,19 @@
 #include <iostream>
 #include <string>
 #include <thread>
-#include <Registry.h>
-#include <PacketProcessor.h>
-#include <StaticResponseProcessor.h>
-#include <spdlog/spdlog.h>
-#include <spdlog/async.h>
-#include <spdlog/sinks/basic_file_sink.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
-#include <spdlog/logger.h>
-#include <ctime>
-#include <memory>
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
 namespace http = beast::http;
 namespace websocket = beast::websocket;
 using tcp = asio::ip::tcp;
-static std::shared_ptr<spdlog::logger> logger;
-
-void SetupLogger() {
-    auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-    auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/app.log", true);
-
-    // Optional: Customize sink formats
-    console_sink->set_pattern("[%T] [%^%l%$] %v");
-    file_sink->set_pattern("[%Y-%m-%d %T] [%l] %v");
-
-    // Combine sinks into one logger
-    std::vector<spdlog::sink_ptr> sinks{ console_sink, file_sink };
-    logger = std::make_shared<spdlog::logger>("pragma", sinks.begin(), sinks.end());
-
-    // Register and use the logger
-    spdlog::register_logger(logger);
-    spdlog::set_default_logger(logger);
-}
 
 // todo maybe split the json and routing later
 //  right now we keep it here for speed
 
 // this is the static response for /v1/info
 // we might have to split game and social onto different ports because some requests are the same
-static constexpr auto INFO_JSON =
+static auto INFO_JSON =
 R"(
 {
     "name":"mtn.live.game",
@@ -80,7 +52,7 @@ R"(
 
 // health payload for /v1/spectre/healthcheck-status
 // if the game probes health, this tells it we are fine
-static constexpr auto HEALTH_JSON =
+static auto HEALTH_JSON =
     R"(
 {
     "health": {
@@ -99,7 +71,7 @@ static constexpr auto HEALTH_JSON =
 // these jwt strings are ones from our captures.
 // the game might only check that they look valid, not that they are signed by anyone
 // if it starts validating them, we will have to make real ones
-static constexpr auto QUEUE_JSON =
+static auto QUEUE_JSON =
     R"(
 {
     "token": "eyJraWQiOiJkM0p0T3E2ankzX0hxdXdUc3J6dDgxd2gzQkxpQS00Zi1xTThtai0wLVlRPSIsImFsZyI6IlJTMjU2IiwidHlwIjoiSldUIn0.eyJpc3MiOiJwcmFnbWEiLCJzdWIiOiIxMTYyOCIsImlhdCI6MTc0MDUwNzQyNywiZXhwIjoxNzQwNTkzODI3LCJqdGkiOiIyYjFiMzc5Yi1jZmQwLTRkMzAtYWE4NS02OWMyZWIyMWE4MWEiLCJ0aWNrZXROdW1iZXIiOiIxMTYyOCIsImlzQWxsb3dlZEluIjoidHJ1ZSJ9.PJp5MNXz2_xvCkq_XjzZeui1MvS9ylDLDgeLkJiv9jp_FVnTI9LISMtajHcef-7JehNs5sQC6P_Gpmb6JuVdD4k7HUX7a9IAgM8HKAagnfgmymn02SSpL7Mfz9wbH8FgOYU2ylKG_ExIW_aSG5HK588_waNeSydygwX2zRoSf8ZYZzbUHmMsZcG2iXpDq_Peejbt6Cgep9lsyNE5L5ZZzil9_KVu3FaEojcrI7tiPpHX7wi2K_J78rxmg2weUreowhv0VJA-YGqtOUlqFl7Ep8VGi-IrJdAf4gLeiVZMQoktc_g5tD9FgXzEAH_aDoBqGgoqnbKLcWLRiT1TAYGgXtCfw15Efh_ta-h4IIOI-DAnhJ1ujapd80Z87Wo6h7SpBaOitaI-bjBPkqDQGe2JooUNCrki848vPrfu0IQW00vawUtLX6LaS_aAEs0L2Vjxyebk1X37E9KwTDoxQGdmurutcnvSmVXOoO4P8F6o4oGx-A9d6HgFJl5rRie2LrWSJHlmcFm5_IKYw7okHwBh63Cx3mhUevji5SkEGj3gbwlBURjeEXpOm0qr-ECeKdmagbi_ipiiQB8m8FNwAbx9Z-Sl3nbJ-kS3QtPZrFHqxf91sgFY16H6sn1ruhna-ZygG5cYKf4JWbEcmLrSmdQ_xIBODjWDcatvNKGrv7Cx_Ng",
@@ -111,7 +83,7 @@ static constexpr auto QUEUE_JSON =
 )";
 
 // jwt tokens for auth route
-static constexpr auto AUTH_JSON =
+static auto AUTH_JSON =
     R"(
 {
     "pragmaTokens": {
@@ -123,20 +95,46 @@ static constexpr auto AUTH_JSON =
 
 
 // maybe load distribution probe or some shit i still dont know what this does
-static constexpr auto GATEWAY_JSON = R"({"gateway":"3"})"; //todo split game and social gateways
+static auto GATEWAY_JSON = R"({"gateway":"3"})"; //todo split game and social gateways
 
-std::string stripQueryParams(const std::string& url) {
-    size_t pos = url.find('?');
-    if (pos != std::string::npos) {
-        return url.substr(0, pos);
+// tiny router for http
+// reads path from the request and fills the response with a json body
+void handle_http(http::request<http::string_body> const& req,
+                 http::response<http::string_body>& res) {
+    // mirror request http version and tell the client we are json
+    res.version(req.version());
+    res.set(http::field::server, "FakePragma");
+    res.set(http::field::content_type, "application/json");
+    res.result(http::status::ok);
+
+    auto target = std::string(req.target());
+    // note the find(..)==0 check means prefix match, so query strings are fine
+    if (target.find("/v1/info") == 0) {
+        res.body() = INFO_JSON;
+    } else if (target.find("/v1/spectre/healthcheck-status") == 0) {
+        res.body() = HEALTH_JSON;
+    } else if (target.find("/v1/loginqueue/getinqueuev1") == 0) {
+        res.body() = QUEUE_JSON;
+    } else if (target.find("/v1/account/authenticateorcreatev2") == 0) {
+        res.body() = AUTH_JSON;
+    } else if (target.find("/v1/gateway") == 0) {
+        res.body() = GATEWAY_JSON;
+    } else if (target.find("/v1/types") == 0) {
+        // todo make this dynamic because its not compiling with all the types
+        res.body() = R"({"AccountRpc.AddAccountTagsPartnerV1Request":13})";
+    } else {
+        // default not found keeps the client happy with a valid http response
+        res.result(http::status::not_found);
+        res.body() = "{}";
     }
-    return url;
+
+    // beast will set content length etc based on body now
+    res.prepare_payload();
 }
 
 // this handles one tcp connection
 // either it upgrades to websocket and we loop forever
 // or its plain http and we answer once and we are done
-// todo: handle https
 void session(tcp::socket sock) {
     try {
         beast::flat_buffer buffer; // http parser scratch space
@@ -148,7 +146,6 @@ void session(tcp::socket sock) {
         // detect websocket upgrade and switch protocols if requested
         if (websocket::is_upgrade(req)) {
             websocket::stream<tcp::socket> ws(std::move(sock));
-            logger->info("upgraded connection with " + ws.next_layer().remote_endpoint().address().to_string() + ":" + std::to_string(ws.next_layer().remote_endpoint().port()) + " to websocket");
             ws.accept(req); // handshake done, we are now speaking ws
 
             // basic echo loop so clients have something to talk to
@@ -163,42 +160,21 @@ void session(tcp::socket sock) {
                 ws.write(asio::buffer(R"({"echo":"ok"})"));
             }
         }
-        auto target = stripQueryParams(std::string(req.target()));
-        HTTPPacketProcessor* processor = Registry::HTTP_ROUTES[target];
-        if (processor == nullptr) {
-            logger->warn("missing a handler for http route " + target);
-            // send a 404 if no processor found
-            http::response<http::string_body> res;
-            res.result(http::status::not_found);
-            res.body() = "{}";
-            res.prepare_payload();
-            http::write(sock, res);
-            return;
-        }
-        processor->Process(req, &sock);
+        // plain http path, build a response and write it
+        http::response<http::string_body> res;
+        handle_http(req, res);
+        http::write(sock, res);
         // no keep alive loop here. if you want it, wrap read and write in a while loop
     } catch (std::exception& e) {
         // any parse error, socket close, or ws close lands here
-        logger->error("session error: ");
-        logger->error(e.what());
+        std::cerr << "session error: " << e.what() << "\n";
     }
-}
-
-void RegisterHandlers() {
-    logger->info("Registering handlers...");
-    Registry::HTTP_ROUTES["/v1/info"] = new StaticResponseProcessorHTTP("/v1/info", asio::buffer(INFO_JSON, sizeof(INFO_JSON)));
-    Registry::HTTP_ROUTES["/v1/spectre/healthcheck-status"] = new StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(INFO_JSON, sizeof(HEALTH_JSON)));
-    Registry::HTTP_ROUTES["/v1/loginqueue/getinqueuev1"] = new StaticResponseProcessorHTTP("/v1/loginqueue/getinqueuev1", asio::buffer(QUEUE_JSON, sizeof(QUEUE_JSON)));
-    Registry::HTTP_ROUTES["/v1/account/authenticateorcreatev2"] = new StaticResponseProcessorHTTP("/v1/account/authenticateorcreatev2", asio::buffer(AUTH_JSON, sizeof(AUTH_JSON)));
-    Registry::HTTP_ROUTES["/v1/gateway"] = new StaticResponseProcessorHTTP("/v1/gateway", asio::buffer(GATEWAY_JSON, sizeof(GATEWAY_JSON)));
 }
 
 // the main accept loop
 // binds to 127.0.0.1:7777, accepts a connection, spins a thread, repeat
 int main() {
-    SetupLogger();
-    logger->info("starting server...");
-    RegisterHandlers();
+    std::cout << "running...\n";
     try {
         asio::io_context ioc; // we use sync ops but asio still wants an io_context around
         tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), 7777));
@@ -211,9 +187,7 @@ int main() {
             std::thread(&session, std::move(sock)).detach();
         }
     } catch (std::exception& e) {
-        logger->error("fatal exception: ");
-        logger->error(e.what());
-        return 1;
+        std::cerr << "fatal: " << e.what() << "\n";
     }
     return 0;
 }
