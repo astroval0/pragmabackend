@@ -4,6 +4,8 @@
   "dependencies": [
     "boost-beast",
     "boost-asio",
-    "spdlog"
+    "spdlog",
+    "boost-bimap",
+    "nlohmann-json"
   ]
 }

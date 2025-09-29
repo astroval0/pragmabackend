@@ -20,6 +20,8 @@
 #include <spdlog/logger.h>
 #include <ctime>
 #include <memory>
+#include <SpectreWebsocket.h>
+#include <SpectreWebsocketRequest.h>
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
@@ -125,7 +127,7 @@ static constexpr auto AUTH_JSON =
 // maybe load distribution probe or some shit i still dont know what this does
 static constexpr auto GATEWAY_JSON = R"({"gateway":"3"})"; //todo split game and social gateways
 
-std::string stripQueryParams(const std::string& url) {
+static std::string stripQueryParams(const std::string& url) {
     size_t pos = url.find('?');
     if (pos != std::string::npos) {
         return url.substr(0, pos);
@@ -137,7 +139,7 @@ std::string stripQueryParams(const std::string& url) {
 // either it upgrades to websocket and we loop forever
 // or its plain http and we answer once and we are done
 // todo: handle https
-void session(tcp::socket sock) {
+static void session(tcp::socket sock) {
     try {
         beast::flat_buffer buffer; // http parser scratch space
         http::request<http::string_body> req;
@@ -147,20 +149,22 @@ void session(tcp::socket sock) {
 
         // detect websocket upgrade and switch protocols if requested
         if (websocket::is_upgrade(req)) {
-            websocket::stream<tcp::socket> ws(std::move(sock));
-            logger->info("upgraded connection with " + ws.next_layer().remote_endpoint().address().to_string() + ":" + std::to_string(ws.next_layer().remote_endpoint().port()) + " to websocket");
-            ws.accept(req); // handshake done, we are now speaking ws
+            websocket::stream<tcp::socket> rawSock(std::move(sock));
+            SpectreWebsocket sock(rawSock);
+            logger->info("upgraded connection with " + rawSock.next_layer().remote_endpoint().address().to_string() + ":" + std::to_string(rawSock.next_layer().remote_endpoint().port()) + " to websocket");
+            rawSock.accept(req); // handshake done, we are now speaking ws
 
             // basic echo loop so clients have something to talk to
             for (;;) {
                 beast::flat_buffer wsbuf;
-                ws.read(wsbuf); // this blocks until a message arrives or the peer closes
-                auto msg = beast::buffers_to_string(wsbuf.data());
-                std::cout << "[ws] got: " << msg << "\n";
-
-                // send text mode json back, not mirroring payload right now
-                ws.text(true);
-                ws.write(asio::buffer(R"({"echo":"ok"})"));
+                rawSock.read(wsbuf); // this blocks until a message arrives or the peer closes
+                SpectreWebsocketRequest req(sock, wsbuf);
+                auto route = Registry::WEBSOCKET_ROUTES.find(req.GetRequestType());
+                if (route == Registry::WEBSOCKET_ROUTES.end()) {
+                    logger->warn("no packet processor found for WS requestType: " + req.GetRequestType().GetName());
+                    continue;
+                }
+                route->second->Process(req, sock);
             }
         }
         auto target = stripQueryParams(std::string(req.target()));

@@ -24,13 +24,13 @@ public:
 class StaticResponseProcessorWS : public WebsocketPacketProcessor {
 protected:
 	std::string m_type;
-	boost::asio::const_buffer m_res;
+	json& m_res;
 public:
-	StaticResponseProcessorWS(std::string type, boost::asio::const_buffer res) : m_type(type), m_res(std::move(res)) {
+	StaticResponseProcessorWS(std::string type, json& res) : m_type(type), m_res(res) {
 		Registry::WEBSOCKET_ROUTES[type] = this;
 	}
 
-	void Process(boost::beast::flat_buffer packet, boost::beast::websocket::stream<boost::asio::ip::tcp::socket>* sock) override;
+	void Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) override;
 
 	std::string GetType() override {
 		return m_type;
