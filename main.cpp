@@ -246,7 +246,7 @@ int main() {
         tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), 7777));
 
         // accept loop forever. each client gets one detached thread
-        // if you want to shut down clean, do not detach, keep thread handles
+        // if we want to shut down clean, don't detach, keep thread handles
         for (;;) {
             tcp::socket sock(ioc);
             acc.accept(sock); // blocks until a client connects
