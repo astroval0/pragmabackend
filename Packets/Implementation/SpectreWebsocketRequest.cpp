@@ -6,7 +6,7 @@ using json = nlohmann::json;
 SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf req) : 
 	m_websocket(sock), m_requestbuf(std::move(req)) {
 
-	json requestJson = json::parse(GetRequestPayload());
+	json requestJson = json::parse(static_cast<const char*>(m_requestbuf.data().data()));
 	m_requestType = SpectreRpcType(std::string(requestJson["type"]));
 	m_requestId = requestJson["requestId"];
 	m_payload = &requestJson["payload"];
@@ -26,7 +26,7 @@ json SpectreWebsocketRequest::GetBaseJsonResponse() {
 	return resJson;
 }
 
-void SpectreWebsocketRequest::SendBasicResponse() {
+void SpectreWebsocketRequest::SendEmptyResponse() {
 	json resJson = GetBaseJsonResponse();
 	m_websocket.SendPacket(resJson);
 }

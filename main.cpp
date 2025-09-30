@@ -24,6 +24,7 @@
 #include <memory>
 #include <SpectreWebsocket.h>
 #include <SpectreWebsocketRequest.h>
+#include <HeartbeatProcessor.h>
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
@@ -208,14 +209,18 @@ void session(tcp::socket sock, ssl::context& tls_ctx) {
     }
 }
 
+#pragma warning(push)
+#pragma warning(disable : 4101) // disable msvc's complaining about us not saving the processors in vars, they'll be cleaned up when our program ends.
 void RegisterHandlers() {
     logger->info("Registering handlers...");
-    StaticResponseProcessorHTTP("/v1/info", asio::buffer(INFO_JSON, sizeof(INFO_JSON)));
-    StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(HEALTH_JSON, sizeof(HEALTH_JSON)));
-    StaticResponseProcessorHTTP("/v1/loginqueue/getinqueuev1", asio::buffer(QUEUE_JSON, sizeof(QUEUE_JSON)));
-    StaticResponseProcessorHTTP("/v1/account/authenticateorcreatev2", asio::buffer(AUTH_JSON, sizeof(AUTH_JSON)));
-    StaticResponseProcessorHTTP("/v1/gateway", asio::buffer(GATEWAY_JSON, sizeof(GATEWAY_JSON)));
+    new StaticResponseProcessorHTTP("/v1/info", asio::buffer(INFO_JSON, sizeof(INFO_JSON)));
+    new StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(HEALTH_JSON, sizeof(HEALTH_JSON)));
+    new StaticResponseProcessorHTTP("/v1/loginqueue/getinqueuev1", asio::buffer(QUEUE_JSON, sizeof(QUEUE_JSON)));
+    new StaticResponseProcessorHTTP("/v1/account/authenticateorcreatev2", asio::buffer(AUTH_JSON, sizeof(AUTH_JSON)));
+    new StaticResponseProcessorHTTP("/v1/gateway", asio::buffer(GATEWAY_JSON, sizeof(GATEWAY_JSON)));
+    new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
 }
+#pragma warning(pop)
 
 // the main accept loop
 // binds to 127.0.0.1:7777, accepts a connection, spins a thread, repeat
