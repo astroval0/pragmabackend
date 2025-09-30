@@ -31,7 +31,6 @@ public:
 		res["sequenceNumber"] = curSequenceNumber;
 		curSequenceNumber++;
 		socket.text(true);
-		std::string text = res.dump();
-		socket.write(boost::asio::buffer(text));
+		socket.write(boost::asio::buffer(res.dump()));
 	}
 };
