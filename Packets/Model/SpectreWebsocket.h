@@ -4,10 +4,14 @@
 #include <boost/beast/core/buffers_to_string.hpp>
 #include <boost/beast/http.hpp>
 #include <boost/beast/websocket.hpp>
+#include <boost/beast/websocket/ssl.hpp>
 #include <SpectreRpcType.h>
 #include <nlohmann/json.hpp>
 
-using ws = boost::beast::websocket::stream<boost::asio::ip::tcp::socket>;
+using tcp = boost::asio::ip::tcp;
+namespace ssl = boost::asio::ssl;
+using tls_stream = ssl::stream<tcp::socket>;
+using ws = boost::beast::websocket::stream<tls_stream>;
 using json = nlohmann::json;
 
 class SpectreWebsocket {
