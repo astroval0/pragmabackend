@@ -15,14 +15,14 @@ class SpectreWebsocketRequest {
 private:
 	SpectreWebsocket& m_websocket;
 	reqbuf m_requestbuf;
-	json* m_payload;
 	SpectreRpcType m_requestType;
+	json m_reqjson;
 	int m_requestId;
 public:
 	SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf req);
 
-	json* GetRequestPayload() {
-		return m_payload;
+	json GetPayload() {
+		return m_reqjson["payload"];
 	}
 
 	SpectreWebsocket& GetSocket() {
