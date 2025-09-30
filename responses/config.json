@@ -1,0 +1,307 @@
+{
+	"config": {
+		"mapList": [
+			"Junction_P",
+			"ShootingRange_P",
+			"Tutorial_P",
+			"Metro_P",
+			"Greenbelt_P"
+		],
+		"modeList": [
+			"Defusal_DualLife"
+		],
+		"features": [
+			{
+				"featureName": "CasualModeAllowedWithoutCompletingTutorial",
+				"enabled": false
+			},
+			{
+				"featureName": "RankedModeAllowedWithoutCompletingTutorial",
+				"enabled": false
+			},
+			{
+				"featureName": "CustomModeAllowedWithoutCompletingTutorial",
+				"enabled": false
+			},
+			{
+				"featureName": "RankedModeAllowedWithoutMeetingCasualMatchThreshold",
+				"enabled": false
+			},
+			{
+				"featureName": "global_chat_enabled",
+				"enabled": true
+			},
+			{
+				"featureName": "DisableBattlepassTab",
+				"enabled": true
+			},
+			{
+				"featureName": "DisableCareerTab",
+				"enabled": true
+			},
+			{
+				"featureName": "DisableCurrencyPurchasing",
+				"enabled": true
+			},
+			{
+				"featureName": "DisableStreamerMode",
+				"enabled": true
+			},
+			{
+				"featureName": "EnableDeveloperStatGraphs",
+				"enabled": false
+			},
+			{
+				"featureName": "EnableResetAllSettings",
+				"enabled": true
+			},
+			{
+				"featureName": "DisableCredits",
+				"enabled": true
+			},
+			{
+				"featureName": "ShowNDA",
+				"enabled": false
+			},
+			{
+				"featureName": "EnableServerInfoPanel",
+				"enabled": false
+			},
+			{
+				"featureName": "EnableMatchmakingCounter",
+				"enabled": false
+			},
+			{
+				"featureName": "EnableWatermark",
+				"enabled": false
+			},
+			{
+				"featureName": "EnableGamesight",
+				"enabled": true
+			},
+			{
+				"featureName": "CasualModeEnabled",
+				"enabled": true
+			},
+			{
+				"featureName": "RankedModeEnabled",
+				"enabled": false
+			},
+			{
+				"featureName": "CustomModeEnabled",
+				"enabled": true
+			},
+			{
+				"featureName": "TutorialEnabled",
+				"enabled": true
+			},
+			{
+				"featureName": "ShootingRangeEnabled",
+				"enabled": true
+			},
+			{
+				"featureName": "ShootingRangeAllowedWithoutCompletingTutorial",
+				"enabled": false
+			},
+			{
+				"featureName": "EnableCopyPragmaIdButton",
+				"enabled": true
+			},
+			{
+				"featureName": "EnablePreReleaseWatermark",
+				"enabled": true
+			},
+			{
+				"featureName": "MaintenanceInProgress",
+				"enabled": false
+			},
+			{
+				"featureName": "DisableStoreTab",
+				"enabled": true
+			}
+		],
+		"modeConfigs": [
+			{
+				"name": "SponsorSelect",
+				"inherit": "",
+				"mapList": [],
+				"features": [
+					{
+						"featureName": "enable_match_health_penalties",
+						"enabled": true
+					},
+					{
+						"featureName": "enable_match_health_tracking",
+						"enabled": true
+					}
+				],
+				"tweakValues": [],
+				"ruleset": "",
+				"tags": []
+			},
+			{
+				"name": "Defusal",
+				"inherit": "",
+				"mapList": [],
+				"features": [
+					{
+						"featureName": "Overtime",
+						"enabled": false
+					},
+					{
+						"featureName": "enable_match_health_penalties",
+						"enabled": true
+					},
+					{
+						"featureName": "enable_match_health_tracking",
+						"enabled": true
+					}
+				],
+				"tweakValues": [],
+				"ruleset": "",
+				"tags": []
+			},
+			{
+				"name": "Standard",
+				"inherit": "Defusal",
+				"mapList": [
+					"Junction_P",
+					"Greenbelt_P",
+					"Metro_P"
+				],
+				"features": [],
+				"tweakValues": [],
+				"ruleset": "Defusal_DualLife",
+				"tags": [
+					{
+						"name": "casual",
+						"priority": 1
+					},
+					{
+						"name": "ranked",
+						"priority": 1
+					},
+					{
+						"name": "custom",
+						"priority": 1
+					}
+				]
+			},
+			{
+				"name": "ShootingRange",
+				"inherit": "",
+				"mapList": [
+					"ShootingRange_P",
+					"Tutorial_P"
+				],
+				"features": [
+					{
+						"featureName": "enable_kick_penalty",
+						"enabled": true
+					},
+					{
+						"featureName": "enable_matchmaking_penalty",
+						"enabled": false
+					}
+				],
+				"tweakValues": [],
+				"ruleset": "Defusal_DualLife",
+				"tags": [
+					{
+						"name": "tutorial",
+						"priority": 1
+					}
+				]
+			},
+			{
+				"name": "Tutorial",
+				"inherit": "",
+				"mapList": [
+					"Tutorial_P",
+					"ShootingRange_P"
+				],
+				"features": [
+					{
+						"featureName": "enable_kick_penalty",
+						"enabled": true
+					},
+					{
+						"featureName": "enable_matchmaking_penalty",
+						"enabled": false
+					}
+				],
+				"tweakValues": [],
+				"ruleset": "Defusal_DualLife",
+				"tags": [
+					{
+						"name": "tutorial",
+						"priority": 1
+					}
+				]
+			}
+		],
+		"tweakValues": [
+			{
+				"name": "CustomMatchRequiredAttackers",
+				"value": 3
+			},
+			{
+				"name": "CustomMatchRequiredDefenders",
+				"value": 3
+			},
+			{
+				"name": "CustomMatchMaxObservers",
+				"value": 0
+			},
+			{
+				"name": "InputLeadPercentWindowMinimum",
+				"value": 1
+			},
+			{
+				"name": "InputLeadPercentWindowMaximum",
+				"value": 2
+			}
+		],
+		"regionList": [
+			"apnorth-1",
+			"uscentral-1",
+			"uswest-1",
+			"eucentral-1",
+			"useast-1",
+			"apwest-1",
+			"uscentral-2",
+			"apsouth-1"
+		],
+		"defaultModeConfig": "Standard",
+		"defaultMap": "Greenbelt_P",
+		"defaultRegion": "uscentral-1",
+		"defaultLobbyMode": "standard_casual",
+		"motd": [
+			{
+				"id": "0",
+				"title": "First!",
+				"message": "We've been trying to reach you about your car's extended warranty two. 2",
+				"startTime": "0",
+				"endTime": "0"
+			}
+		],
+		"settings": [
+			{
+				"settingId": "activeConfigVersion",
+				"data": "Enabled-Players"
+			},
+			{
+				"settingId": "maximumBuild",
+				"data": "143853"
+			},
+			{
+				"settingId": "minimumBuild",
+				"data": "143853"
+			}
+		],
+		"store": {
+			"purchaseGracePeriodInSeconds": 300
+		}
+	},
+	"craftingEntriesCatalogFingerprint": "1+929344051+null"
+}
