@@ -30,3 +30,10 @@ add_compile_options(/ZI)
 target_link_libraries(pragmabackend PRIVATE Boost::beast Boost::bimap Boost::asio spdlog::spdlog_header_only)
 target_link_libraries(pragmabackend PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 target_include_directories(pragmabackend PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Model")
+add_custom_command(
+    OUTPUT ${CMAKE_BINARY_DIR}/responses
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${CMAKE_SOURCE_DIR}/responses
+            ${CMAKE_BINARY_DIR}/responses
+    COMMENT "Copying responses directory"
+)

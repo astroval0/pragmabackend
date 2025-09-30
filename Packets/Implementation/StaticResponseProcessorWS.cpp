@@ -1,8 +1,8 @@
 #include <StaticResponseProcessorWS.h>
 #include <nlohmann/json.hpp>
 
-StaticResponseProcessorWS::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) override {
-	nlohmann::json& payload = GetBaseJsonResponse();
+void StaticResponseProcessorWS::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) {
+	nlohmann::json payload = packet.GetBaseJsonResponse();
 	payload = m_res;
 	sock.SendPacket(payload);
 }
