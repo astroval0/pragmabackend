@@ -1,38 +1,23 @@
 #pragma once
 
 #include <PacketProcessor.h>
-#include <Registry.h>
 
 namespace http = boost::beast::http;
 
 class StaticResponseProcessorHTTP : public HTTPPacketProcessor {
-protected:
-	std::string m_route;
+private:
 	boost::asio::const_buffer m_res;
 public:
-	StaticResponseProcessorHTTP(std::string route, boost::asio::const_buffer res) : m_route(route), m_res(std::move(res)) {
-		Registry::HTTP_ROUTES[route] = this;
-	};
+	StaticResponseProcessorHTTP(std::string route, boost::asio::const_buffer res) : HTTPPacketProcessor(route), m_res(std::move(res)) {};
 
 	void Process(http::request<http::string_body> const& req, boost::asio::ip::tcp::socket* sock) override;
-
-	std::string GetRoute() override {
-		return m_route;
-	}
 };
 
 class StaticResponseProcessorWS : public WebsocketPacketProcessor {
-protected:
-	SpectreRpcType& m_type;
+private:
 	json& m_res;
 public:
-	StaticResponseProcessorWS(SpectreRpcType& type, json& res) : m_type(type), m_res(res) {
-		Registry::WEBSOCKET_ROUTES[type] = this;
-	}
+	StaticResponseProcessorWS(SpectreRpcType& type, json& res) : WebsocketPacketProcessor(type), m_res(res) {};
 
 	void Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) override;
-
-	const SpectreRpcType& GetType() override {
-		return m_type;
-	}
 };

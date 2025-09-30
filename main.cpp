@@ -13,7 +13,6 @@
 #include <string>
 #include <thread>
 #include <filesystem>
-#include <Registry.h>
 #include <PacketProcessor.h>
 #include <StaticResponseProcessor.h>
 #include <spdlog/spdlog.h>
@@ -178,17 +177,17 @@ void session(tcp::socket sock, ssl::context& tls_ctx) {
                 beast::flat_buffer wsbuf;
                 rawSock.read(wsbuf); // this blocks until a message arrives or the peer closes
                 SpectreWebsocketRequest req(sock, wsbuf);
-                auto route = Registry::WEBSOCKET_ROUTES.find(req.GetRequestType());
-                if (route == Registry::WEBSOCKET_ROUTES.end()) {
+                auto route = WebsocketPacketProcessor::GetProcessorForRpc(req.GetRequestType());
+                if (route == nullptr) {
                     logger->warn("no packet processor found for WS requestType: " + req.GetRequestType().GetName());
                     continue;
                 }
-                route->second->Process(req, sock);
+                route->Process(req, sock);
             }
         }
 
         auto target = stripQueryParams(std::string(req.target())); // remove ?query so routing is stable
-        HTTPPacketProcessor* processor = Registry::HTTP_ROUTES[target];
+        HTTPPacketProcessor* processor = HTTPPacketProcessor::GetProcessorForRoute(target);
         if (processor == nullptr) {
             logger->warn("missing a handler for http route " + target);
             // send a 404 if no processor found
