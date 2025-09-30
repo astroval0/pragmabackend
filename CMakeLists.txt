@@ -26,6 +26,7 @@ file(GLOB_RECURSE packetimplementors "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Implem
 target_sources(pragmabackend PRIVATE ${packetimplementors})
 add_compile_definitions(_WIN32_WINNT=0x0A00) # target at least win10
 add_compile_definitions(FMT_UNICODE=0)
+add_compile_options(/ZI)
 target_link_libraries(pragmabackend PRIVATE Boost::beast Boost::bimap Boost::asio spdlog::spdlog_header_only)
 target_link_libraries(pragmabackend PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 target_include_directories(pragmabackend PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Model")

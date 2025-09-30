@@ -1,14 +1,18 @@
 #pragma once
 #include <boost/beast/core.hpp>
-#include <boost/beast/core/buffers_to_string.hpp>
 #include <boost/beast/http.hpp>
-#include <boost/beast/websocket.hpp>
+#include <boost/beast/version.hpp>
 #include <boost/asio.hpp>
+#include <boost/asio/ssl.hpp>
+#include <boost/beast/core/buffers_to_string.hpp>
+#include <boost/beast/websocket.hpp>
 #include <SpectreWebsocketRequest.h>
 #include <SpectreRpcType.h>
 #include <string>
 
 namespace http = boost::beast::http;
+using tcp = boost::asio::ip::tcp;
+using tls_stream = boost::asio::ssl::stream<tcp::socket>;
 
 class HTTPPacketProcessor {
 private:
@@ -18,7 +22,7 @@ public:
 	HTTPPacketProcessor(std::string route) : m_route(route) {
 		HTTP_ROUTES[route] = this;
 	};
-	virtual void Process(http::request<http::string_body> const& req, boost::asio::ip::tcp::socket* sock) = 0;
+	virtual void Process(http::request<http::string_body> const& req, tls_stream& sock) = 0;
 	virtual ~HTTPPacketProcessor() = default;
 	std::string& GetRoute() const {
 		return m_route;

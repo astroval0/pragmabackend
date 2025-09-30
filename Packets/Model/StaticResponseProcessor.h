@@ -10,7 +10,7 @@ private:
 public:
 	StaticResponseProcessorHTTP(std::string route, boost::asio::const_buffer res) : HTTPPacketProcessor(route), m_res(std::move(res)) {};
 
-	void Process(http::request<http::string_body> const& req, boost::asio::ip::tcp::socket* sock) override;
+	void Process(http::request<http::string_body> const& req, tls_stream& sock) override;
 };
 
 class StaticResponseProcessorWS : public WebsocketPacketProcessor {
