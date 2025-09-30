@@ -11,7 +11,7 @@ static constexpr auto INFO_JSON =
 R"(
 {
     "name":"mtn.live.game",
-    "platformVersion":"0.0.339-0.0.101+3079-bc13023",
+    "platformVersion":"0.0.339-0.0.101+4402-67406b2",
     "backendMode":"PRODUCTION",
     "authenticateBackend":{
         "host":"127.0.0.1",
@@ -35,9 +35,9 @@ R"(
 }
 )";
 
-// health payload for /v1/spectre/healthcheck-status
+// payload for /v1/spectre/healthcheck-status
 // if the game probes health, this tells it we are fine
-static constexpr auto HEALTH_JSON =
+static constexpr auto HEALTH_STATUS_JSON =
 R"(
 {
     "health": {
@@ -50,6 +50,21 @@ R"(
         "launchTimeUnixMillis": "1740497952051"
     },
     "status": "UNDEFINED"
+}
+)";
+
+// health payload from /v1/spectre/healthcheck-status
+// called in /v1/healthcheck
+static constexpr auto HEALTH_JSON = 
+R"(
+{
+    "isHealthy": true,
+    "version": "0.0.339-0.0.101-67406b2",
+    "platformVersion": "0.0.339-0.0.101+4402-67406b2",
+    "portalVersion": "0.0.339-0.0.101+4402-67406b2",
+    "contentVersion": "20250225.season-1-content.0002-a0b14dd",
+    "configVersion": "20250225.season-1.0004-8ecb200",
+    "launchTimeUnixMillis": 1740497950724
 }
 )";
 
@@ -80,13 +95,14 @@ R"(
 
 
 // maybe load distribution probe or some shit i still dont know what this does
-static constexpr auto GATEWAY_JSON = R"({"gateway":"3"})"; //todo split game and social gateways
+static constexpr auto GATEWAY_JSON = R"({"gateway":"3"})"; 
 
 #pragma warning(push)
 #pragma warning(disable : 4101) // disable msvc's complaining about us not saving the processors in vars, they'll be cleaned up when our program ends.
 void RegisterStaticHTTPHandlers() {
     new StaticResponseProcessorHTTP("/v1/info", asio::buffer(INFO_JSON, sizeof(INFO_JSON)));
-    new StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(HEALTH_JSON, sizeof(HEALTH_JSON)));
+    new StaticResponseProcessorHTTP("/v1/spectre/healthcheck-status", asio::buffer(HEALTH_STATUS_JSON, sizeof(HEALTH_STATUS_JSON)));
+    new StaticResponseProcessorHTTP("/v1/healthcheck", asio::buffer(HEALTH_JSON, sizeof(HEALTH_JSON)));
     new StaticResponseProcessorHTTP("/v1/loginqueue/getinqueuev1", asio::buffer(QUEUE_JSON, sizeof(QUEUE_JSON)));
     new StaticResponseProcessorHTTP("/v1/account/authenticateorcreatev2", asio::buffer(AUTH_JSON, sizeof(AUTH_JSON)));
     new StaticResponseProcessorHTTP("/v1/gateway", asio::buffer(GATEWAY_JSON, sizeof(GATEWAY_JSON)));
