@@ -1,4 +1,4 @@
-#include <StaticResponseProcessor.h>
+#include <StaticResponseProcessorHTTP.h>
 
 void StaticResponseProcessorHTTP::Process(http::request<http::string_body> const& req, tls_stream& sock) {
 	http::response<http::string_body> res;
@@ -8,8 +8,4 @@ void StaticResponseProcessorHTTP::Process(http::request<http::string_body> const
 	res.body() = reinterpret_cast<const char*>(m_res.data());
 	res.prepare_payload();
 	http::write(sock, res);
-}
-
-void StaticResponseProcessorWS::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) {
-	sock.SendPacket(m_res);
 }

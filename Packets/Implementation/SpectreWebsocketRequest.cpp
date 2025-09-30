@@ -22,7 +22,7 @@ json SpectreWebsocketRequest::GetBaseJsonResponse() {
 		{ "type", resType },
 		{ "payload", json::object() }
 	});
-	return resJson;
+	return resJson["response"]["payload"];
 }
 
 void SpectreWebsocketRequest::SendEmptyResponse() {
