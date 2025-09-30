@@ -162,8 +162,11 @@ void session(tcp::socket sock, ssl::context& tls_ctx) {
     try {
         using tls_stream = ssl::stream<tcp::socket>; // tls wrapper around a plain tcp socket
         websocket::stream<tls_stream> wss{std::move(sock), tls_ctx}; // build tls inside ws so we don't copy /move ssl streams
-
         wss.next_layer().handshake(ssl::stream_base::server); // tls server handshake on the underlying stream
+
+        http::request<http::string_body> req;
+        beast::flat_buffer buffer;
+        http::read(wss.next_layer().next_layer(), buffer, req);
 
         // detect websocket upgrade and switch protocols if requested
         if (websocket::is_upgrade(req)) {
