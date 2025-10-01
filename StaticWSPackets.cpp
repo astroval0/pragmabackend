@@ -20,6 +20,9 @@ void RegisterStaticHandlerFromFile(std::string filename, SpectreRpcType rpcType)
 void RegisterStaticWSHandlers() {
 	RegisterStaticHandlerFromFile("responses/inventory.json", SpectreRpcType("InventoryRpc.GetInventoryV2Request"));
 	RegisterStaticHandlerFromFile("responses/config.json", SpectreRpcType("MtnConfigServiceRpc.GetConfigForClientV1Request"));
+	RegisterStaticHandlerFromFile("responses/beaconendpoints.json", SpectreRpcType("MtnBeaconServiceRpc.GetBeaconEndpointsV1Request"));
+	RegisterStaticHandlerFromFile("responses/syncinventoryentitlements.json", SpectreRpcType("InventoryRpc.SyncEntitlementsV1Request"));
+	RegisterStaticHandlerFromFile("responses/logindata.json", SpectreRpcType("GameDataRpc.GetLoginDataV3Request"));
 	return;
 }
 #pragma warning(pop)
