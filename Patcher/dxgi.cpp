@@ -4,15 +4,23 @@ HMODULE realDxgi = nullptr;
 HMODULE theiadumper = nullptr;
 HMODULE hook = nullptr;
 
+
+// Helper macros to stringify and widen
+#define WIDEN2(x) L##x
+#define WIDEN(x) WIDEN2(x)
+
+#define THEIADUMPER_DLL_PATH_LSTR WIDEN(THEIADUMPER_DLL_PATH)
+#define HOOK_DLL_PATH_LSTR WIDEN(HOOK_DLL_PATH)
+
 FARPROC LoadRealFunction(const char* name) {
 	if (!realDxgi) {
 		realDxgi = LoadLibraryW(L"C:\\Windows\\System32\\dxgi.dll");
 	}
 	if (!theiadumper) {
-		theiadumper = LoadLibraryW(THEIADUMPER_DLL_PATH);
+		theiadumper = LoadLibraryW(THEIADUMPER_DLL_PATH_LSTR);
 	}
 	if (!hook) {
-		hook = LoadLibraryW(HOOK_DLL_PATH);
+		hook = LoadLibraryW(HOOK_DLL_PATH_LSTR);
 	}
 	return GetProcAddress(realDxgi, name);
 }

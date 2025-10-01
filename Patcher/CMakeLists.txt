@@ -26,8 +26,8 @@ message(STATUS "Spectre bin path: ${SPECTRE_BIN_DIR_CACHE}")
 
 # Only add the copy command if the path was found
 if(SPECTRE_BIN_DIR_CACHE)
-    target_compile_definitions(dxgi PRIVATE THEIADUMPER_DLL_PATH=L"${SPECTRE_BIN_DIR_CACHE}/theiadumper.dll")
-    target_compile_definitions(dxgi PRIVATE HOOK_DLL_PATH=L"${SPECTRE_BIN_DIR_CACHE}/hook.dll")
+    target_compile_definitions(dxgi PRIVATE THEIADUMPER_DLL_PATH="${SPECTRE_BIN_DIR_CACHE}/theiadumper.dll")
+    target_compile_definitions(dxgi PRIVATE HOOK_DLL_PATH="${SPECTRE_BIN_DIR_CACHE}/hook.dll")
     add_custom_command(TARGET dxgi POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             $<TARGET_FILE:dxgi>
