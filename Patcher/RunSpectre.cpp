@@ -25,16 +25,30 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     }
 
     // Build command line
-    std::string command = std::string("\"") + GAME_PATH + "\" -PragmaEnvironment=live -PragmaBackendAddress=127.0.0.1:443";
+    std::string launchBackendCommand = std::string("\"") + BACKEND_PATH + "\"";
 
     // Set up process startup info
     STARTUPINFOA si = { sizeof(si) };
     PROCESS_INFORMATION pi;
 
+    BOOL backendsuccess = CreateProcessA(
+        nullptr,
+        launchBackendCommand.data(),
+        nullptr,
+        nullptr,
+        FALSE,
+        0,
+        nullptr,
+        BACKEND_DIR,
+        &si,
+        &pi
+    );
+    std::string launchSpectreCommand = std::string("\"") + GAME_PATH + "\" -PragmaEnvironment=live -PragmaBackendAddress=127.0.0.1:443";
+
     // Launch the game
     BOOL success = CreateProcessA(
         nullptr,                // Application name
-        command.data(),         // Command line
+        launchSpectreCommand.data(),         // Command line
         nullptr,                // Process security
         nullptr,                // Thread security
         FALSE,                  // Inherit handles
