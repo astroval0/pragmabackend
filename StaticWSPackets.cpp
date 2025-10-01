@@ -25,6 +25,8 @@ void RegisterStaticWSHandlers() {
 	RegisterStaticHandlerFromFile("responses/logindata.json", SpectreRpcType("GameDataRpc.GetLoginDataV3Request"));
 	RegisterStaticHandlerFromFile("responses/recordclientanalytics.json", SpectreRpcType("MtnAnalyticsNodeServiceRpc.RecordClientAnalyticsEventV1Request"));
 	RegisterStaticHandlerFromFile("responses/getfriendlistandregisteronline.json", SpectreRpcType("FriendRpc.GetFriendListAndRegisterOnlineV1Request"));
+	RegisterStaticHandlerFromFile("responses/playerindentitiesbyplatform.json", SpectreRpcType("AccountRpc.GetPlayerIdentitiesByProviderAccountIdsV1Request"));
+	RegisterStaticHandlerFromFile("responses/setsocialstatus.json", SpectreRpcType("FriendRpc.SetPresenceV1Request"));
 	return;
 }
 #pragma warning(pop)
