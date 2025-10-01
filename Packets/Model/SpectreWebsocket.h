@@ -27,10 +27,10 @@ public:
 		return socket;
 	}
 
-	void SendPacket(json& res) {
-		res["sequenceNumber"] = curSequenceNumber;
+	void SendPacket(std::shared_ptr<json> res) {
+		(*res)["sequenceNumber"] = curSequenceNumber;
 		curSequenceNumber++;
 		socket.text(true);
-		socket.write(boost::asio::buffer(res.dump()));
+		socket.write(boost::asio::buffer(res->dump()));
 	}
 };

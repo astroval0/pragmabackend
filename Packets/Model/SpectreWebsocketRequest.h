@@ -16,13 +16,13 @@ private:
 	SpectreWebsocket& m_websocket;
 	reqbuf m_requestbuf;
 	SpectreRpcType m_requestType;
-	json m_reqjson;
+	std::shared_ptr<json> m_reqjson;
 	int m_requestId;
 public:
 	SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf req);
 
-	json GetPayload() {
-		return m_reqjson["payload"];
+	std::shared_ptr<json> GetPayload() {
+		return std::make_shared<json>(((*m_reqjson)["payload"]));
 	}
 
 	SpectreWebsocket& GetSocket() {
@@ -33,6 +33,6 @@ public:
 		return m_requestType;
 	}
 	
-	json GetBaseJsonResponse();
+	std::shared_ptr<json> GetBaseJsonResponse();
 	void SendEmptyResponse();
 };

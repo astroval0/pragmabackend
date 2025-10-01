@@ -12,7 +12,7 @@ void RegisterStaticHandlerFromFile(std::string filename, SpectreRpcType rpcType)
 	}
 	json res = json::parse(resfile);
 	resfile.close();
-	new StaticResponseProcessorWS(rpcType, res);
+	new StaticResponseProcessorWS(rpcType, std::make_shared<json>(res));
 }
 
 #pragma warning(push)
