@@ -1,46 +1,10 @@
 {
 	"config": {
-		"mapList": [
-			"Junction_P",
-			"ShootingRange_P",
-			"Tutorial_P",
-			"Metro_P",
-			"Greenbelt_P"
-		],
-		"modeList": [
-			"Defusal_DualLife"
-		],
+		"mapList": [ "Junction_P", "ShootingRange_P", "Tutorial_P", "Metro_P", "Greenbelt_P", "Commons_P", "Canal_P" ],
+		"modeList": [ "Defusal_DualLife" ],
 		"features": [
 			{
-				"featureName": "CasualModeAllowedWithoutCompletingTutorial",
-				"enabled": false
-			},
-			{
-				"featureName": "RankedModeAllowedWithoutCompletingTutorial",
-				"enabled": false
-			},
-			{
-				"featureName": "CustomModeAllowedWithoutCompletingTutorial",
-				"enabled": false
-			},
-			{
-				"featureName": "RankedModeAllowedWithoutMeetingCasualMatchThreshold",
-				"enabled": false
-			},
-			{
 				"featureName": "global_chat_enabled",
-				"enabled": true
-			},
-			{
-				"featureName": "DisableBattlepassTab",
-				"enabled": true
-			},
-			{
-				"featureName": "DisableCareerTab",
-				"enabled": true
-			},
-			{
-				"featureName": "DisableCurrencyPurchasing",
 				"enabled": true
 			},
 			{
@@ -48,59 +12,11 @@
 				"enabled": true
 			},
 			{
-				"featureName": "EnableDeveloperStatGraphs",
-				"enabled": false
-			},
-			{
 				"featureName": "EnableResetAllSettings",
 				"enabled": true
 			},
 			{
-				"featureName": "DisableCredits",
-				"enabled": true
-			},
-			{
-				"featureName": "ShowNDA",
-				"enabled": false
-			},
-			{
-				"featureName": "EnableServerInfoPanel",
-				"enabled": false
-			},
-			{
-				"featureName": "EnableMatchmakingCounter",
-				"enabled": false
-			},
-			{
-				"featureName": "EnableWatermark",
-				"enabled": false
-			},
-			{
 				"featureName": "EnableGamesight",
-				"enabled": true
-			},
-			{
-				"featureName": "CasualModeEnabled",
-				"enabled": true
-			},
-			{
-				"featureName": "RankedModeEnabled",
-				"enabled": false
-			},
-			{
-				"featureName": "CustomModeEnabled",
-				"enabled": true
-			},
-			{
-				"featureName": "TutorialEnabled",
-				"enabled": true
-			},
-			{
-				"featureName": "ShootingRangeEnabled",
-				"enabled": true
-			},
-			{
-				"featureName": "ShootingRangeAllowedWithoutCompletingTutorial",
 				"enabled": false
 			},
 			{
@@ -108,15 +24,11 @@
 				"enabled": true
 			},
 			{
-				"featureName": "EnablePreReleaseWatermark",
-				"enabled": true
-			},
-			{
-				"featureName": "MaintenanceInProgress",
+				"featureName": "UseHathoraUdpPingFlow",
 				"enabled": false
 			},
 			{
-				"featureName": "DisableStoreTab",
+				"featureName": "RegionSelectorEnabled",
 				"enabled": true
 			}
 		],
@@ -145,10 +57,6 @@
 				"mapList": [],
 				"features": [
 					{
-						"featureName": "Overtime",
-						"enabled": false
-					},
-					{
 						"featureName": "enable_match_health_penalties",
 						"enabled": true
 					},
@@ -164,40 +72,29 @@
 			{
 				"name": "Standard",
 				"inherit": "Defusal",
-				"mapList": [
-					"Junction_P",
-					"Greenbelt_P",
-					"Metro_P"
-				],
+				"mapList": [ "Junction_P", "Greenbelt_P", "Metro_P", "Commons_P", "Canal_P" ],
 				"features": [],
 				"tweakValues": [],
 				"ruleset": "Defusal_DualLife",
 				"tags": [
 					{
 						"name": "casual",
-						"priority": 1
+						"priority": 1.0
 					},
 					{
 						"name": "ranked",
-						"priority": 1
-					},
-					{
-						"name": "custom",
-						"priority": 1
+						"priority": 1.0
 					}
 				]
 			},
 			{
 				"name": "ShootingRange",
 				"inherit": "",
-				"mapList": [
-					"ShootingRange_P",
-					"Tutorial_P"
-				],
+				"mapList": [ "ShootingRange_P", "Tutorial_P" ],
 				"features": [
 					{
 						"featureName": "enable_kick_penalty",
-						"enabled": true
+						"enabled": false
 					},
 					{
 						"featureName": "enable_matchmaking_penalty",
@@ -209,21 +106,18 @@
 				"tags": [
 					{
 						"name": "tutorial",
-						"priority": 1
+						"priority": 1.0
 					}
 				]
 			},
 			{
 				"name": "Tutorial",
 				"inherit": "",
-				"mapList": [
-					"Tutorial_P",
-					"ShootingRange_P"
-				],
+				"mapList": [ "Tutorial_P", "ShootingRange_P" ],
 				"features": [
 					{
 						"featureName": "enable_kick_penalty",
-						"enabled": true
+						"enabled": false
 					},
 					{
 						"featureName": "enable_matchmaking_penalty",
@@ -235,7 +129,21 @@
 				"tags": [
 					{
 						"name": "tutorial",
-						"priority": 1
+						"priority": 1.0
+					}
+				]
+			},
+			{
+				"name": "Custom",
+				"inherit": "",
+				"mapList": [ "Greenbelt_P", "Junction_P", "Metro_P", "Commons_P", "Canal_P" ],
+				"features": [],
+				"tweakValues": [],
+				"ruleset": "Defusal_DualLife",
+				"tags": [
+					{
+						"name": "custom",
+						"priority": 1.0
 					}
 				]
 			}
@@ -243,35 +151,38 @@
 		"tweakValues": [
 			{
 				"name": "CustomMatchRequiredAttackers",
-				"value": 3
+				"value": 0.0
 			},
 			{
 				"name": "CustomMatchRequiredDefenders",
-				"value": 3
+				"value": 0.0
 			},
 			{
 				"name": "CustomMatchMaxObservers",
-				"value": 0
+				"value": 2.0
 			},
 			{
-				"name": "InputLeadPercentWindowMinimum",
-				"value": 1
+				"name": "CasualMatchWinThresholdForRanked",
+				"value": 5.0
 			},
 			{
-				"name": "InputLeadPercentWindowMaximum",
-				"value": 2
+				"name": "MinSpecWarningDisplayCount",
+				"value": 2.0
+			},
+			{
+				"name": "MinSpecCPUBenchmark",
+				"value": 150.0
+			},
+			{
+				"name": "MinSpecGPUBenchmark",
+				"value": 60.0
+			},
+			{
+				"name": "RegionSelectorAutomaticPingAcceptThreshold",
+				"value": 85.0
 			}
 		],
-		"regionList": [
-			"apnorth-1",
-			"uscentral-1",
-			"uswest-1",
-			"eucentral-1",
-			"useast-1",
-			"apwest-1",
-			"uscentral-2",
-			"apsouth-1"
-		],
+		"regionList": [ "eucentral-1"  ],
 		"defaultModeConfig": "Standard",
 		"defaultMap": "Greenbelt_P",
 		"defaultRegion": "uscentral-1",
@@ -288,20 +199,35 @@
 		"settings": [
 			{
 				"settingId": "activeConfigVersion",
-				"data": "Enabled-Players"
+				"data": "S1PC02252025"
 			},
 			{
 				"settingId": "maximumBuild",
-				"data": "143853"
+				"data": "171268"
 			},
 			{
 				"settingId": "minimumBuild",
-				"data": "143853"
+				"data": "171268"
 			}
 		],
 		"store": {
-			"purchaseGracePeriodInSeconds": 300
-		}
+			"purchaseGracePeriodInSeconds": 300.0
+		},
+		"lastUpdatedMapList": "1740339370829",
+		"lastUpdatedModeList": "1740339370829",
+		"lastUpdatedFeatures": "1740339370829",
+		"lastUpdatedModeConfigs": "1740339370829",
+		"lastUpdatedTweakValues": "1740339370829",
+		"lastUpdatedRegionList": "1740339370829",
+		"lastUpdatedDefaultModeConfig": "1740339370829",
+		"lastUpdatedDefaultMap": "1740339370829",
+		"lastUpdatedDefaultRegion": "1740339370829",
+		"lastUpdatedDefaultLobbyMode": "1740339370829",
+		"lastUpdatedMotd": "1740339370829",
+		"lastUpdatedSettings": "0",
+		"lastUpdatedStore": "1740339370829",
+		"currentNewsPublicationId": "eb050886-132c-4161-ad84-492622f0444e",
+		"lastUpdatedCurrentNewsPublicationId": "1740499256858"
 	},
-	"craftingEntriesCatalogFingerprint": "1+929344051+null"
+	"craftingEntriesCatalogFingerprint": "1+-1049204432+2025-03-11T20:00"
 }
