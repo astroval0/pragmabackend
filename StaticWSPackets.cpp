@@ -23,6 +23,7 @@ void RegisterStaticWSHandlers() {
 	RegisterStaticHandlerFromFile("responses/beaconendpoints.json", SpectreRpcType("MtnBeaconServiceRpc.GetBeaconEndpointsV1Request"));
 	RegisterStaticHandlerFromFile("responses/syncinventoryentitlements.json", SpectreRpcType("InventoryRpc.SyncEntitlementsV1Request"));
 	RegisterStaticHandlerFromFile("responses/logindata.json", SpectreRpcType("GameDataRpc.GetLoginDataV3Request"));
+	RegisterStaticHandlerFromFile("responses/recordclientanalytics.json", SpectreRpcType("MtnAnalyticsNodeServiceRpc.RecordClientAnalyticsEventV1Request"));
 	return;
 }
 #pragma warning(pop)

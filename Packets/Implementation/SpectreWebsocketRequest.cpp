@@ -18,16 +18,18 @@ SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf 
 }
 
 std::shared_ptr<json> SpectreWebsocketRequest::GetBaseJsonResponse() {
-	json resJson = json::object();
-	std::string resType = m_requestType.GetName();
-	resType = std::string(resType.begin(), resType.end() - sizeof("Request") + 1);
-	resType += "Response";
-	resJson["response"] = json({
-		{ "requestId", m_requestId },
-		{ "type", resType },
-		{ "payload", json::object() }
-	});
-	return std::make_shared<json>(resJson);
+    json out = json::object();
+    out["sequenceNumber"] = 0;
+    std::string resType = m_requestType.GetName();
+    if (resType.size() >= 7 && resType.compare(resType.size() - 7, 7, "Request") == 0)
+        resType.erase(resType.size() - 7);
+    resType += "Response";
+    out["response"] = json{
+        {"requestId", m_requestId},
+        {"type",      resType},
+        {"payload",   json::object()}
+    };
+    return std::make_shared<json>(std::move(out));
 }
 
 void SpectreWebsocketRequest::SendEmptyResponse() {
