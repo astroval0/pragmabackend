@@ -1,0 +1,23 @@
+{
+	"name": "mtn.live.game",
+	"platformVersion": "0.0.339-0.0.101+4402-67406b2",
+	"backendMode": "PRODUCTION",
+	"authenticateBackend": {
+		"host": "127.0.0.1",
+		"port": 7777,
+		"protocol": "https",
+		"scheme": "https"
+	},
+	"socialBackend": {
+		"host": "127.0.0.1",
+		"port": 7777,
+		"protocol": "https",
+		"webSocketProtocol": "wss"
+	},
+	"gameBackend": {
+		"host": "127.0.0.1",
+		"port": 7777,
+		"protocol": "https",
+		"webSocketProtocol": "wss"
+	}
+}

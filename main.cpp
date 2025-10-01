@@ -145,7 +145,8 @@ int main() {
 	logger->info("Registering handlers...");
 	RegisterStaticHTTPHandlers();
 	RegisterStaticWSHandlers();
-	logger->info("Finished registering static handlers");
+	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
+	logger->info("Finished registering handlers");
 	try {
 		asio::io_context ioc; // we use sync ops but asio still wants an io_context around
 
