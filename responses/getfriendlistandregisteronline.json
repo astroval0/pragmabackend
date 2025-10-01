@@ -1,0 +1,10 @@
+{
+  "friendList": {
+    "friends": [],
+    "sentInvites": [],
+    "receivedInvites": [],
+    "version": "0",
+    "blocked": [],
+    "acceptNewFriendInvites": true
+  }
+}
