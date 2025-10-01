@@ -19,7 +19,6 @@ SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf 
 
 std::shared_ptr<json> SpectreWebsocketRequest::GetBaseJsonResponse() {
     json out = json::object();
-    out["sequenceNumber"] = 0;
     std::string resType = m_requestType.GetName();
     if (resType.size() >= 7 && resType.compare(resType.size() - 7, 7, "Request") == 0)
         resType.erase(resType.size() - 7);
