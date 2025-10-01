@@ -154,7 +154,7 @@ int main() {
 		ssl::context tls_ctx(ssl::context::tls_server);
 		ConfigureTlsContext(tls_ctx);
 
-		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), 7777));
+		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), 443));
 
 		// accept loop forever. each client gets one detached thread
 		// if we want to shut down clean, don't detach, keep thread handles
