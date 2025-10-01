@@ -5,17 +5,14 @@
 using json = nlohmann::json;
 
 SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf req) : 
-	m_websocket(sock), m_requestbuf(std::move(req)) {
-	const char* jsonbuf = static_cast<const char*>(m_requestbuf.data().data());
-	json requestJson = json::parse(jsonbuf, jsonbuf + m_requestbuf.size());
+	m_websocket(sock), m_requestbuf(std::move(req)), m_reqjson(json::parse(static_cast<const char*>(m_requestbuf.data().data()), static_cast<const char*>(m_requestbuf.data().data()) + m_requestbuf.size())) {
 	try {
-		m_requestType = SpectreRpcType(std::string(requestJson["type"]));
+		m_requestType = SpectreRpcType(std::string(m_reqjson["type"]));
 	}
 	catch(std::exception e) {
-		spdlog::warn("log type not found for " + requestJson["type"]);
+		spdlog::warn("log type not found for " + m_reqjson["type"]);
 	}
-	m_requestId = requestJson["requestId"];
-	m_payload = &requestJson["payload"];
+	m_requestId = m_reqjson["requestId"];
 }
 
 json SpectreWebsocketRequest::GetBaseJsonResponse() {
