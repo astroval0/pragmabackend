@@ -19,7 +19,10 @@ private:
 	ws& socket;
 	int curSequenceNumber;
 public:
-	SpectreWebsocket(ws& sock) : socket(sock), curSequenceNumber(0) {};
+	SpectreWebsocket(ws& sock) : socket(sock), curSequenceNumber(0)
+	{
+		socket.auto_fragment(false); // ideally we dont want to have to use this but we should be fine for now
+	};
 	/* 
 		Warning: Do not send packets through the socket directly, it bypasses abstraction and will cause bad things to happen
 	*/
@@ -31,6 +34,8 @@ public:
 		(*res)["sequenceNumber"] = curSequenceNumber;
 		curSequenceNumber++;
 		socket.text(true);
-		socket.write(boost::asio::buffer(res->dump()));
+		//dont pass temporary because beast will fragment it
+		std::string msg = res->dump();
+		socket.write(boost::asio::buffer(msg));
 	}
 };
