@@ -16,6 +16,11 @@ static constexpr uintptr_t RVA_LogCmd = 0x38D4960;
 static constexpr uintptr_t RVA_Logf_Internal = 0x38D3B60;
 static constexpr uintptr_t RVA_GLogVerbosity = 0x74BA130;
 static constexpr uintptr_t RVA_LogSuppressionMgr = 0x8F2A1C8;
-static uintptr_t RVA_GLogPtr = 0x74BA130;
+static constexpr uintptr_t RVA_GLogPtr = 0x74BA130;
 
-
+static constexpr uintptr_t RVA_CreateVhost = 0x6F3EA10;
+static constexpr uintptr_t RVA_X509Verify = 0x5D09674;
+static constexpr uintptr_t RVA_ClientSSL = 0x6F4A2E0;
+static constexpr uintptr_t RVA_PinCheck = 0x4CA14E0;
+static constexpr uintptr_t RVA_ValidateRoot = 0x4CA11A0;
+static constexpr uintptr_t RVA_UsePlatform = 0x4CA1B90;

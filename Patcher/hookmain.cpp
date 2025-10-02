@@ -10,33 +10,61 @@
 
 uintptr_t BaseAddress = 0;
 
+static void InitConsole()
+{
+	if (!AttachConsole(ATTACH_PARENT_PROCESS))
+	{
+		AllocConsole();
+	}
 
-static void InitConsole() {
-    AllocConsole();
-    FILE* in = nullptr; FILE* out = nullptr; FILE* err = nullptr;
-    freopen_s(&in, "CONIN$", "r", stdin);
-    freopen_s(&out, "CONOUT$", "w", stdout);
-    freopen_s(&err, "CONOUT$", "w", stderr);
-    std::ios::sync_with_stdio(false);
-    std::cout.setf(std::ios::unitbuf);
+	FILE* in = nullptr; FILE* out = nullptr; FILE* err = nullptr;
+	freopen_s(&in, "CONIN$", "r", stdin);
+	freopen_s(&out, "CONOUT$", "w", stdout);
+	freopen_s(&err, "CONOUT$", "w", stderr);
+
+	std::ios::sync_with_stdio(false);
+	std::cout.setf(std::ios::unitbuf);
+
+	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	if (hOut && hOut != INVALID_HANDLE_VALUE)
+	{
+		DWORD mode = 0;
+		if (GetConsoleMode(hOut, &mode)) {
+			SetConsoleMode(hOut, mode | ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+		}
+	}
 }
 
-static void MainThread() {
-    InitConsole();
-    std::cout << "[+] injected, waiting..." << std::endl;
-    Sleep(2000);
+static std::atomic<bool> g_Started{ false };
 
-    InitHooking();
-    InitLWSHook();
+static DWORD WINAPI MainThreadProc(LPVOID)
+{
+	bool expected = false;
+	if (!g_Started.compare_exchange_strong(expected, true)) return 0;
 
-    std::cout << "[+] all hooks launched." << std::endl;
-    std::thread(InputThread).detach();
+	InitConsole();
+
+	BaseAddress = reinterpret_cast<uintptr_t>(GetModuleHandleW(nullptr));
+	std::cout << "[+] injected, waiting...\n";
+
+	Sleep(1000);
+
+	InitHooking();
+	InitLWSHook();
+
+	std::cout << "[+] all hooked launched.\n";
+
+	std::thread(InputThread).detach();
+	return 0;
 }
 
-BOOL APIENTRY DllMain(HMODULE hmodule, DWORD reason, LPVOID) {
-    if (reason == DLL_PROCESS_ATTACH) {
-        DisableThreadLibraryCalls(hmodule);
-        std::thread(MainThread).detach();
-    }
-    return TRUE;
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID)
+{
+	if (reason == DLL_PROCESS_ATTACH)
+	{
+		DisableThreadLibraryCalls(hModule);
+		HANDLE h = CreateThread(nullptr, 0, MainThreadProc, nullptr, 0, nullptr);
+		if (h) CloseHandle(h);
+	}
+	return TRUE;
 }
