@@ -15,8 +15,6 @@ void RegisterStaticHTTPHandlerFromFile(std::string route, std::string filename) 
 
 void RegisterStaticHTTPHandlers() {
     RegisterStaticHTTPHandlerFromFile("/v1/info", "responses/info.json");
-    RegisterStaticHTTPHandlerFromFile("/v1/spectre/healthcheck-status", "responses/healthcheck-status.json");
-    RegisterStaticHTTPHandlerFromFile("/v1/healthcheck", "responses/healthcheck.json");
     RegisterStaticHTTPHandlerFromFile("/v1/loginqueue/getinqueuev1", "responses/getinqueuev1.json");
     RegisterStaticHTTPHandlerFromFile("/v1/account/authenticateorcreatev2", "responses/auth.json");
     RegisterStaticHTTPHandlerFromFile("/v1/gateway", "responses/gateway.json");
