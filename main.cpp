@@ -29,6 +29,7 @@
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
 #include <HealthCheckProcessor.h>
+#include "Site.h"
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
@@ -78,9 +79,17 @@ static void ConfigureTlsContext(ssl::context& ctx) {
 		| ssl::context::single_dh_use
 	);
 
-
+	ctx.set_verify_mode(ssl::verify_none);
+	ctx.set_verify_callback([](bool, ssl::verify_context&) { return true; });
 	ctx.use_certificate_chain_file(cert_path("server.crt"));
 	ctx.use_private_key_file(cert_path("server.key"), ssl::context::file_format::pem);
+}
+
+static Site site_from_host(const http::request<http::string_body>& req) {
+	auto h = req[http::field::host];
+	if (h.find("game.astro-dev.uk") != beast::string_view::npos) return Site::Game;
+	if (h.find("social.astro-dev.uk") != beast::string_view::npos) return Site::Social;
+	return Site::Unknown;
 }
 
 void session(tcp::socket sock, ssl::context& tls_ctx) {
@@ -94,43 +103,57 @@ void session(tcp::socket sock, ssl::context& tls_ctx) {
 			return;
 		}
 
-		http::request<http::string_body> req;
 		beast::flat_buffer buffer;
-		http::read(wss.next_layer(), buffer, req);
 
-		// detect websocket upgrade and switch protocols if requested
-		if (websocket::is_upgrade(req)) {
-			wss.accept(req); // complete ws handshake
-			SpectreWebsocket sock(wss);
-			logger->info("upgraded connection with " + wss.next_layer().next_layer().remote_endpoint().address().to_string() + ":" + std::to_string(wss.next_layer().next_layer().remote_endpoint().port()) + " to websocket");
+		for (;;) {
+			http::request<http::string_body> req;
+			err = {};
+			http::read(wss.next_layer(), buffer, req, err);
+			if (err == http::error::end_of_stream) break;
+			if (err) { logger->error("http read: " + err.message()); break; }
 
-			// basic echo loop so clients have something to talk to
-			for (;;) {
-				beast::flat_buffer wsbuf;
-				wss.read(wsbuf); // this blocks until a message arrives or the peer closes
-				SpectreWebsocketRequest req(sock, wsbuf);
-				auto route = WebsocketPacketProcessor::GetProcessorForRpc(req.GetRequestType());
-				if (route == nullptr) {
-					logger->warn("no packet processor found for WS requestType: " + req.GetRequestType().GetName());
-					continue;
+			Site site = site_from_host(req);
+
+			// detect websocket upgrade and switch protocols if requested
+			if (websocket::is_upgrade(req)) {
+				wss.accept(req); // complete ws handshake
+				SpectreWebsocket sock(wss);
+				logger->info("upgraded connection with " + wss.next_layer().next_layer().remote_endpoint().address().to_string() + ":" + std::to_string(wss.next_layer().next_layer().remote_endpoint().port()) + " to websocket");
+
+				// basic echo loop so clients have something to talk to
+				for (;;) {
+					beast::flat_buffer wsbuf;
+					wss.read(wsbuf); // this blocks until a message arrives or the peer closes
+					SpectreWebsocketRequest req(sock, wsbuf);
+					auto route = WebsocketPacketProcessor::GetProcessorForRpc(req.GetRequestType(), site);
+					if (route == nullptr) {
+						logger->warn("no packet processor found for WS requestType: " + req.GetRequestType().GetName());
+						continue;
+					}
+					route->Process(req, sock);
 				}
-				route->Process(req, sock);
+				break;
 			}
-		}
 
-		auto target = stripQueryParams(std::string(req.target())); // remove ?query so routing is stable
-		HTTPPacketProcessor* processor = HTTPPacketProcessor::GetProcessorForRoute(target);
-		if (processor == nullptr) {
-			logger->warn("missing a handler for http route " + target);
-			// send a 404 if no processor found
-			http::response<http::string_body> res;
-			res.result(http::status::not_found);
-			res.body() = "{}";
-			res.prepare_payload();
-			http::write(wss.next_layer(), res);
-			return;
+			auto target = stripQueryParams(std::string(req.target())); // remove ?query so routing is stable
+			HTTPPacketProcessor* processor = HTTPPacketProcessor::GetProcessorForRoute(target, site);
+			if (processor == nullptr) {
+				logger->warn("missing a handler for http route " + target);
+				// send a 404 if no processor found
+				http::response<http::string_body> res;
+				res.version(req.version());
+				res.keep_alive(req.keep_alive());
+				res.result(http::status::not_found);
+				res.set(http::field::content_type, "application/json; charset=UTF-8");
+				res.body() = "{}";
+				res.prepare_payload();
+				http::write(wss.next_layer(), res);
+				if (!req.keep_alive()) break;
+				continue;
+			}
+			processor->Process(req, wss.next_layer());
+			if (!req.keep_alive()) break;
 		}
-		processor->Process(req, wss.next_layer());
 	}
 	catch (std::exception& e) {
 		logger->error("session error: "); // any parse/handshake/io error ends up here
@@ -139,16 +162,17 @@ void session(tcp::socket sock, ssl::context& tls_ctx) {
 }
 
 // the main accept loop
-// binds to 127.0.0.1:7777, accepts a connection, spins a thread, repeat
+// binds to 127.0.0.1:443, accepts a connection, spins a thread, repeat
 int main() {
 	SetupLogger();
 	logger->info("starting server...");
 	logger->info("Registering handlers...");
 	RegisterStaticHTTPHandlers();
 	RegisterStaticWSHandlers();
-	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
-	new HealthCheckProcessor("/v1/spectre/healthcheck-status", true);
-	new HealthCheckProcessor("/v1/healthcheck", false);
+	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"), Site::Game);
+	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"), Site::Social);
+	new HealthCheckProcessor("/v1/spectre/healthcheck-status", true, Site::Game);
+	new HealthCheckProcessor("/v1/healthcheck", false, Site::Social);
 	logger->info("Finished registering handlers");
 	try {
 		asio::io_context ioc; // we use sync ops but asio still wants an io_context around
@@ -157,7 +181,7 @@ int main() {
 		ssl::context tls_ctx(ssl::context::tls_server);
 		ConfigureTlsContext(tls_ctx);
 
-		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), 443));
+		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("0.0.0.0"), 443));
 
 		// accept loop forever. each client gets one detached thread
 		// if we want to shut down clean, don't detach, keep thread handles
@@ -168,7 +192,7 @@ int main() {
 			// each session owns its TLS handshake and stream
 			std::thread([s = std::move(sock), &tls_ctx]() mutable {
 				session(std::move(s), tls_ctx);
-				}).detach();
+			}).detach();
 		}
 	}
 	catch (std::exception& e) {
