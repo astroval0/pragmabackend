@@ -81,6 +81,7 @@ static void ConfigureTlsContext(ssl::context& ctx) {
 
 	ctx.use_certificate_chain_file(cert_path("server.crt"));
 	ctx.use_private_key_file(cert_path("server.key"), ssl::context::file_format::pem);
+	ctx.set_verify_mode(ssl::verify_none);
 }
 
 void session(tcp::socket sock, ssl::context& tls_ctx) {
