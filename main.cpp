@@ -28,7 +28,6 @@
 #include <HeartbeatProcessor.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
-#include <HealthCheckProcessor.h>
 #include "Site.h"
 
 namespace asio = boost::asio;
@@ -171,8 +170,6 @@ int main() {
 	RegisterStaticWSHandlers();
 	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"), Site::Game);
 	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"), Site::Social);
-	new HealthCheckProcessor("/v1/spectre/healthcheck-status", true, Site::Game);
-	new HealthCheckProcessor("/v1/healthcheck", false, Site::Social);
 	logger->info("Finished registering handlers");
 	try {
 		asio::io_context ioc; // we use sync ops but asio still wants an io_context around
