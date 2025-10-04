@@ -49,7 +49,7 @@ static DWORD WINAPI MainThreadProc(LPVOID)
 
 	Sleep(1000);
 
-	InitHooking();
+	//InitHooking();
 	InitLWSHook();
 
 	std::cout << "[+] all hooked launched.\n";

@@ -13,7 +13,9 @@ static SafetyHookInline g_ClientSSLHook;
 static SafetyHookInline g_X509VerifyHook;
 static SafetyHookInline g_ValidateRootHook;
 static SafetyHookInline g_UsePlatformCertsHook;
+static SafetyHookInline g_HttpInitHook;
 
+using FnHttpInit					= void(__fastcall*)(double);
 using FnCreateVhost			= __int64(__fastcall*)(__int64, int*);
 using FnPinCheck				= __int64(__fastcall*)(__int64, __int64);
 using FnClientSSLInit			= int(__fastcall*)(int* a2, __int64 vhost);
@@ -22,8 +24,8 @@ using FnValidateRoot			= __int64(__fastcall*)(__int64 a1, __int64 a2);
 using FnUsePlatformCerts	= __int64(__fastcall*)(__int64 a1);
 
 constexpr size_t OFFSET_WhitelistByte = 0x68;
-constexpr size_t OFFSET_HostPtr = 0x140;
-constexpr size_t OFFSET_HostLen = 0x148;
+//constexpr size_t OFFSET_HostPtr = 0x140;
+//constexpr size_t OFFSET_HostLen = 0x148;
 
 static bool IsReadable(const void* addr, size_t size)
 {
@@ -127,44 +129,59 @@ static __int64 __fastcall hk_CreateVhost(__int64 a1, int* a2)
 			std::cout << "[lws] DisableDomainWhitelist -> 1\n";
 		}
 
-		auto* pHostWPtr = reinterpret_cast<const wchar_t**>(base + OFFSET_HostPtr);
-		auto* pHostWLen = reinterpret_cast<uint32_t*>(base + OFFSET_HostLen);
+	/*	auto* pHostWPtr = reinterpret_cast<const wchar_t**>(base + OFFSET_HostPtr);
+		auto* pHostWLen = reinterpret_cast<uint32_t*>(base + OFFSET_HostLen);*/
 		static std::atomic<bool> logged{ false };
 
-		if (IsReadable(pHostWPtr, sizeof(void*)) && IsReadable(pHostWLen, sizeof(uint32_t)))
-		{
-			const wchar_t* hostW = *pHostWPtr;
-			const uint32_t hostLen = *pHostWLen;
+		//if (IsReadable(pHostWPtr, sizeof(void*)) && IsReadable(pHostWLen, sizeof(uint32_t)))
+		//{
+		//	const wchar_t* hostW = *pHostWPtr;
+		//	const uint32_t hostLen = *pHostWLen;
 
-			if (hostW && hostLen < (1u << 16))
-			{
-				if (IsReadable(hostW, static_cast<size_t>(hostLen) * sizeof(wchar_t)))
-				{
-					if (!logged.exchange(true))
-					{
-						std::wcout << L"[lws] hostW seen: len=" << hostLen << L" str=" << std::wstring(hostW, hostLen) << L"\n";
-					}
-				}
-			}
-		}
+		//	if (hostW && hostLen < (1u << 16))
+		//	{
+		//		if (IsReadable(hostW, static_cast<size_t>(hostLen) * sizeof(wchar_t)))
+		//		{
+		//			if (!logged.exchange(true))
+		//			{
+		//				std::wcout << L"[lws] hostW seen: len=" << hostLen << L" str=" << std::wstring(hostW, hostLen) << L"\n";
+		//			}
+		//		}
+		//	}
+		//}
 	} return g_LwsVhostHook ? g_LwsVhostHook.call<__int64>(a1, a2) : 0;
-} 
+}
+static void __fastcall hk_HttpInit(double xmm0)
+{
+	// call original
+	g_HttpInitHook.call<void>(xmm0);
+
+	// patch VerifyPeer flag
+	uint8_t* verifyPeerFlag = reinterpret_cast<uint8_t*>(BaseAddress + RVA_ByteVerifyPeer);
+	if (IsReadable(verifyPeerFlag, sizeof(uint8_t)))
+	{
+		*verifyPeerFlag = 0;
+		std::cout << "[http] n.VerifyPeer forced -> 0\n";
+	}
+}
 
 void InitX509VerifyHook() { InstallInlineHook(g_X509VerifyHook, RVA_X509Verify, &hk_X509_verify_cert, "X509VerifyCert"); }
 void InitValidateRootHook() { InstallInlineHook(g_ValidateRootHook, RVA_ValidateRoot, &hk_ValidateRootCerts, "ValidateRootCerts"); }
 void InitUsePlatformHook() { InstallInlineHook(g_UsePlatformCertsHook, RVA_UsePlatform, &hk_UsePlatformCerts, "UsePlatformCerts"); }
 void InitPinCheckHook() { InstallInlineHook(g_PinCheckHook, RVA_PinCheck, &hk_PinCheck, "PinCheck"); }
 void InitClientSSLHook() { InstallInlineHook(g_ClientSSLHook, RVA_ClientSSL, &hk_ClientSSLInit, "ClientSSLInit"); }
+void InitVerifyPeerHook() { InstallInlineHook(g_HttpInitHook, RVA_HttpInit, &hk_HttpInit, "HttpInit"); }
 
 void InitLWSHook()
 {
 	if (!BaseAddress) { BaseAddress = reinterpret_cast<uintptr_t>(GetModuleHandleW(nullptr)); }
 
-	InitX509VerifyHook();
+	//InitX509VerifyHook();
 	InitPinCheckHook();
 	InitClientSSLHook();
 	InitValidateRootHook();
 	InitUsePlatformHook();
+	//InitVerifyPeerHook();
 
 	const uintptr_t targetVhost = BaseAddress + RVA_CreateVhost;
 	DecryptPage(reinterpret_cast<void*>(targetVhost));

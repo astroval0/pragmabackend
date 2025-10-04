@@ -4,23 +4,6 @@
 
 // theia page decryption
 BOOL __stdcall DecryptPage(void* pageAddr) {
-    CONTEXT ctx{};
-    ctx.ContextFlags = CONTEXT_FULL;
-    ctx.Rip = reinterpret_cast<DWORD64>(pageAddr);
-    ctx.Rsp = reinterpret_cast<DWORD64>(&ctx) - 0x200;
-    ctx.Rbp = ctx.Rsp;
-
-    DWORD64 imageBase = 0;
-    DWORD64 establisher = 0;
-    PVOID handler = nullptr;
-
-    __try {
-        auto fn = RtlLookupFunctionEntry(ctx.Rip, &imageBase, nullptr);
-        RtlVirtualUnwind(UNW_FLAG_NHANDLER, imageBase, ctx.Rip,
-                         fn, &ctx, &handler, &establisher, nullptr);
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        // Exception forces Theia to decrypt
-    }
     return TRUE;
 }
 

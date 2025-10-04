@@ -70,56 +70,8 @@ void PrintPrompt()
 	std::cout << "\ncmd> " << std::flush;
 }
 
-void ExecConsoleCommand(const std::wstring& cmd)
-{
-	APlayerController* pc = gPlayerController;
-	if (!pc)
-	{
-		std::cout << "[!] No PlayerController yet, wait for the hook mf.\n";
-		return;
-	}
-	if (cmd.empty()) return;
-
-	empy dummy{};
-	FString fcmd(cmd.c_str());
-	const auto ConsoleCommand = reinterpret_cast<FnConsoleCommand>(BaseAddress + RVA_ConsoleCommand);
-	ConsoleCommand(pc, &dummy, &fcmd, false);
-}
-
 void InputThread()
 {
 	std::wstring buffer;
 	PrintPrompt();
-
-	while (true)
-	{
-		if (_kbhit())
-		{
-			wchar_t c = _getwch();
-
-			if (c == 0 || c == 0xE0) { (void)_getwch(); continue; }
-
-			if (c == L'\r' || c == L'\n')
-			{
-				if (!buffer.empty())
-				{
-					ExecConsoleCommand(buffer);
-					buffer.clear();
-				}
-				PrintPrompt();
-			} else if (c == L'\b')
-			{
-				if (!buffer.empty())
-				{
-					buffer.pop_back();
-					std::wcout << L"\b \b" << std::flush;
-				}
-			}else
-			{
-				buffer.push_back(c);
-				std::wcout << c << std::flush;
-			}
-		}
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
-	}
 }

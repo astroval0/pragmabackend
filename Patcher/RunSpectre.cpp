@@ -43,7 +43,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
         &si,
         &pi
     );
-    std::string launchSpectreCommand = std::string("\"") + GAME_PATH + "\" -PragmaEnvironment=live -PragmaBackendAddress=https://game.astro-dev.uk";
+    std::string launchSpectreCommand = std::string("\"") + GAME_PATH + "\" -PragmaEnvironment=live -log -nosteam -PragmaBackendAddress=https://game.astro-dev.uk";
 
     // Launch the game
     BOOL success = CreateProcessA(
