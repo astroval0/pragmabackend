@@ -3,6 +3,10 @@
 #include <iostream>
 #include <windows.h>
 #include <atomic>
+#include <cstdarg>
+#include <cstdio>
+#include <string>
+#include <filesystem>
 
 #include "headers/decrypt.h"
 #include "headers/globals.h"
@@ -13,6 +17,10 @@ static SafetyHookInline g_ClientSSLHook;
 static SafetyHookInline g_X509VerifyHook;
 static SafetyHookInline g_ValidateRootHook;
 static SafetyHookInline g_UsePlatformCertsHook;
+static SafetyHookInline g_LwsLogHook;
+static SafetyHookInline g_LwsLogFormatHook;
+static SafetyHookInline g_RxSMHook;
+static SafetyHookInline g_ReadH1Hook;
 
 using FnCreateVhost			= __int64(__fastcall*)(__int64, int*);
 using FnPinCheck				= __int64(__fastcall*)(__int64, __int64);
@@ -20,6 +28,8 @@ using FnClientSSLInit			= int(__fastcall*)(int* a2, __int64 vhost);
 using FnSSL_CTX_set_verify	= void(__fastcall*)(void* ctx, int mode, void* callback);
 using FnValidateRoot			= __int64(__fastcall*)(__int64 a1, __int64 a2);
 using FnUsePlatformCerts	= __int64(__fastcall*)(__int64 a1);
+using FnLwsLog = __int64(__fastcall*)(int32_t level, const char* fmt, const void* args);
+using FnLwsLogFormat = __int64(__fastcall*)(int32_t level, const char* fmt, void* va_args);
 
 constexpr size_t OFFSET_WhitelistByte = 0x68;
 constexpr size_t OFFSET_HostPtr = 0x140;
@@ -148,13 +158,135 @@ static __int64 __fastcall hk_CreateVhost(__int64 a1, int* a2)
 			}
 		}
 	} return g_LwsVhostHook ? g_LwsVhostHook.call<__int64>(a1, a2) : 0;
-} 
+}
+static __int64 __fastcall hk_LwsLog(int32_t level, const char* fmt, const void* args)
+{
+	std::cout << std::hex
+		<< "[dbg] level=" << level
+		<< " fmt=" << (void*)fmt
+		<< " args=" << (void*)args
+		<< std::dec << "\n";
+
+	if (IsReadable(args, 32)) {
+		const unsigned char* p = (const unsigned char*)args;
+		std::cout << "[dbg] arg bytes:";
+		for (int i = 0; i < 32; i++) std::cout << " " << std::hex << (int)p[i];
+		std::cout << std::dec << "\n";
+	}
+
+	return g_LwsLogHook ? g_LwsLogHook.call<__int64>(level, fmt, args) : 0;
+}
+static bool LooksLikeString(const char* p)
+{
+	if (!IsReadable(p, 1)) return false;
+	for (int i = 0; i < 256; i++) {
+		unsigned char c;
+		if (!IsReadable(p + i, 1)) return false;
+		c = (unsigned char)p[i];
+		if (c == 0) return i > 0;     
+		if (c < 0x09 || c > 0x7E) return false; 
+	}
+	return false;
+}
+static __int64 __fastcall hk_LwsLogFormat(int32_t level,const char* fmt,const char* maybe_text)
+{
+	const char* text = nullptr;
+	char safe[128] = "<non-text log call>";
+
+	if (LooksLikeString(maybe_text))
+		text = maybe_text;
+	else if (LooksLikeString(fmt))
+		text = fmt;
+	else
+		text = safe;
+
+	char exe[MAX_PATH];
+	GetModuleFileNameA(nullptr, exe, MAX_PATH);
+	char* slash = strrchr(exe, '\\');
+	if (slash) *slash = '\0';
+	strcat_s(exe, "\\lws_logs.txt");
+
+	FILE* f = nullptr;
+	fopen_s(&f, exe, "a");
+	if (f) {
+		fprintf(f, "[lvl %d] %s\n", level, text);
+		fclose(f);
+	}
+
+	std::cout << "[lvl " << level << "] " << text << "\n";
+
+	return g_LwsLogFormatHook
+		? g_LwsLogFormatHook.call<__int64>(level, fmt, maybe_text)
+		: 0;
+}
+static int64_t __fastcall hk_lws_ws_client_rx_sm(void* arg1, int64_t* arg2, int64_t arg3, void* arg4)
+{
+	auto ret = g_RxSMHook.call<int64_t>(arg1, arg2, arg3, arg4);
+	uint32_t state = *(uint32_t*)((char*)arg1 + 0x70);
+	uint32_t flags = state >> 16;
+	uint32_t code = state & 0xFFFF;
+	uint32_t close_reason = 0;
+	uint8_t timeout_flag = 0;
+
+	if (IsReadable((char*)arg1 + 0x1BC, 4))
+		close_reason = *(uint32_t*)((char*)arg1 + 0x1BC);
+
+	if (IsReadable((char*)arg1 + 0x1C7, 1))
+		timeout_flag = *(uint8_t*)((char*)arg1 + 0x1C7);
+
+	std::cout << std::hex
+		<< "[lws] ws_client_rx_sm ret=" << ret
+		<< " state=" << code
+		<< " flags=" << flags
+		<< " close_reason=" << close_reason
+		<< " timeout=" << (int)timeout_flag
+		<< std::dec << "\n";
+
+	if (ret)
+		std::cout << "[lws] ws_client_rx_sm error ret=" << std::hex << ret
+		<< " full_state=" << state
+		<< " close_reason=" << close_reason
+		<< std::dec << "\n";
+
+	return ret;
+}
+static int64_t __fastcall hk_lws_read_h1(void* arg1, int64_t arg2, int64_t arg3, void* arg4)
+{
+	auto ret = g_ReadH1Hook.call<int64_t>(arg1, arg2, arg3, arg4);
+	uint32_t state = 0;
+	uint32_t close_reason = 0;
+	uint8_t timeout_flag = 0;
+
+	if (IsReadable((char*)arg1 + 0x70, 4))
+		state = *(uint32_t*)((char*)arg1 + 0x70);
+
+	if (IsReadable((char*)arg1 + 0x1BC, 4))
+		close_reason = *(uint32_t*)((char*)arg1 + 0x1BC);
+
+	if (IsReadable((char*)arg1 + 0x1C7, 1))
+		timeout_flag = *(uint8_t*)((char*)arg1 + 0x1C7);
+
+	if (ret == 0xFFFFFFFF)
+		std::cout << "[lws] lws_read_h1 fatal drop state=" << std::hex << state
+		<< " close_reason=" << close_reason
+		<< " timeout=" << (int)timeout_flag
+		<< std::dec << "\n";
+
+	return ret;
+}
 
 void InitX509VerifyHook() { InstallInlineHook(g_X509VerifyHook, RVA_X509Verify, &hk_X509_verify_cert, "X509VerifyCert"); }
 void InitValidateRootHook() { InstallInlineHook(g_ValidateRootHook, RVA_ValidateRoot, &hk_ValidateRootCerts, "ValidateRootCerts"); }
 void InitUsePlatformHook() { InstallInlineHook(g_UsePlatformCertsHook, RVA_UsePlatform, &hk_UsePlatformCerts, "UsePlatformCerts"); }
 void InitPinCheckHook() { InstallInlineHook(g_PinCheckHook, RVA_PinCheck, &hk_PinCheck, "PinCheck"); }
 void InitClientSSLHook() { InstallInlineHook(g_ClientSSLHook, RVA_ClientSSL, &hk_ClientSSLInit, "ClientSSLInit"); }
+void InitLwsLoggingHook()
+{
+	InstallInlineHook(g_LwsLogHook, RVA_LwsLog, &hk_LwsLog, "LwsLog");
+	InstallInlineHook(g_LwsLogFormatHook, RVA_LwsLog + 0x30, &hk_LwsLogFormat, "LwsLogFormat");
+	InstallInlineHook(g_RxSMHook, RVA_lws_ws_client_rx_sm, &hk_lws_ws_client_rx_sm, "lws_ws_client_rx_sm");
+	InstallInlineHook(g_ReadH1Hook, RVA_lws_read_h1, &hk_lws_read_h1, "lws_read_h1");
+}
 
 void InitLWSHook()
 {
@@ -165,6 +297,7 @@ void InitLWSHook()
 	InitClientSSLHook();
 	InitValidateRootHook();
 	InitUsePlatformHook();
+	InitLwsLoggingHook();
 
 	const uintptr_t targetVhost = BaseAddress + RVA_CreateVhost;
 	DecryptPage(reinterpret_cast<void*>(targetVhost));

@@ -24,3 +24,6 @@ static constexpr uintptr_t RVA_ClientSSL = 0x6F4A2E0;
 static constexpr uintptr_t RVA_PinCheck = 0x4CA14E0;
 static constexpr uintptr_t RVA_ValidateRoot = 0x4CA11A0;
 static constexpr uintptr_t RVA_UsePlatform = 0x4CA1B90;
+static constexpr uintptr_t RVA_LwsLog = 0x6F3AD30;
+static constexpr uintptr_t RVA_lws_ws_client_rx_sm = 0x6F49440;
+static constexpr uintptr_t RVA_lws_read_h1 = 0x6F457D0;
