@@ -25,25 +25,25 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     }
 
     // Build command line
-    std::string launchBackendCommand = std::string("\"") + BACKEND_PATH + "\"";
+ /*   std::string launchBackendCommand = std::string("\"") + BACKEND_PATH + "\"";*/
 
     // Set up process startup info
     STARTUPINFOA si = { sizeof(si) };
     PROCESS_INFORMATION pi;
 
-    BOOL backendsuccess = CreateProcessA(
-        nullptr,
-        launchBackendCommand.data(),
-        nullptr,
-        nullptr,
-        FALSE,
-        0,
-        nullptr,
-        BACKEND_DIR,
-        &si,
-        &pi
-    );
-    std::string launchSpectreCommand = std::string("\"") + GAME_PATH + "\" -PragmaEnvironment=live -PragmaBackendAddress=https://game.astro-dev.uk";
+    //BOOL backendsuccess = CreateProcessA(
+    //    nullptr,
+    //    launchBackendCommand.data(),
+    //    nullptr,
+    //    nullptr,
+    //    FALSE,
+    //    0,
+    //    nullptr,
+    //    BACKEND_DIR,
+    //    &si,
+    //    &pi
+    //);
+    std::string launchSpectreCommand = std::string("\"") + GAME_PATH + "\" -PragmaEnvironment=live -PragmaBackendAddress=http://127.0.0.1:8081";
 
     // Launch the game
     BOOL success = CreateProcessA(

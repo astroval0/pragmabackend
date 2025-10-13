@@ -21,7 +21,9 @@ static SafetyHookInline g_LwsLogHook;
 static SafetyHookInline g_LwsLogFormatHook;
 static SafetyHookInline g_RxSMHook;
 static SafetyHookInline g_ReadH1Hook;
+static SafetyHookInline g_LwsParseFrameHook;
 
+using FnLwsParseFrame = int(__fastcall*)(void* wsi, unsigned char byte);
 using FnCreateVhost			= __int64(__fastcall*)(__int64, int*);
 using FnPinCheck				= __int64(__fastcall*)(__int64, __int64);
 using FnClientSSLInit			= int(__fastcall*)(int* a2, __int64 vhost);
@@ -274,6 +276,49 @@ static int64_t __fastcall hk_lws_read_h1(void* arg1, int64_t arg2, int64_t arg3,
 
 	return ret;
 }
+static int __fastcall hk_LwsParseFrame(void* wsi, unsigned char byte)
+{
+	// simple append logger local to this hook
+	auto logf = [](const char* fmt, ...) {
+		static char path[MAX_PATH];
+		static bool inited = false;
+		if (!inited) {
+			GetModuleFileNameA(nullptr, path, MAX_PATH);
+			if (char* s = strrchr(path, '\\')) *s = '\0';
+			strcat_s(path, "\\lws_parse_frame.log");
+			inited = true;
+		}
+		FILE* f = nullptr;
+		if (fopen_s(&f, path, "a") == 0 && f) {
+			va_list ap; va_start(ap, fmt);
+			vfprintf(f, fmt, ap);
+			va_end(ap);
+			fclose(f);
+		}
+	};
+
+	int ret = g_LwsParseFrameHook.call<int>(wsi, byte);
+
+	// prove execution every call
+	logf("[lws] parse_byte ret=%d b=%u\n", ret, (unsigned)byte);
+
+	if (ret != 0) {
+		uint32_t state = 0, flags = 0, close_reason = 0;
+		uint64_t payload_len = 0;
+		uint8_t opcode = 0, parser_state = 0;
+
+		if (IsReadable((char*)wsi + 0x70, 4))  state = *(uint32_t*)((char*)wsi + 0x70);
+		if (IsReadable((char*)wsi + 0xBA, 1))  opcode = *(uint8_t*)((char*)wsi + 0xBA);
+		if (IsReadable((char*)wsi + 0xA8, 8))  payload_len = *(uint64_t*)((char*)wsi + 0xA8);
+		if (IsReadable((char*)wsi + 0xC4, 4))  flags = *(uint32_t*)((char*)wsi + 0xC4);
+		if (IsReadable((char*)wsi + 0x1C4, 1)) parser_state = *(uint8_t*)((char*)wsi + 0x1C4);
+		if (IsReadable((char*)wsi + 0x1BC, 4)) close_reason = *(uint32_t*)((char*)wsi + 0x1BC);
+
+		logf("[lws] parse_byte ERR state=0x%08X opcode=0x%02X plen=%llu flags=0x%08X pstate=0x%02X close_reason=0x%08X\n",
+			state, opcode, (unsigned long long)payload_len, flags, parser_state, close_reason);
+	}
+	return ret;
+}
 
 void InitX509VerifyHook() { InstallInlineHook(g_X509VerifyHook, RVA_X509Verify, &hk_X509_verify_cert, "X509VerifyCert"); }
 void InitValidateRootHook() { InstallInlineHook(g_ValidateRootHook, RVA_ValidateRoot, &hk_ValidateRootCerts, "ValidateRootCerts"); }
@@ -284,6 +329,7 @@ void InitLwsLoggingHook()
 {
 	InstallInlineHook(g_LwsLogHook, RVA_LwsLog, &hk_LwsLog, "LwsLog");
 	InstallInlineHook(g_LwsLogFormatHook, RVA_LwsLog + 0x30, &hk_LwsLogFormat, "LwsLogFormat");
+	InstallInlineHook(g_LwsParseFrameHook, RVA_LwsParseFrame, &hk_LwsParseFrame, "lws_parse_frame");
 	InstallInlineHook(g_RxSMHook, RVA_lws_ws_client_rx_sm, &hk_lws_ws_client_rx_sm, "lws_ws_client_rx_sm");
 	InstallInlineHook(g_ReadH1Hook, RVA_lws_read_h1, &hk_lws_read_h1, "lws_read_h1");
 }
