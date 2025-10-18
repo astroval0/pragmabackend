@@ -10,8 +10,8 @@
 
 using tcp = boost::asio::ip::tcp;
 namespace ssl = boost::asio::ssl;
-using tls_stream = ssl::stream<tcp::socket>;
-using ws = boost::beast::websocket::stream<tls_stream>;
+namespace http = boost::beast::http;
+using ws = boost::beast::websocket::stream<tcp::socket>;
 using json = nlohmann::json;
 
 class SpectreWebsocket {

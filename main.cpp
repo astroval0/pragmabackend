@@ -28,7 +28,10 @@
 #include <HeartbeatProcessor.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
-#include "Site.h"
+
+#define GAME_PORT 8081
+#define SOCIAL_PORT 8082
+#define WS_PORT 80
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
@@ -64,100 +67,82 @@ static std::string stripQueryParams(const std::string& url) {
 	return url;
 }
 
-static std::string cert_path(const char* f) { return (std::filesystem::path(CERT_DIR) / f).string(); }
-
-// load TLS certs / keys
-// we terminate TLS here so the game can speak https / wss to us directly
-static void ConfigureTlsContext(ssl::context& ctx) {
-	ctx.set_options(
-		ssl::context::default_workarounds
-		| ssl::context::no_sslv2
-		| ssl::context::no_sslv3
-		| ssl::context::no_tlsv1
-		| ssl::context::no_tlsv1_1
-		| ssl::context::single_dh_use
-	);
-
-	ctx.set_verify_mode(ssl::verify_none);
-	ctx.set_verify_callback([](bool, ssl::verify_context&) { return true; });
-	ctx.use_certificate_chain_file(cert_path("server.crt"));
-	ctx.use_private_key_file(cert_path("server.key"), ssl::context::file_format::pem);
-	ctx.set_verify_mode(ssl::verify_none);
-}
-
-static Site site_from_host(const http::request<http::string_body>& req) {
-	auto h = req[http::field::host];
-	if (h.find("game.astro-dev.uk") != beast::string_view::npos) return Site::Game;
-	if (h.find("social.astro-dev.uk") != beast::string_view::npos) return Site::Social;
-	return Site::Unknown;
-}
-
-void session(tcp::socket sock, ssl::context& tls_ctx) {
+void session(tcp::socket sock) {
 	try {
-		using tls_stream = ssl::stream<tcp::socket>; // tls wrapper around a plain tcp socket
-		websocket::stream<tls_stream> wss{ std::move(sock), tls_ctx }; // build tls inside ws so we don't copy /move ssl streams
-		boost::system::error_code err;
-		wss.next_layer().handshake(ssl::stream_base::server, err); // tls server handshake on the underlying stream
-		if (err) {
-			logger->error("TLS Handshake failure: " + err.message());
-			return;
-		}
+		beast::flat_buffer buffer; // http parser scratch space
+		http::request<http::string_body> req;
 
-		beast::flat_buffer buffer;
+		// blocking read
+		http::read(sock, buffer, req);
 
-		for (;;) {
-			http::request<http::string_body> req;
-			err = {};
-			http::read(wss.next_layer(), buffer, req, err);
-			if (err == http::error::end_of_stream) break;
-			if (err) { logger->error("http read: " + err.message()); break; }
+		// detect websocket upgrade and switch protocols if requested
+		if (websocket::is_upgrade(req)) {
+			logger->info("trying to accept ws handshake");
+			websocket::stream<tcp::socket> ws(std::move(sock));
+			ws.accept(req); // complete ws handshake
+			SpectreWebsocket sock(ws);
+			logger->info("upgraded connection with {}:{} to websocket",
+				ws.next_layer().remote_endpoint().address().to_string(), ws.next_layer().remote_endpoint().port()
+			);
 
-			Site site = site_from_host(req);
-
-			// detect websocket upgrade and switch protocols if requested
-			if (websocket::is_upgrade(req)) {
-				wss.accept(req); // complete ws handshake
-				SpectreWebsocket sock(wss);
-				logger->info("upgraded connection with " + wss.next_layer().next_layer().remote_endpoint().address().to_string() + ":" + std::to_string(wss.next_layer().next_layer().remote_endpoint().port()) + " to websocket");
-
-				// basic echo loop so clients have something to talk to
-				for (;;) {
-					beast::flat_buffer wsbuf;
-					wss.read(wsbuf); // this blocks until a message arrives or the peer closes
-					SpectreWebsocketRequest req(sock, wsbuf);
-					auto route = WebsocketPacketProcessor::GetProcessorForRpc(req.GetRequestType(), site);
-					if (route == nullptr) {
-						logger->warn("no packet processor found for WS requestType: " + req.GetRequestType().GetName());
-						continue;
-					}
-					route->Process(req, sock);
+			// basic echo loop so clients have something to talk to
+			for (;;) {
+				beast::flat_buffer wsbuf;
+				ws.read(wsbuf); // this blocks until a message arrives or the peer closes
+				SpectreWebsocketRequest req(sock, wsbuf);
+				auto route = WebsocketPacketProcessor::GetProcessorForRpc(req.GetRequestType());
+				if (route == nullptr) {
+					logger->warn("no packet processor found for WS requestType: " + req.GetRequestType().GetName());
+					continue;
 				}
-				break;
+				route->Process(req, sock);
 			}
+		}
+		auto target = stripQueryParams(std::string(req.target())); // remove ?query so routing is stable
+		HTTPPacketProcessor* processor = HTTPPacketProcessor::GetProcessorForRoute(target);
+		if (processor == nullptr) {
+			logger->warn("missing a handler for http route " + target);
+			// send a 404 if no processor found
+			http::response<http::string_body> res;
+			res.version(req.version());
+			res.keep_alive(req.keep_alive());
+			res.result(http::status::not_found);
+			res.set(http::field::content_type, "application/json; charset=UTF-8");
+			res.body() = "{}";
+			res.prepare_payload();
+			http::write(sock, res);
+		}
+		processor->Process(req, sock);
+	}
+	catch (std::exception& e) {
+		// any parse error, socket close, or ws close lands here
+		logger->error("session error: ");
+		logger->error(e.what());
+	}
+}
 
-			auto target = stripQueryParams(std::string(req.target())); // remove ?query so routing is stable
-			HTTPPacketProcessor* processor = HTTPPacketProcessor::GetProcessorForRoute(target, site);
-			if (processor == nullptr) {
-				logger->warn("missing a handler for http route " + target);
-				// send a 404 if no processor found
-				http::response<http::string_body> res;
-				res.version(req.version());
-				res.keep_alive(req.keep_alive());
-				res.result(http::status::not_found);
-				res.set(http::field::content_type, "application/json; charset=UTF-8");
-				res.body() = "{}";
-				res.prepare_payload();
-				http::write(wss.next_layer(), res);
-				if (!req.keep_alive()) break;
-				continue;
-			}
-			processor->Process(req, wss.next_layer());
-			if (!req.keep_alive()) break;
+void ConnectionAcceptor(unsigned short port) {
+	try {
+		asio::io_context ioc; // we use sync ops but asio still wants an io_context around
+
+		// tls setup. load cert / key
+
+		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), port));
+
+		// accept loop forever. each client gets one detached thread
+		// if we want to shut down clean, don't detach, keep thread handles
+		for (;;) {
+			tcp::socket sock(ioc);
+			acc.accept(sock); // blocks until a client connects
+			// each session owns its TLS handshake and stream
+			std::thread([s = std::move(sock)]() mutable {
+				session(std::move(s));
+				}).detach();
 		}
 	}
 	catch (std::exception& e) {
-		logger->error("session error: "); // any parse/handshake/io error ends up here
-		logger->error(e.what());          // print the reason so we can fix it
+		logger->error("fatal exception(rip acceptor thread): ");
+		logger->error(e.what());
 	}
 }
 
@@ -169,34 +154,20 @@ int main() {
 	logger->info("Registering handlers...");
 	RegisterStaticHTTPHandlers();
 	RegisterStaticWSHandlers();
-	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"), Site::Game);
-	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"), Site::Social);
+	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
 	logger->info("Finished registering handlers");
-	try {
-		asio::io_context ioc; // we use sync ops but asio still wants an io_context around
-
-		// tls setup. load cert / key
-		ssl::context tls_ctx(ssl::context::tls_server);
-		ConfigureTlsContext(tls_ctx);
-
-		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("0.0.0.0"), 443));
-
-		// accept loop forever. each client gets one detached thread
-		// if we want to shut down clean, don't detach, keep thread handles
-		for (;;) {
-			tcp::socket sock(ioc);
-			acc.accept(sock); // blocks until a client connects
-
-			// each session owns its TLS handshake and stream
-			std::thread([s = std::move(sock), &tls_ctx]() mutable {
-				session(std::move(s), tls_ctx);
-			}).detach();
-		}
-	}
-	catch (std::exception& e) {
-		logger->error("fatal exception: ");
-		logger->error(e.what());
-		return 1;
-	}
+	std::thread gameThread = std::thread([] {
+		ConnectionAcceptor(GAME_PORT); // game
+		});
+	std::thread socialThread = std::thread([] {
+		ConnectionAcceptor(SOCIAL_PORT); // social
+		});
+	std::thread wsThread = std::thread([] {
+		ConnectionAcceptor(WS_PORT); // websockets
+		});
+	logger->info("acceptor threads started");
+	gameThread.join();
+	socialThread.join();
+	wsThread.join();
 	return 0;
 }

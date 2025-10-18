@@ -1,0 +1,20 @@
+{
+  "endpoints": [
+    {
+      "regionName": "uscentral-1",
+      "ipv4": "",
+      "ipv6": "",
+      "port": 10000,
+      "type": "hathora-udp",
+      "host": "chicago.ping.hathora.dev"
+    },
+    {
+      "regionName": "eucentral-1",
+      "ipv4": "",
+      "ipv6": "",
+      "port": 10000,
+      "type": "hathora-udp",
+      "host": "london.ping.hathora.dev"
+    }
+  ]
+}

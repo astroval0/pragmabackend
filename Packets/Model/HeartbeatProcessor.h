@@ -2,7 +2,7 @@
 
 class HeartbeatProcessor : public WebsocketPacketProcessor {
 public:
-	HeartbeatProcessor(SpectreRpcType rpcType, Site site) : WebsocketPacketProcessor(rpcType, site) {};
+	HeartbeatProcessor(SpectreRpcType rpcType) : WebsocketPacketProcessor(rpcType) {};
 	void Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) override {
 		packet.SendEmptyResponse();
 	}

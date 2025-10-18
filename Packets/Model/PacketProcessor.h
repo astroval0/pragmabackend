@@ -9,30 +9,22 @@
 #include <SpectreWebsocketRequest.h>
 #include <SpectreRpcType.h>
 #include <string>
-#include "Site.h"
-
-namespace http = boost::beast::http;
-using tcp = boost::asio::ip::tcp;
-using tls_stream = boost::asio::ssl::stream<tcp::socket>;
 
 class HTTPPacketProcessor {
 private:
     std::string m_route;
     inline static std::unordered_map<std::string, HTTPPacketProcessor*> HTTP_ROUTES = {};
-    static std::string Key(const std::string& route, Site site) {
-        return route + "|" + SiteKey(site);
-    }
 public:
-    HTTPPacketProcessor(std::string route, Site site) : m_route(std::move(route)) {
-        HTTP_ROUTES[Key(m_route, site)] = this;
+    HTTPPacketProcessor(std::string route) : m_route(std::move(route)) {
+        HTTP_ROUTES[m_route] = this;
     };
-    virtual void Process(http::request<http::string_body> const& req, tls_stream& sock) = 0;
+    virtual void Process(http::request<http::string_body> const& req, tcp::socket& sock) = 0;
     virtual ~HTTPPacketProcessor() = default;
     std::string& GetRoute() const {
         return const_cast<std::string&>(m_route);
     }
-    static HTTPPacketProcessor* GetProcessorForRoute(const std::string& route, Site site) {
-        auto it = HTTP_ROUTES.find(Key(route, site));
+    static HTTPPacketProcessor* GetProcessorForRoute(const std::string& route) {
+        auto it = HTTP_ROUTES.find(route);
         return it == HTTP_ROUTES.end() ? nullptr : it->second;
     }
 };
@@ -40,21 +32,18 @@ public:
 class WebsocketPacketProcessor {
 private:
     SpectreRpcType m_rpcType;
-    inline static std::unordered_map<std::string, WebsocketPacketProcessor*> WEBSOCKET_ROUTES = {};
-    static std::string Key(const SpectreRpcType& t, Site site) {
-        return t.GetName() + std::string("|") + SiteKey(site);
-    }
+    inline static std::unordered_map<SpectreRpcType, WebsocketPacketProcessor*> WEBSOCKET_ROUTES = {};
 public:
-    WebsocketPacketProcessor(const SpectreRpcType& rpcType, Site site) : m_rpcType(rpcType) {
-        WEBSOCKET_ROUTES[Key(m_rpcType, site)] = this;
+    WebsocketPacketProcessor(const SpectreRpcType& rpcType) : m_rpcType(rpcType) {
+        WEBSOCKET_ROUTES[rpcType] = this;
     }
     virtual void Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) = 0;
     virtual ~WebsocketPacketProcessor() = default;
     const SpectreRpcType& GetType() {
         return m_rpcType;
     }
-    static WebsocketPacketProcessor* GetProcessorForRpc(const SpectreRpcType& rpcType, Site site) {
-        auto it = WEBSOCKET_ROUTES.find(Key(rpcType, site));
+    static WebsocketPacketProcessor* GetProcessorForRpc(const SpectreRpcType& rpcType) {
+        auto it = WEBSOCKET_ROUTES.find(rpcType);
         return it == WEBSOCKET_ROUTES.end() ? nullptr : it->second;
     }
 };

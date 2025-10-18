@@ -1,6 +1,6 @@
 #include <StaticResponseProcessorHTTP.h>
 
-void StaticResponseProcessorHTTP::Process(http::request<http::string_body> const& req, tls_stream& sock) {
+void StaticResponseProcessorHTTP::Process(http::request<http::string_body> const& req, tcp::socket& sock) {
     http::response<http::string_body> res;
     res.version(req.version());
     res.keep_alive(req.keep_alive());
