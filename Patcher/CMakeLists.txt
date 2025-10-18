@@ -9,6 +9,9 @@ target_compile_definitions(dxgi PRIVATE NDEBUG)
 add_library(theiadumper SHARED theiadumper.cpp)
 target_compile_definitions(theiadumper PRIVATE NDEBUG)
 
+add_library(BEClient_x64 SHARED "BE_ClientDLL.cpp")
+target_compile_definitions(BEClient_x64 PRIVATE NDEBUG)
+
 if(NOT DEFINED SPECTRE_BIN_DIR_CACHE OR NOT SPECTRE_BIN_DIR_CACHE)
   set(TARGET_FILENAME "SpectreClient-Win64-Shipping.exe")
   message(STATUS "Locating Spectre Divide in Steam libraries...")
@@ -72,8 +75,13 @@ if(SPECTRE_BIN_DIR_CACHE)
       $<TARGET_FILE:hook>
       "${SPECTRE_BIN_DIR_CACHE}/hook.dll"
   )
+  add_custom_command(TARGET BEClient_x64 POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+      $<TARGET_FILE:BEClient_x64>
+      "${SPECTRE_BIN_DIR_CACHE}/BattlEye/BEClient_x64.dll"
+  )
   add_executable(RunSpectre RunSpectre.cpp)
-  add_dependencies(RunSpectre dxgi theiadumper hook pragmabackend)
+  add_dependencies(RunSpectre dxgi theiadumper hook pragmabackend BEClient_x64)
   target_compile_definitions(RunSpectre PRIVATE STEAM_APP_ID="2641470")
   target_compile_definitions(RunSpectre PRIVATE STEAM_ID="76561198370592897")
   target_compile_definitions(RunSpectre PRIVATE GAME_PATH="${SPECTRE_BIN_DIR_CACHE}/SpectreClient-Win64-Shipping.exe")
