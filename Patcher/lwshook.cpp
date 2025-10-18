@@ -3,6 +3,10 @@
 #include <iostream>
 #include <windows.h>
 #include <atomic>
+#include <cstdarg>
+#include <cstdio>
+#include <string>
+#include <filesystem>
 
 #include "headers/decrypt.h"
 #include "headers/globals.h"
@@ -13,13 +17,25 @@ static SafetyHookInline g_ClientSSLHook;
 static SafetyHookInline g_X509VerifyHook;
 static SafetyHookInline g_ValidateRootHook;
 static SafetyHookInline g_UsePlatformCertsHook;
+static SafetyHookInline g_LwsLogHook;
+static SafetyHookInline g_LwsLogFormatHook;
+static SafetyHookInline g_RxSMHook;
+static SafetyHookInline g_ReadH1Hook;
+static SafetyHookInline g_LwsParseFrameHook;
+static SafetyHookInline g_GamesightKillHook;
+static SafetyHookInline g_FmtWHook;
 
+using FnGamesight = __int64(__fastcall*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4);
+using FnLwsParseFrame = int(__fastcall*)(void* wsi, unsigned char byte);
 using FnCreateVhost			= __int64(__fastcall*)(__int64, int*);
 using FnPinCheck				= __int64(__fastcall*)(__int64, __int64);
 using FnClientSSLInit			= int(__fastcall*)(int* a2, __int64 vhost);
 using FnSSL_CTX_set_verify	= void(__fastcall*)(void* ctx, int mode, void* callback);
 using FnValidateRoot			= __int64(__fastcall*)(__int64 a1, __int64 a2);
 using FnUsePlatformCerts	= __int64(__fastcall*)(__int64 a1);
+using FnLwsLog = __int64(__fastcall*)(int32_t level, const char* fmt, const void* args);
+using FnLwsLogFormat = __int64(__fastcall*)(int32_t level, const char* fmt, void* va_args);
+using FnFmtW = __int64* (__fastcall*)(__int64* dst, __int64 fmtW, __int64 a3);
 
 constexpr size_t OFFSET_WhitelistByte = 0x68;
 constexpr size_t OFFSET_HostPtr = 0x140;
@@ -148,13 +164,15 @@ static __int64 __fastcall hk_CreateVhost(__int64 a1, int* a2)
 			}
 		}
 	} return g_LwsVhostHook ? g_LwsVhostHook.call<__int64>(a1, a2) : 0;
-} 
+}
+static __int64 __fastcall hk_GamesightKill(__int64 /*a1*/, __int64 /*a2*/, __int64 /*a3*/, __int64 /*a4*/) { return 0; }
 
 void InitX509VerifyHook() { InstallInlineHook(g_X509VerifyHook, RVA_X509Verify, &hk_X509_verify_cert, "X509VerifyCert"); }
 void InitValidateRootHook() { InstallInlineHook(g_ValidateRootHook, RVA_ValidateRoot, &hk_ValidateRootCerts, "ValidateRootCerts"); }
 void InitUsePlatformHook() { InstallInlineHook(g_UsePlatformCertsHook, RVA_UsePlatform, &hk_UsePlatformCerts, "UsePlatformCerts"); }
 void InitPinCheckHook() { InstallInlineHook(g_PinCheckHook, RVA_PinCheck, &hk_PinCheck, "PinCheck"); }
 void InitClientSSLHook() { InstallInlineHook(g_ClientSSLHook, RVA_ClientSSL, &hk_ClientSSLInit, "ClientSSLInit"); }
+void InitGamesightKillHook() { InstallInlineHook(g_GamesightKillHook, RVA_Gamesight, &hk_GamesightKill, "GamesightGlobalKill"); }
 
 void InitLWSHook()
 {
@@ -165,6 +183,7 @@ void InitLWSHook()
 	InitClientSSLHook();
 	InitValidateRootHook();
 	InitUsePlatformHook();
+	InitGamesightKillHook();
 
 	const uintptr_t targetVhost = BaseAddress + RVA_CreateVhost;
 	DecryptPage(reinterpret_cast<void*>(targetVhost));
