@@ -1,0 +1,73 @@
+{
+  "data": {
+    "playerId": "250D6BEA-4F0D-4DED-96CC-6E40EC80AFAB",
+    "data": "{\r\n\t\"unlockAllPlayModes\": false,\r\n\t\"unlockAllMenuTabs\": false,\r\n\t\"unlockAllSponsors\": true,\r\n\t\"bypassUnlockAllSponsorsOverride\": false,\r\n\t\"bypassProgressionOverrides\": true,\r\n\t\"bypassTeamSizeOverrides\": false,\r\n\t\"bypassRegionSelectOverride\": false,\r\n\t\"bypassCurrencyPurchasingOverride\": false,\r\n\t\"disableDevMapSelector\": false,\r\n\t\"showDebugInfoPanel\": true,\r\n\t\"showPlatformInfoPanel\": true,\r\n\t\"showMatchmakingCounters\": false,\r\n\t\"forceChatEnabled\": false,\r\n\t\"mostRecentLobbyMode\": 2,\r\n\t\"mostRecentPartyId\": \"dd890eec-435b-4df2-8ae9-291660d7a936\",\r\n\t\"endUserLicenseAcceptedVersion\": 2,\r\n\t\"endUserLicenseAcceptedVersionPlayStation\": 0,\r\n\t\"endUserLicenseAcceptedVersionXbox\": 0,\r\n\t\"termsOfServiceAcceptedVersion\": 2,\r\n\t\"termsOfServiceAcceptedVersionPlayStation\": 0,\r\n\t\"termsOfServiceAcceptedVersionXbox\": 0,\r\n\t\"nonDisclosureAgreementAcceptedVersion\": 0,\r\n\t\"nonDisclosureAgreementAcceptedVersionPlayStation\": 0,\r\n\t\"nonDisclosureAgreementAcceptedVersionXbox\": 0,\r\n\t\"seizureWarningAcknowledgedVersion\": 1,\r\n\t\"seizureWarningAcknowledgedVersionPlayStation\": 0,\r\n\t\"seizureWarningAcknowledgedVersionXbox\": 0,\r\n\t\"battlepassSeasonLoggedOn\": 1,\r\n\t\"battlepassPurchasePopupLastTime\": -9.2233720368547758e+18,\r\n\t\"nonDisclosureAgreementUserSignature\": \"\",\r\n\t\"nonDisclosureAgreementUserSignaturePlayStation\": \"\",\r\n\t\"nonDisclosureAgreementUserSignatureXbox\": \"\",\r\n\t\"nonDisclosureAgreementUserEmail\": \"\",\r\n\t\"nonDisclosureAgreementUserEmailPlayStation\": \"\",\r\n\t\"nonDisclosureAgreementUserEmailXbox\": \"\",\r\n\t\"lastVersionShownInDriversWarningDialog\": \"\",\r\n\t\"minSpecWarningDialogTimesDisplayed\": 0,\r\n\t\"pingWarningDialogTimesDisplayed\": 0,\r\n\t\"hasCompletedLaunchSettingsFlow\": true,\r\n\t\"isUsingManualMatchmakingRegionSelection\": false,\r\n\t\"manualMatchmakingRegionSelections\": [],\r\n\t\"rotatingNewsViewedMessages\": [],\r\n\t\"version\": 8,\r\n\t\"inkQuality\": 2,\r\n\t\"mouseSensitivityADSScale\": 1,\r\n\t\"mouseSensitivity\": 0.5,\r\n\t\"minimapScale\": 0.89999997615814209,\r\n\t\"minimapSize\": 1,\r\n\t\"minimapMaskOpacity\": 0.20000000298023224,\r\n\t\"bInvertedYAxis\": false,\r\n\t\"bToggleCrouch\": false,\r\n\t\"bToggleWalk\": false,\r\n\t\"bToggleADS\": false,\r\n\t\"recoilBehavior\": \"FollowCenter\",\r\n\t\"bLeftHandedEnabled\": false,\r\n\t\"bRecoilPitchCorrectionEnabled\": true,\r\n\t\"bIsTeamLaserEnabled\": true,\r\n\t\"bIsHudMinimapRotationEnabled\": true,\r\n\t\"bIsHudMinimapCenteredOnPlayer\": true,\r\n\t\"bIsHudMinimapCircle\": false,\r\n\t\"bIsHudMinimapMaskHighContrastEnabled\": false,\r\n\t\"bIsHudSnapMinimapWithScoreboardEnabled\": false,\r\n\t\"bIsDamageCameraEffectEnabled\": true,\r\n\t\"bStreamerModeEnabled\": false,\r\n\t\"bHideLobbyCode\": true,\r\n\t\"aDSTracerRatio\": 1,\r\n\t\"aDSTracerIntensity\": 0.44999998807907104,\r\n\t\"opticHitConfirmIntensity\": 1,\r\n\t\"bAnonymousMode\": false,\r\n\t\"bAnonymizePlayerNames\": true,\r\n\t\"bStreamerModeDisableIncomingVoiceChat\": true,\r\n\t\"bStreamerModeDisableIncomingTextChat\": true,\r\n\t\"bIsTextChatSoundEffectsEnabled\": true,\r\n\t\"bSubtitles\": false,\r\n\t\"verboseVoLevel\": \"Default\",\r\n\t\"bIsBloodFXEnabled\": true,\r\n\t\"colorVisionConfig\":\r\n\t{\r\n\t\t\"version\": 2,\r\n\t\t\"colorVisionType\": \"NormalVision\",\r\n\t\t\"severity\": 1,\r\n\t\t\"bCorrectDeficiency\": true,\r\n\t\t\"bShowCorrectDeficiency\": true,\r\n\t\t\"bComfortSwapEffect\": false,\r\n\t\t\"bCustomOutlineColor\": false,\r\n\t\t\"outlineColor\":\r\n\t\t{\r\n\t\t\t\"b\": 36,\r\n\t\t\t\"g\": 120,\r\n\t\t\t\"r\": 197,\r\n\t\t\t\"a\": 255\r\n\t\t},\r\n\t\t\"outlineColorLower\":\r\n\t\t{\r\n\t\t\t\"b\": 36,\r\n\t\t\t\"g\": 120,\r\n\t\t\t\"r\": 197,\r\n\t\t\t\"a\": 255\r\n\t\t},\r\n\t\t\"outlineThicknessScale\": 1,\r\n\t\t\"outlineBrightnessScale\": 1\r\n\t},\r\n\t\"crosshairConfig\":\r\n\t{\r\n\t\t\"version\": 24,\r\n\t\t\"colorIndex\": 0,\r\n\t\t\"bAdvancedCrosshairSettings\": false,\r\n\t\t\"customColor\":\r\n\t\t{\r\n\t\t\t\"b\": 255,\r\n\t\t\t\"g\": 255,\r\n\t\t\t\"r\": 255,\r\n\t\t\t\"a\": 255\r\n\t\t},\r\n\t\t\"bFireAccuracyFade\": false,\r\n\t\t\"bFollowRecoil\": false,\r\n\t\t\"bShowOutlines\": true,\r\n\t\t\"outlineThickness\": 1,\r\n\t\t\"outlineOpacity\": 0.5,\r\n\t\t\"bShowCenterDot\": false,\r\n\t\t\"bUseADSSettings\": true,\r\n\t\t\"centerDotConfig\":\r\n\t\t{\r\n\t\t\t\"thickness\": 2,\r\n\t\t\t\"opacity\": 1,\r\n\t\t\t\"colorIndex\": 0,\r\n\t\t\t\"customColor\":\r\n\t\t\t{\r\n\t\t\t\t\"b\": 255,\r\n\t\t\t\t\"g\": 255,\r\n\t\t\t\t\"r\": 255,\r\n\t\t\t\t\"a\": 255\r\n\t\t\t},\r\n\t\t\t\"bOutlineEnabled\": true,\r\n\t\t\t\"customOutlineColor\":\r\n\t\t\t{\r\n\t\t\t\t\"b\": 0,\r\n\t\t\t\t\"g\": 0,\r\n\t\t\t\t\"r\": 0,\r\n\t\t\t\t\"a\": 255\r\n\t\t\t},\r\n\t\t\t\"outlineOpacity\": 0.5,\r\n\t\t\t\"outlineThickness\": 1\r\n\t\t},\r\n\t\t\"centerDotConfigADS\":\r\n\t\t{\r\n\t\t\t\"thickness\": 2,\r\n\t\t\t\"opacity\": 1,\r\n\t\t\t\"colorIndex\": 0,\r\n\t\t\t\"customColor\":\r\n\t\t\t{\r\n\t\t\t\t\"b\": 255,\r\n\t\t\t\t\"g\": 255,\r\n\t\t\t\t\"r\": 255,\r\n\t\t\t\t\"a\": 255\r\n\t\t\t},\r\n\t\t\t\"bOutlineEnabled\": true,\r\n\t\t\t\"customOutlineColor\":\r\n\t\t\t{\r\n\t\t\t\t\"b\": 0,\r\n\t\t\t\t\"g\": 0,\r\n\t\t\t\t\"r\": 0,\r\n\t\t\t\t\"a\": 255\r\n\t\t\t},\r\n\t\t\t\"outlineOpacity\": 0.5,\r\n\t\t\t\"outlineThickness\": 2\r\n\t\t},\r\n\t\t\"sniperDotConfig\":\r\n\t\t{\r\n\t\t\t\"thickness\": 2,\r\n\t\t\t\"opacity\": 1,\r\n\t\t\t\"colorIndex\": -1,\r\n\t\t\t\"customColor\":\r\n\t\t\t{\r\n\t\t\t\t\"b\": 0,\r\n\t\t\t\t\"g\": 0,\r\n\t\t\t\t\"r\": 255,\r\n\t\t\t\t\"a\": 255\r\n\t\t\t},\r\n\t\t\t\"bOutlineEnabled\": true,\r\n\t\t\t\"customOutlineColor\":\r\n\t\t\t{\r\n\t\t\t\t\"b\": 0,\r\n\t\t\t\t\"g\": 0,\r\n\t\t\t\t\"r\": 0,\r\n\t\t\t\t\"a\": 255\r\n\t\t\t},\r\n\t\t\t\"outlineOpacity\": 0.5,\r\n\t\t\t\"outlineThickness\": 1\r\n\t\t},\r\n\t\t\"pipConfigs\":\r\n\t\t{\r\n\t\t\t\"Inner\":\r\n\t\t\t{\r\n\t\t\t\t\"thickness\": 2,\r\n\t\t\t\t\"length\": 8,\r\n\t\t\t\t\"opacity\": 0.80000001192092896,\r\n\t\t\t\t\"offset\": 0,\r\n\t\t\t\t\"bMoveAccuracyOffset\": true,\r\n\t\t\t\t\"bFireAccuracyOffset\": true\r\n\t\t\t},\r\n\t\t\t\"Outer\":\r\n\t\t\t{\r\n\t\t\t\t\"thickness\": 2,\r\n\t\t\t\t\"length\": 2,\r\n\t\t\t\t\"opacity\": 0,\r\n\t\t\t\t\"offset\": 0,\r\n\t\t\t\t\"bMoveAccuracyOffset\": true,\r\n\t\t\t\t\"bFireAccuracyOffset\": true\r\n\t\t\t}\r\n\t\t}\r\n\t},\r\n\t\"subtitleUserSettings\":\r\n\t{\r\n\t\t\"version\": 7,\r\n\t\t\"fontSize\": 39,\r\n\t\t\"backgroundOpacity\": 0.20000000298023224,\r\n\t\t\"speakerQualifierDisplay\": \"Name\",\r\n\t\t\"bPostPlayerSubtitles\": true,\r\n\t\t\"bPostPlayerSubtitlesToChat\": false,\r\n\t\t\"namesToShowMask\": 3\r\n\t},\r\n\t\"gamepadConfig\":\r\n\t{\r\n\t\t\"version\": 15,\r\n\t\t\"inputSchemeIndex\": 0,\r\n\t\t\"gamepadGlyphIndex\": 2,\r\n\t\t\"lookPresetIndex\": 2,\r\n\t\t\"customLookConfig\":\r\n\t\t{\r\n\t\t\t\"displayName\": \"Custom\",\r\n\t\t\t\"lookSettings\":\r\n\t\t\t{\r\n\t\t\t\t\"yawRate\": 160,\r\n\t\t\t\t\"pitchScale\": 0.75,\r\n\t\t\t\t\"turnAccelYawBonus\": 220,\r\n\t\t\t\t\"turnAccelPitchBonus\": 0,\r\n\t\t\t\t\"turnAccelDelaySeconds\": 0,\r\n\t\t\t\t\"turnAccelTimeToMax\": 0.33000001311302185\r\n\t\t\t},\r\n\t\t\t\"lookSettingsADS\":\r\n\t\t\t{\r\n\t\t\t\t\"yawRate\": 110,\r\n\t\t\t\t\"pitchScale\": 0.75,\r\n\t\t\t\t\"turnAccelYawBonus\": 30,\r\n\t\t\t\t\"turnAccelPitchBonus\": 30,\r\n\t\t\t\t\"turnAccelDelaySeconds\": 0.25,\r\n\t\t\t\t\"turnAccelTimeToMax\": 1\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"customResponseCurve\":\r\n\t\t{\r\n\t\t\t\"displayName\": \"Undefined\",\r\n\t\t\t\"exponent\": 1,\r\n\t\t\t\"responseCurveArcDeg\": 52,\r\n\t\t\t\"responseCurveSlope\": 0.10000000149011612,\r\n\t\t\t\"responseCurveLinearBlendPow\": 0.20000000298023224\r\n\t\t},\r\n\t\t\"bInvertLook\": false,\r\n\t\t\"controllerFeedbackValue\": 1,\r\n\t\t\"bTurnAccel\": true,\r\n\t\t\"bAimAssist\": true,\r\n\t\t\"responseCurveIndex\": 0,\r\n\t\t\"responseCurveArcDeg\": 52,\r\n\t\t\"responseCurveSlope\": 0.10000000149011612,\r\n\t\t\"responseCurveLinearBlendPow\": 0.20000000298023224,\r\n\t\t\"customScaleADS\": 1,\r\n\t\t\"bToggleCrouch\": true,\r\n\t\t\"bToggleWalk\": true,\r\n\t\t\"bTogglePlantDefuse\": false,\r\n\t\t\"bToggleADS\": false,\r\n\t\t\"endWalkWhenFiringBehavior\": \"ADSOnly\",\r\n\t\t\"aDSTriggerThreshold\": 0.80000001192092896,\r\n\t\t\"deadZoneMoveAmount\": \"Large\",\r\n\t\t\"customDeadZoneMoveAmount\": 0,\r\n\t\t\"deadZoneLookAmount\": \"Small\",\r\n\t\t\"customDeadZoneLookAmount\": 0,\r\n\t\t\"walkRunDeflectionThreshold\": 0.94999998807907104\r\n\t},\r\n\t\"overrideKeymaps\":\r\n\t{\r\n\t\t\"overrides\": []\r\n\t},\r\n\t\"voiceChatInputAudioDevice\": \"\",\r\n\t\"voiceChatOutputAudioDevice\": \"\",\r\n\t\"bVoiceChatTeamEnabled\": true,\r\n\t\"voiceChatConsoleMode\": \"PARTY\",\r\n\t\"bVoiceChatPartyEnabled\": true,\r\n\t\"bVoiceChatPartyEnabledInGames\": false,\r\n\t\"bVoiceChatTeamPushToTalk\": true,\r\n\t\"bVoiceChatPartyPushToTalk\": true,\r\n\t\"enabledTextStats\": [],\r\n\t\"enabledGraphStats\": [],\r\n\t\"mutedChatContexts\": [],\r\n\t\"inputBindingsVersion\": 3\r\n}",
+    "matchmakingData": {
+      "playerId": "250D6BEA-4F0D-4DED-96CC-6E40EC80AFAB",
+      "casualMmr": 0,
+      "rankedMmr": 0,
+      "soloRankPoints": 0,
+      "casualMatchesPlayedCount": 16,
+      "rankedMatchesPlayedCount": 1,
+      "casualMatchesPlayedSeasonCount": 0,
+      "rankedMatchesPlayedSeasonCount": 0,
+      "rankedPlacementMatches": [],
+      "currentSoloRank": 0,
+      "highestTeamRank": 0,
+      "casualMatchesWonCount": 7,
+      "rankedMatchesWonCount": 0,
+      "priorityMatchmakingUntil": "0",
+      "restrictMatchmakingUntil": "0",
+      "matchmakingFlags": 1,
+      "mapHistory": "Commons_P,Commons_P,Metro_P,Greenbelt_P,Metro_P",
+      "country": "US",
+      "subdivision": "CO",
+      "primaryGeographicRegion": "uswest-1",
+      "secondaryGeographicRegion": "uscentral-2",
+      "address": "45.42.52.97"
+    },
+    "serverData": "{}",
+    "banner": {
+      "itemInstanceId": "FF01EF00-D0F2-4583-B4A4-CC56A606B404",
+      "itemType": "",
+      "alterationData": [],
+      "attachmentItemInstanceId": "",
+      "itemCatalogId": "SpectreBannerItemDef:BannerID_Track_Kit01_District_01",
+      "attachmentItemCatalogId": ""
+    },
+    "preSpray": {
+      "itemInstanceId": "31C3D93D-B02C-4543-B879-3D489DE6954C",
+      "itemType": "",
+      "alterationData": [],
+      "attachmentItemInstanceId": "",
+      "itemCatalogId": "SpectreSprayItemDef:SprayID_Community_01",
+      "attachmentItemCatalogId": ""
+    },
+    "matchSpray": {
+      "itemInstanceId": "C50FB72D-5642-4384-BBB6-13E9D244CB65",
+      "itemType": "",
+      "alterationData": [],
+      "attachmentItemInstanceId": "",
+      "itemCatalogId": "SpectreSprayItemDef:SprayID_Default_01",
+      "attachmentItemCatalogId": ""
+    },
+    "postSpray": {
+      "itemInstanceId": "FA3765FD-DC25-4B95-A515-86E12AF0320E",
+      "itemType": "",
+      "alterationData": [],
+      "attachmentItemInstanceId": "",
+      "itemCatalogId": "SpectreSprayItemDef:SprayID_Track_Kit02_District_01",
+      "attachmentItemCatalogId": ""
+    },
+    "attackerOutfitLoadoutId": "00000000-0000-0000-0000-000000000000",
+    "defenderOutfitLoadoutId": "00000000-0000-0000-0000-000000000000",
+    "attackerWeaponLoadoutId": "00000000-0000-0000-0000-000000000000",
+    "defenderWeaponLoadoutId": "00000000-0000-0000-0000-000000000000",
+    "lastUpdated": "2025-02-25 17:53:00.065",
+    "playerFlags": 0,
+    "playerServiceData": {
+      "tags": []
+    },
+    "lastLogin": "1722384864000"
+  }
+}

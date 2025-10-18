@@ -21,3 +21,6 @@ static constexpr uintptr_t RVA_LwsLog = 0x6F45ED0;
 static constexpr uintptr_t RVA_lws_ws_client_rx_sm = 0x6F545D6;
 static constexpr uintptr_t RVA_lws_read_h1 = 0x6F50970;
 static constexpr uintptr_t RVA_LwsParseFrame = 0x6F580E0;
+static constexpr uintptr_t RVA_Gamesight = 0x3340C30;
+static constexpr uintptr_t RVA_FmtW = 0x3835190;
+static constexpr uintptr_t RVA_VfmtPtr = 0x705AAF8;

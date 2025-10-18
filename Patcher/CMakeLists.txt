@@ -1,12 +1,12 @@
 find_package(safetyhook CONFIG REQUIRED)
 
-add_library(hook SHARED "hookmain.cpp" consolecmd.cpp hooking.cpp decrypt.cpp lwshook.cpp)
+add_library(hook SHARED "hookmain.cpp"   decrypt.cpp lwshook.cpp)
 target_link_libraries(hook PRIVATE safetyhook::safetyhook)
 target_compile_definitions(hook PRIVATE NDEBUG)
 
 add_library(dxgi SHARED dxgi.cpp)
 target_compile_definitions(dxgi PRIVATE NDEBUG)
-add_library(theiadumper SHARED theiadumper.cpp)
+add_library(theiadumper SHARED theiadumper.cpp) 
 target_compile_definitions(theiadumper PRIVATE NDEBUG)
 
 if(NOT DEFINED SPECTRE_BIN_DIR_CACHE OR NOT SPECTRE_BIN_DIR_CACHE)
@@ -43,6 +43,12 @@ foreach ($lib in $libs) {
 if ($target) { Write-Output $target }
 ]=])
 
+  execute_process(
+    COMMAND powershell -NoProfile -ExecutionPolicy Bypass -File "${_find_spectre_ps1}" -TargetFilename "${TARGET_FILENAME}"
+    OUTPUT_VARIABLE FOUND_FILE_PATH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+
   if(FOUND_FILE_PATH)
     file(TO_CMAKE_PATH "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64" FOUND_FILE_PATH_CMAKE)
     get_filename_component(SPECTRE_BIN_DIR "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64" DIRECTORY)
@@ -67,7 +73,7 @@ if(SPECTRE_BIN_DIR_CACHE)
       "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64/hook.dll"
   )
   add_executable(RunSpectre RunSpectre.cpp)
-  add_dependencies(RunSpectre dxgi theiadumper hook pragmabackend)
+  add_dependencies(RunSpectre dxgi theiadumper hook)
   target_compile_definitions(RunSpectre PRIVATE STEAM_APP_ID="2641470")
   target_compile_definitions(RunSpectre PRIVATE STEAM_ID="76561198370592897")
   target_compile_definitions(RunSpectre PRIVATE GAME_PATH="E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64/SpectreClient-Win64-Shipping.exe")
