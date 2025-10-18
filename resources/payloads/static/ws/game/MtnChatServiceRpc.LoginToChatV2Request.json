@@ -1,0 +1,9 @@
+{
+	"success": true,
+	"token": "e30.eyJpc3MiOiJtb3VudGE0ODgwLXNwNjciLCJleHAiOjE3NDA1MDYzMzgsInZ4YSI6ImxvZ2luIiwidnhpIjozNDAzLCJmIjoic2lwOi5tb3VudGE0ODgwLXNwNjcuMmI5NDA0NDMtNThkYS00NWI3LWI3MDQtOTQ0NTlhMmY5YTRkLkBzcGV4cC52aXZveC5jb20iLCJ0IjpudWxsLCJzdWIiOiIifQ.LskJ0fkt1TsmL35I-pVK3ZXH0lnDVE5M6vcr1IlbTzk",
+	"generalchatroom": "global",
+	"generalchattoken": "e30.eyJpc3MiOiJtb3VudGE0ODgwLXNwNjciLCJleHAiOjE3NDA1MDYzMzgsInZ4YSI6ImpvaW4iLCJ2eGkiOjM0MDQsImYiOiJzaXA6Lm1vdW50YTQ4ODAtc3A2Ny4yYjk0MDQ0My01OGRhLTQ1YjctYjcwNC05NDQ1OWEyZjlhNGQuQHNwZXhwLnZpdm94LmNvbSIsInQiOiJzaXA6Y29uZmN0bC1nLW1vdW50YTQ4ODAtc3A2Ny5nbG9iYWxAc3BleHAudml2b3guY29tIiwic3ViIjoiIn0.lz-lWxkGtCxRZ-D6lZ8bHBTswUSNlFYnPhtTvRTWNvg",
+	"chatserver": "https: //spexp.www.vivox.com/api2",
+	"chatdomain": "spexp.vivox.com",
+	"chatissuer": "mounta4880-sp67"
+}
