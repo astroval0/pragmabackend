@@ -1,12 +1,12 @@
 find_package(safetyhook CONFIG REQUIRED)
 
-add_library(hook SHARED "hookmain.cpp" consolecmd.cpp hooking.cpp decrypt.cpp lwshook.cpp)
+add_library(hook SHARED "hookmain.cpp"   decrypt.cpp lwshook.cpp)
 target_link_libraries(hook PRIVATE safetyhook::safetyhook)
 target_compile_definitions(hook PRIVATE NDEBUG)
 
 add_library(dxgi SHARED dxgi.cpp)
 target_compile_definitions(dxgi PRIVATE NDEBUG)
-add_library(theiadumper SHARED theiadumper.cpp)
+add_library(theiadumper SHARED theiadumper.cpp) 
 target_compile_definitions(theiadumper PRIVATE NDEBUG)
 
 if(NOT DEFINED SPECTRE_BIN_DIR_CACHE OR NOT SPECTRE_BIN_DIR_CACHE)
@@ -50,33 +50,33 @@ if ($target) { Write-Output $target }
   )
 
   if(FOUND_FILE_PATH)
-    file(TO_CMAKE_PATH "${FOUND_FILE_PATH}" FOUND_FILE_PATH_CMAKE)
-    get_filename_component(SPECTRE_BIN_DIR "${FOUND_FILE_PATH_CMAKE}" DIRECTORY)
-    set(SPECTRE_BIN_DIR_CACHE "${SPECTRE_BIN_DIR}" CACHE PATH "directory of spectre exe")
+    file(TO_CMAKE_PATH "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64" FOUND_FILE_PATH_CMAKE)
+    get_filename_component(SPECTRE_BIN_DIR "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64" DIRECTORY)
+    set(SPECTRE_BIN_DIR_CACHE "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64" CACHE PATH "directory of spectre exe")
   else()
     message(WARNING "Spectre Divide not found under Steam libraries.")
   endif()
 endif()
-message(STATUS "Spectre bin path: ${SPECTRE_BIN_DIR_CACHE}")
+message(STATUS "Spectre bin path: E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64")
 
 # Only add the copy command if the path was found
 if(SPECTRE_BIN_DIR_CACHE)
-  target_compile_definitions(dxgi PRIVATE HOOK_DLL_PATH="${SPECTRE_BIN_DIR_CACHE}/hook.dll")
+  target_compile_definitions(dxgi PRIVATE HOOK_DLL_PATH="E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64/hook.dll")
   add_custom_command(TARGET dxgi POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       $<TARGET_FILE:dxgi>
-      "${SPECTRE_BIN_DIR_CACHE}/dxgi.dll"
+      "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64/dxgi.dll"
   )
   add_custom_command(TARGET hook POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       $<TARGET_FILE:hook>
-      "${SPECTRE_BIN_DIR_CACHE}/hook.dll"
+      "E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64/hook.dll"
   )
   add_executable(RunSpectre RunSpectre.cpp)
-  add_dependencies(RunSpectre dxgi theiadumper hook pragmabackend)
+  add_dependencies(RunSpectre dxgi theiadumper hook)
   target_compile_definitions(RunSpectre PRIVATE STEAM_APP_ID="2641470")
   target_compile_definitions(RunSpectre PRIVATE STEAM_ID="76561198370592897")
-  target_compile_definitions(RunSpectre PRIVATE GAME_PATH="${SPECTRE_BIN_DIR_CACHE}/SpectreClient-Win64-Shipping.exe")
+  target_compile_definitions(RunSpectre PRIVATE GAME_PATH="E:/Apps/Steam/steamapps/content/app_2641470/SpectreDivideFeb25/Spectre/Binaries/Win64/SpectreClient-Win64-Shipping.exe")
   target_compile_definitions(RunSpectre PRIVATE BACKEND_PATH="${CMAKE_CURRENT_BINARY_DIR}/../pragmabackend.exe")
   target_compile_definitions(RunSpectre PRIVATE BACKEND_DIR="${CMAKE_CURRENT_BINARY_DIR}/../")
   set_target_properties(RunSpectre PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
