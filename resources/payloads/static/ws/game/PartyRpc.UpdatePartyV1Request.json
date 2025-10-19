@@ -1,0 +1,402 @@
+{
+  "party": {
+    "extBroadcastParty": {
+      "pool": "standard_casual",
+      "standard": {
+        "mode": "Standard"
+      },
+      "lobbyMode": "standard_casual",
+      "removePlayers": [],
+      "chatId": "",
+      "version": "171268",
+      "region": "",
+      "tag": "",
+      "profile": "",
+      "tokens": [],
+      "useTeamMmr": false,
+      "hasAcceptableRegion": true,
+      "crossPlayPreference": {
+        "platform": "CROSS_PLAY_PLATFORM_PC"
+      }
+    },
+    "extPrivatePlayer": {},
+    "partyId": "b0cfc843-4cbc-4e5f-9e59-0934ebad4f1f",
+    "partyMembers": [
+      {
+        "ext": {
+          "version": "171268",
+          "region": "",
+          "playerData": {
+            "attackerOutfitLoadout": {
+              "playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
+              "loadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
+              "headData": {
+                "itemInstanceId": "56490170-5353-4A9D-8F5F-14B0BBB91B63",
+                "itemType": "",
+                "alterationData": [
+                  {
+                    "channelId": "SkinTone",
+                    "alterationId": "Option5"
+                  },
+                  {
+                    "channelId": "LipColor",
+                    "alterationId": "Option3"
+                  },
+                  {
+                    "channelId": "EyeColor",
+                    "alterationId": "Option6"
+                  },
+                  {
+                    "channelId": "EyebrowColor",
+                    "alterationId": "Option4"
+                  },
+                  {
+                    "channelId": "Voice",
+                    "alterationId": "Option5"
+                  }
+                ],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "CharacterCosmeticItemHead:HeadID_Face_003",
+                "attachmentItemCatalogId": ""
+              },
+              "hairData": {
+                "itemInstanceId": "5F021DBA-65C9-48F9-AE02-3B6EEBB1A430",
+                "itemType": "",
+                "alterationData": [
+                  {
+                    "channelId": "Color",
+                    "alterationId": "Option7"
+                  }
+                ],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "CharacterCosmeticItemSimple:HairID_Hair_0016",
+                "attachmentItemCatalogId": ""
+              },
+              "faceStyleData": {
+                "itemInstanceId": "",
+                "itemType": "",
+                "alterationData": [],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "",
+                "attachmentItemCatalogId": ""
+              },
+              "faceAccessoryData": {
+                "itemInstanceId": "",
+                "itemType": "",
+                "alterationData": [],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "",
+                "attachmentItemCatalogId": ""
+              },
+              "outfitData": {
+                "itemInstanceId": "AC5035E3-6572-484B-A5D8-1FFCC1F367F1",
+                "itemType": "",
+                "alterationData": [
+                  {
+                    "channelId": "Color",
+                    "alterationId": "Option1"
+                  }
+                ],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Default",
+                "attachmentItemCatalogId": ""
+              }
+            },
+            "defenderOutfitLoadout": {
+              "playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
+              "loadoutId": "ebb85cdd-827a-4884-9eb5-0b584d43be19",
+              "headData": {
+                "itemInstanceId": "711AF3EC-F1E0-4C0B-AE88-4BD2C51EB23F",
+                "itemType": "",
+                "alterationData": [
+                  {
+                    "channelId": "SkinTone",
+                    "alterationId": "Option8"
+                  },
+                  {
+                    "channelId": "LipColor",
+                    "alterationId": "Option2"
+                  },
+                  {
+                    "channelId": "EyeColor",
+                    "alterationId": "Option6"
+                  },
+                  {
+                    "channelId": "EyebrowColor",
+                    "alterationId": "Option4"
+                  },
+                  {
+                    "channelId": "Voice",
+                    "alterationId": "Option3"
+                  }
+                ],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "CharacterCosmeticItemHead:HeadID_Face_002_B",
+                "attachmentItemCatalogId": ""
+              },
+              "hairData": {
+                "itemInstanceId": "A98F9664-2387-4931-B6A2-8F0E7983B856",
+                "itemType": "",
+                "alterationData": [
+                  {
+                    "channelId": "Color",
+                    "alterationId": "Option5"
+                  }
+                ],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "CharacterCosmeticItemSimple:HairID_Hair_0020",
+                "attachmentItemCatalogId": ""
+              },
+              "faceStyleData": {
+                "itemInstanceId": "",
+                "itemType": "",
+                "alterationData": [],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "",
+                "attachmentItemCatalogId": ""
+              },
+              "faceAccessoryData": {
+                "itemInstanceId": "",
+                "itemType": "",
+                "alterationData": [],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "",
+                "attachmentItemCatalogId": ""
+              },
+              "outfitData": {
+                "itemInstanceId": "40268935-F961-4783-934F-C46B3E7DC1DB",
+                "itemType": "",
+                "alterationData": [
+                  {
+                    "channelId": "Color",
+                    "alterationId": "Option1"
+                  }
+                ],
+                "attachmentItemInstanceId": "",
+                "itemCatalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Default",
+                "attachmentItemCatalogId": ""
+              }
+            },
+            "attackerWeaponLoadout": {
+              "playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
+              "loadoutId": "5152439b-2aaf-484c-9de0-0fdea92d99c9"
+            },
+            "defenderWeaponLoadout": {
+              "playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
+              "loadoutId": "ff09ddea-2594-4bea-abd1-d6f255ce3f57"
+            },
+            "matchmakingData": {
+              "soloRankPoints": 0.0,
+              "currentSoloRank": 0.0,
+              "highestTeamRank": 0.0,
+              "priorityMatchmakingUntil": "0",
+              "restrictMatchmakingUntil": "0",
+              "matchmakingFlags": 1.0,
+              "casualMatchesPlayedCount": 0.0,
+              "casualMatchesWonCount": 0.0,
+              "primaryGeographicRegion": "",
+              "secondaryGeographicRegion": ""
+            },
+            "banner": {
+              "itemInstanceId": "4F30362E-0F4A-4389-8C43-4C588924CA09",
+              "itemType": "",
+              "alterationData": [],
+              "attachmentItemInstanceId": "",
+              "itemCatalogId": "SpectreBannerItemDef:BannerID_StudioPack",
+              "attachmentItemCatalogId": ""
+            }
+          },
+          "preferredTeam": "TEAM0",
+          "sharedClientData": "{\r\n\t\"accountIdProvider\": \"STEAM\",\r\n\t\"platformName\": \"STEAM\",\r\n\t\"crossPlayPlatformKind\": \"CROSS_PLAY_PLATFORM_PC\",\r\n\t\"currentProviderAccountId\": \"76561199782684391\",\r\n\t\"crewId\": \"\",\r\n\t\"gamesRemainingUntilCrewJoin\": 110,\r\n\t\"battlePassLevel\": 0\r\n}",
+          "limitedInstancedInventory": [
+            {
+              "catalogId": "SpectreBannerItemDef:BannerID_StudioPack",
+              "instanceId": "4f30362e-0f4a-4389-8c43-4c588924ca09",
+              "ext": {
+                "reserved": 0.0,
+                "instancedCustomizationData": {
+                  "instancedAlterationChannels": []
+                },
+                "viewed": false
+              }
+            },
+            {
+              "catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Default",
+              "instanceId": "ac5035e3-6572-484b-a5d8-1ffcc1f367f1",
+              "ext": {
+                "reserved": 0.0,
+                "instancedCustomizationData": {
+                  "instancedAlterationChannels": [
+                    {
+                      "channelId": "Color",
+                      "ownedAlterations": [
+                        "Option1"
+                      ]
+                    }
+                  ]
+                },
+                "viewed": false
+              }
+            },
+            {
+              "catalogId": "CharacterCosmeticItemHead:HeadID_Face_003",
+              "instanceId": "56490170-5353-4a9d-8f5f-14b0bbb91b63",
+              "ext": {
+                "reserved": 0.0,
+                "instancedCustomizationData": {
+                  "instancedAlterationChannels": [
+                    {
+                      "channelId": "SkinTone",
+                      "ownedAlterations": [
+                        "Option5"
+                      ]
+                    },
+                    {
+                      "channelId": "LipColor",
+                      "ownedAlterations": [
+                        "Option3"
+                      ]
+                    },
+                    {
+                      "channelId": "EyeColor",
+                      "ownedAlterations": [
+                        "Option6"
+                      ]
+                    },
+                    {
+                      "channelId": "EyebrowColor",
+                      "ownedAlterations": [
+                        "Option4"
+                      ]
+                    },
+                    {
+                      "channelId": "Voice",
+                      "ownedAlterations": [
+                        "Option5"
+                      ]
+                    }
+                  ]
+                },
+                "viewed": false
+              }
+            },
+            {
+              "catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0016",
+              "instanceId": "5f021dba-65c9-48f9-ae02-3b6eebb1a430",
+              "ext": {
+                "reserved": 0.0,
+                "instancedCustomizationData": {
+                  "instancedAlterationChannels": [
+                    {
+                      "channelId": "Color",
+                      "ownedAlterations": [
+                        "Option7"
+                      ]
+                    }
+                  ]
+                },
+                "viewed": false
+              }
+            },
+            {
+              "catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Default",
+              "instanceId": "40268935-f961-4783-934f-c46b3e7dc1db",
+              "ext": {
+                "reserved": 0.0,
+                "instancedCustomizationData": {
+                  "instancedAlterationChannels": [
+                    {
+                      "channelId": "Color",
+                      "ownedAlterations": [
+                        "Option1"
+                      ]
+                    }
+                  ]
+                },
+                "viewed": false
+              }
+            },
+            {
+              "catalogId": "CharacterCosmeticItemHead:HeadID_Face_002_B",
+              "instanceId": "711af3ec-f1e0-4c0b-ae88-4bd2c51eb23f",
+              "ext": {
+                "reserved": 0.0,
+                "instancedCustomizationData": {
+                  "instancedAlterationChannels": [
+                    {
+                      "channelId": "SkinTone",
+                      "ownedAlterations": [
+                        "Option8"
+                      ]
+                    },
+                    {
+                      "channelId": "LipColor",
+                      "ownedAlterations": [
+                        "Option2"
+                      ]
+                    },
+                    {
+                      "channelId": "EyeColor",
+                      "ownedAlterations": [
+                        "Option6"
+                      ]
+                    },
+                    {
+                      "channelId": "EyebrowColor",
+                      "ownedAlterations": [
+                        "Option4"
+                      ]
+                    },
+                    {
+                      "channelId": "Voice",
+                      "ownedAlterations": [
+                        "Option3"
+                      ]
+                    }
+                  ]
+                },
+                "viewed": false
+              }
+            },
+            {
+              "catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0020",
+              "instanceId": "a98f9664-2387-4931-b6a2-8f0e7983b856",
+              "ext": {
+                "reserved": 0.0,
+                "instancedCustomizationData": {
+                  "instancedAlterationChannels": [
+                    {
+                      "channelId": "Color",
+                      "ownedAlterations": [
+                        "Option5"
+                      ]
+                    }
+                  ]
+                },
+                "viewed": false
+              }
+            }
+          ],
+          "rankedModeUnlocked": false
+        },
+        "playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
+        "displayName": {
+          "displayName": "SpectreRevival",
+          "discriminator": "3361"
+        },
+        "isReady": true,
+        "isLeader": true,
+        "socialId": "2c4eef11-d53e-48c2-a80f-a3f8234e61f7"
+      }
+    ],
+    "inviteCode": "CDPLJB",
+    "preferredGameServerZones": [
+      "uscentral-1",
+      "uscentral-2",
+      "uswest-1",
+      "uswest-2",
+      "useast-1"
+    ],
+    "version": "3"
+  }
+}

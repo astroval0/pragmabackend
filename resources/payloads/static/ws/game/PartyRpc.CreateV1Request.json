@@ -1,0 +1,39 @@
+{
+  "createRequestExt": {
+    "lobbyMode": "standard_casual",
+    "version": "171268",
+    "region": "",
+    "tag": "",
+    "useTeamMmr": false,
+    "profile": "",
+    "acceptableRegions": [],
+    "crossPlayPreference": {
+      "platform": "CROSS_PLAY_PLATFORM_PC"
+    },
+    "standard": {
+      "mode": "Standard"
+    }
+  },
+  "playerJoinRequestExt": {
+    "preferredTeam": "SPECTATOR",
+    "version": "171268",
+    "region": "",
+    "clientData": "{\r\n\t\"clientPublicKey\": \"\"\r\n}",
+    "preferredRegions": [],
+    "regionPings": {
+      "uscentral-1": 17,
+      "uscentral-2": 33,
+      "uswest-1": 33,
+      "uswest-2": 33,
+      "useast-1": 50
+    },
+    "sharedClientData": "{\r\n\t\"accountIdProvider\": \"STEAM\",\r\n\t\"platformName\": \"STEAM\",\r\n\t\"crossPlayPlatformKind\": \"CROSS_PLAY_PLATFORM_PC\",\r\n\t\"currentProviderAccountId\": \"76561198370592897\",\r\n\t\"crewId\": \"\",\r\n\t\"gamesRemainingUntilCrewJoin\": 0,\r\n\t\"battlePassLevel\": 110\r\n}",
+    "crossPlayPreference": {
+      "platform": "ANY_CROSS_PLAY_PLATFORM"
+    }
+  },
+  "gameClientVersion": "",
+  "preferredGameServerZones": [],
+  "gameServerZoneToPing": {},
+  "playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab"
+}

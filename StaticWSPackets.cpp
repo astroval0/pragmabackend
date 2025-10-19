@@ -46,7 +46,7 @@ void RegisterStaticWSHandlers() {
 	}
 	RegisterRegexHandlerFromFiles(SpectreRpcType("MtnBeaconServiceRpc.GetBeaconEndpointsV1Request"), {
 		{regex("hathora-udp\""), "resources/payloads/ws/game/beacon/hathora-udp.json"},
-		{regex("hatora\""), "resources/payloads/ws/game/beacon/hathora.json"}
+		{regex("hathora\""), "resources/payloads/ws/game/beacon/hathora.json"}
 	});
 }
 #pragma warning(pop)
