@@ -12,7 +12,7 @@ using tcp = boost::asio::ip::tcp;
 namespace ssl = boost::asio::ssl;
 namespace http = boost::beast::http;
 using ws = boost::beast::websocket::stream<tcp::socket>;
-using json = nlohmann::json;
+using json = nlohmann::ordered_json;
 
 class SpectreWebsocket {
 private:
@@ -31,11 +31,13 @@ public:
 	}
 
 	void SendPacket(std::shared_ptr<json> res) {
-		(*res)["sequenceNumber"] = curSequenceNumber;
+		json packet;
+		packet["sequenceNumber"] = curSequenceNumber;
+		packet["response"] = *res;
 		curSequenceNumber++;
 		socket.text(true);
 		//dont pass temporary because beast will fragment it
-		std::string msg = res->dump();
+		std::string msg = packet.dump();
 		socket.write(boost::asio::buffer(msg));
 	}
 };

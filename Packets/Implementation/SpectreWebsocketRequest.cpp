@@ -2,8 +2,6 @@
 #include <nlohmann/json.hpp>
 #include <spdlog/spdlog.h>
 
-using json = nlohmann::json;
-
 SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf req) : 
 	m_websocket(sock), m_requestbuf(std::move(req)) {
 	json reqjson = json::parse(static_cast<const char*>(m_requestbuf.data().data()), static_cast<const char*>(m_requestbuf.data().data()) + m_requestbuf.size());
@@ -18,17 +16,15 @@ SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf 
 }
 
 std::shared_ptr<json> SpectreWebsocketRequest::GetBaseJsonResponse() {
-    json out = json::object();
     std::string resType = m_requestType.GetName();
     if (resType.size() >= 7 && resType.compare(resType.size() - 7, 7, "Request") == 0)
         resType.erase(resType.size() - 7);
     resType += "Response";
-    out["response"] = json{
-        {"requestId", m_requestId},
-        {"type",      resType},
-        {"payload",   json::object()}
-    };
-    return std::make_shared<json>(std::move(out));
+	json response;
+	response["requestId"] = m_requestId;
+	response["type"] = resType;
+	response["payload"] = json::object();
+    return std::make_shared<json>(std::move(response));
 }
 
 void SpectreWebsocketRequest::SendEmptyResponse() {

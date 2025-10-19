@@ -9,7 +9,6 @@
 #include <SpectreWebsocket.h>
 
 using reqbuf = boost::beast::flat_buffer;
-using json = nlohmann::json;
 
 class SpectreWebsocketRequest {
 private:

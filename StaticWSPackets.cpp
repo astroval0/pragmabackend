@@ -5,8 +5,6 @@
 #include <spdlog/spdlog.h>
 #include <string>
 
-using json = nlohmann::json;
-
 void RegisterStaticHandlerFromFile(std::string filename, SpectreRpcType rpcType) {
 	std::ifstream resfile(filename);
 	if (!resfile.is_open()) {
