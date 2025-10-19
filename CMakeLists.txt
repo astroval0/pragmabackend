@@ -18,19 +18,14 @@ endif()
 
 file(GLOB_RECURSE RESOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/resources/*")
 
-add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/resources/.copied
+add_custom_target(copy_resources ALL
     COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_CURRENT_BINARY_DIR}/resources
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/resources ${CMAKE_CURRENT_BINARY_DIR}/resources
-    COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_BINARY_DIR}/resources/.copied
-    DEPENDS ${RESOURCE_FILES}
     COMMENT "Copying resources directory to binary dir"
 )
 
-add_custom_target(copy_responses DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/resources/.copied)
-
 add_executable(pragmabackend main.cpp)
-add_dependencies(pragmabackend copy_responses)
+add_dependencies(pragmabackend copy_resources)
 
 find_package(Boost REQUIRED COMPONENTS beast bimap)
 find_package(boost_asio CONFIG REQUIRED)
