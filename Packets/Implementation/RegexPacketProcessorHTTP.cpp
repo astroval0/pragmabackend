@@ -9,7 +9,7 @@ void RegexPayloadProcessorHTTP::Process(http::request<http::string_body> const& 
     res.set(http::field::content_type, "application/json; charset=UTF-8");
     res.set(http::field::vary, "Origin");
     for (const auto& [regex, payload] : m_resMap) {
-        if (std::regex_match(req.body(), regex.m_rx)) {
+        if (std::regex_search(req.body(), regex.m_rx)) {
             res.body() = payload->dump();
             res.prepare_payload();
             http::write(sock, res);
