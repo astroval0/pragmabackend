@@ -8,6 +8,31 @@
     "spdlog",
     "boost-bimap",
     "nlohmann-json",
-    "safetyhook"
+    "safetyhook",
+    {
+      "name": "sqlite3",
+      "features": [
+        "dbpage-vtab",
+        "dbstat",
+        "fts3",
+        "fts4",
+        "fts5",
+        "geopoly",
+        "json1",
+        "limit",
+        "math",
+        "memsys3",
+        "memsys5",
+        "omit-load-extension",
+        "rtree",
+        "session",
+        "snapshot",
+        "soundex",
+        "tool",
+        "unicode",
+        "zlib"
+      ]
+    },
+    "sqlitecpp"
   ]
 }
