@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+message InstancedItem {
+	string catalogId = 1;
+	string instanceId = 2;
+	WeaponExt ext = 3;
+}
+
+message WeaponExt {
+	double reserved = 1;
+	oneof customizationData {
+		InstancedCustomizationData instancedCustomizationData = 2;
+		ActiveProgressionData activeProgressionData = 3;
+	}
+	bool viewed = 4;
+}
+
+message InstancedCustomizationData {
+	repeated AlterationChannel instancedAlterationChannels = 1;
+}
+
+message AlterationChannel {
+	string channelId = 1;
+	repeated string ownedAlterations = 2;
+}
+
+message ActiveProgressionData {
+	ProgressByStat progressByStat = 1;
+	bool areObjectivesCompleted = 2;
+	uint32 currentObjectiveId = 3;
+	double currentObjectiveIndex = 4;
+	bool isPremiumUnlocked = 5;
+	ObjectiveContribution lastContribution = 6;
+	ProgressByStat stat = 7;
+}
+
+message ObjectiveContribution {
+	enum SourceType {
+		MATCH = 0;
+	}
+	SourceType sourceType = 1;
+	string sourceId = 2;
+}
+
+message ProgressByStat {
+	uint32 stat = 1;
+}
