@@ -40,7 +40,7 @@ public:
 	sql::Database* GetRaw();
 
 	template<typename T>
-	std::vector<std::unique_ptr<T>> GetFields(sql::Statement& statement, FieldKey key) {
+	std::vector<std::unique_ptr<T>> GetFields(sql::Statement& query, FieldKey key) {
 		static_assert(std::is_base_of<pbuf::Message, T>::value, "Type provided to GetFields must inherit from protobuf::Message");
 		std::vector<std::unique_ptr<T>> output;
 		while (query.executeStep()) {
@@ -70,7 +70,7 @@ public:
 	}
 
 	template<typename T>
-	std::unique_ptr<T> GetField(sql::Statement& statement, FieldKey key) {
+	std::unique_ptr<T> GetField(sql::Statement& query, FieldKey key) {
 		static_assert(std::is_base_of<pbuf::Message, T>::value, "Type provided to GetField must inherit from protobuf::Message");
 		if (!query.executeStep()) {
 			return nullptr;
