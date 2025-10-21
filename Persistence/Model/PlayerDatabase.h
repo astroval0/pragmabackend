@@ -2,7 +2,6 @@
 
 class PlayerDatabase : public Database {
 public:
-	PlayerDatabase(fs::path path) : Database(path) {};
-	void OnDbLoad() override;
-	const char* GetTableName() override;
+	PlayerDatabase(fs::path path);
+	const std::string GetTableName() override;
 };

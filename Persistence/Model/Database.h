@@ -19,15 +19,14 @@ private:
 	static std::unordered_map<FieldKey, const char*> classNames;
 public:
 	Database(fs::path dbPath);
-	virtual void OnDbLoad() {};
 	sql::Database* GetRaw();
-	std::shared_ptr<pbuf::Message> CreateObjectOfFieldType(FieldKey key);
-	std::vector<std::shared_ptr<pbuf::Message>> GetFields(sql::Statement& statement, FieldKey key);
-	std::shared_ptr<pbuf::Message> GetField(sql::Statement& statement, FieldKey key);
-	sql::Statement GetStatement(std::string command);
+	std::unique_ptr<pbuf::Message> CreateObjectOfFieldType(FieldKey key);
+	std::vector<std::unique_ptr<pbuf::Message>> GetFields(sql::Statement& statement, FieldKey key);
+	std::unique_ptr<pbuf::Message> GetField(sql::Statement& statement, FieldKey key);
+	sql::Statement FormatStatement(std::string command, FieldKey key);
 	void AddPrototype(FieldKey key, const char* className);
 	bool IsFieldPopulated(FieldKey key);
 	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object);
 	const char* GetFieldName(FieldKey key);
-	virtual const char* GetTableName() = 0;
+	virtual const std::string GetTableName() = 0;
 };
