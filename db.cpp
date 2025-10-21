@@ -8,5 +8,5 @@ namespace fs = std::filesystem;
 
 void SetupDatabase() {
 	PlayerDatabase playerData(fs::path("playerdata.sqlite"));
-	playerData.AddPrototype(FieldKey::PLAYER_INGAME_NAME, "PlayerName");
+	playerData.AddPrototype<PlayerName>(FieldKey::PLAYER_INGAME_NAME);
 }
