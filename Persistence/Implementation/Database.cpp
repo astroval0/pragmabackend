@@ -1,9 +1,8 @@
+#include "PlayerName.pb.h" 
 #include "Database.h"
 #include <spdlog/spdlog.h>
 
-std::unordered_map<FieldKey, const google::protobuf::Descriptor*> Database::protoTypes;
 std::unordered_map<FieldKey, const char*> Database::classNames;
-pbuf::DynamicMessageFactory messageFactory;
 
 Database::Database(fs::path dbPath) : m_filename(dbPath), m_dbRaw(dbPath.string(), sql::OPEN_READWRITE | sql::OPEN_CREATE) {}
 
@@ -12,24 +11,13 @@ sql::Database* Database::GetRaw() {
 }
 
 std::unique_ptr<pbuf::Message> Database::CreateObjectOfFieldType(FieldKey key) {
-	const pbuf::Descriptor* type = protoTypes.at(key);
-	if (type == nullptr) {
-		spdlog::error("Called CreateObjectOfFieldType with an invalid FieldKey");
-		throw;
+	switch (key) {
+	case FieldKey::PLAYER_INGAME_NAME:
+		return std::make_unique<PlayerName>(); 
+	default:
+		spdlog::error("Unknown FieldKey {}", static_cast<uint32_t>(key));
+		throw std::runtime_error("Unknown FieldKey in CreateObjectOfFieldType");
 	}
-	const pbuf::Message* prototype = messageFactory.GetPrototype(type);
-	if (prototype == nullptr) {
-		spdlog::error("null prototype");
-		throw;
-	}
-	pbuf::Message* clone = prototype->New();
-	if (clone == nullptr) {
-		spdlog::error("null clone");
-		throw;
-	}
-	return std::unique_ptr<pbuf::Message>(
-		clone
-	);
 }
 
 std::vector<std::unique_ptr<pbuf::Message>> Database::GetFields(sql::Statement& query, FieldKey key) {
@@ -99,7 +87,6 @@ sql::Statement Database::FormatStatement(std::string command, FieldKey key) {
 
 void Database::AddPrototype(FieldKey key, const char* className) {
 	classNames.insert({ key, className });
-	protoTypes.insert({ key, pbuf::DescriptorPool::generated_pool()->FindMessageTypeByName(className) });
 }
 
 /** Makes the following assumptions:

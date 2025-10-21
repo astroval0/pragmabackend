@@ -15,7 +15,6 @@ class Database {
 private:
 	fs::path m_filename;
 	sql::Database m_dbRaw;
-	static std::unordered_map<FieldKey, const pbuf::Descriptor*> protoTypes;
 	static std::unordered_map<FieldKey, const char*> classNames;
 public:
 	Database(fs::path dbPath);
