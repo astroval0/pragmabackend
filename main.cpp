@@ -28,6 +28,7 @@
 #include <HeartbeatProcessor.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
+#include "db.cpp"
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -149,25 +150,31 @@ void ConnectionAcceptor(unsigned short port) {
 // the main accept loop
 // binds to 127.0.0.1:443, accepts a connection, spins a thread, repeat
 int main() {
-	SetupLogger();
-	logger->info("starting server...");
-	logger->info("Registering handlers...");
-	RegisterStaticHTTPHandlers();
-	RegisterStaticWSHandlers();
-	new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
-	logger->info("Finished registering handlers");
-	std::thread gameThread = std::thread([] {
-		ConnectionAcceptor(GAME_PORT); // game
-		});
-	std::thread socialThread = std::thread([] {
-		ConnectionAcceptor(SOCIAL_PORT); // social
-		});
-	std::thread wsThread = std::thread([] {
-		ConnectionAcceptor(WS_PORT); // websockets
-		});
-	logger->info("acceptor threads started");
-	gameThread.join();
-	socialThread.join();
-	wsThread.join();
+	try {
+		SetupLogger();
+		logger->info("starting server...");
+		SetupDatabase();
+		logger->info("Registering handlers...");
+		RegisterStaticHTTPHandlers();
+		RegisterStaticWSHandlers();
+		new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
+		logger->info("Finished registering handlers");
+		std::thread gameThread = std::thread([] {
+			ConnectionAcceptor(GAME_PORT); // game
+			});
+		std::thread socialThread = std::thread([] {
+			ConnectionAcceptor(SOCIAL_PORT); // social
+			});
+		std::thread wsThread = std::thread([] {
+			ConnectionAcceptor(WS_PORT); // websockets
+			});
+		logger->info("acceptor threads started");
+		gameThread.join();
+		socialThread.join();
+		wsThread.join();
+	}
+	catch (const std::exception& e) {
+		logger->error("unhandled exception caught in main: {}", e.what());
+	}
 	return 0;
 }
