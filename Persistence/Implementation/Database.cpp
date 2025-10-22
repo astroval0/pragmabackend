@@ -3,7 +3,12 @@
 
 std::unordered_map<FieldKey, const std::string> Database::classNames;
 
-Database::Database(fs::path dbPath) : m_filename(dbPath), m_dbRaw(dbPath.string(), sql::OPEN_READWRITE | sql::OPEN_CREATE) {}
+Database::Database(fs::path dbPath, const std::string tableName, const std::string keyFieldName, const std::string keyFieldType) 
+	: m_filename(dbPath), m_dbRaw(dbPath.string(), sql::OPEN_READWRITE | sql::OPEN_CREATE),
+  m_tableName(tableName), m_keyFieldName(keyFieldName), m_keyFieldType(m_keyFieldType)
+{
+	m_dbRaw.exec("CREATE TABLE IF NOT EXISTS " + GetTableName() + " (" + GetKeyFieldName() + " " + GetKeyFieldType() + " PRIMARY KEY);");
+}
 
 sql::Database* Database::GetRaw() {
 	return &m_dbRaw;
@@ -50,4 +55,16 @@ bool IsFieldPopulated(sql::Statement& command) {
 
 const std::string& Database::GetFieldName(FieldKey key) {
 	return classNames.at(key);
+}
+
+const std::string& Database::GetTableName() {
+	return m_tableName;
+}
+
+const std::string& Database::GetKeyFieldName() {
+	return m_keyFieldName;
+}
+
+const std::string& Database::GetKeyFieldType() {
+	return m_keyFieldType;
 }

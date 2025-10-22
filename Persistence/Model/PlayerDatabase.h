@@ -6,5 +6,4 @@ private:
 public:
 	static PlayerDatabase& Get();
 	PlayerDatabase(fs::path path);
-	const std::string GetTableName() override;
 };
