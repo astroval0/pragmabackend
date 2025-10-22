@@ -28,7 +28,6 @@
 #include <HeartbeatProcessor.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
-#include "db.cpp"
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -153,7 +152,6 @@ int main() {
 	try {
 		SetupLogger();
 		logger->info("starting server...");
-		SetupDatabase();
 		logger->info("Registering handlers...");
 		RegisterStaticHTTPHandlers();
 		RegisterStaticWSHandlers();
