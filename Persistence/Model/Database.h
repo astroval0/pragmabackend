@@ -125,7 +125,7 @@ public:
 
 	bool IsFieldPopulated(FieldKey key);
 
-	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object);
+	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex);
 
 	const std::string& GetFieldName(FieldKey key);
 

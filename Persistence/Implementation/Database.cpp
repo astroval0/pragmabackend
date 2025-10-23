@@ -32,15 +32,19 @@ sql::Statement Database::FormatStatement(std::string command, FieldKey key) {
 
 /** Makes the following assumptions:
 * - statement is valid SQL
-* - statement's first unfilled value is the value
+* - statement has 1 questionmark, and it's index(1-indexed) is passed for dataBindIndex
 Eg valid: INSERT INTO players (PlayerName) VALUES (?) WHERE HI=? B=2
 */
-void Database::SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object) {
+void Database::SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex) {
+	if (dataBindIndex == 0) {
+		spdlog::error("passed 0 for data bind index which is not valid");
+		throw;
+	}
 	try {
 		std::vector<uint8_t> bytes(object->ByteSizeLong() + sizeof(FieldKey));
 		object->SerializeToArray(bytes.data() + sizeof(FieldKey), object->ByteSizeLong());
 		memcpy(bytes.data(), &key, sizeof(FieldKey));
-		statement.bind(1, bytes.data(), bytes.size());
+		statement.bind(dataBindIndex, bytes.data(), bytes.size());
 		statement.exec();
 	}
 	catch (const std::exception& e) {

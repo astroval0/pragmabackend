@@ -160,8 +160,8 @@ int main() {
 		RegisterStaticHTTPHandlers();
 		RegisterStaticWSHandlers();
 		new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
-		//new FieldFetchProcessor<Inventory>(SpectreRpcType("InventoryRpc.GetInventoryV2Request"), 
-		//	"resources/payloads/ws/game/DefaultInventory_min.json", FieldKey::PLAYER_INVENTORY, PlayerDatabase::Get());
+		new FieldFetchProcessor<Inventory>(SpectreRpcType("InventoryRpc.GetInventoryV2Request"), 
+			"resources/payloads/ws/game/DefaultInventory_min.json", FieldKey::PLAYER_INVENTORY, PlayerDatabase::Get());
 		logger->info("Finished registering handlers");
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
