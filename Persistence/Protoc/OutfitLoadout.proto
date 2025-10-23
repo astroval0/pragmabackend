@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+message PlayerOutfitLoadouts {
+	repeated string message = 1;
+	repeated Loadout loadouts = 2;
+}
+
+message Loadout {
+	string playerId = 1;
+	string loadoutId = 2;
+	OutfitData headData = 3;
+	OutfitData hairData = 4;
+	OutfitData faceStyleData = 5;
+	OutfitData faceAccessoryData = 6;
+	OutfitData outfitData = 7;
+}
+
+message OutfitData {
+	string itemInstanceId = 1;
+	string itemType = 2;
+	repeated AlterationData alterationData = 3;
+	string attachmentItemInstanceId = 4;
+	string itemCatalogId = 5;
+	string attachmentItemCatalogId = 6;
+}
+
+message AlterationData {
+	string channelId = 1;
+	string alterationId = 2;
+}

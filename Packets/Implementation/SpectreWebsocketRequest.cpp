@@ -16,17 +16,21 @@ SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf 
 }
 
 std::shared_ptr<json> SpectreWebsocketRequest::GetBaseJsonResponse() {
-    std::string resType = m_requestType.GetName();
-    if (resType.size() >= 7 && resType.compare(resType.size() - 7, 7, "Request") == 0)
-        resType.erase(resType.size() - 7);
-    resType += "Response";
 	json response;
 	response["requestId"] = m_requestId;
-	response["type"] = resType;
+	response["type"] = GetResponseType();
 	response["payload"] = json::object();
     return std::make_shared<json>(std::move(response));
 }
 
 void SpectreWebsocketRequest::SendEmptyResponse() {
 	m_websocket.SendPacket(GetBaseJsonResponse());
+}
+
+std::string SpectreWebsocketRequest::GetResponseType() {
+	std::string resType = m_requestType.GetName();
+	if (resType.size() >= 7 && resType.compare(resType.size() - 7, 7, "Request") == 0)
+		resType.erase(resType.size() - 7);
+	resType += "Response";
+	return resType;
 }

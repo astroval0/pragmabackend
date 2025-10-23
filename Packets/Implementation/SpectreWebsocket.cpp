@@ -26,10 +26,12 @@ void SpectreWebsocket::SendPacket(std::shared_ptr<json> res) {
 	socket.write(boost::asio::buffer(msg));
 }
 
-void SpectreWebsocket::SendPacket(const pbuf::Message& res) {
-	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber) + ",\"response\":";
+void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::string& resType, int requestId) {
+	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber) 
+		+ ",\"response\":{\"requestId\":" + std::to_string(requestId) 
+		+ ",\"type\":\"" + resType + "\",\"payload\":";
 	std::string resComponent;
-	if (!pbuf::util::MessageToJsonString(res, &resComponent, opts).ok()) {
+	if (!pbuf::util::MessageToJsonString(payload, &resComponent, opts).ok()) {
 		spdlog::error("Failed to serialize pbuf message to string in SendPacket");
 		throw;
 	}

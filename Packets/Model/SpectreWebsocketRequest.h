@@ -31,6 +31,12 @@ public:
 	SpectreRpcType GetRequestType() {
 		return m_requestType;
 	}
+
+	std::string GetResponseType();
+
+	int GetRequestId() {
+		return m_requestId;
+	}
 	
 	std::shared_ptr<json> GetBaseJsonResponse();
 	void SendEmptyResponse();

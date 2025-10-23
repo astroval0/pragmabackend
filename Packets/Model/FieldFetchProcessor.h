@@ -35,7 +35,7 @@ public:
 		query.bind(1, sock.GetPlayerId());
 		std::unique_ptr<T> data = m_dbRef.GetField<T>(query, field);
 		if (data == nullptr) {
-			sock.SendPacket(m_defaultFieldData);
+			sock.SendPacket(m_defaultFieldData, packet.GetResponseType(), packet.GetRequestId());
 			sql::Statement writeStatement = m_dbRef.FormatStatement(
 				"INSERT OR REPLACE INTO {table} (PlayerId, {col}) VALUES (?, ?)",
 				field
@@ -44,7 +44,7 @@ public:
 			m_dbRef.SetField(writeStatement, field, &m_defaultFieldData, 2);
 		}
 		else {
-			sock.SendPacket(*data);
+			sock.SendPacket(*data, packet.GetResponseType(), packet.GetRequestId());
 		}
 	}
 	static_assert(std::is_base_of<pbuf::Message, T>::value, "Type provided to FieldFetchProcessor must inherit from protobuf::Message");
