@@ -30,7 +30,7 @@ message AlterationChannel {
 message ActiveProgressionData {
 	ProgressByStat progressByStat = 1;
 	bool areObjectivesCompleted = 2;
-	uint32 currentObjectiveId = 3;
+	string currentObjectiveId = 3;
 	double currentObjectiveIndex = 4;
 	bool isPremiumUnlocked = 5;
 	optional string teamId = 6;

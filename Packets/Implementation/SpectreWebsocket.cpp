@@ -2,7 +2,11 @@
 #include <google/protobuf/util/json_util.h>
 #include <spdlog/spdlog.h>
 
-pbuf::util::JsonPrintOptions opts;
+pbuf::util::JsonPrintOptions opts = []() {
+	pbuf::util::JsonPrintOptions options;
+	options.always_print_fields_with_no_presence = true;
+	return options;
+}();
 
 SpectreWebsocket::SpectreWebsocket(ws& sock, const http::request<http::string_body>& req) : socket(sock), curSequenceNumber(0)
 {
@@ -35,7 +39,7 @@ void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::strin
 		spdlog::error("Failed to serialize pbuf message to string in SendPacket");
 		throw;
 	}
-	finalRes += resComponent + "}";
+	finalRes += resComponent + "}}";
 	curSequenceNumber++;
 	socket.text(true);
 	socket.write(boost::asio::buffer(finalRes));
