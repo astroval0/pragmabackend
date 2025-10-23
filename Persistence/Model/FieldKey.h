@@ -1,3 +1,7 @@
+#pragma once
+#include <cstdint>
+
 enum class FieldKey : uint32_t {
-	PLAYER_INGAME_NAME
+	PLAYER_INVENTORY,
+	PLAYER_LOADOUT
 };

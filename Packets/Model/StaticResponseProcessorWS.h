@@ -2,6 +2,9 @@
 #include <PacketProcessor.h>
 #include <nlohmann/json.hpp>
 #include <spdlog/spdlog.h>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 class StaticResponseProcessorWS : public WebsocketPacketProcessor {
 private:

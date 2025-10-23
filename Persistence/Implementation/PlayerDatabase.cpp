@@ -1,9 +1,12 @@
 #include "PlayerDatabase.h"
+#include <Inventory.pb.h>
 
-PlayerDatabase::PlayerDatabase(fs::path path) : Database(path) {
-	GetRaw()->exec("CREATE TABLE IF NOT EXISTS players (ID TEXT PRIMARY KEY, PlayerName BLOB);");
+PlayerDatabase::PlayerDatabase(fs::path path) : Database(path, "players", "PlayerID", "TEXT") {
+	AddPrototype<Inventory>(FieldKey::PLAYER_INVENTORY);
 }
 
-const std::string PlayerDatabase::GetTableName() {
-	return "players";
+PlayerDatabase PlayerDatabase::inst("playerdata.sqlite");
+
+PlayerDatabase& PlayerDatabase::Get() {
+	return inst;
 }

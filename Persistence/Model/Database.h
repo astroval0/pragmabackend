@@ -1,3 +1,4 @@
+#pragma once
 #include <filesystem>
 #include <unordered_map>
 #include <vector>
@@ -8,6 +9,7 @@
 #include "FieldKey.h"
 #include <type_traits>
 #include <spdlog/spdlog.h>
+#include <optional>
 
 namespace fs = std::filesystem;
 namespace pbuf = google::protobuf;
@@ -33,9 +35,12 @@ class Database {
 private:
 	fs::path m_filename;
 	sql::Database m_dbRaw;
+	std::string m_tableName;
+	std::string m_keyFieldName;
+	std::string m_keyFieldType;
 	static std::unordered_map<FieldKey, const std::string> classNames;
 public:
-	Database(fs::path dbPath);
+	Database(fs::path dbPath, const std::string tableName, const std::string keyFieldName, const std::string keyFieldType);
 
 	sql::Database* GetRaw();
 
@@ -104,6 +109,18 @@ public:
 	void AddPrototype(FieldKey key) {
 		static_assert(std::is_base_of<pbuf::Message, T>::value, "Type provided to AddPrototype must inherit from protobuf::Message");
 		classNames.insert({ key, T::descriptor()->name() });
+		sql::Statement colQuery(m_dbRaw, "PRAGMA table_info(" + GetTableName() + ");");
+		bool colExists = false;
+		while (colQuery.executeStep()) {
+			std::string colName = colQuery.getColumn(1).getText();
+			if (colName == T::descriptor()->name()) {
+				colExists = true;
+				break;
+			}
+		}
+		if (!colExists) {
+			m_dbRaw.exec("ALTER TABLE " + GetTableName() + " ADD COLUMN " + T::descriptor()->name() + " BLOB;");
+		}
 	}
 
 	bool IsFieldPopulated(FieldKey key);
@@ -112,5 +129,7 @@ public:
 
 	const std::string& GetFieldName(FieldKey key);
 
-	virtual const std::string GetTableName() = 0;
+	const std::string& GetTableName();
+	const std::string& GetKeyFieldName();
+	const std::string& GetKeyFieldType();
 };
