@@ -26,8 +26,12 @@
 #include <SpectreWebsocket.h>
 #include <SpectreWebsocketRequest.h>
 #include <HeartbeatProcessor.h>
+#include <FieldFetchProcessor.h>
+#include <Inventory.pb.h>
+#include <PlayerDatabase.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
+#include <FieldKey.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -80,7 +84,7 @@ void session(tcp::socket sock) {
 			logger->info("trying to accept ws handshake");
 			websocket::stream<tcp::socket> ws(std::move(sock));
 			ws.accept(req); // complete ws handshake
-			SpectreWebsocket sock(ws);
+			SpectreWebsocket sock(ws, req);
 			logger->info("upgraded connection with {}:{} to websocket",
 				ws.next_layer().remote_endpoint().address().to_string(), ws.next_layer().remote_endpoint().port()
 			);
@@ -156,6 +160,8 @@ int main() {
 		RegisterStaticHTTPHandlers();
 		RegisterStaticWSHandlers();
 		new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
+		//new FieldFetchProcessor<Inventory>(SpectreRpcType("InventoryRpc.GetInventoryV2Request"), 
+		//	"resources/payloads/ws/game/DefaultInventory_min.json", FieldKey::PLAYER_INVENTORY, PlayerDatabase::Get());
 		logger->info("Finished registering handlers");
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

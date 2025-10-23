@@ -7,37 +7,32 @@
 #include <boost/beast/websocket/ssl.hpp>
 #include <SpectreRpcType.h>
 #include <nlohmann/json.hpp>
+#include <google/protobuf/message.h>
 
 using tcp = boost::asio::ip::tcp;
 namespace ssl = boost::asio::ssl;
 namespace http = boost::beast::http;
 using ws = boost::beast::websocket::stream<tcp::socket>;
 using json = nlohmann::ordered_json;
+namespace pbuf = google::protobuf;
 
 class SpectreWebsocket {
 private:
 	ws& socket;
 	int curSequenceNumber;
+	std::string m_playerId;
 public:
-	SpectreWebsocket(ws& sock) : socket(sock), curSequenceNumber(0)
-	{
-		socket.auto_fragment(false); // ideally we dont want to have to use this but we should be fine for now
-	};
+	SpectreWebsocket(ws& sock, const http::request<http::string_body>& req);
 	/* 
 		Warning: Do not send packets through the socket directly, it bypasses abstraction and will cause bad things to happen
 	*/
-	ws& GetRawSocket() const {
-		return socket;
-	}
+	const ws& GetRawSocket();
 
-	void SendPacket(std::shared_ptr<json> res) {
-		json packet;
-		packet["sequenceNumber"] = curSequenceNumber;
-		packet["response"] = *res;
-		curSequenceNumber++;
-		socket.text(true);
-		//dont pass temporary because beast will fragment it
-		std::string msg = packet.dump();
-		socket.write(boost::asio::buffer(msg));
-	}
+	void SendPacket(std::shared_ptr<json> res);
+
+	void SendPacket(const std::string& res);
+
+	void SendPacket(const pbuf::Message& res);
+
+	const std::string& GetPlayerId();
 };

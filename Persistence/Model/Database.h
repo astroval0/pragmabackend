@@ -1,3 +1,4 @@
+#pragma once
 #include <filesystem>
 #include <unordered_map>
 #include <vector>
@@ -8,6 +9,7 @@
 #include "FieldKey.h"
 #include <type_traits>
 #include <spdlog/spdlog.h>
+#include <optional>
 
 namespace fs = std::filesystem;
 namespace pbuf = google::protobuf;
@@ -112,7 +114,7 @@ public:
 		while (colQuery.executeStep()) {
 			std::string colName = colQuery.getColumn(1).getText();
 			if (colName == T::descriptor()->name()) {
-				bool colExists = true;
+				colExists = true;
 				break;
 			}
 		}
