@@ -13,6 +13,11 @@ SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf 
 		spdlog::warn("log type not found for " + (*m_reqjson)["type"]);
 	}
 	m_requestId = (*m_reqjson)["requestId"];
+	m_payloadAsStr = (*m_reqjson)["payload"].dump();
+}
+
+std::shared_ptr<json> SpectreWebsocketRequest::GetPayload() {
+	return std::make_shared<json>(((*m_reqjson)["payload"]));
 }
 
 std::shared_ptr<json> SpectreWebsocketRequest::GetBaseJsonResponse() {
