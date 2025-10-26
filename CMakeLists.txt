@@ -55,5 +55,3 @@ PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HEADERS ${PROTOBUF_FILES})
 target_sources(pragmabackend PRIVATE ${PROTO_SRCS})
 target_include_directories(pragmabackend PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 endif()
-
-add_subdirectory(Patcher)

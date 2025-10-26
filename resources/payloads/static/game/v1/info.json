@@ -3,19 +3,19 @@
   "platformVersion": "0.0.339-0.0.101+4402-67406b2",
   "backendMode": "PRODUCTION",
   "authenticateBackend": {
-    "host": "127.0.0.1",
+    "host": "social.spectre.astro-dev.uk:8082",
     "port": 8082,
     "protocol": "http",
     "scheme": "http"
   },
   "socialBackend": {
-    "host": "127.0.0.1",
+    "host": "social.spectre.astro-dev.uk:8082",
     "port": 8082,
     "protocol": "http",
     "webSocketProtocol": "ws"
   },
   "gameBackend": {
-    "host": "127.0.0.1",
+    "host": "game.spectre.astro-dev.uk:8081",
     "port": 8081,
     "protocol": "http",
     "webSocketProtocol": "ws"

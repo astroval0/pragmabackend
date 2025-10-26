@@ -131,7 +131,7 @@ void ConnectionAcceptor(unsigned short port) {
 
 		// tls setup. load cert / key
 
-		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("127.0.0.1"), port));
+		tcp::acceptor acc(ioc, tcp::endpoint(asio::ip::make_address("0.0.0.0"), port));
 
 		// accept loop forever. each client gets one detached thread
 		// if we want to shut down clean, don't detach, keep thread handles
