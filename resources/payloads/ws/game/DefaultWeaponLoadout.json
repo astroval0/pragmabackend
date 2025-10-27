@@ -1,0 +1,684 @@
+{
+	"weaponLoadoutData": [
+		{
+			"playerId": "2b940443-58da-45b7-b704-94459a2f9a4d",
+			"loadoutId": "00f12c51-62e8-4320-b2f2-a07e87d52662",
+			"semiautoPistolData": {
+				"itemInstanceId": "46A9620F-3129-49ED-9C9A-10427EC0043A",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"suppressedPistolData": {
+				"itemInstanceId": "D79DBAEB-CC09-487B-BE65-93B0BC5EB567",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Suppressed_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"autoPistolData": {
+				"itemInstanceId": "1B98EF70-CEC6-455F-9E13-A4232176AA79",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"highcalPistolData": {
+				"itemInstanceId": "A83F4964-0532-4C9D-8219-47E9D557C9DC",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"heavyShotgunData": {
+				"itemInstanceId": "85E6B34C-34E0-4E39-B6FA-57445146F6A8",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"autoShotgunData": {
+				"itemInstanceId": "24BC0E97-808C-4361-9399-507CC6E608FE",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"tacticalSmgData": {
+				"itemInstanceId": "7F9B8D30-C0F2-4C24-985E-8BCB74E6C4FB",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Tactical_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"rapidfireSmgData": {
+				"itemInstanceId": "CC81FD53-27E9-424C-9BC3-EC74244E98B2",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"suppressedSmgData": {
+				"itemInstanceId": "C5F0D728-563D-4D10-BE1C-AEE45E98C7BD",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"standardArData": {
+				"itemInstanceId": "A134A5C9-1D26-4B57-BBA3-5F49B541A28D",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"semiautoArData": {
+				"itemInstanceId": "D14F3756-6B79-4C13-BB86-8EC7BE42AED2",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_SemiAuto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"burstArData": {
+				"itemInstanceId": "039108C5-C339-4DC4-84FC-C35D58F15A25",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"tacticalArData": {
+				"itemInstanceId": "3B231AB1-765D-4B93-9D70-0AC8650C0CF3",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"suppressedArData": {
+				"itemInstanceId": "9210C48C-1BF8-4234-B3B4-73F2675E92D6",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"heavyArData": {
+				"itemInstanceId": "CECDDD31-4EBA-42BC-8910-E6971C010EAB",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "385AAAC6-C736-4A2D-9CE0-E16E0A1CC736",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Communa",
+				"attachmentItemCatalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_02"
+			},
+			"highcalMgData": {
+				"itemInstanceId": "06DB77D5-849A-4509-895C-B24F28B800C4",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"rapidfireMgData": {
+				"itemInstanceId": "9BE5418B-B6D7-41E3-9B33-E28BB1545B96",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"semiautoSniperData": {
+				"itemInstanceId": "BF99937B-00B8-4178-9E0A-02B3A7CE3050",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"boltactionSniperData": {
+				"itemInstanceId": "D10E5A1F-A703-4C0A-A415-4CBEF6ED94BA",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"meleeData": {
+				"itemInstanceId": "930216BB-2E63-488F-9FAF-25B7EAA334CA",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Trail",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Cyberlord",
+				"attachmentItemCatalogId": ""
+			}
+		},
+		{
+			"playerId": "2b940443-58da-45b7-b704-94459a2f9a4d",
+			"loadoutId": "17a07016-4264-4511-9f12-8b2665082ecb",
+			"semiautoPistolData": {
+				"itemInstanceId": "46A9620F-3129-49ED-9C9A-10427EC0043A",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"suppressedPistolData": {
+				"itemInstanceId": "D79DBAEB-CC09-487B-BE65-93B0BC5EB567",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Suppressed_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"autoPistolData": {
+				"itemInstanceId": "1B98EF70-CEC6-455F-9E13-A4232176AA79",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"highcalPistolData": {
+				"itemInstanceId": "A83F4964-0532-4C9D-8219-47E9D557C9DC",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"heavyShotgunData": {
+				"itemInstanceId": "85E6B34C-34E0-4E39-B6FA-57445146F6A8",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"autoShotgunData": {
+				"itemInstanceId": "24BC0E97-808C-4361-9399-507CC6E608FE",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"tacticalSmgData": {
+				"itemInstanceId": "7F9B8D30-C0F2-4C24-985E-8BCB74E6C4FB",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Tactical_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"rapidfireSmgData": {
+				"itemInstanceId": "CC81FD53-27E9-424C-9BC3-EC74244E98B2",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"suppressedSmgData": {
+				"itemInstanceId": "C5F0D728-563D-4D10-BE1C-AEE45E98C7BD",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"standardArData": {
+				"itemInstanceId": "A134A5C9-1D26-4B57-BBA3-5F49B541A28D",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"semiautoArData": {
+				"itemInstanceId": "D14F3756-6B79-4C13-BB86-8EC7BE42AED2",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_SemiAuto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"burstArData": {
+				"itemInstanceId": "039108C5-C339-4DC4-84FC-C35D58F15A25",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"tacticalArData": {
+				"itemInstanceId": "3B231AB1-765D-4B93-9D70-0AC8650C0CF3",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"suppressedArData": {
+				"itemInstanceId": "9210C48C-1BF8-4234-B3B4-73F2675E92D6",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"heavyArData": {
+				"itemInstanceId": "CECDDD31-4EBA-42BC-8910-E6971C010EAB",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "385AAAC6-C736-4A2D-9CE0-E16E0A1CC736",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Communa",
+				"attachmentItemCatalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_02"
+			},
+			"highcalMgData": {
+				"itemInstanceId": "06DB77D5-849A-4509-895C-B24F28B800C4",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"rapidfireMgData": {
+				"itemInstanceId": "9BE5418B-B6D7-41E3-9B33-E28BB1545B96",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"semiautoSniperData": {
+				"itemInstanceId": "BF99937B-00B8-4178-9E0A-02B3A7CE3050",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_Default",
+				"attachmentItemCatalogId": ""
+			},
+			"boltactionSniperData": {
+				"itemInstanceId": "D10E5A1F-A703-4C0A-A415-4CBEF6ED94BA",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "FiringUpgrades",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Angel",
+				"attachmentItemCatalogId": ""
+			},
+			"meleeData": {
+				"itemInstanceId": "930216BB-2E63-488F-9FAF-25B7EAA334CA",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Mesh",
+						"alterationId": "On"
+					},
+					{
+						"channelId": "VFX",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "KillCeremony",
+						"alterationId": "Off"
+					},
+					{
+						"channelId": "Trail",
+						"alterationId": "On"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Cyberlord",
+				"attachmentItemCatalogId": ""
+			}
+		}
+	]
+}

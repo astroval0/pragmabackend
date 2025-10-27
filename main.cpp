@@ -29,6 +29,7 @@
 #include <FieldFetchProcessor.h>
 #include <Inventory.pb.h>
 #include <OutfitLoadout.pb.h>
+#include <WeaponLoadout.pb.h>
 #include <PlayerDatabase.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
@@ -173,6 +174,10 @@ int main() {
 		new FieldFetchProcessor<OutfitLoadouts>(
 			SpectreRpcType("MtnLoadoutServiceRpc.FetchPlayerOutfitLoadoutsV1Request"),
 			FieldKey::PLAYER_OUTFIT_LOADOUT
+		);
+		new FieldFetchProcessor<WeaponLoadouts>(
+			SpectreRpcType("MtnLoadoutServiceRpc.FetchPlayerWeaponLoadoutsV1Request"),
+			FieldKey::PLAYER_WEAPON_LOADOUT
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
