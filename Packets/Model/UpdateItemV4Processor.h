@@ -1,9 +1,9 @@
 #pragma once
 #include <PacketProcessor.h>
 
-class UpdateItemsV0Processor : public WebsocketPacketProcessor {
+class UpdateItemV4Processor : public WebsocketPacketProcessor {
 public:
-    UpdateItemsV0Processor(SpectreRpcType rpcType);
+    UpdateItemV4Processor(SpectreRpcType rpcType);
 
     void Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) override;
 };

@@ -1,9 +1,5 @@
 syntax = "proto3";
 
-message UpdatesItemMessage {
-	repeated InstancedItemUpdate instancedItemUpdates = 1;
-}
-
 message InstancedItemUpdate {
 	ExtUpdate ext = 1;
 	string instanceId = 2;
@@ -19,4 +15,9 @@ message ExtUpdate {
 
 message ProgressionTrackerUpdate {
 	string newActiveEndorsement = 1;
+}
+
+message StackedItemUpdate {
+	string instanceId = 1;
+	string newAmount = 2;
 }

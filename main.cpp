@@ -33,6 +33,7 @@
 #include "StaticWSPackets.cpp"
 #include <FieldKey.h>
 #include <UpdateItemsV0Processor.h>
+#include <UpdateItemV4Processor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -165,6 +166,7 @@ int main() {
 			"resources/payloads/ws/game/DefaultInventory_min.json", FieldKey::PLAYER_INVENTORY, PlayerDatabase::Get());
 		logger->info("Finished registering handlers");
 		new UpdateItemsV0Processor(SpectreRpcType("InventoryRpc.UpdateItemsV0Request"));
+		new UpdateItemV4Processor(SpectreRpcType("InventoryRpc.UpdateItemV4Request"));
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
 			});
