@@ -2,6 +2,7 @@
 #include <spdlog/spdlog.h>
 
 std::unordered_map<FieldKey, const std::string> Database::classNames;
+std::unordered_map <FieldKey, std::unique_ptr<const pbuf::Message>> Database::defaultFieldValues;
 
 Database::Database(fs::path dbPath, const std::string tableName, const std::string keyFieldName, const std::string keyFieldType) 
 	: m_filename(dbPath), m_dbRaw(dbPath.string(), sql::OPEN_READWRITE | sql::OPEN_CREATE),

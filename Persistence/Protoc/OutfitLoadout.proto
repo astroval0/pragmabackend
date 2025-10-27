@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-message PlayerOutfitLoadouts {
+message OutfitLoadouts {
 	repeated string message = 1;
-	repeated Loadout loadouts = 2;
+	repeated OutfitLoadout loadouts = 2;
 }
 
-message Loadout {
+message OutfitLoadout {
 	string playerId = 1;
 	string loadoutId = 2;
 	OutfitData headData = 3;

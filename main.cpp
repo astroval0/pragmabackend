@@ -28,6 +28,7 @@
 #include <HeartbeatProcessor.h>
 #include <FieldFetchProcessor.h>
 #include <Inventory.pb.h>
+#include <OutfitLoadout.pb.h>
 #include <PlayerDatabase.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
@@ -162,11 +163,17 @@ int main() {
 		RegisterStaticHTTPHandlers();
 		RegisterStaticWSHandlers();
 		new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
-		new FieldFetchProcessor<Inventory>(SpectreRpcType("InventoryRpc.GetInventoryV2Request"), 
-			"resources/payloads/ws/game/DefaultInventory_min.json", FieldKey::PLAYER_INVENTORY, PlayerDatabase::Get());
+		new FieldFetchProcessor<Inventory>(
+			SpectreRpcType("InventoryRpc.GetInventoryV2Request"), 
+			FieldKey::PLAYER_INVENTORY
+		);
 		logger->info("Finished registering handlers");
 		new UpdateItemsV0Processor(SpectreRpcType("InventoryRpc.UpdateItemsV0Request"));
 		new UpdateItemV4Processor(SpectreRpcType("InventoryRpc.UpdateItemV4Request"));
+		new FieldFetchProcessor<OutfitLoadouts>(
+			SpectreRpcType("MtnLoadoutServiceRpc.FetchPlayerOutfitLoadoutsV1Request"),
+			FieldKey::PLAYER_OUTFIT_LOADOUT
+		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
 			});
