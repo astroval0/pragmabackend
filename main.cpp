@@ -37,6 +37,7 @@
 #include <UpdateItemsV0Processor.h>
 #include <UpdateItemV4Processor.h>
 #include <SaveWeaponLoadoutProcessor.h>
+#include <SaveOutfitLoadoutProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -182,6 +183,9 @@ int main() {
 		);
 		new SaveWeaponLoadoutProcessor(
 			SpectreRpcType("MtnLoadoutServiceRpc.SaveWeaponLoadoutV1Request")
+		);
+		new SaveOutfitLoadoutProcessor(
+			SpectreRpcType("MtnLoadoutServiceRpc.SaveOutfitLoadoutV1Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

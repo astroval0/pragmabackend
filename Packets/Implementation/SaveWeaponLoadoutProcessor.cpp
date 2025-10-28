@@ -1,5 +1,5 @@
 #include <SaveWeaponLoadoutProcessor.h>
-#include <WeaponLoadoutMessage.pb.h>
+#include <SaveWeaponLoadoutMessage.pb.h>
 #include <WeaponLoadout.pb.h>
 #include <PlayerDatabase.h>
 
