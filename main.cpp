@@ -36,6 +36,7 @@
 #include <FieldKey.h>
 #include <UpdateItemsV0Processor.h>
 #include <UpdateItemV4Processor.h>
+#include <SaveWeaponLoadoutProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -178,6 +179,9 @@ int main() {
 		new FieldFetchProcessor<WeaponLoadouts>(
 			SpectreRpcType("MtnLoadoutServiceRpc.FetchPlayerWeaponLoadoutsV1Request"),
 			FieldKey::PLAYER_WEAPON_LOADOUT
+		);
+		new SaveWeaponLoadoutProcessor(
+			SpectreRpcType("MtnLoadoutServiceRpc.SaveWeaponLoadoutV1Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

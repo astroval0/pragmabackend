@@ -62,7 +62,7 @@ private:
 
 		auto copy = std::make_unique<T>();
 		copy->CopyFrom(*typed);
-		return copy;
+		return std::move(copy);
 	}
 public:
 	Database(fs::path dbPath, const std::string tableName, const std::string keyFieldName, const std::string keyFieldType);
