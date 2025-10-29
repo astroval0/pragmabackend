@@ -5,17 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_compile_definitions(_WIN32_WINNT=0x0A00) # target at least win10
 add_compile_definitions(FMT_UNICODE=0)
 
-if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg.exe")
-    execute_process(
-        COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/bootstrap-vcpkg.bat"
-        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg"
-        RESULT_VARIABLE bootstrap_result
-    )
-    if(bootstrap_result)
-        message(FATAL_ERROR "Failed to bootstrap vcpkg")
-    endif()
-endif()
-
 file(GLOB_RECURSE RESOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/resources/*")
 
 add_custom_target(copy_resources ALL
@@ -94,5 +83,3 @@ add_dependencies(pragmabackend generate_protos)
 
 target_sources(pragmabackend PRIVATE ${GENERATED_PROTO_SRCS})
 target_include_directories(pragmabackend PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-
-add_subdirectory(Patcher)
