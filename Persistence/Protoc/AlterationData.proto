@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message AlterationData {
+	string channelId = 1;
+	string alterationId = 2;
+}

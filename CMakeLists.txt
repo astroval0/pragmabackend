@@ -49,9 +49,50 @@ target_link_libraries(pragmabackend PRIVATE nlohmann_json::nlohmann_json)
 target_include_directories(pragmabackend PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Model")
 target_include_directories(pragmabackend PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/Persistence/Model")
 
-file(GLOB_RECURSE PROTOBUF_FILES CMAKE_CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/Persistence/*.proto")
-if(PROTOBUF_FILES)
-PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HEADERS ${PROTOBUF_FILES})
-target_sources(pragmabackend PRIVATE ${PROTO_SRCS})
+# Define import roots for protoc
+set(PROTOBUF_IMPORT_DIRS
+    "${CMAKE_CURRENT_SOURCE_DIR}/Persistence/Protoc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Protoc"
+)
+
+# Convert to -I flags
+set(PROTOBUF_FLAGS "")
+foreach(dir IN LISTS PROTOBUF_IMPORT_DIRS)
+    list(APPEND PROTOBUF_FLAGS "-I${dir}")
+endforeach()
+
+# Collect all .proto files
+file(GLOB_RECURSE PERSISTENCE_PROTOBUF_FILES CMAKE_CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/Persistence/Protoc/*.proto")
+file(GLOB_RECURSE PACKETS_PROTOBUF_FILES CMAKE_CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/Packets/Protoc/*.proto")
+
+# Generate output files
+set(GENERATED_PROTO_SRCS "")
+set(GENERATED_PROTO_HDRS "")
+
+foreach(proto_file IN LISTS PACKETS_PROTOBUF_FILES PERSISTENCE_PROTOBUF_FILES)
+    get_filename_component(proto_name ${proto_file} NAME_WE)
+    set(proto_src_abs "${CMAKE_CURRENT_BINARY_DIR}/${proto_name}.pb.cc")
+    set(proto_head_abs "${CMAKE_CURRENT_BINARY_DIR}/${proto_name}.pb.h")
+    add_custom_command(
+        OUTPUT ${proto_src_abs} ${proto_head_abs}
+        COMMAND ${Protobuf_PROTOC_EXECUTABLE}
+        ARGS
+        ${PROTOBUF_FLAGS}
+        --cpp_out=${CMAKE_CURRENT_BINARY_DIR}
+        ${proto_file}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+        DEPENDS ${proto_file}
+        COMMENT "Compiling protobuf file: ${proto_name}.proto"
+    )
+
+    list(APPEND GENERATED_PROTO_SRCS ${proto_src_abs})
+    list(APPEND GENERATED_PROTO_HDRS ${proto_head_abs})
+endforeach()
+
+add_custom_target(generate_protos DEPENDS ${GENERATED_PROTO_SRCS} ${GENERATED_PROTO_HDRS})
+add_dependencies(pragmabackend generate_protos)
+
+target_sources(pragmabackend PRIVATE ${GENERATED_PROTO_SRCS})
 target_include_directories(pragmabackend PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-endif()
+
+add_subdirectory(Patcher)
