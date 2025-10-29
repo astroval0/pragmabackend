@@ -121,6 +121,7 @@ void session(tcp::socket sock) {
 			res.body() = "{}";
 			res.prepare_payload();
 			http::write(sock, res);
+			return;
 		}
 		processor->Process(req, sock);
 	}
