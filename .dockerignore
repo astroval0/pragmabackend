@@ -1,0 +1,13 @@
+build/
+cmake-build-*/
+.vscode/
+.idea/
+.git/
+.gitignore
+logs/
+*.user
+*.obj
+*.pdb
+*.exe
+*.dll
+*.lib

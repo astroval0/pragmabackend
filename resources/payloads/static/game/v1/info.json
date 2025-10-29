@@ -1,21 +1,21 @@
 {
   "name": "mtn.live.game",
   "platformVersion": "0.0.339-0.0.101+4402-67406b2",
-  "backendMode": "PRODUCTION",
+  "backendMode": "DEVELOPMENT",
   "authenticateBackend": {
-    "host": "social.spectre.astro-dev.uk:8082",
+    "host": "social.astro-dev.uk",
     "port": 8082,
     "protocol": "http",
     "scheme": "http"
   },
   "socialBackend": {
-    "host": "social.spectre.astro-dev.uk:8082",
+    "host": "social.astro-dev.uk",
     "port": 8082,
     "protocol": "http",
     "webSocketProtocol": "ws"
   },
   "gameBackend": {
-    "host": "game.spectre.astro-dev.uk:8081",
+    "host": "game.astro-dev.uk",
     "port": 8081,
     "protocol": "http",
     "webSocketProtocol": "ws"
