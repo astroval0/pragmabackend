@@ -10,6 +10,10 @@
 #include <type_traits>
 #include <spdlog/spdlog.h>
 #include <optional>
+#include <fstream>
+#include <iostream>
+#include <google/protobuf/util/json_util.h>
+#include <sstream>
 
 namespace fs = std::filesystem;
 namespace pbuf = google::protobuf;
@@ -38,7 +42,28 @@ private:
 	std::string m_tableName;
 	std::string m_keyFieldName;
 	std::string m_keyFieldType;
+	pbuf::util::JsonParseOptions m_parseOpts;
 	static std::unordered_map<FieldKey, const std::string> classNames;
+	static std::unordered_map<FieldKey, std::unique_ptr<const pbuf::Message>> defaultFieldValues;
+	template<typename T>
+	std::unique_ptr<T> DefaultOrNullptr(FieldKey key) {
+		static_assert(std::is_base_of<pbuf::Message, T>::value, "Type provided to DefaultOrNullptr must inherit from protobuf::Message");
+		auto defaultValue = defaultFieldValues.find(key);
+		if (defaultValue == defaultFieldValues.end()) {
+			return nullptr;
+		}
+		spdlog::info("Returning default value for FieldKey: {}", (uint32_t)key);
+		const T* typed = dynamic_cast<const T*>(defaultValue->second.get());
+		if (!typed) {
+			// Handle type mismatch
+			spdlog::error("type mismatch in DefaultOrNullptr");
+			return nullptr;
+		}
+
+		auto copy = std::make_unique<T>();
+		copy->CopyFrom(*typed);
+		return std::move(copy);
+	}
 public:
 	Database(fs::path dbPath, const std::string tableName, const std::string keyFieldName, const std::string keyFieldType);
 
@@ -78,27 +103,30 @@ public:
 	std::unique_ptr<T> GetField(sql::Statement& query, FieldKey key) {
 		static_assert(std::is_base_of<pbuf::Message, T>::value, "Type provided to GetField must inherit from protobuf::Message");
 		if (!query.executeStep()) {
-			return nullptr;
+			return std::move(DefaultOrNullptr<T>(key));
 		}
 		if (query.getColumnCount() != 1) {
 			spdlog::warn("Multiple columns returned by query passed into GetField w FieldKey {}, ignoring all columns except first one", classNames.at(key));
 		}
 		const char* blob = static_cast<const char*>(query.getColumn(0).getBlob());
 		int sz = query.getColumn(0).getBytes();
+		if (sz <= 0) {
+			return std::move(DefaultOrNullptr<T>(key));
+		}
 		if (sz < sizeof(FieldKey)) {
-			spdlog::error("sz < {} in GetField, cell cannot contain a FieldKey", sizeof(FieldKey));
-			throw;
+			spdlog::error("sz < {} but > 0 in GetField, cell cannot contain a FieldKey", sizeof(FieldKey));
+			return nullptr;
 		}
 		FieldKey savedFieldKey;
 		memcpy(&savedFieldKey, blob, sizeof(FieldKey));
 		if (savedFieldKey != key) {
 			spdlog::error("FieldKey passed to GetFields {} was not the same as FieldKey found in saved object", (uint32_t)key);
-			throw;
+			return std::move(DefaultOrNullptr<T>(key));
 		}
 		std::unique_ptr<T> object = std::make_unique<T>();
 		if (!object->ParseFromArray(blob + sizeof(FieldKey), sz - sizeof(FieldKey))) {
 			spdlog::error("parse failure");
-			throw;
+			return std::move(DefaultOrNullptr<T>(key));
 		}
 		return std::move(object);
 	}
@@ -123,9 +151,25 @@ public:
 		}
 	}
 
+	template<typename T>
+	void AddPrototype(FieldKey key, std::string defaultFieldValuePath) {
+		AddPrototype<T>(key);
+		std::ifstream defaultFile(defaultFieldValuePath);
+		std::stringstream buf;
+		buf << defaultFile.rdbuf();
+		std::string data = buf.str();
+		T defaultFieldData;
+		auto status = pbuf::util::JsonStringToMessage(data, &defaultFieldData, m_parseOpts);
+		if (!status.ok()) {
+			spdlog::error("failed to parse default message: {}", status.message());
+			throw;
+		}
+		defaultFieldValues[key] = std::make_unique<const T>(defaultFieldData);
+	}
+
 	bool IsFieldPopulated(FieldKey key);
 
-	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object);
+	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex);
 
 	const std::string& GetFieldName(FieldKey key);
 

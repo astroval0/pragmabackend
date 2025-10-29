@@ -2,7 +2,11 @@
 #include <google/protobuf/util/json_util.h>
 #include <spdlog/spdlog.h>
 
-pbuf::util::JsonPrintOptions opts;
+pbuf::util::JsonPrintOptions opts = []() {
+	pbuf::util::JsonPrintOptions options;
+	options.always_print_fields_with_no_presence = true;
+	return options;
+}();
 
 SpectreWebsocket::SpectreWebsocket(ws& sock, const http::request<http::string_body>& req) : socket(sock), curSequenceNumber(0)
 {
@@ -26,14 +30,16 @@ void SpectreWebsocket::SendPacket(std::shared_ptr<json> res) {
 	socket.write(boost::asio::buffer(msg));
 }
 
-void SpectreWebsocket::SendPacket(const pbuf::Message& res) {
-	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber) + ",\"response\":";
+void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::string& resType, int requestId) {
+	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber) 
+		+ ",\"response\":{\"requestId\":" + std::to_string(requestId) 
+		+ ",\"type\":\"" + resType + "\",\"payload\":";
 	std::string resComponent;
-	if (!pbuf::util::MessageToJsonString(res, &resComponent, opts).ok()) {
+	if (!pbuf::util::MessageToJsonString(payload, &resComponent, opts).ok()) {
 		spdlog::error("Failed to serialize pbuf message to string in SendPacket");
 		throw;
 	}
-	finalRes += resComponent + "}";
+	finalRes += resComponent + "}}";
 	curSequenceNumber++;
 	socket.text(true);
 	socket.write(boost::asio::buffer(finalRes));

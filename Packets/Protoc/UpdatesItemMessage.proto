@@ -1,0 +1,7 @@
+syntax = "proto3";
+import "ItemUpdate.proto";
+
+message UpdatesItemMessage {
+	repeated InstancedItemUpdate instancedItemUpdates = 1;
+	repeated StackedItemUpdate stackedItemUpdates = 2;
+}
