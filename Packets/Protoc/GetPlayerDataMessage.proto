@@ -1,0 +1,6 @@
+syntax = "proto3";
+import "PlayerData.proto";
+
+message GetPlayerDataMessage {
+	PlayerData data = 1;
+}

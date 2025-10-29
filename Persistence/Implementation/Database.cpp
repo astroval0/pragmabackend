@@ -54,6 +54,14 @@ void Database::SetField(sql::Statement& statement, FieldKey key, const pbuf::Mes
 	}
 }
 
+void Database::SetField(FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex, const std::string& playerId) {
+	sql::Statement setStatement = FormatStatement(
+		"INSERT OR REPLACE INTO {table} (" + GetKeyFieldName() + ", {col}) VALUES (?,?)",
+		key
+	);
+	return SetField(setStatement, key, object, dataBindIndex);
+}
+
 bool IsFieldPopulated(sql::Statement& command) {
 	return command.executeStep();
 }

@@ -1,0 +1,279 @@
+syntax = "proto3";
+import "AlterationData.proto";
+import "RGBAColor.proto";
+
+message PlayerData {
+	string playerId = 1;
+	PlayerConfig data = 2;
+	PlayerMatchmakingData matchmakingData = 3;
+	string serverData = 4;
+	FlatInstancedItem banner = 5;
+	FlatInstancedItem preSpray = 6;
+	FlatInstancedItem matchSpray = 7;
+	FlatInstancedItem postSpray = 8;
+	string attackerOutfitLoadoutId = 9;
+	string defenderOutfitLoadoutId = 10;
+	string attackerWeaponLoadoutId = 11;
+	string defenderWeaponLoadoutId = 12;
+	string lastUpdated = 13;
+	double playerFlags = 14;
+	PlayerServiceData playerServiceData = 15;
+	string lastLogin = 16;
+}
+
+message PlayerConfig {
+	bool unlockAllPlayModes = 1;
+	bool unlockAllMenuTabs = 2;
+	bool unlockAllSponsors = 3;
+	bool bypassUnlockAllSponsorsOverride = 4;
+	bool bypassProgressionOverrides = 5;
+	bool bypassTeamSizeOverrides = 6;
+	bool bypassRegionSelectOverride = 7;
+	bool bypassCurrencyPurchasingOverride = 8;
+	bool disableDevMapSelector = 9;
+	bool showDebugInfoPanel = 10;
+	bool showPlatformInfoPanel = 11;
+	bool showMatchmakingCounters = 12;
+	bool forceChatEnabled = 13;
+	int32 mostRecentLobbyMode = 14;
+	string mostRecentPartyId = 15;
+	int32 endUserLicenseAcceptedVersion = 16;
+	int32 endUserLicenseAcceptedVersionPlayStation = 17;
+	int32 endUserLicenseAcceptedVersionXbox = 18;
+	int32 termsOfServiceAcceptedVersion = 19;
+	int32 termsOfServiceAcceptedVersionPlayStation = 20;
+	int32 termsOfServiceAcceptedVersionXbox = 21;
+	int32 nonDisclosureAgreementAcceptedVersion = 22;
+	int32 nonDisclosureAgreementAcceptedVersionPlayStation = 23;
+	int32 nonDisclosureAgreementAcceptedVersionXbox = 24;
+	int32 seizureWarningAcknowledgedVersion = 25;
+	int32 seizureWarningAcknowledgedVersionPlayStation = 26;
+	int32 seizureWarningAcknowledgedVersionXbox = 27;
+	int32 battlepassSeasonLoggedOn = 28;
+	double battlepassPurchasePopupLastTime = 29;
+	string nonDisclosureAgreementUserSignature = 30;
+	string nonDisclosureAgreementUserSignaturePlayStation = 31;
+	string nonDisclosureAgreementUserSignatureXbox = 32;
+	string nonDisclosureAgreementUserEmail = 33;
+	string nonDisclosureAgreementUserEmailPlayStation = 34;
+	string nonDisclosureAgreementUserEmailXbox = 35;
+	string lastVersionShownInDriversWarningDialog = 36;
+	int32 minSpecWarningDialogTimesDisplayed = 37;
+	int32 pingWarningDialogTimesDisplayed = 38;
+	bool hasCompletedLaunchSettingsFlow = 39;
+	bool isUsingManualMatchmakingRegionSelection = 40;
+	repeated string manualMatchmakingRegionSelections = 41;
+	repeated string rotatingNewsViewedMessages = 42;
+	int32 version = 43;
+	double inkQuality = 44;
+	double mouseSensitivityADSScale = 45;
+	double mouseSensitivity = 46;
+	double minimapScale = 47;
+	double minimapSize = 48;
+	double minimapMaskOpacity = 49;
+	bool bInvertedYAxis = 50;
+	bool bToggleCrouch = 51;
+	bool bToggleWalk = 52;
+	bool bToggleADS = 53;
+	string recoilBehavior = 54;
+	bool bLeftHandedEnabled = 55;
+	bool bRecoilPitchCorrectionEnabled = 56;
+	bool bIsTeamLaserEnabled = 57;
+	bool bIsHudMinimapRotationEnabled = 58;
+	bool bIsHudMinimapCenteredOnPlayer = 59;
+	bool bIsHudMinimapCircle = 60;
+	bool bIsHudMinimapMaskHighContrastEnabled = 61;
+	bool bIsHudSnapMinimapWithScoreboardEnabled = 62;
+	bool bIsDamageCameraEffectEnabled = 63;
+	bool bStreamerModeEnabled = 64;
+	bool bHideLobbyCode = 65;
+	double aDSTracerRatio = 66;
+	double aDSTracerIntensity = 67;
+	double opticHitConfirmIntensity = 68;
+	bool bAnonymousMode = 69;
+	bool bAnonymizePlayerNames = 70;
+	bool bStreamerModeDisableIncomingVoiceChat = 71;
+	bool bStreamerModeDisableIncomingTextChat = 72;
+	bool bIsTextChatSoundEffectsEnabled = 73;
+	bool bSubtitles = 74;
+	string verboseVoLevel = 75;
+	bool bIsBloodFXEnabled = 76;
+	ColorVisionConfig colorVisionConfig = 77;
+	CrosshairConfig crosshairConfig = 78;
+	SubtitleUserSettings subtitleUserSettings = 79;
+	GamepadConfig gamepadConfig = 80;
+	OverrideKeymaps overrideKeymaps = 81;
+	string voiceChatInputAudioDevice = 82;
+	string voiceChatOutputAudioDevice = 83;
+	bool bVoiceChatTeamEnabled = 84;
+	string voiceChatConsoleMode = 85;
+	bool bVoiceChatPartyEnabled = 86;
+	bool bVoiceChatPartyEnabledInGames = 87;
+	bool bVoiceChatTeamPushToTalk = 88;
+	bool bVoiceChatPartyPushToTalk = 89;
+	repeated string enabledTextStats = 90;
+	repeated string enabledGraphStats = 91;
+	repeated string mutedChatContexts = 92;
+	int32 inputBindingsVersion = 93;
+}
+
+message ColorVisionConfig {
+	int32 version = 1;
+	string colorVisionType = 2;
+	int32 severity = 3;
+	bool bCorrectDeficiency = 4;
+	bool bShowCorrectDeficiency = 5;
+	bool bComfortSwapEffect = 6;
+	bool bCustomOutlineColor = 7;
+	RGBAColor outlineColor = 8;
+	RGBAColor outlineColorLower = 9;
+	double outlineThicknessScale = 10;
+	double outlineBrightnessScale = 11;
+}
+
+message CrosshairConfig {
+	int32 version = 1;
+	int32 colorIndex = 2;
+	bool bAdvancedCrosshairSettings = 3;
+	RGBAColor customColor = 4;
+	bool bFireAccuracyFade = 5;
+	bool bFollowRecoil = 6;
+	bool bShowOutlines = 7;
+	double outlineThickness = 8;
+	double outlineOpacity = 9;
+	bool bShowCenterDot = 10;
+	bool bUseADSSettings = 11;
+	CrosshairDot centerDotConfig = 12;
+	CrosshairDot centerDotConfigADS = 13;
+	CrosshairDot sniperDotConfig = 14;
+	PipConfigs pipConfigs = 15;
+}
+
+message CrosshairDot {
+	double thickness = 1;
+	double opacity = 2;
+	int32 colorIndex = 3;
+	RGBAColor customColor = 4;
+	bool bOutlineEnabled = 5;
+	RGBAColor customOutlineColor = 6;
+	double outlineOpacity = 7;
+	double outlineThickness = 8;
+}
+
+message PipConfigs {
+	PipConfig Inner = 1;
+	PipConfig Outer = 2;
+}
+
+message PipConfig {
+	double thickness = 1;
+	double length = 2;
+	double opacity = 3;
+	double offset = 4;
+	bool bMoveAccuracyOffset = 5;
+	bool bFireAccuracyOffset = 6;
+}
+
+message SubtitleUserSettings {
+	int32 version = 1;
+	int32 fontSize = 2;
+	double backgroundOpacity = 3;
+	string speakerQualifierDisplay = 4;
+	bool bPostPlayerSubtitles = 5;
+	bool bPostPlayerSubtitlesToChat = 6;
+	int32 namesToShowMask = 7;
+}
+
+message GamepadConfig {
+	int32 version = 1;
+	int32 inputSchemeIndex = 2;
+	int32 gamepadGlyphIndex = 3;
+	int32 lookPresetIndex = 4;
+	LookConfig customLookConfig = 5;
+	ResponseCurve customResponseCurve = 6;
+	bool bInvertLook = 7;
+	int32 controllerFeedbackValue = 8;
+	bool bTurnAccel = 9;
+	bool bAimAssist = 10;
+	int32 responseCurveIndex = 11;
+	double responseCurveArcDeg = 12;
+	double responseCurveSlope = 13;
+	double responseCurveLinearBlendPow = 14;
+	double customScaleADS = 15;
+	bool bToggleCrouch = 16;
+	bool bToggleWalk = 17;
+	bool bTogglePlantDefuse = 18;
+	bool bToggleADS = 19;
+	string endWalkWhenFiringBehavior = 20;
+	double aDSTriggerThreshold = 21;
+	string deadZoneMoveAmount = 22;
+	double customDeadZoneMoveAmount = 23;
+	string deadZoneLookAmount = 24;
+	double customDeadZoneLookAmount = 25;
+	double walkRunDeflectionThreshold = 26;
+}
+
+message LookConfig {
+	string displayName = 1;
+	LookSettings lookSettings = 2;
+	LookSettings lookSettingsADS = 3;
+}
+
+message LookSettings {
+	double yawRate = 1;
+	double pitchScale = 2;
+	double turnAccelYawBonus = 3;
+	double turnAccelPitchBonus = 4;
+	double turnAccelDelaySeconds = 5;
+	double turnAccelTimeToMax = 6;
+}
+
+message ResponseCurve {
+	string displayName = 1;
+	double exponent = 2;
+	double responseCurveArcDeg = 3;
+	double responseCurveSlope = 4;
+	double responseCurveLinearBlendPow = 5;
+}
+
+message OverrideKeymaps {
+	repeated string overrides = 1;
+}
+
+message PlayerMatchmakingData {
+	string playerId = 1;
+	double casualMmr = 2;
+	double rankedMmr = 3;
+	double soloRankPoints = 4;
+	double casualMatchesPlayedCount = 5;
+	double rankedMatchesPlayedCount = 6;
+	double casualMatchesPlayedSeasonCount = 7;
+	double rankedMatchesPlayedSeasonCount = 8;
+	repeated string rankedPlacementMatches = 9;
+	double currentSoloRank = 10;
+	double highestTeamRank = 11;
+	double casualMatchesWonCount = 12;
+	double rankedMatchesWonCount = 13;
+	string priorityMatchmakingUntil = 14;
+	string restrictMatchmakingUntil = 15;
+	double matchmakingFlags = 16;
+	string mapHistory = 17;
+	string country = 18;
+	string subdivision = 19;
+	string primaryGeographicRegion = 20;
+	string secondaryGeographicRegion = 21;
+	string address = 22;
+}
+
+message FlatInstancedItem {
+	string itemInstanceId = 1;
+	string itemType = 2;
+	repeated AlterationData alterationData = 3;
+	string attachmentItemInstanceId = 4;
+	string itemCatalogId = 5;
+	string attachmentItemCatalogId = 6;
+}
+
+message PlayerServiceData {
+	repeated string tags = 1;
+}
