@@ -94,5 +94,3 @@ add_dependencies(pragmabackend generate_protos)
 
 target_sources(pragmabackend PRIVATE ${GENERATED_PROTO_SRCS})
 target_include_directories(pragmabackend PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-
-add_subdirectory(Patcher)
