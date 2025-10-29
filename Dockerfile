@@ -3,7 +3,8 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential cmake git curl zip unzip pkg-config ninja-build ca-certificates \
- && rm -rf /var/lib/apt/lists/*
+    linux-libc-dev python3 \
+    && rm -rf /var/lib/apt/lists/*
 
 ARG VCPKG_ROOT=/opt/vcpkg
 RUN git clone https://github.com/microsoft/vcpkg.git ${VCPKG_ROOT} \
