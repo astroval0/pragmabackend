@@ -3,5 +3,5 @@ syntax = "proto3";
 message StackableItem {
 	string catalogId = 1;
 	string instanceId = 2;
-	uint32 amount = 3;
+	string amount = 3;
 }

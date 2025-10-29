@@ -1,0 +1,155 @@
+{
+	"message": [ "Loadouts: 2" ],
+	"loadouts": [
+		{
+			"playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
+			"loadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
+			"headData": {
+				"itemInstanceId": "56490170-5353-4A9D-8F5F-14B0BBB91B63",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "SkinTone",
+						"alterationId": "Option5"
+					},
+					{
+						"channelId": "LipColor",
+						"alterationId": "Option3"
+					},
+					{
+						"channelId": "EyeColor",
+						"alterationId": "Option6"
+					},
+					{
+						"channelId": "EyebrowColor",
+						"alterationId": "Option4"
+					},
+					{
+						"channelId": "Voice",
+						"alterationId": "Option5"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "CharacterCosmeticItemHead:HeadID_Face_003",
+				"attachmentItemCatalogId": ""
+			},
+			"hairData": {
+				"itemInstanceId": "5F021DBA-65C9-48F9-AE02-3B6EEBB1A430",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Color",
+						"alterationId": "Option7"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "CharacterCosmeticItemSimple:HairID_Hair_0016",
+				"attachmentItemCatalogId": ""
+			},
+			"faceStyleData": {
+				"itemInstanceId": "",
+				"itemType": "",
+				"alterationData": [],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "",
+				"attachmentItemCatalogId": ""
+			},
+			"faceAccessoryData": {
+				"itemInstanceId": "",
+				"itemType": "",
+				"alterationData": [],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "",
+				"attachmentItemCatalogId": ""
+			},
+			"outfitData": {
+				"itemInstanceId": "AC5035E3-6572-484B-A5D8-1FFCC1F367F1",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Default",
+				"attachmentItemCatalogId": ""
+			}
+		},
+		{
+			"playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
+			"loadoutId": "ebb85cdd-827a-4884-9eb5-0b584d43be19",
+			"headData": {
+				"itemInstanceId": "711AF3EC-F1E0-4C0B-AE88-4BD2C51EB23F",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "SkinTone",
+						"alterationId": "Option8"
+					},
+					{
+						"channelId": "LipColor",
+						"alterationId": "Option2"
+					},
+					{
+						"channelId": "EyeColor",
+						"alterationId": "Option6"
+					},
+					{
+						"channelId": "EyebrowColor",
+						"alterationId": "Option4"
+					},
+					{
+						"channelId": "Voice",
+						"alterationId": "Option3"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "CharacterCosmeticItemHead:HeadID_Face_002_B",
+				"attachmentItemCatalogId": ""
+			},
+			"hairData": {
+				"itemInstanceId": "A98F9664-2387-4931-B6A2-8F0E7983B856",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Color",
+						"alterationId": "Option5"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "CharacterCosmeticItemSimple:HairID_Hair_0020",
+				"attachmentItemCatalogId": ""
+			},
+			"faceStyleData": {
+				"itemInstanceId": "",
+				"itemType": "",
+				"alterationData": [],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "",
+				"attachmentItemCatalogId": ""
+			},
+			"faceAccessoryData": {
+				"itemInstanceId": "",
+				"itemType": "",
+				"alterationData": [],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "",
+				"attachmentItemCatalogId": ""
+			},
+			"outfitData": {
+				"itemInstanceId": "40268935-F961-4783-934F-C46B3E7DC1DB",
+				"itemType": "",
+				"alterationData": [
+					{
+						"channelId": "Color",
+						"alterationId": "Option1"
+					}
+				],
+				"attachmentItemInstanceId": "",
+				"itemCatalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Default",
+				"attachmentItemCatalogId": ""
+			}
+		}
+	]
+}

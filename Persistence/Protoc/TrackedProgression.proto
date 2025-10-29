@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+message TrackedProgression {
+	string activeEndorsement = 1;
+	repeated string activeDailyQuests = 2;
+	repeated string activeWeeklyQuests = 3;
+	repeated string activeEventQuests = 4;
+	optional string teamId = 5;
+	string lastRolloverTimestamp = 6;
+	optional BattlepassData bpTrackerData = 7;
+}
+
+message BattlepassData {
+	SeasonEntry seasonEntry = 1;
+	repeated string activeBattlePasses = 2;
+	repeated string bpQuests = 3;
+	repeated string activeBpQuests = 4;
+	string debugSeasonOffsetMillis = 5;
+}
+
+message SeasonEntry {
+	double seasonNumber = 1;
+	string startTimestampMillis = 2;
+	string endTimestampMillis = 3;
+	string lastWeekEndTimestampMillis = 4;
+	double numberOfWeeksInSeason = 5;
+	string firstWeekStartTimestampMillis = 6;
+}

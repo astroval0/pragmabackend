@@ -1,0 +1,40 @@
+syntax = "proto3";
+import "AlterationData.proto";
+
+message WeaponLoadouts {
+	repeated WeaponLoadout weaponLoadoutData = 1;
+}
+
+message WeaponLoadout {
+	string playerId = 1;
+	string loadoutId = 2;
+	WeaponData semiautoPistolData = 3;
+	WeaponData suppressedPistolData = 4;
+	WeaponData autoPistolData = 5;
+	WeaponData highcalPistolData = 6;
+	WeaponData heavyShotgunData = 7;
+	WeaponData autoShotgunData = 8;
+	WeaponData tacticalSmgData = 9;
+	WeaponData rapidfireSmgData = 10;
+	WeaponData suppressedSmgData = 11;
+	WeaponData standardArData = 12;
+	WeaponData semiautoArData = 13;
+	WeaponData burstArData = 14;
+	WeaponData tacticalArData = 15;
+	WeaponData suppressedArData = 16;
+	WeaponData heavyArData = 17;
+	WeaponData highcalMgData = 18;
+	WeaponData rapidfireMgData = 19;
+	WeaponData semiautoSniperData = 20;
+	WeaponData boltactionSniperData = 21;
+	WeaponData meleeData = 22;
+}
+
+message WeaponData {
+	string itemInstanceId = 1;
+	string itemType = 2;
+	repeated AlterationData alterationData = 3;
+	string attachmentItemInstanceId = 4;
+	string itemCatalogId = 5;
+	string attachmentItemCatalogId = 6;
+}

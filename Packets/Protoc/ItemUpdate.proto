@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message InstancedItemUpdate {
+	ExtUpdate ext = 1;
+	string instanceId = 2;
+	string updateEntryId = 3;
+	repeated string tags = 4;
+}
+
+message ExtUpdate {
+	optional ProgressionTrackerUpdate progressionTrackerUpdate = 1;
+	double reserved = 2;
+	bool setViewed = 3;
+}
+
+message ProgressionTrackerUpdate {
+	string newActiveEndorsement = 1;
+}
+
+message StackedItemUpdate {
+	string instanceId = 1;
+	string newAmount = 2;
+}
