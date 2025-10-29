@@ -1,6 +1,3 @@
 [submodule "vcpkg"]
 	path = vcpkg
 	url = https://github.com/Microsoft/vcpkg
-[submodule "kotlinbackend"]
-	path = kotlinbackend
-	url = https://github.com/astroval0/kotlinbackend

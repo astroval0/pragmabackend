@@ -1,0 +1,11 @@
+{
+	"hostConnectionDetails": {
+		"gameInstanceId": "185206f8-dae2-4144-923d-9ac326240f30",
+		"extConnectionDetails": {
+			"matchData": "WNPTEyAKHgLCghkNy9S2puliwaKakX07N9VHhONBFKc="
+		},
+		"hostname": "0.0.0.0",
+		"port": 27176.0,
+		"connectionToken": "8656593e-1d5c-4a94-b460-190f7b694c95"
+	}
+}

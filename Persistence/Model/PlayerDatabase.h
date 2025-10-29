@@ -1,3 +1,4 @@
+#pragma once
 #include "Database.h"
 
 class PlayerDatabase : public Database {

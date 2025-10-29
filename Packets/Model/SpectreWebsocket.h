@@ -32,7 +32,7 @@ public:
 
 	void SendPacket(const std::string& res);
 
-	void SendPacket(const pbuf::Message& res);
+	void SendPacket(const pbuf::Message& res, const std::string& resType, int requestId);
 
 	const std::string& GetPlayerId();
 };

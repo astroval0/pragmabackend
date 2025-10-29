@@ -1,0 +1,7 @@
+syntax = "proto3";
+import "ItemUpdate.proto";
+
+message UpdateSingleItemMessage {
+	optional InstancedItemUpdate instancedItemUpdate = 1;
+	optional StackedItemUpdate stackedItemUpdate = 2;
+}
