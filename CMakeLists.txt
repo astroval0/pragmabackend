@@ -2,18 +2,16 @@ cmake_minimum_required(VERSION 4.0)
 project(pragmabackend)
 
 set(CMAKE_CXX_STANDARD 20)
-add_compile_definitions(_WIN32_WINNT=0x0A00) # target at least win10
-add_compile_definitions(FMT_UNICODE=0)
 
-if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg.exe")
-    execute_process(
-        COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/bootstrap-vcpkg.bat"
-        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg"
-        RESULT_VARIABLE bootstrap_result
-    )
-    if(bootstrap_result)
-        message(FATAL_ERROR "Failed to bootstrap vcpkg")
-    endif()
+if(MSVC)
+  add_compile_definitions(_WIN32_WINNT=0x0A00 FMT_UNICODE=0)
+else()
+  add_compile_definitions(FMT_UNICODE=0)
+endif()
+
+if(NOT DEFINED CMAKE_TOOLCHAIN_FILE AND DEFINED ENV{VCPKG_ROOT}
+   AND EXISTS "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+  set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
 endif()
 
 file(GLOB_RECURSE RESOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/resources/*")
@@ -94,5 +92,3 @@ add_dependencies(pragmabackend generate_protos)
 
 target_sources(pragmabackend PRIVATE ${GENERATED_PROTO_SRCS})
 target_include_directories(pragmabackend PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-
-add_subdirectory(Patcher)
