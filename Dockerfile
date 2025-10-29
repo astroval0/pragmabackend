@@ -11,6 +11,9 @@ RUN git clone https://github.com/microsoft/vcpkg.git ${VCPKG_ROOT} \
 ENV VCPKG_ROOT=${VCPKG_ROOT}
 ENV PATH="${VCPKG_ROOT}:${PATH}"
 
+ENV VCPKG_BUILD_TYPE=release
+ENV VCPKG_DEFAULT_TRIPLET=x64-linux
+
 WORKDIR /app
 
 COPY vcpkg.json /app/vcpkg.json
