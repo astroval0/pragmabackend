@@ -40,6 +40,7 @@
 #include <SaveOutfitLoadoutProcessor.h>
 #include <GetPlayerDataProcessor.h>
 #include <GetBulkProfileDataProcessor.h>
+#include <SavePlayerDataProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -195,6 +196,9 @@ int main() {
 		);
 		new GetBulkProfileDataProcessor(
 			SpectreRpcType("MtnPlayerDataServiceRpc.GetBulkProfileDataClientV1Request")
+		);
+		new SavePlayerDataProcessor(
+			SpectreRpcType("MtnPlayerDataServiceRpc.SavePlayerDataForClientV1Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

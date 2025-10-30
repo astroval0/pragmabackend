@@ -179,7 +179,7 @@ public:
 	bool IsFieldPopulated(FieldKey key);
 
 	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex);
-	void SetField(FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex, const std::string& playerId);
+	void SetField(FieldKey key, const pbuf::Message* object, const std::string& playerId);
 
 	const std::string& GetFieldName(FieldKey key);
 
