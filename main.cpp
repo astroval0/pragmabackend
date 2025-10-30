@@ -30,6 +30,7 @@
 #include <Inventory.pb.h>
 #include <OutfitLoadout.pb.h>
 #include <WeaponLoadout.pb.h>
+#include <LegacyPlayerData.pb.h>
 #include <PlayerDatabase.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
@@ -199,6 +200,10 @@ int main() {
 		);
 		new SavePlayerDataProcessor(
 			SpectreRpcType("MtnPlayerDataServiceRpc.SavePlayerDataForClientV1Request")
+		);
+		new FieldFetchProcessor<LegacyPlayerData>(
+			SpectreRpcType("MtnPlayerDataServiceRpc.GetPlayerLegacyDataV1Request"),
+			FieldKey::PLAYER_LEGACY_DATA
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
