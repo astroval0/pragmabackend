@@ -1,0 +1,19 @@
+{
+	"playerId": "08cb5f52-624a-45f4-8c08-1cd1fda9b454",
+	"displayName": {
+		"displayName": "SpectreRevival",
+		"discriminator": "0000"
+	},
+	"banner": {
+		"itemInstanceId": "FCD1890F-E119-4320-831A-5FC8CC0B42BD",
+		"itemType": "",
+		"alterationData": [],
+		"attachmentItemInstanceId": "",
+		"itemCatalogId": "SpectreBannerItemDef:BannerID_Track_Kit05_District_01",
+		"attachmentItemCatalogId": ""
+	},
+	"crewScore": "0",
+	"currentSoloRank": 0.0,
+	"highestTeamRank": 0.0,
+	"divisionType": "UNDEFINED"
+}

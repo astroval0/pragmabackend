@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "ProfileData.proto";
+
+message GetBulkProfileDataMessage {
+	repeated string playerIds = 1;
+}
+
+message BulkProfileDataResponse {
+	repeated ProfileData bulkProfileData = 1;
+}
