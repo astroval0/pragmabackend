@@ -6,7 +6,7 @@ message PlayerData {
 	string playerId = 1;
 	PlayerConfig data = 2;
 	PlayerMatchmakingData matchmakingData = 3;
-	string serverData = 4;
+	ServerData serverData = 4;
 	FlatInstancedItem banner = 5;
 	FlatInstancedItem preSpray = 6;
 	FlatInstancedItem matchSpray = 7;
@@ -18,8 +18,11 @@ message PlayerData {
 	string lastUpdated = 13;
 	double playerFlags = 14;
 	PlayerServiceData playerServiceData = 15;
-	string lastLogin = 16;
+	optional string nextNewDayRolloverTimestamp = 16;
+	optional string lastLogin = 17;
 }
+
+message ServerData {}
 
 message PlayerConfig {
 	bool unlockAllPlayModes = 1;

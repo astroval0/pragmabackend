@@ -1,0 +1,336 @@
+syntax = "proto3";
+import "PlayerData.proto";
+import "AlterationData.proto";
+
+message LoginDataResponse {
+	LoginData loginData = 1;
+}
+
+message LoginData {
+	LoginDataExt ext = 1;
+	LoginInventoryData inventoryData = 2;
+}
+
+message LoginDataExt {
+	repeated string inboxMessages = 1;
+	PlayerData playerData = 2;
+	int32 noCrew = 3;
+	string nextCrewAutomationDate = 4;
+	bool crewAutomationInProcess = 5;
+	string currentServiceTimestampMillis = 6;
+}
+
+message LoginInventoryData {
+	repeated string issuedLimitedGrantTrackingIds = 1;
+	InventoryContent inventoryContent = 2;
+}
+
+message InventoryContent {
+	ItemCatalog itemCatalog = 1;
+	repeated Store stores = 2;
+	repeated UpdateEntry updateEntries = 3;
+	repeated CraftingEntry craftingEntries = 4;
+	repeated ItemBundle itemBundles = 5;
+	repeated ProviderEntitlement providerEntitlements = 6;
+	string craftingEntriesFingerprint = 7;
+}
+
+message ItemCatalog {
+	repeated StackableItemCatalogEntry stackableEntries = 1;
+	repeated InstancedItemCatalogEntry instancedEntries = 2;
+}
+
+message StackableItemCatalogEntry {
+	string catalogId = 1;
+	string name = 2;
+	string limit = 3;
+	repeated string tags = 4;
+	bool removeIfNone = 5;
+	StackableEntryExtensionData ext = 6;
+}
+
+message StackableEntryExtensionData {
+	CurrencySpec currencySpec = 1;
+}
+
+message InstancedItemCatalogEntry {
+	string catalogId = 1;
+	string name = 2;
+	repeated string tags = 3;
+	InstancedEntryExtensionData ext = 4;
+}
+
+message InstancedEntryExtensionData {
+	bool autoGrantToAccounts = 1;
+	optional CustomizationSpec customizationSpec = 2;
+	optional CustomizationUpdateSpec customizationUpdateSpec = 3;
+	optional ProgressionSpec progressionSpec = 4;
+	optional CurrencySpec currencySpec = 5;
+	optional LeaderboardStarRewardsSpec leaderboardStarRewardsSpec = 6;
+	optional TieredLeaderboardRewardsSpec leaderboardTieredRewardsSpec = 7;
+	optional SponsorUnlockSpec sponsorUnlockSpec = 8;
+	optional ProgressionTrackerSpec progressionTrackerSpec = 9;
+	optional DeveloperGrantSpec devGrantSpec = 10;
+	bool unique = 11;
+	repeated string instancedItemsToGrant = 12;
+	map<string,double> stackableItemsToGrantByCatalogId = 13;
+	bool sendToGameServer = 14;
+}
+
+message ProgressionTrackerSpec {}
+message DeveloperGrantSpec {}
+
+message CustomizationSpec {
+	repeated AvailableAlterationData alterationChannels = 1;
+}
+
+message CustomizationUpdateSpec {
+	string targetCatalogId = 1;
+	repeated AlterationChannelUpdate alterationChannelUpdates = 2;
+}
+
+message ProgressionSpec {
+	repeated Objective objectives = 1;
+	string context = 2;
+	string levelSkipCurrencyCatalogId = 3;
+	string premiumUnlockCurrencyCatalogId = 4;
+	double priority = 5;
+	double bucket = 6;
+	bool deleteOnComplete = 7;
+	repeated string grantProgressionCatalogIdsOnComplete = 8;
+	double season = 9;
+	string displayColor = 10;
+}
+
+message Objective {
+	string objectiveId = 1;
+	map<string,string> statThresholds = 2;
+	map<string,string> rewardsFree = 3;
+	map<string,string> rewardsPremium = 4;
+	bool isAggregated = 5;
+}
+
+message CurrencySpec {
+	string currencyStat = 1;
+	bool isDeveloperToken = 2;
+	bool isPersistent = 3;
+	bool applyToExisting = 4;
+}
+
+message LeaderboardStarRewardsSpec {
+	LeaderboardRewards rewards = 1;
+	optional string rewardsActiveStartTimestamp = 2;
+}
+
+message LeaderboardRewards {
+	optional LeaderboardRewardSet crewStarRewards = 1 [json_name = "crew star rewards"];
+	optional LeaderboardRewardSet mvp = 2;
+	optional LeaderboardRewardSet legend = 3;
+	optional LeaderboardRewardSet rising = 4;
+	optional LeaderboardRewardSet teamtogether = 5 [json_name = "team_together"];
+	optional LeaderboardRewardSet spotlight = 6;
+}
+
+message LeaderboardRewardSet {
+	map<string,string> rewardsFree = 1;
+	map<string,string> rewardsPremium = 2;
+}
+
+message TieredLeaderboardRewardsSpec {
+	map<string, LeaderboardRewardSet> rewards = 1;
+	string divisionType = 2;
+	string rewardsActiveStartTimestamp = 3;
+}
+
+message SponsorUnlockSpec {
+	string sponsorName = 1;
+}
+
+message Store {
+	string id = 1;
+	string name = 2;
+	repeated StoreEntry storeEntries = 3;
+}
+
+message StoreEntry {
+	string id = 1;
+	map<string, string> receivedQuantityByCatalogId = 2;
+	map<string, string> costByCatalogId = 3;
+	repeated string tags = 4;
+	StoreRequirements requirements = 5;
+	bool canPurchase = 6;
+}
+
+message StoreRequirements {
+	CraftingRequirements ext = 1;
+	repeated string requiredCatalogIds = 2;
+}
+
+message CraftingRequirements {
+	bool isScheduled = 1;
+	string startDate = 2;
+	double durationHours = 3;
+	string gameData = 4;
+	string endDate = 5;
+	optional BattlepassRequirements bpReqs = 6;
+}
+
+message BattlepassRequirements {
+	bool bpPremium = 1;
+	double bpLevel = 2;
+	double bpSpent = 3;
+}
+
+message UpdateEntry {
+	UpdateEntryExt ext = 1;
+	string id = 2;
+	map<string, string> costByCatalogId = 3;
+	repeated string tags = 4;
+}
+
+message UpdateEntryExt {
+
+}
+
+message CraftingEntry {
+	CraftingEntryExt ext = 1;
+	string id = 2;
+	map<string,StackableCostTags> stackableCostByCatalogId = 3;
+	repeated string tags = 4;
+	StoreRequirements requirements = 5;
+}
+
+message CraftingEntryExt {
+	CraftingEntryExtGameData gameData = 1;
+	optional StorePurchase storePurchase = 2;
+	optional CraftingProgressionUpdate progressionUpdate = 3;
+}
+
+message CraftingEntryExtGameData {
+	string contentId = 1;
+	string district = 2;
+	string category = 3;
+	string characterPresetIndex = 4;
+	string characterPoseIndex = 5;
+	string PresetAvatarIndex = 6;
+	optional string rarity = 7;
+	optional int32 order = 8;
+	string storeItemType = 9;
+}
+
+message StorePurchase {
+	map<string,double> receivedQuantityByCatalogId = 1;
+	map<string,string> grantedRewards = 2;
+	string type = 3;
+	map<string,double> originalStackableCostByCatalogId = 4;
+	BattlepassAttributes bpAttributes = 5;
+	bool enforceUnique = 6;
+}
+
+message BattlepassAttributes {
+	bool isDisplayOnly = 1;
+	double autobuyPriority = 2;
+}
+
+message CraftingProgressionUpdate {
+	string catalogId = 1;
+	repeated SkipObjectiveCost skipObjectiveCosts = 2;
+	map<string, StackableItemCost> unlockPremiumStackableItemCosts = 3;
+	optional ProgressionUpdateBundle bundle = 4;
+	map<string,string> receivedQuantityByCatalogId = 5;
+	double levelsPurchaseLimit = 6;
+}
+
+message ProgressionUpdateBundle {
+	double levelSkipAmount = 1;
+	map<string, StackableItemCost> bundleStackableItemCosts = 2;
+	double purchaseLimit = 3;
+	map<string,double> receivedQuantityByCatalogId = 4;
+}
+
+message SkipObjectiveCost {
+	double maxLevel = 1;
+	map<string,StackableItemCost> stackableItemCosts = 2;
+}
+
+message StackableItemCost {
+	double cost = 1;
+	double originalCost = 2;
+}
+
+message StackableCostTags {
+	string cost = 1;
+	repeated string tags = 2;
+}
+
+message ItemBundle {
+	string id = 1;
+	repeated BundleInstancedItem instancedItems = 2;
+	repeated BundleStackableItem stackableItems = 3;
+	repeated string tags = 4;
+}
+
+message BundleInstancedItem {
+	string catalogId = 1;
+	repeated string tags = 2;
+}
+
+message BundleStackableItem {
+	string catalogId = 1;
+	string amount = 2;
+	repeated string tags = 3;
+}
+
+message ProviderEntitlement {
+	string id = 1;
+	ProviderEntitlementBundle bundle = 2;
+	repeated ProviderDetails providerDetails = 3;
+
+}
+
+message ProviderEntitlementBundle {
+	string id = 1;
+}
+
+message ProviderDetails {
+	oneof SteamOrConsoleEntitlement {
+		SteamEntitlement steamEntitlement = 1;
+		ConsoleEntitlement ext = 2;
+		TwitchDrop twitchDrop = 3;
+	}
+}
+
+message SteamEntitlement {
+	oneof SteamEntitlementMethod {
+		SteamInventoryItemEntitlement inventoryItem = 1;
+		SteamAppEntitlement app = 2;
+	}
+}
+
+message SteamInventoryItemEntitlement {
+	double itemDefId = 1;
+}
+
+message SteamAppEntitlement {
+	double appId = 1;
+}
+
+message ConsoleEntitlement {
+	oneof Console {
+		XboxEntitlement xboxEntitlement = 1;
+		PlaystationEntitlement playstationEntitlement = 2;
+	}
+}
+
+message XboxEntitlement {
+	string xboxProductId = 1;
+}
+
+message PlaystationEntitlement {
+	string entitlementLabel = 1;
+	string packageType = 2;
+}
+
+message TwitchDrop {
+	string rewardId = 1;
+}
