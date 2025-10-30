@@ -1,6 +1,6 @@
 syntax = "proto3";
-import "AlterationData.proto";
 import "RGBAColor.proto";
+import "FlatInstancedItem.proto";
 
 message PlayerData {
 	string playerId = 1;
@@ -263,15 +263,6 @@ message PlayerMatchmakingData {
 	string primaryGeographicRegion = 20;
 	string secondaryGeographicRegion = 21;
 	string address = 22;
-}
-
-message FlatInstancedItem {
-	string itemInstanceId = 1;
-	string itemType = 2;
-	repeated AlterationData alterationData = 3;
-	string attachmentItemInstanceId = 4;
-	string itemCatalogId = 5;
-	string attachmentItemCatalogId = 6;
 }
 
 message PlayerServiceData {
