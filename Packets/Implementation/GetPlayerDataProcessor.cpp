@@ -9,41 +9,46 @@ GetPlayerDataProcessor::GetPlayerDataProcessor(SpectreRpcType rpcType) :
 
 }
 
-void GetPlayerDataProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) {
-	std::unique_ptr<PlayerData> data = PlayerDatabase::Get().GetField<PlayerData>(FieldKey::PLAYER_DATA, sock.GetPlayerId());
-	std::string fullPayload = "{\"data\":";
-	std::string resComponent;
-	if (!pbuf::util::MessageToJsonString(*data, &resComponent).ok()) {
-		spdlog::error("Failed to serialize pbuf PlayerData message to string in GetPlayerDataProcessor");
+std::string GetPlayerDataProcessor::GetPlayerDataAsString(const PlayerData& playerData) {
+	std::string playerDataComponent;
+	auto status = pbuf::util::MessageToJsonString(playerData, &playerDataComponent);
+	if (!status.ok()) {
+		spdlog::error("Failed to serialize pbuf PlayerData message to string: {}", status.message());
 		throw;
 	}
-	fullPayload += resComponent + "}";
 	// mt wanted the PlayerConfig object to be a json STRING for some reason, probably to avoid
 	// having to serialize a 100 field object which would be slow? either way, we do this... interesting thing to quote it the way the game expects
 	// All of the field sizes up to this point are constant, so we can use a magic number to quote the start of the config field
-	std::string finalRes(fullPayload.begin(), fullPayload.begin() + 66);
-	finalRes += "\"{";
+	std::string finalPlayerDataComponent(playerDataComponent.begin(), playerDataComponent.begin() + 58);
+	finalPlayerDataComponent += "\"{";
 	int endIndex = 0;
-	for (int i = 67; i < fullPayload.size(); i++) {
-		char curChar = fullPayload[i];
+	for (int i = 59; i < playerDataComponent.size(); i++) {
+		char curChar = playerDataComponent[i];
 		if (curChar == '}') {
-			if (fullPayload.compare(i - endOfConfigJson.length() + 1, endOfConfigJson.length(), endOfConfigJson.c_str()) == 0) {
-				finalRes += "}\"";
+			if (playerDataComponent.compare(i - endOfConfigJson.length() + 1, endOfConfigJson.length(), endOfConfigJson.c_str()) == 0) {
+				finalPlayerDataComponent += "}\"";
 				endIndex = i;
 				break;
 			}
 		}
 		else if (curChar == '\"') {
-			finalRes += "\\\"";
+			finalPlayerDataComponent += "\\\"";
 		}
 		else {
-			finalRes += curChar;
+			finalPlayerDataComponent += curChar;
 		}
 	}
 	if (endIndex == 0) {
 		spdlog::error("Failed to find end of PlayerConfig json object");
 		throw;
 	}
-	finalRes += fullPayload.c_str() + endIndex + 1;
-	sock.SendPacket(finalRes, packet.GetRequestId(), packet.GetResponseType());
+	finalPlayerDataComponent += playerDataComponent.c_str() + endIndex + 1;
+	return finalPlayerDataComponent;
+}
+
+void GetPlayerDataProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) {
+	std::unique_ptr<PlayerData> data = PlayerDatabase::Get().GetField<PlayerData>(FieldKey::PLAYER_DATA, sock.GetPlayerId());
+	std::string fullPayload = "{\"data\":";
+	fullPayload += GetPlayerDataAsString(*data) + "}";
+	sock.SendPacket(fullPayload, packet.GetRequestId(), packet.GetResponseType());
 }
