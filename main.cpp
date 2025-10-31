@@ -42,6 +42,7 @@
 #include <GetPlayerDataProcessor.h>
 #include <GetBulkProfileDataProcessor.h>
 #include <SavePlayerDataProcessor.h>
+#include <GetLoginDataProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -204,6 +205,9 @@ int main() {
 		new FieldFetchProcessor<LegacyPlayerData>(
 			SpectreRpcType("MtnPlayerDataServiceRpc.GetPlayerLegacyDataV1Request"),
 			FieldKey::PLAYER_LEGACY_DATA
+		);
+		new GetLoginDataProcessor(
+			SpectreRpcType("GameDataRpc.GetLoginDataV3Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
