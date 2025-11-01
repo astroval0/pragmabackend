@@ -1,15 +1,15 @@
 {
-	"playerId": "08cb5f52-624a-45f4-8c08-1cd1fda9b454",
+	"playerId": "250d6bea-4f0d-4ded-96cc-6e40ec80afab",
 	"displayName": {
 		"displayName": "SpectreRevival",
 		"discriminator": "0000"
 	},
 	"banner": {
-		"itemInstanceId": "FCD1890F-E119-4320-831A-5FC8CC0B42BD",
+		"itemInstanceId": "4F30362E-0F4A-4389-8C43-4C588924CA09",
 		"itemType": "",
 		"alterationData": [],
 		"attachmentItemInstanceId": "",
-		"itemCatalogId": "SpectreBannerItemDef:BannerID_Track_Kit05_District_01",
+		"itemCatalogId": "SpectreBannerItemDef:BannerID_Default",
 		"attachmentItemCatalogId": ""
 	},
 	"crewScore": "0",
