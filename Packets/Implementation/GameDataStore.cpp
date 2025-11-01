@@ -51,6 +51,11 @@ static std::string InventoryStoreToPayload(InventoryContent* invStore) {
 		jsonstr2[curPos + 1] = '\"';
 		curPos = jsonstr2.find("\"gameData\":{}");
 	}
+	curPos = jsonstr2.find("\"gameData\":\"{\\\"contentId\\\":\\\"\\\"");
+	while (curPos != std::string::npos) {
+		jsonstr2.replace(curPos, 170, "\"{}\"");
+		curPos = jsonstr2.find("\"gameData\":\"{\\\"contentId\\\":\\\"\\\"");
+	}
 	return jsonstr2;
 }
 

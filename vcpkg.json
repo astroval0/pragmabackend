@@ -5,6 +5,7 @@
     "boost-asio",
     "boost-beast",
     "boost-bimap",
+    "date",
     "nlohmann-json",
     "openssl",
     "protobuf",

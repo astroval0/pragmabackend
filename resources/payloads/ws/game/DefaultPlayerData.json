@@ -347,5 +347,6 @@
 	"playerServiceData": {
 		"tags": []
 	},
+	"nextNewDayRolloverTimestamp": "1740560400000",
 	"lastLogin": "1722384864000"
 }
