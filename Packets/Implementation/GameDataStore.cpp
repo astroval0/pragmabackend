@@ -13,7 +13,7 @@ static std::string InventoryStoreToPayload(InventoryContent* invStore) {
 	std::string jsonstr2;
 	pbu::JsonPrintOptions popts;
 	popts.always_print_fields_with_no_presence = true;
-	auto status = pbu::MessageToJsonString(*invStore, &jsonstr);
+	auto status = pbu::MessageToJsonString(*invStore, &jsonstr, popts);
 	if (!status.ok()) {
 		spdlog::error("Failed to serialize InventoryContent to json string: {}", status.message());
 		throw;

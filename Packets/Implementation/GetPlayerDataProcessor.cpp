@@ -11,7 +11,9 @@ GetPlayerDataProcessor::GetPlayerDataProcessor(SpectreRpcType rpcType) :
 
 std::string GetPlayerDataProcessor::GetPlayerDataAsString(const PlayerData& playerData) {
 	std::string playerDataComponent;
-	auto status = pbuf::util::MessageToJsonString(playerData, &playerDataComponent);
+	pbuf::util::JsonPrintOptions popts;
+	popts.always_print_fields_with_no_presence = true;
+	auto status = pbuf::util::MessageToJsonString(playerData, &playerDataComponent, popts);
 	if (!status.ok()) {
 		spdlog::error("Failed to serialize pbuf PlayerData message to string: {}", status.message());
 		throw;
@@ -43,6 +45,12 @@ std::string GetPlayerDataProcessor::GetPlayerDataAsString(const PlayerData& play
 		throw;
 	}
 	finalPlayerDataComponent += playerDataComponent.c_str() + endIndex + 1;
+	size_t serverDatPos = finalPlayerDataComponent.find("\"serverData\":{}");
+	if (serverDatPos == std::string::npos) {
+		spdlog::error("Failed to find server data component in player data");
+		throw;
+	}
+	finalPlayerDataComponent.replace(serverDatPos + 13, 2, "\"{}\"");
 	return finalPlayerDataComponent;
 }
 

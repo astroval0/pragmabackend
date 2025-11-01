@@ -338,10 +338,10 @@
 		"itemCatalogId": "SpectreSprayItemDef:SprayID_Track_Kit02_District_01",
 		"attachmentItemCatalogId": ""
 	},
-	"attackerOutfitLoadoutId": "00000000-0000-0000-0000-000000000000",
-	"defenderOutfitLoadoutId": "00000000-0000-0000-0000-000000000000",
-	"attackerWeaponLoadoutId": "00000000-0000-0000-0000-000000000000",
-	"defenderWeaponLoadoutId": "00000000-0000-0000-0000-000000000000",
+	"attackerOutfitLoadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
+	"defenderOutfitLoadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
+	"attackerWeaponLoadoutId": "00f12c51-62e8-4320-b2f2-a07e87d52662",
+	"defenderWeaponLoadoutId": "00f12c51-62e8-4320-b2f2-a07e87d52662",
 	"lastUpdated": "2025-02-25 17:53:00.065",
 	"playerFlags": 0,
 	"playerServiceData": {
