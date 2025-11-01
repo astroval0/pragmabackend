@@ -564,6 +564,7 @@
 							{
 								"channelId": "VFX",
 								"ownedAlterations": [
+									"On",
 									"Off"
 								]
 							}
@@ -2357,6 +2358,3132 @@
 									"Option6",
 									"Option7",
 									"Option8"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_Alchemist",
+				"instanceId": "ef8bc9d2-5fa5-4dab-acab-6fece07d4d02",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_Avalon",
+				"instanceId": "eb36bb92-8627-4555-9cfa-47c73bd13068",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_DeathHunter",
+				"instanceId": "35d957eb-60b2-42da-8479-c5d4fb327ed9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_Direwolf",
+				"instanceId": "9a45248f-f6c7-437a-806c-5db3e9192fa3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_Wasabi",
+				"instanceId": "ffa4f690-fc4b-45e0-902a-eee5ddda3b14",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Avalon",
+				"instanceId": "bb981394-45df-4a42-8e86-6f73f1d24f51",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Communa",
+				"instanceId": "7465a741-74bb-4f44-821f-a903361942aa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_CyberLord",
+				"instanceId": "419b6ccc-abe2-45fb-b4fb-8f388e52f88c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Direwolf",
+				"instanceId": "e01303c5-753a-4db8-933b-33fe8189ed82",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Dragon",
+				"instanceId": "25b0989c-202b-4b43-8ce1-a0effe459d27",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Gingerbread",
+				"instanceId": "38c95b88-e4f1-4c11-abfb-2565f77067e9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Semi_Auto_Cryo",
+				"instanceId": "b6d45932-e7ca-4816-9c09-fb15ba8108a2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "AnimationReload",
+								"ownedAlterations": [
+									"Off",
+									"On"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_SemiAuto_Dino",
+				"instanceId": "4abf0d31-2c59-4a11-af79-03f9b425b86e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_SemiAuto_Reaper",
+				"instanceId": "322d16f0-f65a-4b11-b2e0-18526d5c9dd0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_SemiAuto_Yakuza",
+				"instanceId": "5a428925-4229-4c64-bfa3-2038a0e7a41e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Alchemist",
+				"instanceId": "80a765cb-4736-4da0-996c-65ca76449b2d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Angel",
+				"instanceId": "239c594a-0623-4abf-b888-9038e24932b0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_BP1",
+				"instanceId": "89d1c2cb-4e74-42be-8f5b-091a42ae0d2e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Communa",
+				"instanceId": "048d4011-41e0-4e5e-85bd-4f1b399c912e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_DeathHunter",
+				"instanceId": "5ca6c97f-36fc-41c2-a6d4-bebe8d6611d5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Dino",
+				"instanceId": "4ee6fddf-d938-429e-a289-69beac187215",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Dragon",
+				"instanceId": "1bd071bc-8c1d-4aaa-bd76-78473391e959",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Froyo",
+				"instanceId": "0013c2d8-b439-43c6-8c75-c304f809b402",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Gingerbread",
+				"instanceId": "76d351ec-44e2-4567-ac72-40b6e7ee1142",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Omen",
+				"instanceId": "532e70e4-9268-4e2a-ab75-55c8b9487f3c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_StarterPack",
+				"instanceId": "12f4b612-ebd7-45ce-9099-1036d9bac109",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_BP1",
+				"instanceId": "19fa5d45-c64c-4bf4-9e28-f0e278425651",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Cryo",
+				"instanceId": "40ce5a96-51c5-42cf-9ed8-ba6a67b50bf0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "AnimationReload",
+								"ownedAlterations": [
+									"Off",
+									"On"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Dino",
+				"instanceId": "20afc52c-15fa-40a2-b5b3-4e60a7780834",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Mako",
+				"instanceId": "dcbd5fdf-113f-4c40-b44b-545fb75224d2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Medusa",
+				"instanceId": "521c592d-becb-48d1-9524-595b6fb8aa36",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Reaper",
+				"instanceId": "5b52cfb7-4557-4df1-a578-df97b9e69fe2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_BloodLust",
+				"instanceId": "cbdcae0f-d044-4601-aa19-4a42c68866f9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_Cryo",
+				"instanceId": "72539265-9619-4645-b369-f28f3abe0e40",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "AnimationReload",
+								"ownedAlterations": [
+									"Off",
+									"On"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_EternalGuard",
+				"instanceId": "950c9c3d-d0f5-44f3-805e-3a14f7da6f80",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_Yakuza",
+				"instanceId": "2dcc3140-3720-4970-976b-c2f6b91391fc",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_YokaiSenpai",
+				"instanceId": "47715d60-3a1d-49a9-be65-a1b43991cc08",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Alchemist",
+				"instanceId": "04693608-e1f7-4a0e-ba09-b75f0ca03fd1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "Trail",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Cryo",
+				"instanceId": "51f18095-5f96-44db-8eee-3e94a481b18d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "Trail",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Cyberlord",
+				"instanceId": "8aac320e-ab85-4641-96cf-bc4202c53d7b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Trail",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Gangster",
+				"instanceId": "6fe6f1c0-f78e-4a62-8dfd-38f6407c0259",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Trail",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Reaper",
+				"instanceId": "472eeed1-a172-4e71-b4c0-8983bb2a3a97",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Trail",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Rebel",
+				"instanceId": "fa0ad1b2-92c3-4abf-9214-8d5458914677",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Yokai",
+				"instanceId": "fbb13866-0b00-4c98-bae4-76ad993a0704",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "Trail",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_Avalon",
+				"instanceId": "d1468fe8-08cf-45b4-aad3-3302f2391b96",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_EternalGuard",
+				"instanceId": "08e1d800-32ea-46ea-bd04-a89efa1fe490",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_FroYo",
+				"instanceId": "3eb7b716-6501-416e-a711-773cf7ca6c7a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_Wasabi",
+				"instanceId": "e51c72dc-095f-40cd-a791-ef78e4ac3e9e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_Yakuza",
+				"instanceId": "770aaf61-81ab-45db-b18a-8df3087975c0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_Dragon",
+				"instanceId": "4ddd1915-cf78-48e2-925d-976635053a8a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_Gingerbread",
+				"instanceId": "46740809-4cb4-492e-8430-17352d9c4479",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_Mako",
+				"instanceId": "9c7467bc-4711-4fc8-a9f9-2852295b5e6b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_Omen",
+				"instanceId": "50b38c99-0f6b-46b7-ac89-98d33d048462",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_YokaiSenpai",
+				"instanceId": "f02b5187-93ad-473e-ab95-65939bcb8170",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Alchemist",
+				"instanceId": "9ac59c6a-12e9-4b41-8a31-7dc33be747d7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Angel",
+				"instanceId": "8abf77fd-075c-4a12-a287-c3e35b038645",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_BloodLust",
+				"instanceId": "b98d4252-b20c-4ecd-96ac-94e5d894d6c0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Communa",
+				"instanceId": "64a67d3a-5394-469d-8a29-e690172c9d15",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_DeathHunter",
+				"instanceId": "5893c003-5d7a-4e9d-906c-92d68e81a878",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Omen",
+				"instanceId": "c8d24751-8dde-4306-9803-989d6d90dbea",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_BP1",
+				"instanceId": "c6019bc9-e5f4-4e88-8d57-d509cbd6c472",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_CyberLord",
+				"instanceId": "4b889089-e574-4f7f-8346-d8cb23014f30",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_Dino",
+				"instanceId": "203c004a-0c94-435a-a107-6201758c3427",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_EternalGuard",
+				"instanceId": "79310ce1-d222-4834-893c-769155f722cc",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_FroYo",
+				"instanceId": "5180a90b-2013-4b9f-96bb-d05e47d126f3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_Reaper",
+				"instanceId": "6e4dca97-730d-4d2a-a047-82d97256895c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_Yakuza",
+				"instanceId": "a9dbca86-abaf-4204-b6c8-b99431e9b59c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_CryoBlast",
+				"instanceId": "b7c2124e-8cf7-4371-bf31-756aba215212",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "AnimationReload",
+								"ownedAlterations": [
+									"Off",
+									"On"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_Dragon",
+				"instanceId": "93913dbd-206e-4b9c-9299-64919cca1acf",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_Gingerbread",
+				"instanceId": "d83e46f3-b0ce-4917-ae00-15bee980813c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_Mako",
+				"instanceId": "98b678f7-74c2-47da-8f59-b07cdc69ff79",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_Wasabi",
+				"instanceId": "06b3019d-1046-46f0-b1c6-0d2efd21a6c6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Suppressed_BP1",
+				"instanceId": "c956a1f3-5723-4950-8419-a5db2660b1e5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Suppressed_CyberLord",
+				"instanceId": "8f1fab00-47c7-41bf-8e27-bd6aba3a6014",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Suppressed_Direwolf",
+				"instanceId": "08795456-1d6b-4919-ba4e-8dab125e13e3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_Alchemist",
+				"instanceId": "8046b2ce-f798-43e1-90ee-fba479e89db6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_BP1",
+				"instanceId": "5d5f8508-7562-4ff7-bd49-e50861b223c9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_Communa",
+				"instanceId": "8e887d3e-82d3-488f-9e9e-e567c30af2e7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_CyberLord",
+				"instanceId": "3003eb38-7a81-475d-9022-4e3d9a981e47",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_Direwolf",
+				"instanceId": "eec79400-7551-4bea-b91a-507052524036",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_FroYo",
+				"instanceId": "ffbc3fba-5ffa-4a1a-bcdd-f21d0d9e6451",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_Medusa",
+				"instanceId": "71da515e-cb91-48ff-a633-b121f14bdf26",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_Omen",
+				"instanceId": "26097c89-c846-4d31-b5bd-7cc58d5e704c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_YokaiSenpai",
+				"instanceId": "b1bb91ee-e583-465a-a8f4-096fd4164c2e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_BloodLust",
+				"instanceId": "ad1a343f-6897-4cf9-99e4-0d657f23c0a8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_BP1",
+				"instanceId": "4547ff72-3c4e-49eb-8664-37e712787436",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_Reaper",
+				"instanceId": "e15bb97f-1125-4b63-aec9-e34e497e7f03",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Angel",
+				"instanceId": "4885ad7b-a72a-4155-bd8e-7624d96a1f68",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_DeathHunter",
+				"instanceId": "18c47eca-59ad-47f1-bb49-f2739bbbde39",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Dino",
+				"instanceId": "f0e14383-104f-4e1f-b497-8891b4f1f82a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Direwolf",
+				"instanceId": "4318de5b-5267-48da-8383-f56b754e1257",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_FroYo",
+				"instanceId": "579aaa6e-7fbe-495e-b0dc-186fa426ba3f",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_StarterPack",
+				"instanceId": "d1003e88-1279-4034-b4f8-4b3dce2f98a2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Tactical_Avalon",
+				"instanceId": "8aebaccb-41f5-4427-a7c5-79376f6e44d0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Tactical_Gingerbread",
+				"instanceId": "d6cbc220-a9ea-4bf0-82c5-f24201c29258",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Tactical_Medusa",
+				"instanceId": "d047fcc6-c032-49e5-9db1-6209f4e8f6a9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Tactical_Wasabi",
+				"instanceId": "ee0e4e9c-ff53-4f97-ae28-f96ed0580232",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Angel",
+				"instanceId": "8c9a3c00-8f37-4d64-8315-97c896e727e1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_BloodLust",
+				"instanceId": "17cb19c8-bc5a-468c-b8b6-887348e54fa7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Communa",
+				"instanceId": "a34aebba-b65c-410a-83e1-8175f498c500",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Medusa",
+				"instanceId": "de33be51-a999-4536-9b4b-7a0282055e7e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Yakuza",
+				"instanceId": "06862165-f570-482e-9c85-57ec8bac9cdd",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_BP1",
+				"instanceId": "45acf7ab-8de0-43b9-90ee-6d76031ebfb1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_EternalGuard",
+				"instanceId": "e85670c8-cd0a-4ce3-90f3-7e8af38decd2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_Mako",
+				"instanceId": "72cb0081-53fa-46ca-9e5a-1b427288338c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_Omen",
+				"instanceId": "4ef6e9ca-31a2-4754-bcc8-220c44eb8907",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_Wasabi",
+				"instanceId": "dc6a3cc2-5335-451f-8fb5-a7507a0ffae1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_YokaiSenpai",
+				"instanceId": "f5360218-9b2a-45ef-bc42-3c63735b3f32",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							},
+							{
+								"channelId": "FiringUpgrades",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "VFX",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "KillCeremony",
+								"ownedAlterations": [
+									"On",
+									"Off"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Angel",
+				"instanceId": "11e850b2-b227-442c-8909-ccb1e4584e05",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Angel",
+				"instanceId": "53a6f889-95ce-4470-95a0-23c48fd6ee8c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Angel",
+				"instanceId": "5ac0885a-85eb-4312-aece-d1fb3d82e551",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Angel",
+				"instanceId": "21bb74ca-37f2-458e-9923-90534f39fa53",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_PlayStationPlus",
+				"instanceId": "c2e8ef65-9ad0-4ee7-914f-7159c7b275d9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_PlayStationPlus",
+				"instanceId": "94b47caf-ef9b-4e47-9c6d-1444f1dc0ae3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_PlayStationPlus",
+				"instanceId": "b3ce14da-6ef7-4cb6-989f-ee3e7a904054",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Communa",
+				"instanceId": "696491dd-5c01-47c1-a261-15735be71633",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Communa",
+				"instanceId": "a2973444-7512-48b5-a95c-cfdacf6d8fbf",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
+								]
+							}
+						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_Mako",
+				"instanceId": "9d84de61-b121-4392-a189-726e00d650ce",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"On"
 								]
 							}
 						]
