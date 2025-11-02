@@ -7703,6 +7703,842 @@
 					},
 					"viewed": true
 				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_5StarsBP1",
+				"instanceId": "d57bab3b-d6b4-4235-8e55-43b7877af0de",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_5StarsBPEyePatch",
+				"instanceId": "4d6a6c5b-cbf8-4dba-bd3e-d9008ac19a0d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_5StarsBPGlasses",
+				"instanceId": "dae03321-75ae-4d9d-9c0b-b2b0003a4478",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_5StarsBPMask",
+				"instanceId": "c65600cc-4334-4f08-a97b-bb533b0cf4d0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_AngelOfDeath",
+				"instanceId": "b15d98c3-e10f-4406-924e-47c6a38ab963",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_ColdBlood",
+				"instanceId": "7193f5d2-46cc-4cf7-8b96-333e9bae3393",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_CommunaBP1Balaclava",
+				"instanceId": "43c7f6a0-451f-4c55-a886-a02d07ad4682",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_CyberLord",
+				"instanceId": "e96a65c6-d717-4c13-aad7-6a01ebb6a98b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_F_04",
+				"instanceId": "23d2527d-8b06-404b-b55c-5fe6a0dae587",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_F_5Stars",
+				"instanceId": "156a8393-d400-4743-9437-b3072d070b65",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_F_BikerGirl",
+				"instanceId": "69fafdfd-ac85-4af8-9f4d-9054ed6e94fc",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_F_Kimiko",
+				"instanceId": "0c823067-1359-4b8a-85b9-759117946ce9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_F_Mythic_Dragon",
+				"instanceId": "b259e0a7-961a-470c-b12a-df7fa4e3f15c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_F_Popstar",
+				"instanceId": "a69cdf90-0877-4201-b798-f044fc8b0c5d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_F_Rebel",
+				"instanceId": "1cbfd88a-aac5-4469-8078-17b47cd18c17",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Goryokawa",
+				"instanceId": "f0385942-e232-448e-9875-a2a32d158e7c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_KillerBunny",
+				"instanceId": "9998cbc7-c6e6-4732-8f1d-4bb37b3ff8b2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_KillerKawaii",
+				"instanceId": "a7bbb9e8-ce40-4b7a-b823-ef18f468cbb1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_M_Beast",
+				"instanceId": "e2478ef9-8e5d-4220-be9e-806e54d78111",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_M_Mythic_Gangster",
+				"instanceId": "1dc6f288-4c18-4f3b-9f63-0c24e04485c6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_M_Nobunaga",
+				"instanceId": "48347ea0-353d-49ca-b837-c7f036add668",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_M_Port",
+				"instanceId": "90060676-2b03-441f-858f-92d29aed97c8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_M_Primal",
+				"instanceId": "a5e566ec-13d1-48e2-af69-8c2e6a842b8a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_M_Prince",
+				"instanceId": "e705033b-7ff1-448c-82c0-5a7b71207822",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_M_Shadows",
+				"instanceId": "a6cdf339-6092-4969-b5ca-0909e67bce03",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_MadDog",
+				"instanceId": "db06da6a-a7d6-40da-b0de-ffea926e09c1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_MiamiBoy",
+				"instanceId": "7c068937-e4e0-4041-934a-c9490abbcf6c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Mythic_LiteBP1",
+				"instanceId": "e94b0b39-dce6-48f5-ab65-29b7e1daaa12",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Nitro",
+				"instanceId": "5e8f697e-1d46-41ec-9c50-cc7756c4b915",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Nutcracker_01",
+				"instanceId": "5333aea7-dff0-4c5c-894b-4f56c6ddc2d2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Poncho",
+				"instanceId": "18754169-fd9c-4ce5-91f9-aabd733193bb",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Rayhan",
+				"instanceId": "cb43db36-f3bd-4e72-9eea-46a660d9b7a4",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Symphony",
+				"instanceId": "4e9368ba-649e-4c14-a4d5-27cbc3bb5e56",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_UglySweater",
+				"instanceId": "eb28b6ed-f9fc-4dbb-ae40-c90f5538493b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_WinterWarrior",
+				"instanceId": "e860294b-f1f4-49ae-a62c-c5eb2c2efc2b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_5StarsBPStyling",
+				"instanceId": "257e45a9-8a02-4985-a266-fcadc318c248",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_CommunaBP1",
+				"instanceId": "b3298afd-94d3-4857-a104-fdcbe4fe4eba",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_CommunaBP1Styling",
+				"instanceId": "11368e08-67d9-45a4-a05f-d2850aa247c5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_5Stars",
+				"instanceId": "d3fe1702-a867-4555-b45f-dce1b21941f8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_KillerBunny",
+				"instanceId": "7ae14a9c-0186-4f2c-82f3-4c2d35ebaaa5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_Kimiko",
+				"instanceId": "04891312-aab3-4bd2-8f9b-b6baa6d268c7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_Mythic_Dragon",
+				"instanceId": "fcb9a42e-e035-4d05-8e56-8a02452ada50",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_Popstar",
+				"instanceId": "bb3111e9-e45c-42be-9819-06a0d993d6d1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_Rebel",
+				"instanceId": "4d90a41e-e53f-4344-83e2-f60bfa9fac19",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_Starbright",
+				"instanceId": "66c51087-f55d-4f81-a797-150581507e33",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_F_Symphony",
+				"instanceId": "90c40aa2-77e1-4da3-b946-2dc848ec6d8d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_KillerKawaii",
+				"instanceId": "e810fe0e-cd7a-4989-912e-f0e9a70f59cc",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_M_Greenbelt",
+				"instanceId": "edaf3470-bd08-43cd-81e9-e397b132029b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_M_Mythic_Gangster",
+				"instanceId": "0949f326-b94b-4f01-969c-5a7d9ba84aad",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_M_Nobunaga",
+				"instanceId": "2e02ec35-8d67-4e98-a2a0-34c8546411af",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_M_Prince",
+				"instanceId": "f0ebd0ce-16b7-4b62-bee9-13d5c6b9b198",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_M_Shadows",
+				"instanceId": "b758937d-b899-4d37-a8e6-87b211a5b38b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_MadDog",
+				"instanceId": "e8cfa43c-3a3d-487c-a923-95ed97e404b4",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_Nutcracker_01",
+				"instanceId": "4c63f84e-6bd0-468e-a14f-04d07439cc74",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_Rayhan",
+				"instanceId": "1318fa4d-2d52-4205-92d3-e5dd60f136b3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HStylingID_Vampire",
+				"instanceId": "b4b43d39-abe4-4780-a115-40d5821a1103",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_5StarsBP1",
+				"instanceId": "41602040-7e93-4ca1-82c9-83451c9831de",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_CommunaBP1",
+				"instanceId": "39403709-a40f-4f94-98af-265dd702dc9b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0002",
+				"instanceId": "d52c37da-17a1-4e0a-a6d5-44dfae27b56b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0003",
+				"instanceId": "1c167bfb-7b5c-44f7-9092-a41680a0a605",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0004",
+				"instanceId": "2dde0cd6-db55-427e-abf2-53bfa394b039",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0005",
+				"instanceId": "205ba34e-1ed8-426b-8c9b-fb4d596d7bf8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0006",
+				"instanceId": "d6cfd0e8-34a8-493d-885c-c5c1350ee1d6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0007",
+				"instanceId": "4bea087e-f180-4719-a91c-7b74eab06f72",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0008",
+				"instanceId": "f32cc8fb-7cc5-408d-8e53-3e953a891d46",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0009",
+				"instanceId": "c18da7b5-a99f-4dc1-9911-9c17e5468d1d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0010",
+				"instanceId": "518c5524-267e-48db-b9f2-e062ac788e88",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_AngelOfDeath_01",
+				"instanceId": "edcf07a7-1268-45c2-aa83-97738f27406a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_CyberLord_01",
+				"instanceId": "512fc947-2d0f-4f35-a741-009150099fb5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_WinterWarrior_01",
+				"instanceId": "0b377ddb-e070-4d6b-9f26-11ac273f82b6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_KillerKawaii_01",
+				"instanceId": "af485dd3-ec09-4ee0-89af-8ca73736f989",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_MadDog_01",
+				"instanceId": "6e08e900-31b8-4b3a-93ea-d7454b623cf5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Nutcracker_01",
+				"instanceId": "315ac71b-1214-4dbf-a04d-d41f2c7d89ca",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Rayhan_01",
+				"instanceId": "9fb2ecb8-c97b-481d-8b8d-f5ad963d83a6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Symphony_01",
+				"instanceId": "c5525e0d-faae-4261-a8cf-74808ec1afdf",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemSimple:HairID_Vampire_01",
+				"instanceId": "1394463a-deb6-4ff9-8762-7a2fb65e6df5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
 			}
 		],
 		"version": "0"
