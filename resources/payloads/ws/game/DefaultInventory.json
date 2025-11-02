@@ -6,7 +6,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Default",
 				"instanceId": "b4763ebb-d058-4736-a89e-ba07761059a6",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -24,7 +24,7 @@
 				"catalogId": "SpectreLiveSceneCaptureItemDef:LSCID_PlayerPortrait_Default",
 				"instanceId": "90dfe9af-6c8d-406f-96b2-8827fbc949f1",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": []
 					},
@@ -35,9 +35,20 @@
 				"catalogId": "SpectreSponsorUnlockItemDefinition:SponsorUnlock_AreaControl",
 				"instanceId": "4822ac5e-f17f-4c1a-977d-e4e59e8533f2",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"sponsorUnlockData": {
 						"sponsorName": "Area Control"
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSponsorUnlockItemDefinition:SponsorUnlock_Remnant",
+				"instanceId": "5a23751f-8ea5-4651-976c-35c88611c4bb",
+				"ext": {
+					"reserved": 0,
+					"sponsorUnlockData": {
+						"sponsorName": "Monark"
 					},
 					"viewed": true
 				}
@@ -46,7 +57,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_SemiAuto_Default",
 				"instanceId": "ca37a62a-28da-4de2-98ce-214c4210f026",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -64,7 +75,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_RapidFire_Default",
 				"instanceId": "0276e54f-481d-46f2-99e0-261c7de223c6",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -82,7 +93,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_001",
 				"instanceId": "746b4efc-8cb7-43b8-b0e3-1e254d747222",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -162,7 +173,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Tactical_Default",
 				"instanceId": "bf3f13de-f9de-4080-a69e-80b567fd2aa6",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -180,7 +191,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Default",
 				"instanceId": "562fd867-1dfb-4ade-ac7b-0dc7a12ac151",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -198,7 +209,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_007_B",
 				"instanceId": "f39e597c-bd23-4c3c-ad28-d3c544376686",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -278,7 +289,7 @@
 				"catalogId": "SpectreSprayItemDef:SprayID_Default_01",
 				"instanceId": "489df6b8-0961-452c-b0ec-fc12e6dc4f2d",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": []
 					},
@@ -289,7 +300,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_SidePart_01",
 				"instanceId": "9900df6c-9423-45bb-8c13-20d9aa84634f",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -315,7 +326,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_006",
 				"instanceId": "0e991f18-b684-48f6-8070-ed34d6d28c51",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -395,7 +406,7 @@
 				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Default",
 				"instanceId": "ac5035e3-6572-484b-a5d8-1ffcc1f367f1",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -413,37 +424,37 @@
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_Soldier",
 				"instanceId": "75c9e5e0-af2a-45e3-814a-4bda6770c4dc",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Bones",
 				"instanceId": "2936add6-6a20-476f-b8f6-ac90c1362858",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": []
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_005",
 				"instanceId": "4bd85d62-ca79-4131-8cf1-60011343c5b1",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -523,7 +534,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_004",
 				"instanceId": "7caa7d6d-0136-48bd-bbff-55689f572eac",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -541,7 +552,7 @@
 				"catalogId": "SpectreMultiKillCaptureItemDef:MKC_Default",
 				"instanceId": "91fe00d8-c2a2-4d97-ad76-a76829b5d731",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": []
 					},
@@ -552,7 +563,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Knife_Default",
 				"instanceId": "1a18b1f8-9098-4623-ad2a-06e3fca7f98f",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -577,26 +588,26 @@
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_Momentum",
 				"instanceId": "cca28dd0-25a4-4395-8aad-0ded8ea89492",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0013",
 				"instanceId": "c90099ed-ddf0-4d9c-ac96-1277a9bfb8c4",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -622,45 +633,45 @@
 				"catalogId": "SpectreQuestItemDef:Quest_Weekly_1_Quests_7",
 				"instanceId": "319bf452-963a-40f8-9190-915c68fc0488",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.dailyquestcompleted": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_Hacker",
 				"instanceId": "380401b6-82db-4575-afe4-c10ec9d5cdee",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_010",
 				"instanceId": "98f429d3-af15-4f4e-99b1-3180a96b609e",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -678,7 +689,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0019",
 				"instanceId": "f82ff30a-f0dc-4a75-ad60-1edb62547a51",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -704,7 +715,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0015",
 				"instanceId": "3bf59bf7-32e8-4693-861c-c416361b21ff",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -730,7 +741,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0012",
 				"instanceId": "c789941e-35ca-446d-b75e-9314944b0a42",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -756,7 +767,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_001",
 				"instanceId": "c2bc07dd-a1db-48d1-9877-6d576e4a907e",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -774,7 +785,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_Default",
 				"instanceId": "e957a9b6-e12e-47e8-89a0-f8dc6eabd431",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -792,7 +803,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_008",
 				"instanceId": "d33f4014-2d2c-407f-b635-f14ea3d93699",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -810,7 +821,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Burst_Default",
 				"instanceId": "a3dfc486-5786-473b-b499-62ae237a0fde",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -828,7 +839,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Heavy_Default",
 				"instanceId": "d746fcb0-b8cf-4fa8-9c70-5eb2c83da27e",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -846,7 +857,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_005",
 				"instanceId": "a0f679c7-c9a5-4eab-b437-d738be7d07b4",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -864,7 +875,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_002",
 				"instanceId": "a96bc5f8-a36b-40cf-bb02-31578d192a72",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -944,26 +955,26 @@
 				"catalogId": "SpectreQuestItemDef:Quest_Weekly_3_Headshots_80",
 				"instanceId": "f44ca42b-09e6-4283-9d44-5ed4896514d9",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.headshots": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_DefaultAlt",
 				"instanceId": "12c77811-d0b7-4ec2-a621-7362120dbba8",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -981,7 +992,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_011",
 				"instanceId": "c7a934c0-dee7-418c-b188-f16f9389b70a",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -999,7 +1010,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_007",
 				"instanceId": "67fb1607-b825-443a-9c87-c31e9b4a98cd",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1017,7 +1028,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_003",
 				"instanceId": "a9d27177-0db7-48ba-959f-ecc1c6c8bcab",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1035,7 +1046,7 @@
 				"catalogId": "SpectreSponsorUnlockItemDefinition:SponsorUnlock_Guardian",
 				"instanceId": "7769b5c5-fdf7-4586-9513-1e635adcffb2",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"sponsorUnlockData": {
 						"sponsorName": "Bloom Technologies"
 					},
@@ -1046,7 +1057,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_003_B",
 				"instanceId": "6b9c7e65-f791-421b-8918-45b8424d97b3",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1126,26 +1137,26 @@
 				"catalogId": "SpectreQuestItemDef:Quest_Weekly_2_CrewScore_50",
 				"instanceId": "d71be643-5982-4c00-b0e3-c782d8420227",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.crewscoreearned": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Default",
 				"instanceId": "5089208d-9694-48ff-ab9c-9a5df91a8942",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1163,7 +1174,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_004_B",
 				"instanceId": "a702a929-7b6d-45cc-b550-c23f584d9e6c",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1243,7 +1254,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0017",
 				"instanceId": "cfe5736d-ff7c-4fb8-8806-261b151265d0",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1269,7 +1280,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Suppressed_Default",
 				"instanceId": "2ae52337-c694-4f8a-946d-effe77f4af28",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1287,7 +1298,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_008_B",
 				"instanceId": "7db00e1d-b23b-4e4a-8de2-5e02117c1edb",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1367,7 +1378,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0011",
 				"instanceId": "a030e18f-f11f-479e-bf23-b3f001609fd2",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1393,7 +1404,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_005_B",
 				"instanceId": "61dbbd7d-8c69-4b7e-87a2-4c99edc21103",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1473,7 +1484,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_DutchBraids_01",
 				"instanceId": "26bd426a-d495-44f0-9f1a-3feceacf088a",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1499,45 +1510,45 @@
 				"catalogId": "SpectreQuestItemDef:Quest_Daily_2_BuyWeapons_50",
 				"instanceId": "78e3a08c-d501-46eb-a54d-d9d8c968f767",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.weaponpurchased": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "SpectreQuestItemDef:Quest_Daily_3_UseUtility_50",
 				"instanceId": "7f656ebd-556c-4e35-a1bd-f6828e09fca3",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.abilitiesused": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_002",
 				"instanceId": "42beb9ed-bbd7-4ad2-bcc6-dc6eef990e4c",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1555,7 +1566,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Suppressed_Default",
 				"instanceId": "c17f13f5-5af0-4a83-920e-66dee9a0e2a1",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1573,7 +1584,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_009",
 				"instanceId": "9d5da043-aeb0-4d40-9a36-cbc1ccb2ae55",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1591,7 +1602,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0014",
 				"instanceId": "0fa09c4e-fe8a-4ddc-bacf-586de40f5031",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1617,29 +1628,29 @@
 				"catalogId": "CharacterCosmeticItemSimple:HAccessoryID_Bones",
 				"instanceId": "509ea8c0-b843-4014-9cb3-34687b26dc69",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": []
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "SpectreSprayItemDef:SprayID_Event_2024_Halloween_01",
 				"instanceId": "8c9aaf53-004d-486a-b621-c6619fd62fd3",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": []
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0016",
 				"instanceId": "5f021dba-65c9-48f9-ae02-3b6eebb1a430",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1665,26 +1676,26 @@
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_Vanguard",
 				"instanceId": "bb59c27f-759e-4e44-8682-6370dacbfacb",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_004",
 				"instanceId": "a275a1b1-04e7-4ad8-8a53-4e7dee57e075",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1764,26 +1775,26 @@
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_AreaControl",
 				"instanceId": "3fa68be5-ea37-47c1-a205-7ef4b983ce62",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0018",
 				"instanceId": "44b140d9-8b02-4611-9313-d8cb14e26fd0",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1809,7 +1820,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_Default",
 				"instanceId": "53aa7351-ec3b-4b43-a648-3f4a6c93b5f2",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1827,7 +1838,7 @@
 				"catalogId": "SpectreSponsorUnlockItemDefinition:SponsorUnlock_Lookout",
 				"instanceId": "a6f80a22-f039-4209-af42-e5d3918bd245",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"sponsorUnlockData": {
 						"sponsorName": "Lookout"
 					},
@@ -1838,7 +1849,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_SemiAuto_Default",
 				"instanceId": "e8f5a65d-a05d-407d-93e5-f440a4d6b2ae",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1856,7 +1867,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_Bones",
 				"instanceId": "aa830cf6-fb8f-4798-957f-174faa05f709",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1867,14 +1878,14 @@
 							}
 						]
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Tactical_Default",
 				"instanceId": "55b8ac4d-0c73-4844-83ea-69e5a66644e4",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1892,7 +1903,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0020",
 				"instanceId": "a98f9664-2387-4931-b6a2-8f0e7983b856",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1918,7 +1929,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Default",
 				"instanceId": "3a3627e7-e9aa-4cba-8e87-cb9f7c04b683",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -1936,45 +1947,45 @@
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_Recon",
 				"instanceId": "8457edbe-51f5-43ce-8300-3be152be3126",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_Lookout",
 				"instanceId": "123e27be-0f97-4bcc-b683-cffbbb8079a3",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_002_B",
 				"instanceId": "711af3ec-f1e0-4c0b-ae88-4bd2c51eb23f",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2054,7 +2065,7 @@
 				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Default",
 				"instanceId": "40268935-f961-4783-934f-c46b3e7dc1db",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2072,26 +2083,26 @@
 				"catalogId": "SpectreSponsorProgressionItemDef:ProgID_Sponsor_Guardian",
 				"instanceId": "c22878ca-7d62-4019-a4be-628bf4b5a142",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.xp": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "CharacterCosmeticItemSimple:HStylingID_DefaultStyling_006",
 				"instanceId": "d7228c05-8ab5-442b-9352-80ba4ae5a7cb",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2109,26 +2120,26 @@
 				"catalogId": "SpectreQuestItemDef:Quest_Daily_1_FirstKill_1",
 				"instanceId": "ddd52962-4544-462b-8997-cc3e48249b6d",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"activeProgressionData": {
 						"progressByStat": {
 							"playerstat.firstkills": "0"
 						},
 						"areObjectivesCompleted": false,
 						"currentObjectiveId": "0",
-						"currentObjectiveIndex": 0.0,
+						"currentObjectiveIndex": 0,
 						"isPremiumUnlocked": false,
 						"isBundlePurchased": false,
-						"numLevelsPurchased": 0.0
+						"numLevelsPurchased": 0
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "MtnManualItem:ProgressionTracker",
 				"instanceId": "e592466e-1bbf-4282-815b-3c4689e25283",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"trackedProgression": {
 						"activeEndorsement": "75c9e5e0-af2a-45e3-814a-4bda6770c4dc",
 						"activeDailyQuests": [
@@ -2144,14 +2155,14 @@
 						"activeEventQuests": [],
 						"lastRolloverTimestamp": "1740269321817"
 					},
-					"viewed": false
+					"viewed": true
 				}
 			},
 			{
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_SemiAuto_Default",
 				"instanceId": "e9924f92-614c-4431-b142-73b53453eab5",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2169,7 +2180,7 @@
 				"catalogId": "CharacterCosmeticItemSimple:HairID_Hair_0001",
 				"instanceId": "6238aefd-fc64-4a7e-a017-b3792857f4a0",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2195,7 +2206,7 @@
 				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_DefaultAlt",
 				"instanceId": "8bb8b534-3488-4d49-886e-65bec362abae",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2213,7 +2224,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_MG_HighCal_Default",
 				"instanceId": "e9d28ce9-940e-498d-9be1-a1d0555e0544",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2231,7 +2242,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Default",
 				"instanceId": "8c7beeb1-710b-464a-b4df-84a098298c69",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2249,7 +2260,7 @@
 				"catalogId": "SpectreSponsorUnlockItemDefinition:SponsorUnlock_Soldier",
 				"instanceId": "77cea447-a89d-4c49-ba98-09b0c0f3cf78",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"sponsorUnlockData": {
 						"sponsorName": "Soldier"
 					},
@@ -2260,7 +2271,7 @@
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_HighCal_Default",
 				"instanceId": "79d2e9ae-83e8-4598-ba05-b0fd75239490",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -2278,7 +2289,7 @@
 				"catalogId": "SpectreBannerItemDef:BannerID_Default",
 				"instanceId": "4f30362e-0f4a-4389-8c43-4c588924ca09",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": []
 					},
@@ -2289,7 +2300,7 @@
 				"catalogId": "CharacterCosmeticItemHead:HeadID_Face_003",
 				"instanceId": "56490170-5353-4a9d-8f5f-14b0bbb91b63",
 				"ext": {
-					"reserved": 0.0,
+					"reserved": 0,
 					"instancedCustomizationData": {
 						"instancedAlterationChannels": [
 							{
@@ -5312,78 +5323,6 @@
 				}
 			},
 			{
-				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Standard_Angel",
-				"instanceId": "11e850b2-b227-442c-8909-ccb1e4584e05",
-				"ext": {
-					"reserved": 0,
-					"instancedCustomizationData": {
-						"instancedAlterationChannels": [
-							{
-								"channelId": "Mesh",
-								"ownedAlterations": [
-									"On"
-								]
-							}
-						]
-					},
-					"viewed": true
-				}
-			},
-			{
-				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Angel",
-				"instanceId": "53a6f889-95ce-4470-95a0-23c48fd6ee8c",
-				"ext": {
-					"reserved": 0,
-					"instancedCustomizationData": {
-						"instancedAlterationChannels": [
-							{
-								"channelId": "Mesh",
-								"ownedAlterations": [
-									"On"
-								]
-							}
-						]
-					},
-					"viewed": true
-				}
-			},
-			{
-				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Pistol_Auto_Angel",
-				"instanceId": "5ac0885a-85eb-4312-aece-d1fb3d82e551",
-				"ext": {
-					"reserved": 0,
-					"instancedCustomizationData": {
-						"instancedAlterationChannels": [
-							{
-								"channelId": "Mesh",
-								"ownedAlterations": [
-									"On"
-								]
-							}
-						]
-					},
-					"viewed": true
-				}
-			},
-			{
-				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Sniper_BoltAction_Angel",
-				"instanceId": "21bb74ca-37f2-458e-9923-90534f39fa53",
-				"ext": {
-					"reserved": 0,
-					"instancedCustomizationData": {
-						"instancedAlterationChannels": [
-							{
-								"channelId": "Mesh",
-								"ownedAlterations": [
-									"On"
-								]
-							}
-						]
-					},
-					"viewed": true
-				}
-			},
-			{
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_Shotgun_Auto_PlayStationPlus",
 				"instanceId": "c2e8ef65-9ad0-4ee7-914f-7159c7b275d9",
 				"ext": {
@@ -5438,42 +5377,6 @@
 				}
 			},
 			{
-				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Communa",
-				"instanceId": "696491dd-5c01-47c1-a261-15735be71633",
-				"ext": {
-					"reserved": 0,
-					"instancedCustomizationData": {
-						"instancedAlterationChannels": [
-							{
-								"channelId": "Mesh",
-								"ownedAlterations": [
-									"On"
-								]
-							}
-						]
-					},
-					"viewed": true
-				}
-			},
-			{
-				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_AR_Heavy_Communa",
-				"instanceId": "a2973444-7512-48b5-a95c-cfdacf6d8fbf",
-				"ext": {
-					"reserved": 0,
-					"instancedCustomizationData": {
-						"instancedAlterationChannels": [
-							{
-								"channelId": "Mesh",
-								"ownedAlterations": [
-									"On"
-								]
-							}
-						]
-					},
-					"viewed": true
-				}
-			},
-			{
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_RapidFire_Mako",
 				"instanceId": "9d84de61-b121-4392-a189-726e00d650ce",
 				"ext": {
@@ -5487,6 +5390,2316 @@
 								]
 							}
 						]
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_5StarsBP1",
+				"instanceId": "e93a9262-7a0f-4492-8dc2-1132e560e788",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_AngelOfDeath",
+				"instanceId": "6ad91cb6-a96a-49f8-b765-1a090da20c0f",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_ColdBlood",
+				"instanceId": "0fcb9ee0-d3f4-4af1-b102-dbc16e0097fa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_CommunaBP1",
+				"instanceId": "567e3b98-cad2-42ee-a006-dd256342f541",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_CyberLord",
+				"instanceId": "55f967e4-7774-49cd-bfb8-a5a3877b585f",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_04",
+				"instanceId": "cfe61ff2-6fc8-4b7c-af58-4d4935bc93ba",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_5Stars",
+				"instanceId": "58ee389c-eda3-43ff-8f8c-7e478fbaaf19",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_BikerGirl",
+				"instanceId": "50190b78-4694-4e24-adde-dbb72a6cd047",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Default5StarsBP1",
+				"instanceId": "774112fc-278d-4afc-9565-3e93e800a0e8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_DefaultCommunaBP1",
+				"instanceId": "ced3d3a0-1004-4203-bac8-55dcd83c1a8b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_DefaultPS",
+				"instanceId": "85321178-a675-431b-a598-a7c63f78ec17",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_DefaultStarterPack",
+				"instanceId": "9c418bdb-07cc-4b68-8935-6ddda3a01af5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Kimiko",
+				"instanceId": "16b3692b-2d9b-47f5-a7ed-af673f09ac2f",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Mythic_Dragon",
+				"instanceId": "a61ad6be-8254-4aa8-bc29-398a0acf885c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Popstar",
+				"instanceId": "da16e7da-0d98-47b5-8482-e3a7f1d07beb",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Rebel",
+				"instanceId": "6e62e1c0-565b-475e-b34e-dc1ec26859ed",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_F_Starbright",
+				"instanceId": "88cab2a7-5b3e-4f8c-8380-7e284d240a61",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Goryokawa",
+				"instanceId": "fd9ced0c-3ed9-40c2-8ce5-3d62fe9391ab",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_KillerBunny",
+				"instanceId": "b1c07ea9-34e2-4209-b080-75f2e1a994fe",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_KillerKawaii",
+				"instanceId": "82fd3afe-b348-497b-b31d-631b4dd34665",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Beast",
+				"instanceId": "49e56d9c-70f9-41aa-b218-d29b5ed4ff4e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Default5StarsBP1",
+				"instanceId": "f77b4f6b-bbfb-4ef6-b3df-e117299942fa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_DefaultPS",
+				"instanceId": "7393bfed-4a82-4265-a6b6-8fef9d507c73",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_DefaultStarterPack",
+				"instanceId": "35e89c3d-ad39-4410-ac67-7ecb24f76843",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Greenbelt",
+				"instanceId": "20e504c1-b177-485f-a129-c91c96461752",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Mythic_Gangster",
+				"instanceId": "47519409-c7fb-4088-b057-c526ba8cbcb8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Nobunaga",
+				"instanceId": "91d9445d-c100-42a4-b573-5353b9a50e2e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Port",
+				"instanceId": "2b9df2b2-a102-487a-afba-6e7a7850899d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Primal",
+				"instanceId": "2ff4c9e8-1cf7-49b4-813c-3d87849cdbe4",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Prince",
+				"instanceId": "e2f04031-a6f5-4f66-a56e-03e7b5ab6732",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_M_Shadows",
+				"instanceId": "b22a5e8a-c0db-4d54-abb1-0ec841f4b001",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_MadDog",
+				"instanceId": "4afab35a-89e7-483b-945c-66e53a6fe6ef",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_MiamiBoy",
+				"instanceId": "dde54c73-37d4-4ade-b878-d5651fca4e98",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Mythic_LiteBP1",
+				"instanceId": "12d3ba57-cfeb-4e90-a71d-fab6a9f62c45",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Nutcracker_01",
+				"instanceId": "d2bcf9bf-c48d-4339-9abb-f2d871412c83",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Poncho",
+				"instanceId": "ad62e96f-820f-4b85-b36b-0867bba3633a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Rayhan",
+				"instanceId": "09ce799f-a477-455d-8219-b498291ca501",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Symphony",
+				"instanceId": "7ac525ff-78fa-4f19-9797-fc1ac45ee46c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_UglySweater",
+				"instanceId": "6749b915-5460-4def-a51f-f15b8373abf7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_Vampire",
+				"instanceId": "37b290bf-25d4-44c4-822a-6036b3f44620",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "CharacterCosmeticItemOutfit:OutfitID_WinterWarrior",
+				"instanceId": "842ef5c2-87d2-43bf-948f-bc02411061ec",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_5Stars_BulletsFlying_01",
+				"instanceId": "d9e1a252-e62e-4611-b157-6cd5b6552857",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_5Stars_ChampionCup_01",
+				"instanceId": "ced6970e-58d9-4fb7-8484-430cd52a77fa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_5Stars_GrenadeBox_01",
+				"instanceId": "1bf98afc-f1bf-4270-9808-16cfb20eb016",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_5Stars_Manticore_01",
+				"instanceId": "7a783680-3a7d-42e8-bf71-54fc54bc108c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_5Stars_ShotsFired_01",
+				"instanceId": "e13c14af-6a85-4da1-8c27-03c614fbbbbc",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_5Stars_TheFiveStar_01",
+				"instanceId": "9d90b8e8-7aff-493e-b691-148505f9f21e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Communa_Bombs_01",
+				"instanceId": "1a811745-5fa6-457a-b653-2087d59134e5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Communa_Boom_01",
+				"instanceId": "8c9cc4d1-9779-4e36-861d-23ed7ef1b791",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Communa_Boombox_01",
+				"instanceId": "833ba692-0d9e-4add-96d1-39f8cf88931d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Communa_PewPew_01",
+				"instanceId": "a30eeb33-3938-4a30-9975-5127bea02bb0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Communa_SprayPaintSmiley_01",
+				"instanceId": "b1c128f0-7d9c-44b3-addb-79d12d04d513",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Communa_TaggedAR_01",
+				"instanceId": "8ffd8fea-e9f2-4672-8771-596d81c730f7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Communa_XtraLife_01",
+				"instanceId": "b3d23fbb-81c1-4a7d-aefc-e051dcf64ee5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Neutral_Headset_01",
+				"instanceId": "fc571bf3-2090-4a54-bdb3-832fb308c443",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_BP1_Neutral_Recharge_01",
+				"instanceId": "e7cf9f4c-e5a8-49c8-aaff-9bad8db308ee",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Character_Dragon_01",
+				"instanceId": "eb08501c-20bc-4b55-8fb2-e16bf92d89d5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Character_Gangster_01",
+				"instanceId": "812af392-7f26-48bd-a3b7-27527016797c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Community_01",
+				"instanceId": "6933c058-7bcc-49fe-a441-671fc1a0f163",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_FoundersPack_01",
+				"instanceId": "d172f7e2-918e-42cd-ad81-ac2a7ed04906",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_StarterPack_01",
+				"instanceId": "5075318c-3efd-485b-9c54-aed938c53cb0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_StudioPack_01",
+				"instanceId": "a8effa20-1339-4f1d-bc85-5378530c9bf8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_SupporterPack",
+				"instanceId": "2e717c0f-3869-4697-9838-41856fcc151c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit01_District_01",
+				"instanceId": "295b5b35-829e-47bf-b8c8-3e4031567321",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit01_Kit_01",
+				"instanceId": "a36df9d2-9ea5-414b-b50a-0e0708cc6dba",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit02_District_01",
+				"instanceId": "f70f2deb-895d-4342-ac40-2d3d330046cf",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit02_Kit_01",
+				"instanceId": "83dcfc48-ca5a-47d7-bb1c-747f5c37d8fd",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit02_Kit_02",
+				"instanceId": "f6fe2d6c-6c88-4f41-8787-8370f87c1a72",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit03_District_01",
+				"instanceId": "8e575bb3-4c80-418c-bb37-d4e50a09210c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit03_Kit_01",
+				"instanceId": "c0a4eec3-10b9-455f-a847-9e2a223ae5c5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit03_Kit_02",
+				"instanceId": "11a60f68-4caa-44df-a7bd-77324ea1f0a2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit04_District_01",
+				"instanceId": "7621b2f7-0fd3-4b69-8341-138d0e84dec2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit04_Kit_01",
+				"instanceId": "f7720231-1765-4d76-b52c-8acb0a49a8d2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit05_District_01",
+				"instanceId": "155cc444-915a-401a-9083-71a25c9b6359",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit05_Kit_01",
+				"instanceId": "36009e89-29c9-483c-8e40-7b86b78ea555",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit06_District_01",
+				"instanceId": "84a5b522-c28d-452f-9eb2-b36123b0fde4",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit06_Kit_01",
+				"instanceId": "8f6dd2e0-9eda-4515-adbe-09c81fc78352",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit06_Kit_02",
+				"instanceId": "5a8e2617-2654-4c9d-8e88-5fdbe83f199d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit07_District_01",
+				"instanceId": "92b171f0-4a97-4644-837f-804bc01976fa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit07_Kit_01",
+				"instanceId": "930296ed-8645-4c21-b39f-24caacfa01dd",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit07_Kit_02",
+				"instanceId": "04c3f666-fec3-4c97-be4e-b97e9101103b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit08_District_01",
+				"instanceId": "9539e4ba-8e06-4088-af1d-78226f1dbe55",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit08_Kit_01",
+				"instanceId": "7dbdb65a-be56-49f5-9bb0-6902e67121f9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit09_01",
+				"instanceId": "db9fcbcf-7ae9-4258-b359-28db799acee3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Track_Kit09_02",
+				"instanceId": "2fa2dc7b-d388-4298-a752-041452995109",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Weapon_Alchemist_01",
+				"instanceId": "3cff1313-d850-4297-8e35-ee531d875fee",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Weapon_Angels_01",
+				"instanceId": "57550467-a67b-4add-97d8-964d00261b6d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Weapon_Avalon_01",
+				"instanceId": "632f03d0-2356-4da1-8a53-33af6d574a42",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Weapon_CryoBlast_01",
+				"instanceId": "a4245ba9-9e42-4e37-a192-abc1ef54e2d9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Weapon_CyberLord_01",
+				"instanceId": "01b24086-4a50-4e38-a5e6-5bbc0f725414",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreBannerItemDef:BannerID_Weapon_Reaper_01",
+				"instanceId": "c3368657-3e21-4c7f-9d5b-d7b8647ff5e3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_5Stars_Cup",
+				"instanceId": "9d5b589f-59ca-4e7b-9006-31caf29920f8",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_5Stars_Flashbang",
+				"instanceId": "6226ab00-ea0e-4ab0-ae0f-c97aa4574626",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_5Stars_Lion",
+				"instanceId": "1d9306d8-18f5-48e9-8a0d-c5c5c20ca788",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_5Stars_Logo",
+				"instanceId": "1dffe459-f72b-444e-a991-72be809ec271",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_5Stars_Perfume",
+				"instanceId": "02fc82ec-5796-48b5-8475-de3d222771ce",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_5Stars_Torch",
+				"instanceId": "e655eb2e-cc90-43e7-81b6-9bffa1a4f0b3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_Boom",
+				"instanceId": "80e1cdfe-3d45-4b45-822e-8b7da727f682",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_Boombox",
+				"instanceId": "768bbb21-02c1-4c91-a644-8dfdc65a6f4b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_Bullets",
+				"instanceId": "4ebadd55-20fc-493a-b08d-46462f1b45b4",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_CommunaFont",
+				"instanceId": "38c41521-7d55-4da3-bf03-e98e66c3a140",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_ExtraLife",
+				"instanceId": "125091bd-3e2c-455a-8d3c-c63d7b7e604d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_PewPew",
+				"instanceId": "17eca98c-d8ce-4517-87c6-3b1251a675b4",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_Pixel",
+				"instanceId": "99699f47-0e26-4b2e-b8c8-eedc6496f696",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_Skulls",
+				"instanceId": "46627afb-333f-4a4d-86ef-9cc620458e03",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_BP1_Communa_SprayCan",
+				"instanceId": "891d7c94-a447-4610-9a9a-d95353b8934c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Character_Dragon_01",
+				"instanceId": "be9457fa-23a6-4f72-be21-b4e315d16401",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Character_Gangster_01",
+				"instanceId": "cabd112c-2ce9-4538-97e8-0ead08ab4046",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Community_01",
+				"instanceId": "cfab243e-d222-44fe-9f55-bf4a1eb37e36",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_FoundersPack_01",
+				"instanceId": "2165e873-a63d-43e7-9cd5-5f7d0b24d95c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_S0_CrewRankReward",
+				"instanceId": "3449b2a0-2dd6-46a8-9c88-e39e408ff985",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_S0_SoloRankReward",
+				"instanceId": "15cbcdde-75f5-4e49-b9e1-62098b0be828",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_S0_TeamRankReward",
+				"instanceId": "c5f04c68-ebea-477b-a745-1693ab88e6e0",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_StudioPack_01",
+				"instanceId": "f2e0ba65-e92a-431c-aeda-aa70a1771bc3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_SupporterPack_01",
+				"instanceId": "021f2c7d-b11b-414c-a861-cfb28e1b94dd",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit01_District_01",
+				"instanceId": "ddb26477-64f8-4dec-94ec-a3beca3018f9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit01_Kit_01",
+				"instanceId": "cb5dc3af-da83-471b-b58d-77b1e4cfb2aa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit02_District_01",
+				"instanceId": "63efa60f-6907-4973-bc5e-22aeb021beae",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit02_Kit_01",
+				"instanceId": "03d43b9f-a9c2-43c2-a143-451e87728db5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit03_District_01",
+				"instanceId": "f6a300a5-a8e6-40c2-b58a-cc119e12ccac",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit03_Kit_01",
+				"instanceId": "3a5e4a28-2999-4a6d-adfc-90fcfc54388b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit04_District_01",
+				"instanceId": "2a02ca49-b90a-45f3-8995-5c493ad956ed",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit04_Kit_01",
+				"instanceId": "c5e66a67-d07a-43bb-9dc6-0db919a5319a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit05_District_01",
+				"instanceId": "275a19d2-dece-4e30-bdf4-ded8141675cb",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit05_Kit_01",
+				"instanceId": "88a549a8-df6e-44e3-a3d4-d6b61238d7a3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit06_District_01",
+				"instanceId": "1cf881ae-f1a1-41f6-90c0-396825a30e58",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit06_Kit_01",
+				"instanceId": "ab893db3-7230-4389-a9ac-8d7c412963c3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit07_District_01",
+				"instanceId": "e898235d-67f7-4301-ac93-3960191a873b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit07_Kit_01",
+				"instanceId": "355a8c59-a62d-439f-9666-ffe059c573fe",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit08_District_01",
+				"instanceId": "28cdeef2-8acb-4d8a-ab86-0a778d72508b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit08_Kit_01",
+				"instanceId": "616aca64-bfe7-4f84-8c24-e859f1adb78d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit09_01",
+				"instanceId": "4f8dadaa-6b71-4324-8d80-4232d8dd1b8c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Track_Kit09_02",
+				"instanceId": "3b68f254-61c5-480a-a7f7-a0f99fc98c1d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Weapon_Alchemist_01",
+				"instanceId": "c68bbc3a-2ba4-40e5-9860-f919d6f7be3b",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Weapon_Angel_01",
+				"instanceId": "e3bcd6fe-8c55-4c43-a290-3fdd9fc12ebe",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Weapon_Avalon_01",
+				"instanceId": "055714d1-71a1-4244-9e6a-67662d5ec508",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Weapon_Cryoblast_01",
+				"instanceId": "f40c6ed0-09d3-4a59-abc5-da657058e9fa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Weapon_Cyberlord_01",
+				"instanceId": "12a87f5e-f038-45db-995b-a7d679931568",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreSprayItemDef:SprayID_Weapon_Reaper_01",
+				"instanceId": "e41ac306-bb5d-4af6-9df1-c7dd3deadc77",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_5Stars_DistrictLogo",
+				"instanceId": "d75fe345-420a-44aa-93b2-99684b57bc49",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_5Stars_Lighting",
+				"instanceId": "4aaa9213-ed47-48b7-9950-b4f4df1849c5",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_5Stars_Lion",
+				"instanceId": "17d9c39d-e834-4875-8e3a-43c946c451c1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_5Stars_Torch",
+				"instanceId": "9d3143c1-2a33-4986-b705-75ca1c644333",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_Communa_Bomb",
+				"instanceId": "ebc28072-caba-45c4-b5e8-2049fc603689",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_Communa_Boombox",
+				"instanceId": "bf14cec3-dc74-490e-b09b-423ea1145fe2",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_Communa_DistrictLogo",
+				"instanceId": "5caebc51-0ceb-4760-b6c0-abcaa5933f43",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_Communa_FingerGun",
+				"instanceId": "e853b222-42ad-4b39-8ada-fff5a61a4d1f",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_BP1_Neutral_Arcade",
+				"instanceId": "162cb486-d374-4c07-9063-edfa25f62db7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_CrewRewardsS0_1",
+				"instanceId": "ac347a3f-5272-4b0b-b5f9-cba54d9acb99",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_CrewRewardsS0_2",
+				"instanceId": "2b70ad4c-c38e-447c-af1b-7316e79be2f7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_CrewRewardsS0_3",
+				"instanceId": "3888122f-99ba-4413-89c7-74dfb98e9f7c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_CrewRewardsS0_4",
+				"instanceId": "ee90a4e7-1d50-4c82-901d-7e3e7cfccc99",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_CrewRewardsS0_5",
+				"instanceId": "075973e7-8e35-405f-9c23-a52ac1459d1c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_CrewRewardsS0_6",
+				"instanceId": "66ad7816-6b76-48b7-9b21-268a41c32222",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_CrewRewardsS0_7",
+				"instanceId": "63207207-6e51-4943-a094-f149b32ab7ca",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Drone",
+				"instanceId": "84cbd591-e834-484f-9f90-b42dfe947e71",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_01",
+				"instanceId": "bf3ecc65-d7ba-4290-a63f-7a02f5dac632",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_02",
+				"instanceId": "dd33adae-696e-4e74-a8aa-16b65d6e0494",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_03",
+				"instanceId": "4ba481dc-d60b-40f8-961d-7e673663177c",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_04",
+				"instanceId": "e36c666e-75ad-4204-8ed1-8f5a88bc010d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_05",
+				"instanceId": "4bb223a5-c7d1-42ef-b596-68e71ed084e6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_Community_06",
+				"instanceId": "0342e5d0-5add-4d30-ab33-10ae34a3b260",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Misc_MountainTop",
+				"instanceId": "ae2ee413-32db-4a48-acc1-64f0c3bab2b1",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_01",
+				"instanceId": "9771c33a-5a8e-44b2-a36b-76dd2b669d67",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_02",
+				"instanceId": "85ff7d75-d3d8-48e4-a58d-15e89540d719",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_03",
+				"instanceId": "0b690b3e-ff64-4573-8094-06f0cf35cb7d",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_04",
+				"instanceId": "9d8ee199-2262-4d5b-a30b-3602422c314e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_05",
+				"instanceId": "f981a60f-c9f0-4486-be6e-51c23d15d295",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_06",
+				"instanceId": "e6a1653a-c5f8-48ab-b8eb-bce274c6a9e3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_07",
+				"instanceId": "40267957-533f-4073-b135-27767640ae3a",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_SoloRanksS0_08",
+				"instanceId": "4d64fec8-7d3b-4408-8dbd-5fbe5c1d6504",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Alchemist_01",
+				"instanceId": "12e3e5f5-41ef-4c96-9cef-287002c4d615",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Angel_01",
+				"instanceId": "b574d20f-247d-4312-a889-ac459d7e977e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Avalon_01",
+				"instanceId": "0cb44f48-56ff-4984-a1fa-24acbe983371",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Cryoblast_01",
+				"instanceId": "17699258-d028-4e1c-90e9-a07254b09e83",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Cyberlord_01",
+				"instanceId": "91ec07f9-714a-45f4-8aea-5ab97120c067",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Dragon_01",
+				"instanceId": "243d1597-df54-4604-af62-bd31d217c068",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Founders",
+				"instanceId": "3646ac59-3702-4b60-951a-6ca8e3c1fe12",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Gangster_01",
+				"instanceId": "2b7912cc-6fd8-4efa-bcda-b1b78c9f6fec",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Reaper_01",
+				"instanceId": "0e06a09b-0c51-45fa-a639-a7ec68fc41fa",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Store_Supporter",
+				"instanceId": "43c20b16-59be-4ab6-9eb9-64ee5c576dbf",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_01",
+				"instanceId": "53a783fa-8ba6-4c60-9e89-9c84d64835bb",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_02",
+				"instanceId": "6c7ccd6a-dd1a-410e-9221-5a9778312bd3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_03",
+				"instanceId": "311bb287-1638-4a88-84d0-a608fc588474",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_04",
+				"instanceId": "d6aca4e4-f414-4185-b0d4-d6f4fc616151",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_05",
+				"instanceId": "903fbb53-f74d-4f7d-ac4c-9e67bfd49af9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_06",
+				"instanceId": "28ef389c-2e51-42ee-a196-f6ea4f054e00",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_07",
+				"instanceId": "5d1519c1-0cf0-4e50-9c8f-d982e23a5202",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_08",
+				"instanceId": "7265ca88-aa70-4a9e-b7ce-1caca05a1ba7",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_TeamRanksS0_09",
+				"instanceId": "fcc3ea3b-c025-4118-b4d4-a148e5f85edb",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit01_District",
+				"instanceId": "158dfad0-6953-4048-ba70-d8dda4d21fa6",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit01_Kit",
+				"instanceId": "d149c2ed-c364-42e7-88e7-43fec6bc9b11",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit02_District",
+				"instanceId": "f56809bd-3185-40a1-9a6f-2870c1f298ad",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit02_Kit",
+				"instanceId": "f0be6b44-8d84-4046-b04f-9ee330f08af9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit03_District",
+				"instanceId": "6446e1ca-c2cf-4f7f-8b09-fa3cca070cc3",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit03_Kit",
+				"instanceId": "156696a5-e916-4af7-883a-7675aee60fcc",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit04_District",
+				"instanceId": "76378433-e279-4794-b6c3-223405c47f90",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit04_Kit",
+				"instanceId": "5ce35e73-8feb-42d9-9a63-36c3f418c8cf",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit05_District",
+				"instanceId": "c9909742-716e-4175-bc56-c5878e535344",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit05_Kit",
+				"instanceId": "9ec376b4-e8fe-45e0-bb18-c4ee461fc106",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit06_District",
+				"instanceId": "892fa070-142a-463e-96ce-711927941d7e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit06_Kit",
+				"instanceId": "0fd66fbf-82dd-4fe5-82e5-6293695ad291",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit07_District",
+				"instanceId": "1977e6ac-f45f-4961-8166-6af3c8fe2ef9",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit07_Kit",
+				"instanceId": "19d8cc8a-4945-4e6e-bc63-2ab10096ff31",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit08_District",
+				"instanceId": "3f545e41-2856-4b13-bacf-2cc450be5256",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit08_Kit",
+				"instanceId": "c01c089c-4455-4187-b483-b851111bf918",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit09_District",
+				"instanceId": "2a19efa3-1578-454c-b2b1-db11f2a1f2ab",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Track_Kit09_Kit",
+				"instanceId": "50e96747-3618-4d7a-952b-497692a7c24e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Yokai",
+				"instanceId": "98649c6d-1a50-438b-9df3-5cfbdcd9686e",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
+					},
+					"viewed": true
+				}
+			},
+			{
+				"catalogId": "SpectreWeaponCharmItemDef:CharmID_Zeus",
+				"instanceId": "5f309fb8-6b2a-4e52-9647-95fcfcb01b10",
+				"ext": {
+					"reserved": 0,
+					"instancedCustomizationData": {
+						"instancedAlterationChannels": []
 					},
 					"viewed": true
 				}
