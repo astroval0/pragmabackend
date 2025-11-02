@@ -53,8 +53,21 @@ static std::string InventoryStoreToPayload(InventoryContent* invStore) {
 	}
 	curPos = jsonstr2.find("\"gameData\":\"{\\\"contentId\\\":\\\"\\\"");
 	while (curPos != std::string::npos) {
-		jsonstr2.replace(curPos, 170, "\"{}\"");
-		curPos = jsonstr2.find("\"gameData\":\"{\\\"contentId\\\":\\\"\\\"");
+		size_t colon = jsonstr2.find(':', curPos);
+		if (colon == std::string::npos) break;
+		size_t startQuote = jsonstr2.find('\"', colon + 1);
+		if (startQuote == std::string::npos) break;
+		size_t i = startQuote + 1;
+		bool esc = false;
+		for (; i < jsonstr2.size(); ++i) {
+			char ch = jsonstr2[i];
+			if (esc) { esc = false; continue; }
+			if (ch == '\\') { esc = true; continue; }
+			if (ch == '\"') break;
+		}
+		if (i >= jsonstr2.size()) break;
+		jsonstr2.replace(startQuote, i - startQuote + 1, "{}");
+		curPos = jsonstr2.find("\"gameData\":\"{\\\"contentId\\\":\\\"\\\"", startQuote + 2);
 	}
 	return jsonstr2;
 }
@@ -82,7 +95,7 @@ GameDataStore::GameDataStore(std::string inventoryStorePath) {
 
 std::unique_ptr<InventoryContent, std::function<void(InventoryContent*)>> GameDataStore::InventoryStore_mut() {
 	// When the returned pointer goes out of scope, call the RefreshInventoryStoreCache method in the class
-	while(!inventoryStoreLock.try_lock()){}
+	while (!inventoryStoreLock.try_lock()) {}
 	return std::unique_ptr<InventoryContent, std::function<void(InventoryContent*)>>(
 		&inventoryStore,
 		// Turns class method into static lambda
