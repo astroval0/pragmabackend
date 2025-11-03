@@ -1,0 +1,352 @@
+{
+	"playerId": "250D6BEA-4F0D-4DED-96CC-6E40EC80AFAB",
+	"data": {
+		"unlockAllPlayModes": false,
+		"unlockAllMenuTabs": false,
+		"unlockAllSponsors": true,
+		"bypassUnlockAllSponsorsOverride": false,
+		"bypassProgressionOverrides": false,
+		"bypassTeamSizeOverrides": false,
+		"bypassRegionSelectOverride": false,
+		"bypassCurrencyPurchasingOverride": false,
+		"disableDevMapSelector": false,
+		"showDebugInfoPanel": false,
+		"showPlatformInfoPanel": false,
+		"showMatchmakingCounters": false,
+		"forceChatEnabled": false,
+		"mostRecentLobbyMode": 2,
+		"mostRecentPartyId": "dd890eec-435b-4df2-8ae9-291660d7a936",
+		"endUserLicenseAcceptedVersion": 2,
+		"endUserLicenseAcceptedVersionPlayStation": 0,
+		"endUserLicenseAcceptedVersionXbox": 0,
+		"termsOfServiceAcceptedVersion": 2,
+		"termsOfServiceAcceptedVersionPlayStation": 0,
+		"termsOfServiceAcceptedVersionXbox": 0,
+		"nonDisclosureAgreementAcceptedVersion": 0,
+		"nonDisclosureAgreementAcceptedVersionPlayStation": 0,
+		"nonDisclosureAgreementAcceptedVersionXbox": 0,
+		"seizureWarningAcknowledgedVersion": 1,
+		"seizureWarningAcknowledgedVersionPlayStation": 0,
+		"seizureWarningAcknowledgedVersionXbox": 0,
+		"battlepassSeasonLoggedOn": 1,
+		"battlepassPurchasePopupLastTime": -9.2233720368547758e+18,
+		"nonDisclosureAgreementUserSignature": "",
+		"nonDisclosureAgreementUserSignaturePlayStation": "",
+		"nonDisclosureAgreementUserSignatureXbox": "",
+		"nonDisclosureAgreementUserEmail": "",
+		"nonDisclosureAgreementUserEmailPlayStation": "",
+		"nonDisclosureAgreementUserEmailXbox": "",
+		"lastVersionShownInDriversWarningDialog": "",
+		"minSpecWarningDialogTimesDisplayed": 0,
+		"pingWarningDialogTimesDisplayed": 0,
+		"hasCompletedLaunchSettingsFlow": true,
+		"isUsingManualMatchmakingRegionSelection": false,
+		"manualMatchmakingRegionSelections": [
+		],
+		"rotatingNewsViewedMessages": [
+		],
+		"version": 8,
+		"inkQuality": 2,
+		"mouseSensitivityADSScale": 1,
+		"mouseSensitivity": 0.5,
+		"minimapScale": 0.89999997615814209,
+		"minimapSize": 1,
+		"minimapMaskOpacity": 0.20000000298023224,
+		"bInvertedYAxis": false,
+		"bToggleCrouch": false,
+		"bToggleWalk": false,
+		"bToggleADS": false,
+		"recoilBehavior": "FollowCenter",
+		"bLeftHandedEnabled": false,
+		"bRecoilPitchCorrectionEnabled": true,
+		"bIsTeamLaserEnabled": true,
+		"bIsHudMinimapRotationEnabled": true,
+		"bIsHudMinimapCenteredOnPlayer": true,
+		"bIsHudMinimapCircle": false,
+		"bIsHudMinimapMaskHighContrastEnabled": false,
+		"bIsHudSnapMinimapWithScoreboardEnabled": false,
+		"bIsDamageCameraEffectEnabled": true,
+		"bStreamerModeEnabled": false,
+		"bHideLobbyCode": true,
+		"aDSTracerRatio": 1,
+		"aDSTracerIntensity": 0.44999998807907104,
+		"opticHitConfirmIntensity": 1,
+		"bAnonymousMode": false,
+		"bAnonymizePlayerNames": true,
+		"bStreamerModeDisableIncomingVoiceChat": true,
+		"bStreamerModeDisableIncomingTextChat": true,
+		"bIsTextChatSoundEffectsEnabled": true,
+		"bSubtitles": false,
+		"verboseVoLevel": "Default",
+		"bIsBloodFXEnabled": true,
+		"colorVisionConfig": {
+			"version": 2,
+			"colorVisionType": "NormalVision",
+			"severity": 1,
+			"bCorrectDeficiency": true,
+			"bShowCorrectDeficiency": true,
+			"bComfortSwapEffect": false,
+			"bCustomOutlineColor": false,
+			"outlineColor": {
+				"b": 36,
+				"g": 120,
+				"r": 197,
+				"a": 255
+			},
+			"outlineColorLower": {
+				"b": 36,
+				"g": 120,
+				"r": 197,
+				"a": 255
+			},
+			"outlineThicknessScale": 1,
+			"outlineBrightnessScale": 1
+		},
+		"crosshairConfig": {
+			"version": 24,
+			"colorIndex": 0,
+			"bAdvancedCrosshairSettings": false,
+			"customColor": {
+				"b": 255,
+				"g": 255,
+				"r": 255,
+				"a": 255
+			},
+			"bFireAccuracyFade": false,
+			"bFollowRecoil": false,
+			"bShowOutlines": true,
+			"outlineThickness": 1,
+			"outlineOpacity": 0.5,
+			"bShowCenterDot": false,
+			"bUseADSSettings": true,
+			"centerDotConfig": {
+				"thickness": 2,
+				"opacity": 1,
+				"colorIndex": 0,
+				"customColor": {
+					"b": 255,
+					"g": 255,
+					"r": 255,
+					"a": 255
+				},
+				"bOutlineEnabled": true,
+				"customOutlineColor": {
+					"b": 0,
+					"g": 0,
+					"r": 0,
+					"a": 255
+				},
+				"outlineOpacity": 0.5,
+				"outlineThickness": 1
+			},
+			"centerDotConfigADS": {
+				"thickness": 2,
+				"opacity": 1,
+				"colorIndex": 0,
+				"customColor": {
+					"b": 255,
+					"g": 255,
+					"r": 255,
+					"a": 255
+				},
+				"bOutlineEnabled": true,
+				"customOutlineColor": {
+					"b": 0,
+					"g": 0,
+					"r": 0,
+					"a": 255
+				},
+				"outlineOpacity": 0.5,
+				"outlineThickness": 2
+			},
+			"sniperDotConfig": {
+				"thickness": 2,
+				"opacity": 1,
+				"colorIndex": -1,
+				"customColor": {
+					"b": 0,
+					"g": 0,
+					"r": 255,
+					"a": 255
+				},
+				"bOutlineEnabled": true,
+				"customOutlineColor": {
+					"b": 0,
+					"g": 0,
+					"r": 0,
+					"a": 255
+				},
+				"outlineOpacity": 0.5,
+				"outlineThickness": 1
+			},
+			"pipConfigs": {
+				"Inner": {
+					"thickness": 2,
+					"length": 8,
+					"opacity": 0.80000001192092896,
+					"offset": 0,
+					"bMoveAccuracyOffset": true,
+					"bFireAccuracyOffset": true
+				},
+				"Outer": {
+					"thickness": 2,
+					"length": 2,
+					"opacity": 0,
+					"offset": 0,
+					"bMoveAccuracyOffset": true,
+					"bFireAccuracyOffset": true
+				}
+
+			}
+		},
+		"subtitleUserSettings": {
+			"version": 7,
+			"fontSize": 39,
+			"backgroundOpacity": 0.20000000298023224,
+			"speakerQualifierDisplay": "Name",
+			"bPostPlayerSubtitles": true,
+			"bPostPlayerSubtitlesToChat": false,
+			"namesToShowMask": 3
+		},
+		"gamepadConfig": {
+			"version": 15,
+			"inputSchemeIndex": 0,
+			"gamepadGlyphIndex": 2,
+			"lookPresetIndex": 2,
+			"customLookConfig": {
+				"displayName": "Custom",
+				"lookSettings": {
+					"yawRate": 160,
+					"pitchScale": 0.75,
+					"turnAccelYawBonus": 220,
+					"turnAccelPitchBonus": 0,
+					"turnAccelDelaySeconds": 0,
+					"turnAccelTimeToMax": 0.33000001311302185
+				},
+				"lookSettingsADS": {
+					"yawRate": 110,
+					"pitchScale": 0.75,
+					"turnAccelYawBonus": 30,
+					"turnAccelPitchBonus": 30,
+					"turnAccelDelaySeconds": 0.25,
+					"turnAccelTimeToMax": 1
+				}
+
+			},
+			"customResponseCurve": {
+				"displayName": "Undefined",
+				"exponent": 1,
+				"responseCurveArcDeg": 52,
+				"responseCurveSlope": 0.10000000149011612,
+				"responseCurveLinearBlendPow": 0.20000000298023224
+			},
+			"bInvertLook": false,
+			"controllerFeedbackValue": 1,
+			"bTurnAccel": true,
+			"bAimAssist": true,
+			"responseCurveIndex": 0,
+			"responseCurveArcDeg": 52,
+			"responseCurveSlope": 0.10000000149011612,
+			"responseCurveLinearBlendPow": 0.20000000298023224,
+			"customScaleADS": 1,
+			"bToggleCrouch": true,
+			"bToggleWalk": true,
+			"bTogglePlantDefuse": false,
+			"bToggleADS": false,
+			"endWalkWhenFiringBehavior": "ADSOnly",
+			"aDSTriggerThreshold": 0.80000001192092896,
+			"deadZoneMoveAmount": "Large",
+			"customDeadZoneMoveAmount": 0,
+			"deadZoneLookAmount": "Small",
+			"customDeadZoneLookAmount": 0,
+			"walkRunDeflectionThreshold": 0.94999998807907104
+		},
+		"overrideKeymaps": {
+			"overrides": [
+			]
+		},
+		"voiceChatInputAudioDevice": "",
+		"voiceChatOutputAudioDevice": "",
+		"bVoiceChatTeamEnabled": true,
+		"voiceChatConsoleMode": "PARTY",
+		"bVoiceChatPartyEnabled": true,
+		"bVoiceChatPartyEnabledInGames": false,
+		"bVoiceChatTeamPushToTalk": true,
+		"bVoiceChatPartyPushToTalk": true,
+		"enabledTextStats": [
+		],
+		"enabledGraphStats": [
+		],
+		"mutedChatContexts": [
+		],
+		"inputBindingsVersion": 3
+	},
+	"matchmakingData": {
+		"playerId": "250D6BEA-4F0D-4DED-96CC-6E40EC80AFAB",
+		"casualMmr": 0,
+		"rankedMmr": 0,
+		"soloRankPoints": 0,
+		"casualMatchesPlayedCount": 16,
+		"rankedMatchesPlayedCount": 1,
+		"casualMatchesPlayedSeasonCount": 0,
+		"rankedMatchesPlayedSeasonCount": 0,
+		"rankedPlacementMatches": [],
+		"currentSoloRank": 0,
+		"highestTeamRank": 0,
+		"casualMatchesWonCount": 7,
+		"rankedMatchesWonCount": 0,
+		"priorityMatchmakingUntil": "0",
+		"restrictMatchmakingUntil": "0",
+		"matchmakingFlags": 1,
+		"mapHistory": "Commons_P,Commons_P,Metro_P,Greenbelt_P,Metro_P",
+		"country": "US",
+		"subdivision": "CO",
+		"primaryGeographicRegion": "uswest-1",
+		"secondaryGeographicRegion": "uscentral-2",
+		"address": "45.42.52.97"
+	},
+	"serverData": {},
+	"banner": {
+		"itemInstanceId": "FF01EF00-D0F2-4583-B4A4-CC56A606B404",
+		"itemType": "",
+		"alterationData": [],
+		"attachmentItemInstanceId": "",
+		"itemCatalogId": "SpectreBannerItemDef:BannerID_Track_Kit01_District_01",
+		"attachmentItemCatalogId": ""
+	},
+	"preSpray": {
+		"itemInstanceId": "31C3D93D-B02C-4543-B879-3D489DE6954C",
+		"itemType": "",
+		"alterationData": [],
+		"attachmentItemInstanceId": "",
+		"itemCatalogId": "SpectreSprayItemDef:SprayID_Community_01",
+		"attachmentItemCatalogId": ""
+	},
+	"matchSpray": {
+		"itemInstanceId": "C50FB72D-5642-4384-BBB6-13E9D244CB65",
+		"itemType": "",
+		"alterationData": [],
+		"attachmentItemInstanceId": "",
+		"itemCatalogId": "SpectreSprayItemDef:SprayID_Default_01",
+		"attachmentItemCatalogId": ""
+	},
+	"postSpray": {
+		"itemInstanceId": "FA3765FD-DC25-4B95-A515-86E12AF0320E",
+		"itemType": "",
+		"alterationData": [],
+		"attachmentItemInstanceId": "",
+		"itemCatalogId": "SpectreSprayItemDef:SprayID_Track_Kit02_District_01",
+		"attachmentItemCatalogId": ""
+	},
+	"attackerOutfitLoadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
+	"defenderOutfitLoadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
+	"attackerWeaponLoadoutId": "00f12c51-62e8-4320-b2f2-a07e87d52662",
+	"defenderWeaponLoadoutId": "00f12c51-62e8-4320-b2f2-a07e87d52662",
+	"lastUpdated": "2025-02-25 17:53:00.065",
+	"playerFlags": 0,
+	"playerServiceData": {
+		"tags": []
+	},
+	"nextNewDayRolloverTimestamp": "1740560400000",
+	"lastLogin": "1722384864000"
+}

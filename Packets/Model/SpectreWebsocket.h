@@ -30,7 +30,7 @@ public:
 
 	void SendPacket(std::shared_ptr<json> res);
 
-	void SendPacket(const std::string& res);
+	void SendPacket(const std::string& resPayload, int requestId, const std::string& resType);
 
 	void SendPacket(const pbuf::Message& res, const std::string& resType, int requestId);
 

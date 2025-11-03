@@ -1,6 +1,17 @@
 syntax = "proto3";
 
-message AlterationData {
+message ActiveAlterationData {
 	string channelId = 1;
 	string alterationId = 2;
+}
+
+message AvailableAlterationData {
+	string channelId = 1;
+	repeated string alterations = 2;
+	repeated string ownedAlterations = 3;
+}
+
+message AlterationChannelUpdate {
+	string channelId = 1;
+	repeated string addAlterations = 2;
 }
