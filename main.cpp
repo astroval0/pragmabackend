@@ -43,6 +43,8 @@
 #include <GetBulkProfileDataProcessor.h>
 #include <SavePlayerDataProcessor.h>
 #include <GetLoginDataProcessor.h>
+#include <GetUnreadMessagesProcessor.h>
+#include <ReadMessageProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -208,6 +210,12 @@ int main() {
 		);
 		new GetLoginDataProcessor(
 			SpectreRpcType("GameDataRpc.GetLoginDataV3Request")
+		);
+		new GetUnreadMessagesProcessor(
+			SpectreRpcType("MtnInboxServiceRpc.GetMessagesClientV1Request")
+		);
+		new ReadMessageProcessor(
+			SpectreRpcType("MtnInboxServiceRpc.MarkMessageAsReadClientV1Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
