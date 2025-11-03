@@ -9,7 +9,6 @@
     "nlohmann-json",
     "openssl",
     "protobuf",
-    "safetyhook",
     "spdlog",
     {
       "name": "sqlite3",

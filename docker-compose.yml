@@ -1,0 +1,17 @@
+services:
+    pragmabackend:
+        image: ${IMAGE_NAME}:${TAG}
+        container_name: pragmabackend
+        restart: unless-stopped
+        ports:
+         - "80:80"
+         - "8081:8081"
+         - "8082:8082"
+        volumes:
+        - /opt/pragmabackend/playerdata.sqlite:/app/build/playerdata.sqlite
+        - /opt/pragmabackend/logs:/app/build/logs
+        logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "3"

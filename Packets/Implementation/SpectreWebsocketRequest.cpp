@@ -7,10 +7,25 @@ SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf 
 	json reqjson = json::parse(static_cast<const char*>(m_requestbuf.data().data()), static_cast<const char*>(m_requestbuf.data().data()) + m_requestbuf.size());
 	m_reqjson = std::make_shared<json>(reqjson);
 	try {
-		m_requestType = SpectreRpcType(std::string((*m_reqjson)["type"]));
+		m_requestType = SpectreRpcType((*m_reqjson)["type"].get<std::string>());
 	}
 	catch(std::exception e) {
-		spdlog::warn("log type not found for " + (*m_reqjson)["type"]);
+		std::string type_str;
+		try
+		{
+			if (m_reqjson->contains("type"))
+			{
+				if ((*m_reqjson)["type"].is_string()) type_str = (*m_reqjson)["type"];
+				else type_str = (*m_reqjson)["type"].dump();
+			}
+			else {
+				type_str = "<missing>";
+			}
+		}
+		catch (...) {
+			type_str = "<unreadable>";
+		}
+		spdlog::error("Received websocket request with invalid type field: {}. Exception: {}", type_str, e.what());
 	}
 	m_requestId = (*m_reqjson)["requestId"];
 	m_payloadAsStr = (*m_reqjson)["payload"].dump();
