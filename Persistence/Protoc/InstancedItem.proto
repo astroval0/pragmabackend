@@ -28,7 +28,7 @@ message AlterationChannel {
 }
 
 message ActiveProgressionData {
-	ProgressByStat progressByStat = 1;
+	map<string,string> progressByStat = 1;
 	bool areObjectivesCompleted = 2;
 	string currentObjectiveId = 3;
 	double currentObjectiveIndex = 4;
@@ -45,38 +45,6 @@ message ObjectiveContribution {
 	}
 	SourceType sourceType = 1;
 	string sourceId = 2;
-}
-
-message ProgressByStat {
-	optional string xp = 1 [json_name = "playerstat.xp"];
-	optional string headshots = 2 [json_name = "playerstat.headshots"];
-	optional string reload_ability_permatch = 3 [json_name = "playerstat.reloads.ability.status.inactiveavatar.permatch"];
-	optional string kills_wmgorar = 4 [json_name = "playerstat.kills.withmgorar"];
-	optional string sprayused = 5 [json_name = "playerstat.sprayused.permatch"];
-	optional string first_kills = 6 [json_name = "playerstat.firstkills"];
-	optional string third_ability_uses = 7 [json_name = "playerstat.abilitiesused.store.ability.equipmenttertiary"];
-	optional string total_damage = 8 [json_name = "playerstat.totaldamage"];
-	optional string pistol_headshots = 9 [json_name = "playerstat.headshots.weapon.pistol"];
-	optional string matches_played_communa = 10 [json_name = "playerstat.matchplayed.district.communa"];
-	optional string crewscoreearned = 11 [json_name = "playerstat.crewscoreearned"];
-	optional string plants_with_spectre = 12 [json_name = "playerstat.bombplantsdefuses.ability.status.inactiveavatar"];
-	optional string weapons_dropped = 13 [json_name = "playerstat.weapondamage.item.status.dropped"];
-	optional string abilities_purchased = 14 [json_name = "playerstat.abilitiespurchased"];
-	optional string accelerated_recall = 15 [json_name = "playerstat.redeploy.ability.recalling.accelerated.permatch"];
-	optional string matches_played_fivestars = 16 [json_name = "playerstat.matchplayed.district.fivestars"];
-	optional string ar_kills = 17 [json_name = "playerstat.kills.weapon.ar"];
-	optional string both_bodies_kill_rounds = 18 [json_name = "playerstat.roundswithakillwithbothbodies"];
-	optional string damage_m25orcyclone = 19 [json_name = "playerstat.weapondamage.m25orcyclone"];
-	optional string rounds_played = 20 [json_name = "playerstat.roundsplayed"];
-	optional string rifle_kills = 21 [json_name = "playerstat.kills.weapon.reaverorblackout"];
-	optional string match_played_creworparty = 22 [json_name = "playerstat.matchplayed.withcreworpartymember"];
-	optional string weapon_damage = 23 [json_name = "playerstat.weapondamage"];
-	optional string mg_weapon_damage = 24 [json_name = "playerstat.weapondamage.weapon.mg"];
-	optional string money_earned = 25 [json_name = "playerstat.moneyearned"];
-	optional string abilities_used = 26 [json_name = "playerstat.abilitiesused"];
-	optional string teamplants_defuses = 27 [json_name = "playerstat.teambombplantsdefuses"];
-	optional string daily_quests_completed = 28 [json_name = "playerstat.dailyquestcompleted"];
-	optional string battlepass_xp = 29 [json_name = "playerstat.bpxp"];
 }
 
 message SponsorUnlockData {

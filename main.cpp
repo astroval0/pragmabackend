@@ -30,6 +30,7 @@
 #include <Inventory.pb.h>
 #include <OutfitLoadout.pb.h>
 #include <WeaponLoadout.pb.h>
+#include <LegacyPlayerData.pb.h>
 #include <PlayerDatabase.h>
 #include "StaticHTTPPackets.cpp"
 #include "StaticWSPackets.cpp"
@@ -38,6 +39,10 @@
 #include <UpdateItemV4Processor.h>
 #include <SaveWeaponLoadoutProcessor.h>
 #include <SaveOutfitLoadoutProcessor.h>
+#include <GetPlayerDataProcessor.h>
+#include <GetBulkProfileDataProcessor.h>
+#include <SavePlayerDataProcessor.h>
+#include <GetLoginDataProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -187,6 +192,22 @@ int main() {
 		);
 		new SaveOutfitLoadoutProcessor(
 			SpectreRpcType("MtnLoadoutServiceRpc.SaveOutfitLoadoutV1Request")
+		);
+		new GetPlayerDataProcessor(
+			SpectreRpcType("MtnPlayerDataServiceRpc.GetAllPlayerDataClientV1Request")
+		);
+		new GetBulkProfileDataProcessor(
+			SpectreRpcType("MtnPlayerDataServiceRpc.GetBulkProfileDataClientV1Request")
+		);
+		new SavePlayerDataProcessor(
+			SpectreRpcType("MtnPlayerDataServiceRpc.SavePlayerDataForClientV1Request")
+		);
+		new FieldFetchProcessor<LegacyPlayerData>(
+			SpectreRpcType("MtnPlayerDataServiceRpc.GetPlayerLegacyDataV1Request"),
+			FieldKey::PLAYER_LEGACY_DATA
+		);
+		new GetLoginDataProcessor(
+			SpectreRpcType("GameDataRpc.GetLoginDataV3Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

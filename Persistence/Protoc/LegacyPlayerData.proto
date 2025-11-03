@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+message LegacyPlayerData {
+	LegacySeasonData seasonData = 1;
+	LegacyStatsData rank = 2;
+	LegacyStatsData casual = 3;
+	LegacyStatsData team = 4;
+}
+
+message LegacySeasonData {
+	double soloRankPoints = 1;
+	double currentSoloRank = 2;
+}
+
+message LegacyStatsData {
+	double killCount = 1;
+	double deathCount = 2;
+	double aceCount = 3;
+	double dualityKillCount = 4;
+	double firstKillCount = 5;
+	double firstDeathCount = 6;
+	double kast = 7;
+	double dualityRating = 8;
+	double impactCount = 9;
+	double totalMatchesPlayedCount = 10;
+	double fanCount = 11;
+	double winCount = 12;
+	double totalRoundsPlayedCount = 13;
+	double headshotsCount = 14;
+	double totalDamagingShotsCount = 15;
+	double totalDamageCount = 16;
+	repeated string sponsors = 17;
+	repeated string weapons = 18;
+}

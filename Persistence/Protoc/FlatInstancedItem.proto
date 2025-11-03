@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "AlterationData.proto";
+
+message FlatInstancedItem {
+	string itemInstanceId = 1;
+	string itemType = 2;
+	repeated ActiveAlterationData alterationData = 3;
+	string attachmentItemInstanceId = 4;
+	string itemCatalogId = 5;
+	string attachmentItemCatalogId = 6;
+}

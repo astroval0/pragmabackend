@@ -31,6 +31,7 @@ void SpectreWebsocket::SendPacket(std::shared_ptr<json> res) {
 }
 
 void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::string& resType, int requestId) {
+	// you shan't comment on this cursedness
 	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber) 
 		+ ",\"response\":{\"requestId\":" + std::to_string(requestId) 
 		+ ",\"type\":\"" + resType + "\",\"payload\":";
@@ -40,6 +41,16 @@ void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::strin
 		throw;
 	}
 	finalRes += resComponent + "}}";
+	curSequenceNumber++;
+	socket.text(true);
+	socket.write(boost::asio::buffer(finalRes));
+}
+
+void SpectreWebsocket::SendPacket(const std::string& resPayload, int requestId, const std::string& resType) {
+	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
+		+ ",\"response\":{\"requestId\":" + std::to_string(requestId)
+		+ ",\"type\":\"" + resType + "\",\"payload\":";
+	finalRes += resPayload + "}}";
 	curSequenceNumber++;
 	socket.text(true);
 	socket.write(boost::asio::buffer(finalRes));

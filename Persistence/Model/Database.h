@@ -131,6 +131,15 @@ public:
 		return std::move(object);
 	}
 
+	template<typename T>
+	std::unique_ptr<T> GetField(FieldKey key, const std::string& playerId) {
+		sql::Statement query = FormatStatement(
+			"SELECT {col} FROM {table} WHERE " + GetKeyFieldName() + " = ?",
+			key
+		);
+		return std::move(GetField<T>(query, key));
+	}
+
 	sql::Statement FormatStatement(std::string command, FieldKey key);
 
 	template<typename T>
@@ -170,6 +179,7 @@ public:
 	bool IsFieldPopulated(FieldKey key);
 
 	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex);
+	void SetField(FieldKey key, const pbuf::Message* object, const std::string& playerId);
 
 	const std::string& GetFieldName(FieldKey key);
 

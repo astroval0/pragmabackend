@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message RGBAColor {
+	// rgba is actually uint8 but protobuf doesn't have a type for that so I'm not bothering
+	uint32 b = 1;
+	uint32 g = 2;
+	uint32 r = 3;
+	uint32 a = 4;
+}
