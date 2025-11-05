@@ -43,6 +43,7 @@
 #include <GetBulkProfileDataProcessor.h>
 #include <SavePlayerDataProcessor.h>
 #include <GetLoginDataProcessor.h>
+#include <AuthenticateHandler.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -171,6 +172,11 @@ int main() {
 		logger->info("Registering handlers...");
 		RegisterStaticHTTPHandlers();
 		RegisterStaticWSHandlers();
+
+		// feel like this needs cleaning up T_T
+
+		new AuthenticateHandler("/v1/submitproviderid");
+		new AuthenticateHandler("/v1/account/authenticateorcreatev2");
 		new HeartbeatProcessor(SpectreRpcType("PlayerSessionRpc.HeartbeatV1Request"));
 		new FieldFetchProcessor<Inventory>(
 			SpectreRpcType("InventoryRpc.GetInventoryV2Request"), 

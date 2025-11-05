@@ -1,6 +1,10 @@
 #pragma once
+#include <string>
+#include <unordered_map>
+#include <chrono>
+#include <mutex>
 
-struct LatchEntry { std::string providerId, std::chrono::steady_clock::time_point expires; };
+struct LatchEntry { std::string providerId; std::chrono::steady_clock::time_point expires; };
 
 class AuthLatch {
 public:

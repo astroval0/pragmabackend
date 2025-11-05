@@ -12,8 +12,6 @@ static void CheckProviderTable(SQLite::Database& db) {
 	db.exec("CREATE INDEX IF NOT EXISTS providers_player_idx ON providers(player_id);");
 }
 
-PlayerDatabase& PlayerDatabase::Get() { return inst; }
-
 std::string PlayerDatabase::LookupPlayerByProvider(const std::string& provider, const std::string& providerId) {
 	auto* raw = GetRaw();
 	CheckProviderTable(*raw);
@@ -39,6 +37,7 @@ void PlayerDatabase::UpsertProviderMap(const std::string& provider, const std::s
 bool PlayerDatabase::IsBanned(const std::string& playerId) {
 	auto* raw = GetRaw();
 	raw->exec("CREATE TABLE IF NOT EXISTS bans(player_id TEXT PRIMARY KEY);");
+	SQLite::Statement query(*raw, "SELECT banned_until FROM bans WHERE player_id=?;");
 	query.bind(1, playerId);
 	if (!query.executeStep()) return false;
 	const auto until = query.getColumn(0).getInt64();

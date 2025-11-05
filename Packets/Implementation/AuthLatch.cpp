@@ -1,6 +1,6 @@
 #include <AuthLatch.h>
 
-Authlatch& AuthLatch::Get() { static AuthLatch s; return s; }
+AuthLatch& AuthLatch::Get() { static AuthLatch s; return s; }
 
 void AuthLatch::Put(const std::string& ip, const std::string& providerId, int seconds) {
 	std::scoped_lock lk(mtx);
@@ -9,7 +9,7 @@ void AuthLatch::Put(const std::string& ip, const std::string& providerId, int se
 
 std::string AuthLatch::TakeIfFresh(const std::string& ip) {
 	std::scoped_lock lk(mtx);
-	auto ip = map.find(ip);
+	auto it = map.find(ip);
 	if (it == map.end()) return {};
 	if (std::chrono::steady_clock::now() > it->second.expires) {
 		map.erase(it);

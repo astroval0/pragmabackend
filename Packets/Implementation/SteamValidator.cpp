@@ -4,7 +4,7 @@
 #include <boost/beast/http.hpp>
 #include <boost/asio.hpp>
 
-using tcp = boost::io::ip::tcp;
+using tcp = boost::asio::ip::tcp;
 namespace http = boost::beast::http;
 using json = nlohmann::json;
 
@@ -39,10 +39,10 @@ std::optional<SteamPlayerInfo> SteamValidator::ValidateSteamId(const std::string
 		auto& players = j["response"]["players"];
 
 		if (players.empty()) return std::nullopt;
-		SteamPlayerInfo info;
+		SteamPlayerInfo out;
 		auto& player = players[0];
-		out.SteamId = player.value("steamid", "");
-		out.PersonaName = player.value("personaname", "");
+		out.steamId = player.value("steamid", "");
+		out.personaName = player.value("personaname", "");
 		return out;
 	} catch (const std::exception& e) {
 		spdlog::error("Failed to parse Steam API response: {}", e.what());

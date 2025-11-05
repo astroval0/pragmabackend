@@ -3,6 +3,8 @@
 #include <SteamValidator.h>
 #include <AuthLatch.h>
 #include <ProfileData.pb.h>
+#include <spdlog/spdlog.h>
+
 
 static json LoadAuthConfig() {
 	std::ifstream f("auth.json");
@@ -154,6 +156,28 @@ std::string AuthenticateHandler::CreatePlayerFromSteam(const std::string& steam6
 	return uuid;
 }
 
+static std::string b64url_json(const nlohmann::json& j) {
+	const std::string s = j.dump();
+	static const char* t = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+	std::string out;
+	out.reserve(((s.size() + 2) / 3) * 4);
+	int val = 0, valb = -6;
+	for (unsigned char c : s) { 
+		val = (val << 8) + c;
+		valb += 8;
+		while (valb >= 0) {
+			out.push_back(t[(val >> valb) & 0x3F]); 
+			valb -= 6;
+		}
+	}
+
+	if (valb > -6) out.push_back(t[((val << 8) >> (valb + 8)) & 0x3F]);
+
+	while (out.size() % 4) out.push_back('=');
+	while (!out.empty() && out.back() == '=') out.pop_back();
+	return out;
+}
+
 std::string AuthenticateHandler::BuildJwt(
 	const std::string& backendType,
 	const std::string& playerId,
@@ -161,6 +185,32 @@ std::string AuthenticateHandler::BuildJwt(
 	const std::string& displayName,
 	const std::string& discriminator
 ) {
-	// TODO implement JWT bob de bildar
-	return;
+	const auto now = static_cast<long long>(time(nullptr));
+	const auto exp = now + 24 * 3600; // 24 hrs 
+
+	nlohmann::json header = {
+		{"alg", "none"}, // idk if we should be signing tokens so if teh game rejects auth response then we know.
+		{"typ", "JWT"}
+	};
+
+	nlohmann::json payload = {
+		{"iss","pragma"},
+		{"sub", backendType == "GAME" ? playerId : socialId},
+		{"iat", now},
+		{"exp", exp},
+		{"jti", playerId},
+		{"sessionType","PLAYER"},
+		{"backendType", backendType},
+		{"displayName", displayName},
+		{"discriminator", discriminator},
+		{"pragmaSocialId", socialId},
+		{"idProvider","STEAM"},
+		{"pragmaPlayerId", playerId}
+	};
+
+	if (backendType == "GAME") {
+		payload["gameShardId"] = "00000000-0000-0000-0000-000000000001";
+	}
+
+	return b64url_json(header) + "." + b64url_json(payload) + ".";
 }
