@@ -1,0 +1,32 @@
+syntax = "proto3";
+import "PartyMember.proto";
+import "DisplayName.proto";
+import "CrossplayPreferences.proto";
+
+message Party {
+	BroadcastPartyExtraInfo extBroadcastParty = 1;
+	BroadcastPrivatePartyExtraInfo extPrivatePlayer = 2;
+	string partyId = 3;
+	repeated PartyMember partyMembers = 4;
+	string inviteCode = 5;
+	repeated string preferredGameServerZones = 6;
+	string version = 7;
+}
+
+message BroadcastPrivatePartyExtraInfo {} // no clue what this is supposed to have yet
+
+message BroadcastPartyExtraInfo {
+	string pool = 1;
+	map<string,string> standard = 2;
+	string lobbyMode = 3;
+	repeated DisplayName removePlayers = 4;
+	string chatId = 5;
+	string version = 6;
+	string region = 7;
+	string tag = 8;
+	string profile = 9;
+	repeated string tokens = 10;
+	bool useTeamMmr = 11;
+	bool hasAcceptableRegion = 12;
+	CrossplayPreferences crossPlayPreference = 13;
+}

@@ -43,6 +43,7 @@
 #include <GetBulkProfileDataProcessor.h>
 #include <SavePlayerDataProcessor.h>
 #include <GetLoginDataProcessor.h>
+#include <CreatePartyProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -208,6 +209,9 @@ int main() {
 		);
 		new GetLoginDataProcessor(
 			SpectreRpcType("GameDataRpc.GetLoginDataV3Request")
+		);
+		new CreatePartyProcessor(
+			SpectreRpcType("PartyRpc.CreateV1Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

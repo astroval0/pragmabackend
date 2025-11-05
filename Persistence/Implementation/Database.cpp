@@ -15,6 +15,10 @@ sql::Database* Database::GetRaw() {
 	return &m_dbRaw;
 }
 
+sql::Database& Database::GetRawRef() {
+	return m_dbRaw;
+}
+
 sql::Statement Database::FormatStatement(std::string command, FieldKey key) {
 	size_t tablePos = command.find("{table}");
 	if (tablePos == std::string::npos) {

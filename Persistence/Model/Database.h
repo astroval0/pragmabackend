@@ -68,6 +68,7 @@ public:
 	Database(fs::path dbPath, const std::string tableName, const std::string keyFieldName, const std::string keyFieldType);
 
 	sql::Database* GetRaw();
+	sql::Database& GetRawRef();
 
 	template<typename T>
 	std::vector<std::unique_ptr<T>> GetFields(sql::Statement& query, FieldKey key) {

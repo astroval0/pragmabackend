@@ -1,0 +1,45 @@
+syntax = "proto3";
+import "DisplayName.proto";
+import "OutfitLoadout.proto";
+import "WeaponLoadout.proto";
+import "PlayerData.proto";
+import "FlatInstancedItem.proto";
+import "InstancedItem.proto";
+
+message PartyMember {
+	PartyMemberExtraInfo ext = 1;
+	string playerId = 2;
+	DisplayName displayName = 3;
+	bool isReady = 4;
+	bool isLeader = 5;
+	string socialId = 6;
+}
+
+message PartyMemberExtraInfo {
+	string version = 1;
+	string region = 2;
+	PartyMemberPlayerData playerData = 3;
+	string preferredTeam = 4;
+	PartySharedClientData sharedClientData = 5;
+	repeated InstancedItem limitedInstancedInventory = 6;
+	bool rankedModeUnlocked = 7;
+}
+
+message PartyMemberPlayerData {
+	OutfitLoadout attackerOutfitLoadout = 1;
+	OutfitLoadout defenderOutfitLoadout = 2;
+	WeaponLoadout attackerWeaponLoadout = 3;
+	WeaponLoadout defenderWeaponLoadout = 4;
+	PlayerMatchmakingData matchmakingData = 5;
+	FlatInstancedItem banner = 6;
+}
+
+message PartySharedClientData {
+	string accountIdProvider = 1;
+	string platformName = 2;
+	string crossPlayPlatformKind = 3;
+	string currentProviderAccountId = 4;
+	string crewId = 5;
+	uint32 gamesRemainingUntilCrewJoin = 6;
+	uint32 battlePassLevel = 7;
+}
