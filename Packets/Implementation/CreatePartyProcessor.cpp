@@ -9,6 +9,7 @@
 
 static const std::string inviteCodeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 static int inviteCodeNChars = 6;
+static const std::string sharedClientDataStart = "sharedClientData\":";
 
 CreatePartyProcessor::CreatePartyProcessor(SpectreRpcType rpcType) :
 	WebsocketPacketProcessor(rpcType), uuidgen(stdrandgen) {
@@ -77,6 +78,32 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	// TODO use actual steam id
 	sharedData->set_currentprovideraccountid(sock.GetPlayerId());
 	std::string jsoninit;
-	pbuf::util::MessageToJsonString(createdPartyRes, &jsoninit);
-	sock.SendPacket(createdPartyRes, packet.GetResponseType(), packet.GetRequestId());
+	auto status = pbuf::util::MessageToJsonString(createdPartyRes, &jsoninit);
+	if (!status.ok()) {
+		spdlog::error("Failed to serialize CreatePartyProcessor response: {}", status.message());
+		throw;
+	}
+	std::string jsonfinal;
+	size_t pos = jsoninit.find(sharedClientDataStart);
+	if (pos == std::string::npos) {
+		spdlog::error("did not find sharedClientData property in CreatePartyProcessor res json, something weird has happened");
+		throw;
+	}
+	pos += sharedClientDataStart.size() + 1;
+	jsonfinal = std::string(jsoninit.begin(), jsoninit.begin() + pos);
+	jsonfinal += '\"';
+	char curChar = jsoninit[pos];
+	while (curChar != '}') {
+		if (curChar == '\"') {
+			jsonfinal += "\\\"";
+		}
+		else {
+			jsonfinal += curChar;
+		}
+		pos++;
+		curChar = jsoninit[pos];
+	}
+	jsonfinal += "}\"";
+	jsonfinal += std::string(jsoninit.begin() + pos + 1, jsoninit.end());
+	sock.SendPacket(jsonfinal, packet.GetRequestId(), packet.GetResponseType());
 }
