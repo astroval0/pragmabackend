@@ -1,6 +1,6 @@
 #pragma once
 #include <PacketProcessor.h>
-#include <uuid.h>
+#include <stduuid/uuid.h>
 
 class CreatePartyProcessor : public WebsocketPacketProcessor {
 private:

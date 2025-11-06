@@ -1,6 +1,6 @@
 #include <CreatePartyProcessor.h>
 #include <CreatePartyRequest.pb.h>
-#include <uuid.h>
+#include <stduuid/uuid.h>
 #include <PartyDatabase.h>
 #include <PlayerDatabase.h>
 #include <ProfileData.pb.h>
@@ -42,15 +42,13 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	Party* party = createdPartyRes.mutable_party();
 	party->set_partyid(GetRandomUUIDAsString());
 	party->set_invitecode(GetNewInviteCode());
-	for (int i = 0; i < req->preferredgameserverzones_size(); i++) {
-		party->add_preferredgameserverzones();
-		party->set_preferredgameserverzones(i, req->preferredgameserverzones(i));
-	}
+	party->add_preferredgameserverzones("uscentral-1");
 	party->set_version("1");
 	BroadcastPartyExtraInfo* pExtra = party->mutable_extbroadcastparty();
 	(*pExtra->mutable_standard())["mode"] = "Standard";
 	pExtra->set_lobbymode("standard_casual");
 	pExtra->set_version("171268");
+	pExtra->set_hasacceptableregion(true);
 	pExtra->mutable_crossplaypreference()->set_platform("CROSS_PLAY_PLATFORM_PC");
 	PartyMember* creatingPlayer = party->add_partymembers();
 	creatingPlayer->set_isleader(true);
