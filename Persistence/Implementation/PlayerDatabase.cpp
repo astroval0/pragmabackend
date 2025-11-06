@@ -5,6 +5,7 @@
 #include <PlayerData.pb.h>
 #include <ProfileData.pb.h>
 #include <LegacyPlayerData.pb.h>
+#include <ClientMessages.pb.h>
 
 PlayerDatabase::PlayerDatabase(fs::path path) : Database(path, "players", "PlayerID", "TEXT") {
 	AddPrototype<Inventory>(FieldKey::PLAYER_INVENTORY, "resources/payloads/ws/game/DefaultInventory.json");
@@ -13,6 +14,7 @@ PlayerDatabase::PlayerDatabase(fs::path path) : Database(path, "players", "Playe
 	AddPrototype<PlayerData>(FieldKey::PLAYER_DATA, "resources/payloads/ws/game/DefaultPlayerData.json");
 	AddPrototype<ProfileData>(FieldKey::PROFILE_DATA, "resources/payloads/ws/game/DefaultProfile.json");
 	AddPrototype<LegacyPlayerData>(FieldKey::PLAYER_LEGACY_DATA, "resources/payloads/ws/game/DefaultLegacyData.json");
+	AddPrototype<ClientMessages>(FieldKey::PLAYER_UNDELIVERED_MESSAGES, "resources/payloads/ws/game/DefaultClientMessages.json");
 }
 
 PlayerDatabase PlayerDatabase::inst("playerdata.sqlite");
