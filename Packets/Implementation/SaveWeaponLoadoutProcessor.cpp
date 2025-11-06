@@ -15,19 +15,17 @@ void SaveWeaponLoadoutProcessor::Process(SpectreWebsocketRequest& packet, Spectr
 		"SELECT {col} from {table} WHERE PlayerId = ?",
 		FieldKey::PLAYER_WEAPON_LOADOUT
 	);
-	std::string toFindLoadoutId = loadoutToSave.loadoutid();
-	std::transform(toFindLoadoutId.begin(), toFindLoadoutId.end(), toFindLoadoutId.begin(),
-		[](unsigned char c) {return std::tolower(c); });
 	std::unique_ptr<WeaponLoadouts> loadouts = PlayerDatabase::Get().GetField<WeaponLoadouts>(getLoadout, FieldKey::PLAYER_WEAPON_LOADOUT);
 	bool dataWritten = false;
 	for (int i = 0; i < loadouts->weaponloadoutdata_size(); i++) {
-		if (loadouts->weaponloadoutdata(i).loadoutid() == toFindLoadoutId) {
+		if (loadouts->weaponloadoutdata(i).loadoutid() == loadoutToSave.loadoutid()) {
 			loadouts->mutable_weaponloadoutdata(i)->CopyFrom(loadoutToSave);
 			dataWritten = true;
 			break;
 		}
 	}
 	if (!dataWritten) {
+		spdlog::warn("didn't find the weapon loadout the game was trying to edit, added it as a new loadout\nLoadout id: {}", loadoutToSave.loadoutid());
 		loadouts->add_weaponloadoutdata()->CopyFrom(loadoutToSave);
 	}
 	sql::Statement setLoadout = PlayerDatabase::Get().FormatStatement(

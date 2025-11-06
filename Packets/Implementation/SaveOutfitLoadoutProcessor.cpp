@@ -13,19 +13,17 @@ void SaveOutfitLoadoutProcessor::Process(SpectreWebsocketRequest& packet, Spectr
 		"SELECT {col} from {table} WHERE PlayerId = ?",
 		FieldKey::PLAYER_OUTFIT_LOADOUT
 	);
-	std::string toFindLoadoutId = loadoutToSave->loadoutid();
-	std::transform(toFindLoadoutId.begin(), toFindLoadoutId.end(), toFindLoadoutId.begin(),
-		[](unsigned char c) {return std::tolower(c); });
 	std::unique_ptr<OutfitLoadouts> loadouts = PlayerDatabase::Get().GetField<OutfitLoadouts>(getLoadout, FieldKey::PLAYER_OUTFIT_LOADOUT);
 	bool dataWritten = false;
 	for (int i = 0; i < loadouts->loadouts_size(); i++) {
-		if (loadouts->loadouts(i).loadoutid() == toFindLoadoutId) {
+		if (loadouts->loadouts(i).loadoutid() == loadoutToSave->loadoutid()) {
 			loadouts->mutable_loadouts(i)->CopyFrom(*loadoutToSave);
 			dataWritten = true;
 			break;
 		}
 	}
 	if (!dataWritten) {
+		spdlog::warn("didn't find the outfit loadout the game was trying to edit, added it as a new loadout\nLoadout id: {}", loadoutToSave->loadoutid());
 		loadouts->add_loadouts()->CopyFrom(*loadoutToSave);
 	}
 	sql::Statement setLoadout = PlayerDatabase::Get().FormatStatement(

@@ -12,7 +12,7 @@ SpectreWebsocket::SpectreWebsocket(ws& sock, const http::request<http::string_bo
 {
 	socket.auto_fragment(false); // ideally we dont want to have to use this but we should be fine for now
 	// TODO parse the req into a playerID from the bearer token
-	m_playerId = "1";
+	m_playerId = "2c4eef11-d53e-48c2-a80f-a3f8234e61f7";
 };
 
 const ws& SpectreWebsocket::GetRawSocket() {
