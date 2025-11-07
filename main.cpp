@@ -44,6 +44,8 @@
 #include <SavePlayerDataProcessor.h>
 #include <GetLoginDataProcessor.h>
 #include <CreatePartyProcessor.h>
+#include <UpdatePartyProcessor.h>
+#include <SetReadyProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -212,6 +214,12 @@ int main() {
 		);
 		new CreatePartyProcessor(
 			SpectreRpcType("PartyRpc.CreateV1Request")
+		);
+		new SetReadyProcessor(
+			SpectreRpcType("PartyRpc.SetReadyStateV1Request")
+		);
+		new UpdatePartyProcessor(
+			SpectreRpcType("PartyRpc.UpdatePartyV1Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

@@ -106,5 +106,6 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	// TODO use actual steam id
 	sharedData->set_currentprovideraccountid("76561199041068696");
 
+	PartyDatabase::Get().SaveParty(createdPartyRes.party());
 	sock.SendPacket(PartyDatabase::SerializePartyToString(createdPartyRes), packet.GetRequestId(), packet.GetResponseType());
 }

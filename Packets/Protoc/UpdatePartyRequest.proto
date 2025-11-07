@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+import "Party.proto";
+
+message UpdatePartyRequest {
+	BroadcastPartyExtraInfo requestExt = 1;
+	string partyId = 2;
+}
