@@ -5,27 +5,53 @@
 #include <ProfileData.pb.h>
 #include <spdlog/spdlog.h>
 #include <nlohmann/json.hpp>
+#include <boost/lexical_cast.hpp>
 #include <fstream>
 #include <random>
+#include <boost/asio/ip/tcp.hpp>
+#include <string>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/string_generator.hpp>
+#include <boost/uuid/name_generator_sha1.hpp>
+#include <boost/uuid/uuid_io.hpp>
+#include <ctime>
+#include <cstdio>
 
-static json LoadAuthConfig() {
-    json j = json::object();
-    if (std::ifstream f("auth.json"); f.is_open()) {
-        j = json::parse(f, nullptr, false);
-        if (j.is_discarded()) j = json::object();
-    }
-    if (!j.contains("steamApiKey")) {
-        const char* k = std::getenv("STEAM_API_KEY");
-        j["steamApiKey"] = k ? std::string(k) : std::string();
-    }
-    return j;
+using tcp = boost::asio::ip::tcp; 
+
+
+struct AuthCfg {
+    std::string steamApiKey;
+};
+
+static const AuthCfg& GetAuthCfg() {
+    static AuthCfg cfg = [] {
+        AuthCfg c{};
+        auto try_path = [&](const char* p) {
+            if (std::ifstream f(p); f.is_open()) {
+                auto j = json::parse(f, nullptr, false);
+                if (!j.is_discarded() && j.contains("steamApiKey") && j["steamApiKey"].is_string()) {
+                    c.steamApiKey = j["steamApiKey"].get<std::string>();
+                }
+            }
+        };
+        try_path("auth.json");
+        return c;
+    }();
+    return cfg;
 }
 
 AuthenticateHandler::AuthenticateHandler(std::string route) : HTTPPacketProcessor(std::move(route)) {}
 
 static std::string client_ip(const tcp::socket& sock) {
-    try { return sock.remote_endpoint().address().to_string(); }
-    catch (...) { return "0.0.0.0"; }
+    // just gonna let this throw; ends up 500 anyway 
+    return sock.remote_endpoint().address().to_string();
+}
+
+static std::string PlayerUuidFromSteam64(const std::string& steam64) {
+    static const auto ns = boost::uuids::string_generator{}("c8a6b6ce-1e7b-49f2-9a4f-0be3d7b7e5a1");
+    const auto id = boost::uuids::name_generator_sha1{ ns }(steam64);
+    return boost::lexical_cast<std::string>(id);
 }
 
 void AuthenticateHandler::Process(http::request<http::string_body> const& req, tcp::socket& sock) {
@@ -45,8 +71,7 @@ void AuthenticateHandler::Process(http::request<http::string_body> const& req, t
     };
 
     try {
-        const auto cfg = LoadAuthConfig();
-        const std::string steamKey = cfg.value("steamApiKey", std::string());
+        const std::string& steamKey = GetAuthCfg().steamApiKey;
 
         if (route == "/v1/submitproviderid") {
             if (req.method() != http::verb::post) {
@@ -128,23 +153,15 @@ void AuthenticateHandler::Process(http::request<http::string_body> const& req, t
 }
 
 std::string AuthenticateHandler::CreatePlayerFromSteam(const std::string& steam64, const std::string& displayName) {
-    static const char* hex = "0123456789abcdef";
-    std::string uuid; uuid.reserve(36);
-    std::mt19937 rng{ std::random_device{}() };
-    std::uniform_int_distribution<int> dist(0, 15);
-    for (int i = 0; i < 36; ++i) {
-        if (i == 8 || i == 13 || i == 18 || i == 23) { uuid.push_back('-'); continue; }
-        if (i == 14) { uuid.push_back('4'); continue; }
-        if (i == 19) { uuid.push_back(hex[(dist(rng) & 0x3) | 0x8]); continue; }
-        uuid.push_back(hex[dist(rng)]);
-    }
+    const std::string uuid = PlayerUuidFromSteam64(steam64);
 
     ProfileData pd;
     pd.set_playerid(uuid);
     auto* dn = pd.mutable_displayname();
     dn->set_displayname(displayName.empty() ? "Player" : displayName);
     char disc[5];
-    snprintf(disc, 5, "%04d", std::uniform_int_distribution<int>(0, 9999)(rng));
+    std::mt19937 rng{ std::random_device{}() };
+    std::snprintf(disc, 5, "%04d", std::uniform_int_distribution<int>(0, 9999)(rng));
     dn->set_discriminator(disc);
     PlayerDatabase::Get().SetField(FieldKey::PROFILE_DATA, &pd, uuid);
 

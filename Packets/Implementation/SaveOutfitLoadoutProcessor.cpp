@@ -13,16 +13,27 @@ void SaveOutfitLoadoutProcessor::Process(SpectreWebsocketRequest& packet, Spectr
 		"SELECT {col} from {table} WHERE PlayerId = ?",
 		FieldKey::PLAYER_OUTFIT_LOADOUT
 	);
+	getLoadout.bind(1, sock.GetPlayerId());
+
 	std::string toFindLoadoutId = loadoutToSave->loadoutid();
 	std::transform(toFindLoadoutId.begin(), toFindLoadoutId.end(), toFindLoadoutId.begin(),
 		[](unsigned char c) {return std::tolower(c); });
 	std::unique_ptr<OutfitLoadouts> loadouts = PlayerDatabase::Get().GetField<OutfitLoadouts>(getLoadout, FieldKey::PLAYER_OUTFIT_LOADOUT);
+	if (!loadouts) loadouts = std::make_unique<OutfitLoadouts>();
+
 	bool dataWritten = false;
 	for (int i = 0; i < loadouts->loadouts_size(); i++) {
 		if (loadouts->loadouts(i).loadoutid() == toFindLoadoutId) {
-			loadouts->mutable_loadouts(i)->CopyFrom(*loadoutToSave);
-			dataWritten = true;
-			break;
+			std::string existing = loadouts->loadouts(i).loadoutid();
+			std::transform(existing.begin(), existing.end(), existing.begin(), 
+				[](unsigned char c) { return std::tolower(c); 
+			});
+
+			if (existing == toFindLoadoutId) {
+				loadouts->mutable_loadouts(i)->CopyFrom(*loadoutToSave);
+				dataWritten = true;
+				break;
+			}
 		}
 	}
 	if (!dataWritten) {
