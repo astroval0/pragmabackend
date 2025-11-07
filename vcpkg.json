@@ -10,6 +10,7 @@
     "openssl",
     "protobuf",
     "safetyhook",
+    "jwt-cpp",
     "spdlog",
     {
       "name": "sqlite3",

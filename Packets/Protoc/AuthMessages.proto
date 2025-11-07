@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message SubmitProviderIdRequest { string providerId = 1;}
+
+message PragmaTokens {
+	string pragmaGameToken = 1;
+	string pragmaSocialToken = 2;
+}
+
+message AuthTokenResponse { PragmaTokens pragmaTokens = 1; }

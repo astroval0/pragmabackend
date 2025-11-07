@@ -137,7 +137,8 @@ public:
 			"SELECT {col} FROM {table} WHERE " + GetKeyFieldName() + " = ?",
 			key
 		);
-		return std::move(GetField<T>(query, key));
+		query.bind(1, playerId);
+		return GetField<T>(query, key);
 	}
 
 	sql::Statement FormatStatement(std::string command, FieldKey key);
