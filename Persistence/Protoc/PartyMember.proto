@@ -43,3 +43,7 @@ message PartySharedClientData {
 	uint32 gamesRemainingUntilCrewJoin = 6;
 	uint32 battlePassLevel = 7;
 }
+
+message PartyMembers {
+	repeated PartyMember members = 1;
+}

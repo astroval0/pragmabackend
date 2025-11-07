@@ -58,12 +58,13 @@ void Database::SetField(sql::Statement& statement, FieldKey key, const pbuf::Mes
 	}
 }
 
-void Database::SetField(FieldKey key, const pbuf::Message* object, const std::string& playerId) {
+void Database::SetField(FieldKey key, const pbuf::Message* object, const std::string& dbKeyId) {
 	sql::Statement setStatement = FormatStatement(
-		"INSERT OR REPLACE INTO {table} (" + GetKeyFieldName() + ", {col}) VALUES (?,?)",
+		"INSERT OR REPLACE INTO {table} (" + GetKeyFieldName() + ", {col}) VALUES (?,?) WHERE " + GetKeyFieldName() + " = ?",
 		key
 	);
-	setStatement.bind(1, playerId);
+	setStatement.bind(1, dbKeyId);
+	setStatement.bind(3, dbKeyId);
 	return SetField(setStatement, key, object, 2);
 }
 
