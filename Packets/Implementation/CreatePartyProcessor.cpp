@@ -47,7 +47,7 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	BroadcastPartyExtraInfo* pExtra = party->mutable_extbroadcastparty();
 	(*pExtra->mutable_standard())["mode"] = "Standard";
 	pExtra->set_lobbymode("standard_casual");
-	pExtra->set_version("171268");
+	pExtra->set_version("173322");
 	pExtra->set_hasacceptableregion(true);
 	pExtra->mutable_crossplaypreference()->set_platform("CROSS_PLAY_PLATFORM_PC");
 	PartyMember* creatingPlayer = party->add_partymembers();
@@ -60,7 +60,7 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	creatingPlayer->set_socialid(sock.GetPlayerId());
 
 	PartyMemberExtraInfo* creatingPlayerExtra = creatingPlayer->mutable_ext();
-	creatingPlayerExtra->set_version("171268");
+	creatingPlayerExtra->set_version("173322");
 	creatingPlayerExtra->set_preferredteam("TEAM0");
 	creatingPlayerExtra->set_rankedmodeunlocked(true);
 
