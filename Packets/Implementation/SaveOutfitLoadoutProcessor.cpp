@@ -9,11 +9,9 @@ SaveOutfitLoadoutProcessor::SaveOutfitLoadoutProcessor(SpectreRpcType rpcType) :
 
 void SaveOutfitLoadoutProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) {
 	std::unique_ptr<OutfitLoadout> loadoutToSave = packet.GetPayloadAsMessage<OutfitLoadout>();
-	sql::Statement getLoadout = PlayerDatabase::Get().FormatStatement(
-		"SELECT {col} from {table} WHERE PlayerId = ?",
-		FieldKey::PLAYER_OUTFIT_LOADOUT
-	);
-	std::unique_ptr<OutfitLoadouts> loadouts = PlayerDatabase::Get().GetField<OutfitLoadouts>(getLoadout, FieldKey::PLAYER_OUTFIT_LOADOUT);
+	std::unique_ptr<OutfitLoadouts> loadouts = PlayerDatabase::Get().GetField<OutfitLoadouts>(FieldKey::PLAYER_OUTFIT_LOADOUT, sock.GetPlayerId());
+	if (!loadouts) loadouts = std::make_unique<OutfitLoadouts>();
+
 	bool dataWritten = false;
 	for (int i = 0; i < loadouts->loadouts_size(); i++) {
 		if (loadouts->loadouts(i).loadoutid() == loadoutToSave->loadoutid()) {

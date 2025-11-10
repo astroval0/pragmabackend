@@ -1,0 +1,33 @@
+{
+	"publication": {
+		"publicationId": "eb050886-132c-4161-ad84-492622f0444e",
+		"messages": [
+			{
+				"id": "25cdb46d-93b4-4007-92ac-4e9eecfea8fb",
+				"fullTitle": {
+					"translatedMessage": "Welcome to Spectre's Revival!"
+				},
+				"fullMessage": {
+					"translatedMessage": "We hope you enjoy :D"
+				},
+				"fullTabTitle": {
+					"translatedMessage": "Spectre Revival"
+				},
+				"fullImage": {
+					"internalName": "Image_Standard_LevelingUp_Full"
+				},
+				"previewTitle": {
+					"translatedMessage": "Spectre Revival"
+				},
+				"previewImage": {
+					"internalName": "Image_Standard_LevelingUp_Preview"
+				},
+				"startTimestampMillis": "1740493501744",
+				"endTimestampMillis": "1741087533980",
+				"updatedTimestampMillis": "1740498449697",
+				"contentDescriptor": "Battlepass Live"
+			}
+		],
+		"onLoadAction": "MTN_PLAYER_NEWS_ON_LOAD_ACTION_FULL_VIEW_ON_LOGIN"
+	}
+}
