@@ -65,12 +65,7 @@ void UpdateItemsV0Processor::Process(SpectreWebsocketRequest& packet, SpectreWeb
 		(*res)["payload"]["delta"]["instanced"][(*res)["payload"]["delta"]["instanced"].size()]["final"] = json::parse(finalInstanced);
 		(*res)["payload"]["segment"]["instanced"].push_back(json::parse(finalInstanced));
 	}
-	sql::Statement setStatement = PlayerDatabase::Get().FormatStatement(
-		"INSERT OR REPLACE INTO {table} (PlayerId, {col}) VALUES (?, ?)",
-		FieldKey::PLAYER_INVENTORY
-	);
-	setStatement.bind(1, sock.GetPlayerId());
-	PlayerDatabase::Get().SetField(setStatement, FieldKey::PLAYER_INVENTORY, playerI.get(), 2);
+	PlayerDatabase::Get().SetField(FieldKey::PLAYER_INVENTORY, playerI.get(), sock.GetPlayerId());
 	(*res)["payload"]["segment"]["removedStackables"] = json::array();
 	(*res)["payload"]["segment"]["removedInstanced"] = json::array();
 	(*res)["payload"]["segment"]["previousVersion"] = std::to_string(invLevel);

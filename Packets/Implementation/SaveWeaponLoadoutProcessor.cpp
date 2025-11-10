@@ -28,12 +28,7 @@ void SaveWeaponLoadoutProcessor::Process(SpectreWebsocketRequest& packet, Spectr
 		spdlog::warn("didn't find the weapon loadout the game was trying to edit, added it as a new loadout\nLoadout id: {}", loadoutToSave.loadoutid());
 		loadouts->add_weaponloadoutdata()->CopyFrom(loadoutToSave);
 	}
-	sql::Statement setLoadout = PlayerDatabase::Get().FormatStatement(
-		"INSERT OR REPLACE INTO {table} (PlayerId, {col}) VALUES (?, ?)",
-		FieldKey::PLAYER_WEAPON_LOADOUT
-	);
-	setLoadout.bind(1, sock.GetPlayerId());
-	PlayerDatabase::Get().SetField(setLoadout, FieldKey::PLAYER_WEAPON_LOADOUT, loadouts.get(), 2);
+	PlayerDatabase::Get().SetField(FieldKey::PLAYER_WEAPON_LOADOUT, loadouts.get(), sock.GetPlayerId());
 	std::shared_ptr<json> res = packet.GetBaseJsonResponse();
 	(*res)["payload"]["success"] = true;
 	(*res)["payload"]["savedLoadoutId"] = loadoutToSave.loadoutid();

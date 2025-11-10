@@ -21,17 +21,15 @@ sql::Database& Database::GetRawRef() {
 
 sql::Statement Database::FormatStatement(std::string command, FieldKey key) {
 	size_t tablePos = command.find("{table}");
-	if (tablePos == std::string::npos) {
-		spdlog::error("did not find {{table}} to replace while processing sql command {} in FormatStatement", command);
-		throw;
+	while (tablePos != std::string::npos) {
+		command.replace(tablePos, sizeof("{table}") - 1, GetTableName());
+		tablePos = command.find("{table}");
 	}
-	command.replace(tablePos, sizeof("{table}") - 1, GetTableName());
 	size_t colPos = command.find("{col}");
-	if (colPos == std::string::npos) {
-		spdlog::error("did not find {{col}} to replace while processing sql command {} in FormatStatement", command);
-		throw;
+	while (colPos != std::string::npos) {
+		command.replace(colPos, sizeof("{col}") - 1, GetFieldName(key));
+		colPos = command.find("{col}");
 	}
-	command.replace(colPos, sizeof("{col}") - 1, GetFieldName(key));
 	return sql::Statement(m_dbRaw, command);
 }
 
@@ -60,7 +58,7 @@ void Database::SetField(sql::Statement& statement, FieldKey key, const pbuf::Mes
 
 void Database::SetField(FieldKey key, const pbuf::Message* object, const std::string& dbKeyId) {
 	sql::Statement setStatement = FormatStatement(
-		"INSERT OR REPLACE INTO {table} (" + GetKeyFieldName() + ", {col}) VALUES (?,?)",
+		"INSERT INTO {table} (" + GetKeyFieldName() + ", {col}) VALUES(?,?) ON CONFLICT(" + GetKeyFieldName() + ") DO UPDATE SET {col} = excluded.{col};",
 		key
 	);
 	setStatement.bind(1, dbKeyId);

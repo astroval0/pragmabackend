@@ -33,11 +33,27 @@ void PartyDatabase::SaveParty(const Party& party) {
 	SetField(FieldKey::PARTY_MEMBERS, &members, party.partyid());
 	SetField(FieldKey::PARTY_EXTRA_BROADCAST_INFO, &party.extbroadcastparty(), party.partyid());
 	SetField(FieldKey::PARTY_PRIVATE_EXTRA_BROADCAST_INFO, &party.extprivateplayer(), party.partyid());
+	sql::Statement setPartyCode(GetRawRef(),
+		"INSERT INTO " + GetTableName() + "(" + GetKeyFieldName() + ", PartyCode) VALUES(?,?) ON CONFLICT(" + GetKeyFieldName() + ") DO UPDATE SET PartyCode = excluded.PartyCode;"
+	);
+	setPartyCode.bind(1, party.partyid());
+	setPartyCode.bind(2, party.invitecode());
+	try {
+		setPartyCode.exec();
+	}
+	catch (...) {
+		spdlog::error("failed to set party code when saving party {}", party.partyid());
+		throw;
+	}
 }
 
 Party PartyDatabase::GetParty(const std::string& partyId) {
 	Party party;
 	std::unique_ptr<PartyMembers> members = GetField<PartyMembers>(FieldKey::PARTY_MEMBERS, partyId);
+	if (!members) {
+		spdlog::error("failed to find members list for party {}", partyId);
+		throw;
+	}
 	for (int i = 0; i < members->members_size(); i++) {
 		party.add_partymembers()->CopyFrom(members->members(i));
 	}
@@ -77,6 +93,10 @@ Party PartyDatabase::GetPartyByInviteCode(const std::string& inviteCode) {
 	}
 	std::string partyId = getPartyId.getColumn("PartyID");
 	std::unique_ptr<PartyMembers> members = GetField<PartyMembers>(FieldKey::PARTY_MEMBERS, partyId);
+	if (!members) {
+		spdlog::error("failed to find members list for party {}", partyId);
+		throw;
+	}
 	for (int i = 0; i < members->members_size(); i++) {
 		party.add_partymembers()->CopyFrom(members->members(i));
 	}

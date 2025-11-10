@@ -1,8 +1,22 @@
 syntax = "proto3";
-
-import "Party.proto";
+import "DisplayName.proto";
+import "CustomGameInfo.proto";
 
 message UpdatePartyRequest {
-	BroadcastPartyExtraInfo requestExt = 1;
+	PartyUpdate requestExt = 1;
 	string partyId = 2;
+}
+
+message PartyUpdate {
+	string pool = 1;
+	string lobbyMode = 2;
+	optional CustomGameInfo custom = 3;
+	repeated DisplayName removePlayers = 4;
+	string version = 5;
+	string region = 6;
+	string tag = 7;
+	string profile = 8;
+	bool useTeamMmr = 9;
+	repeated string acceptableRegions = 10;
+	map<string,string> standard = 11;
 }
