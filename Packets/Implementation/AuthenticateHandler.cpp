@@ -61,7 +61,7 @@ static std::string b64url_bytes(const unsigned char* data, size_t len) {
 }
 
 static std::string sign_rs256_b64url(const std::string& signing_input) {
-    const std::string pem = read_all(std::string(CERT_DIR) + "/jwt/pragma_private.pem"); // simply just the JWT priv key.
+    const std::string pem = read_all("resources/pragma_private.pem"); // simply just the JWT priv key.
 
     BIO* bio = BIO_new_mem_buf(pem.data(), static_cast<int>(pem.size()));
     if (!bio) throw std::runtime_error("BIO_new_mem_buf failed");
