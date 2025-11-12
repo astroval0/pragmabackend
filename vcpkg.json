@@ -9,6 +9,7 @@
     "date",
     "jwt-cpp",
     "nlohmann-json",
+    "picojson",
     "openssl",
     "protobuf",
     "safetyhook",
