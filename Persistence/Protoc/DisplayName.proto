@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message DisplayName {
+	string displayName = 1;
+	string discriminator = 2;
+}

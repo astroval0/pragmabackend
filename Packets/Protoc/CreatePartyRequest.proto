@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "CrossplayPreferences.proto";
+import "Party.proto";
+
+message CreatePartyRequest {
+	CreateRequest createRequestExt = 1;
+	JoinRequest playerJoinRequestExt = 2;
+	string gameClientVersion = 3;
+	repeated string preferredGameServerZones = 4;
+	map<string,string> gameServerZoneToPing = 5;
+	string playerId = 6;
+}
+
+message CreateRequest {
+	string lobbyMode = 1;
+	string version = 2;
+	string region = 3;
+	string tag = 4;
+	bool useTeamMmr = 5;
+	string profile = 6;
+	repeated string acceptableRegions = 7;
+	CrossplayPreferences crossPlayPreference = 8;
+	map<string,string> standard = 9;
+}
+
+message JoinRequest {
+	string preferredTeam = 1;
+	string version = 2;
+	string region = 3;
+	string clientData = 4;
+	repeated string preferredRegions = 5;
+	map<string,int32> regionPings = 6;
+	string sharedClientData = 7; // tmp, this is another one of those embedded json cases that I would like to unwrap
+	CrossplayPreferences crossPlayPreference = 8;
+}
+
+message PartyResponse {
+	Party party = 1;
+}

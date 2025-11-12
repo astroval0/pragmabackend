@@ -9,7 +9,7 @@ pbuf::util::JsonPrintOptions opts = []() {
 	pbuf::util::JsonPrintOptions options;
 	options.always_print_fields_with_no_presence = true;
 	return options;
-}();
+	}();
 
 static std::string extract_bearer(const http::request<http::string_body>& req) {
 	auto auth = req.base()[http::field::authorization];
@@ -75,8 +75,8 @@ void SpectreWebsocket::SendPacket(std::shared_ptr<json> res) {
 
 void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::string& resType, int requestId) {
 	// you shan't comment on this cursedness
-	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber) 
-		+ ",\"response\":{\"requestId\":" + std::to_string(requestId) 
+	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
+		+ ",\"response\":{\"requestId\":" + std::to_string(requestId)
 		+ ",\"type\":\"" + resType + "\",\"payload\":";
 	std::string resComponent;
 	if (!pbuf::util::MessageToJsonString(payload, &resComponent, opts).ok()) {
@@ -94,6 +94,40 @@ void SpectreWebsocket::SendPacket(const std::string& resPayload, int requestId, 
 		+ ",\"response\":{\"requestId\":" + std::to_string(requestId)
 		+ ",\"type\":\"" + resType + "\",\"payload\":";
 	finalRes += resPayload + "}}";
+	curSequenceNumber++;
+	socket.text(true);
+	socket.write(boost::asio::buffer(finalRes));
+}
+
+void SpectreWebsocket::SendNotification(std::shared_ptr<json> notifPayload, const SpectreRpcType& notificationType) {
+	json packet;
+	packet["sequenceNumber"] = curSequenceNumber;
+	packet["notification"]["type"] = notificationType.GetName();
+	packet["notification"]["payload"] = *notifPayload;
+	curSequenceNumber++;
+	socket.text(true);
+	std::string msg = packet.dump();
+	socket.write(boost::asio::buffer(msg));
+}
+
+void SpectreWebsocket::SendNotification(const std::string& notifPayload, const SpectreRpcType& notificationType) {
+	std::string finalPayload = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
+		+ ",\"notification\":{\"type\":\"" + notificationType.GetName() + "\",\"payload\":"
+		+ notifPayload + "}}";
+	curSequenceNumber++;
+	socket.text(true);
+	socket.write(boost::asio::buffer(finalPayload));
+}
+
+void SpectreWebsocket::SendNotification(const pbuf::Message& notif, const SpectreRpcType& notificationType) {
+	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
+		+ ",\"notification\":\"type\":\"" + notificationType.GetName() + "\",\"payload\":";
+	std::string payloadComponent;
+	if (!pbuf::util::MessageToJsonString(notif, &payloadComponent, opts).ok()) {
+		spdlog::error("Failed to serialize pbuf message to string in SendPacket");
+		throw;
+	}
+	finalRes += payloadComponent + "}}";
 	curSequenceNumber++;
 	socket.text(true);
 	socket.write(boost::asio::buffer(finalRes));

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message UpdatePartyPlayerRequest {
+	PartyPlayerUpdateData requestExt = 1;
+	string partyId = 2;
+}
+
+message PartyPlayerUpdateData {
+	string preferredTeam = 1;
+	string version = 2;
+	string region = 3;
+	bool refreshData = 4;
+	repeated string preferredRegions = 5;
+	map<string, int32> regionPings = 6;
+	string sharedClientData = 7;
+}

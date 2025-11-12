@@ -34,5 +34,11 @@ public:
 
 	void SendPacket(const pbuf::Message& res, const std::string& resType, int requestId);
 
+	void SendNotification(std::shared_ptr<json> notif, const SpectreRpcType& notificationType);
+
+	void SendNotification(const std::string& notifPayload, const SpectreRpcType& notificationType);
+
+	void SendNotification(const pbuf::Message& notif, const SpectreRpcType& notificationType);
+
 	const std::string& GetPlayerId();
 };

@@ -5,6 +5,7 @@
     "boost-asio",
     "boost-beast",
     "boost-bimap",
+    "boost-uuid",
     "date",
     "nlohmann-json",
     "openssl",
@@ -35,6 +36,7 @@
         "zlib"
       ]
     },
-    "sqlitecpp"
+    "sqlitecpp",
+    "stduuid"
   ]
 }
