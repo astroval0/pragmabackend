@@ -6,11 +6,11 @@
     "boost-beast",
     "boost-bimap",
     "date",
+    "jwt-cpp",
     "nlohmann-json",
     "openssl",
     "protobuf",
     "safetyhook",
-    "jwt-cpp",
     "spdlog",
     {
       "name": "sqlite3",
