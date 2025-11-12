@@ -3,7 +3,7 @@
 #include <spdlog/spdlog.h>
 #include <nlohmann/json.hpp>
 #include <jwt-cpp/jwt.h>
-#include "../../vcpkg/buildtrees/jwt-cpp/src/v0.7.1-fe911b1e8a.clean/include/jwt-cpp/traits/nlohmann-json/traits.h"
+#include <jwt-cpp/traits/nlohmann-json/traits.h>
 
 pbuf::util::JsonPrintOptions opts = []() {
 	pbuf::util::JsonPrintOptions options;

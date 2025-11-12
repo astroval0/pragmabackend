@@ -5,20 +5,92 @@
 #include <ProfileData.pb.h>
 #include <spdlog/spdlog.h>
 #include <nlohmann/json.hpp>
-#include <boost/lexical_cast.hpp>
-#include <fstream>
-#include <random>
 #include <boost/asio/ip/tcp.hpp>
-#include <string>
+#include <boost/lexical_cast.hpp>
 #include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_io.hpp>
 #include <boost/uuid/string_generator.hpp>
 #include <boost/uuid/name_generator_sha1.hpp>
-#include <boost/uuid/uuid_io.hpp>
+#include <boost/uuid/random_generator.hpp>
+#include <openssl/bio.h>
+#include <openssl/err.h>
+#include <openssl/evp.h>
+#include <openssl/pem.h>
 #include <ctime>
 #include <cstdio>
+#include <fstream>
+#include <random>
+#include <string>
+#include <vector>
 
-using tcp = boost::asio::ip::tcp; 
+#if defined(_WIN32)
+extern "C" {
+#  include <openssl/applink.c>
+}
+#endif
 
+using tcp = boost::asio::ip::tcp;
+
+static std::string read_all(const std::string& path) {
+    std::ifstream f(path, std::ios::binary);
+    if (!f) throw std::runtime_error("open failed: " + path);
+    f.seekg(0, std::ios::end);
+    std::string s;
+    s.resize(static_cast<size_t>(f.tellg()));
+    f.seekg(0, std::ios::beg);
+    f.read(s.data(), static_cast<std::streamsize>(s.size()));
+    return s;
+}
+
+static std::string b64url_bytes(const unsigned char* data, size_t len) {
+    static constexpr char t[] =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+    std::string out;
+    out.reserve(((len + 2) / 3) * 4);
+    int val = 0, valb = -6;
+    for (size_t i = 0; i < len; ++i) {
+        val = (val << 8) + data[i];
+        valb += 8;
+        while (valb >= 0) {
+            out.push_back(t[(val >> valb) & 0x3F]);
+            valb -= 6;
+        }
+    }
+    if (valb > -6) out.push_back(t[((val << 8) >> (valb + 8)) & 0x3F]);
+    return out;
+}
+
+static std::string sign_rs256_b64url(const std::string& signing_input) {
+    const std::string pem = read_all("resources/pragma_private.pem"); // simply just the JWT priv key.
+
+    BIO* bio = BIO_new_mem_buf(pem.data(), static_cast<int>(pem.size()));
+    if (!bio) throw std::runtime_error("BIO_new_mem_buf failed");
+    std::unique_ptr<BIO, int(*)(BIO*)> bio_u(bio, BIO_free);
+
+    EVP_PKEY* pkey_raw = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
+    if (!pkey_raw) throw std::runtime_error("PEM_read_bio_PrivateKey failed");
+    std::unique_ptr<EVP_PKEY, void(*)(EVP_PKEY*)> pkey(pkey_raw, EVP_PKEY_free);
+
+    EVP_MD_CTX* ctx_raw = EVP_MD_CTX_new();
+    if (!ctx_raw) throw std::runtime_error("EVP_MD_CTX_new failed");
+    std::unique_ptr<EVP_MD_CTX, void(*)(EVP_MD_CTX*)> ctx(ctx_raw, EVP_MD_CTX_free);
+
+    if (EVP_DigestSignInit(ctx.get(), nullptr, EVP_sha256(), nullptr, pkey.get()) != 1)
+        throw std::runtime_error("EVP_DigestSignInit failed");
+    if (EVP_DigestSignUpdate(ctx.get(), signing_input.data(), signing_input.size()) != 1)
+        throw std::runtime_error("EVP_DigestSignUpdate failed");
+
+    size_t siglen = 0;
+    if (EVP_DigestSignFinal(ctx.get(), nullptr, &siglen) != 1)
+        throw std::runtime_error("EVP_DigestSignFinal(size) failed");
+
+    std::vector<unsigned char> sig(siglen);
+    if (EVP_DigestSignFinal(ctx.get(), sig.data(), &siglen) != 1)
+        throw std::runtime_error("EVP_DigestSignFinal(data) failed");
+    sig.resize(siglen);
+
+    return b64url_bytes(sig.data(), sig.size());
+}
 
 struct AuthCfg {
     std::string steamApiKey;
@@ -44,7 +116,7 @@ static const AuthCfg& GetAuthCfg() {
 AuthenticateHandler::AuthenticateHandler(std::string route) : HTTPPacketProcessor(std::move(route)) {}
 
 static std::string client_ip(const tcp::socket& sock) {
-    // just gonna let this throw; ends up 500 anyway 
+    // just gonna let this throw; ends up 500 anyway
     return sock.remote_endpoint().address().to_string();
 }
 
@@ -97,7 +169,7 @@ void AuthenticateHandler::Process(http::request<http::string_body> const& req, t
                 return reply(http::status::bad_request, R"({"error":"invalid steam id"})");
             }
 
-            AuthLatch::Get().Put(client_ip(sock), steam64, 5);
+            AuthLatch::Get().Put(client_ip(sock), steam64, /*latch timer in seconds*/ 120); //120s for now until i sort the launcher out - astro
             return reply(http::status::ok, R"({"ok":true})");
         }
 
@@ -171,11 +243,15 @@ std::string AuthenticateHandler::CreatePlayerFromSteam(const std::string& steam6
 static std::string b64url_json(const nlohmann::json& j) {
     const std::string s = j.dump();
     static const char* t = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
-    std::string out; out.reserve(((s.size() + 2) / 3) * 4);
+    std::string out;
+    out.reserve(((s.size() + 2) / 3) * 4);
     int val = 0, valb = -6;
     for (unsigned char c : s) {
         val = (val << 8) + c; valb += 8;
-        while (valb >= 0) { out.push_back(t[(val >> valb) & 0x3F]); valb -= 6; }
+        while (valb >= 0) {
+            out.push_back(t[(val >> valb) & 0x3F]);
+            valb -= 6;
+        }
     }
     if (valb > -6) out.push_back(t[((val << 8) >> (valb + 8)) & 0x3F]);
     while (out.size() % 4) out.push_back('=');
@@ -191,24 +267,30 @@ std::string AuthenticateHandler::BuildJwt(
     const std::string& discriminator
 ) {
     const auto now = static_cast<long long>(time(nullptr));
-	const auto exp = now + 24 * 3600; // 24 hrs 
+    const auto exp = now + 24 * 3600; // 24 hrs
 
-    nlohmann::json header = { 
-		{"alg", "none"}, // idk if we should be signing tokens so if teh game rejects auth response then we know.
-		{"typ", "JWT"}
+    nlohmann::json header = {
+        {"kid", "d3JtOq6jy3_HquwTsrzt81wh3BLiA-4f-qM8mj-0-YQ="},
+        {"alg", "RS256"},
+        {"typ", "JWT"}
     };
+
+    const std::string jti = boost::uuids::to_string(boost::uuids::random_generator()());
     nlohmann::json payload = {
-        {"iss","pragma"},
+        {"iss", "pragma"},
         {"sub", backendType == "GAME" ? playerId : socialId},
         {"iat", now},
         {"exp", exp},
-        {"jti", playerId},
-        {"sessionType","PLAYER"},
+        {"jti", jti},
+        {"sessionType", "PLAYER"},
         {"backendType", backendType},
         {"displayName", displayName},
         {"discriminator", discriminator},
         {"pragmaSocialId", socialId},
-        {"idProvider","STEAM"},
+        {"idProvider", "STEAM"},
+        {"extSessionInfo", R"({"permissions":0,"accountTags":["canary"]})"},
+        {"expiresInMillis", "86400000"},
+        {"refreshInMillis", "36203000"},
         {"pragmaPlayerId", playerId}
     };
 
@@ -216,5 +298,7 @@ std::string AuthenticateHandler::BuildJwt(
         payload["gameShardId"] = "00000000-0000-0000-0000-000000000001";
     }
 
-    return b64url_json(header) + "." + b64url_json(payload) + ".";
+    const std::string signing_input = b64url_json(header) + "." + b64url_json(payload);
+    const std::string sig_b64url = sign_rs256_b64url(signing_input);
+    return signing_input + "." + sig_b64url;
 }
