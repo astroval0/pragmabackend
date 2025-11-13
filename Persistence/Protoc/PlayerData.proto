@@ -6,20 +6,19 @@ message PlayerData {
 	string playerId = 1;
 	PlayerConfig data = 2;
 	PlayerMatchmakingData matchmakingData = 3;
-	ServerData serverData = 4;
-	FlatInstancedItem banner = 5;
-	FlatInstancedItem preSpray = 6;
-	FlatInstancedItem matchSpray = 7;
-	FlatInstancedItem postSpray = 8;
-	string attackerOutfitLoadoutId = 9;
-	string defenderOutfitLoadoutId = 10;
-	string attackerWeaponLoadoutId = 11;
-	string defenderWeaponLoadoutId = 12;
-	string lastUpdated = 13;
-	double playerFlags = 14;
-	PlayerServiceData playerServiceData = 15;
-	optional string nextNewDayRolloverTimestamp = 16;
-	optional string lastLogin = 17;
+	FlatInstancedItem banner = 4;
+	FlatInstancedItem preSpray = 5;
+	FlatInstancedItem matchSpray = 6;
+	FlatInstancedItem postSpray = 7;
+	string attackerOutfitLoadoutId = 8;
+	string defenderOutfitLoadoutId = 9;
+	string attackerWeaponLoadoutId = 10;
+	string defenderWeaponLoadoutId = 11;
+	string lastUpdated = 12;
+	double playerFlags = 13;
+	PlayerServiceData playerServiceData = 14;
+	optional string nextNewDayRolloverTimestamp = 15;
+	optional string lastLogin = 16;
 }
 
 message ServerData {}

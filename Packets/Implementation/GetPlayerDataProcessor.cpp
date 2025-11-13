@@ -45,12 +45,7 @@ std::string GetPlayerDataProcessor::GetPlayerDataAsString(const PlayerData& play
 		throw;
 	}
 	finalPlayerDataComponent += playerDataComponent.c_str() + endIndex + 1;
-	size_t serverDatPos = finalPlayerDataComponent.find("\"serverData\":{}");
-	if (serverDatPos == std::string::npos) {
-		spdlog::error("Failed to find server data component in player data");
-		throw;
-	}
-	finalPlayerDataComponent.replace(serverDatPos + 13, 2, "\"{}\"");
+	finalPlayerDataComponent += "\"serverData\":\"{}\",";
 	return finalPlayerDataComponent;
 }
 

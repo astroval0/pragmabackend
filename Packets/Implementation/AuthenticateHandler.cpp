@@ -3,6 +3,9 @@
 #include <SteamValidator.h>
 #include <AuthLatch.h>
 #include <ProfileData.pb.h>
+#include <PlayerData.pb.h>
+#include <OutfitLoadout.pb.h>
+#include <WeaponLoadout.pb.h>
 #include <spdlog/spdlog.h>
 #include <nlohmann/json.hpp>
 #include <boost/asio/ip/tcp.hpp>
@@ -227,16 +230,29 @@ void AuthenticateHandler::Process(http::request<http::string_body> const& req, t
 std::string AuthenticateHandler::CreatePlayerFromSteam(const std::string& steam64, const std::string& displayName) {
     const std::string uuid = PlayerUuidFromSteam64(steam64);
 
-    ProfileData pd;
-    pd.set_playerid(uuid);
-    auto* dn = pd.mutable_displayname();
+    std::unique_ptr<ProfileData> pd = PlayerDatabase::Get().GetField<ProfileData>(FieldKey::PROFILE_DATA, uuid);
+    pd->set_playerid(uuid);
+    DisplayName* dn = pd->mutable_displayname();
     dn->set_displayname(displayName.empty() ? "Player" : displayName);
     char disc[5];
     std::mt19937 rng{ std::random_device{}() };
     std::snprintf(disc, 5, "%04d", std::uniform_int_distribution<int>(0, 9999)(rng));
     dn->set_discriminator(disc);
-    PlayerDatabase::Get().SetField(FieldKey::PROFILE_DATA, &pd, uuid);
-
+    PlayerDatabase::Get().SetField(FieldKey::PROFILE_DATA, pd.get(), uuid);
+	std::unique_ptr<PlayerData> pdata = PlayerDatabase::Get().GetField<PlayerData>(FieldKey::PLAYER_DATA, uuid);
+    pdata->set_playerid(uuid);
+    pdata->mutable_matchmakingdata()->set_playerid(uuid);
+	PlayerDatabase::Get().SetField(FieldKey::PLAYER_DATA, pdata.get(), uuid);
+    std::unique_ptr<OutfitLoadouts> outfits = PlayerDatabase::Get().GetField<OutfitLoadouts>(FieldKey::PLAYER_OUTFIT_LOADOUT, uuid);
+    for (int i = 0; i < outfits->loadouts_size(); i++) {
+        outfits->mutable_loadouts(i)->set_playerid(uuid);
+    }
+    PlayerDatabase::Get().SetField(FieldKey::PLAYER_OUTFIT_LOADOUT, outfits.get(), uuid);
+    std::unique_ptr<WeaponLoadouts> weapons = PlayerDatabase::Get().GetField<WeaponLoadouts>(FieldKey::PLAYER_WEAPON_LOADOUT, uuid);
+    for (int i = 0; i < weapons->weaponloadoutdata_size(); i++) {
+        weapons->mutable_weaponloadoutdata(i)->set_playerid(uuid);
+    }
+    PlayerDatabase::Get().SetField(FieldKey::PLAYER_WEAPON_LOADOUT, weapons.get(), uuid);
     return uuid;
 }
 
