@@ -303,7 +303,7 @@
 		"subdivision": "CO",
 		"primaryGeographicRegion": "uswest-1",
 		"secondaryGeographicRegion": "uscentral-2",
-		"address": "45.42.52.97"
+		"address": "8.8.8.8"
 	},
 	"banner": {
 		"itemInstanceId": "FF01EF00-D0F2-4583-B4A4-CC56A606B404",
