@@ -45,7 +45,7 @@ std::string GetPlayerDataProcessor::GetPlayerDataAsString(const PlayerData& play
 		throw;
 	}
 	finalPlayerDataComponent += playerDataComponent.c_str() + endIndex + 1;
-	finalPlayerDataComponent += ",\"serverData\":\"{}\",";
+	finalPlayerDataComponent += ",\"serverData\":\"{}\"";
 	return finalPlayerDataComponent;
 }
 
