@@ -103,8 +103,12 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	sharedData->set_accountidprovider("STEAM");
 	sharedData->set_platformname("STEAM");
 	sharedData->set_crossplayplatformkind("CROSS_PLAY_PLATFORM_PC");
-	// TODO use actual steam id
-	sharedData->set_currentprovideraccountid("76561199041068696");
+	
+	std::string steamId = PlayerDatabase::Get().GetProviderIdByPlayerId(sock.GetPlayerId(), "STEAM");
+	if (steamId.empty()) {
+		spdlog::error("no steamId, investigate me!!!!!!!");
+	}
+	sharedData->set_currentprovideraccountid(steamId);
 
 	PartyDatabase::Get().SaveParty(createdPartyRes.party());
 	sock.SendPacket(PartyDatabase::SerializePartyToString(createdPartyRes), packet.GetRequestId(), packet.GetResponseType());

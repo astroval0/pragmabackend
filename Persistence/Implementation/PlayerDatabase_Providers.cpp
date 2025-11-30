@@ -22,6 +22,17 @@ std::string PlayerDatabase::LookupPlayerByProvider(const std::string& provider, 
     return {};
 }
 
+std::string PlayerDatabase::GetProviderIdByPlayerId(const std::string& playerId, const std::string& provider) {
+    auto* raw = GetRaw();
+    SQLite::Statement query(*raw, "SELECT provider_id FROM providers WHERE player_id=? AND provider=?;");
+    query.bind(1, playerId);
+    query.bind(2, provider);
+    if (query.executeStep()) {
+        return query.getColumn(0).getString();
+    }
+    return "";
+}
+
 void PlayerDatabase::UpsertProviderMap(const std::string& provider, const std::string& providerId, const std::string& playerId) {
     auto* raw = GetRaw();
     CheckProviderTable(*raw);
