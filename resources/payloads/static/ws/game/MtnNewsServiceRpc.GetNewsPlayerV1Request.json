@@ -14,13 +14,13 @@
 					"translatedMessage": "Spectre Revival"
 				},
 				"fullImage": {
-					"internalName": "Image_Standard_LevelingUp_Full"
+					"internalName": "Image_Standard_Spectators_Full"
 				},
 				"previewTitle": {
 					"translatedMessage": "Spectre Revival"
 				},
 				"previewImage": {
-					"internalName": "Image_Standard_LevelingUp_Preview"
+					"internalName": "Image_Standard_ReportABug_Preview"
 				},
 				"startTimestampMillis": "1740493501744",
 				"endTimestampMillis": "1741087533980",
