@@ -135,7 +135,7 @@ public:
 	template<typename T>
 	std::unique_ptr<T> GetField(FieldKey key, const std::string& dbKey) {
 		sql::Statement query = FormatStatement(
-			"SELECT {col} FROM {table} WHERE " + GetKeyFieldName() + " = ?",
+			"SELECT {col} FROM {table} WHERE " + GetKeyFieldName() + " = ? COLLATE NOCASE", 
 			key
 		);
 		query.bind(1, dbKey);
