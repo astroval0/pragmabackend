@@ -68,6 +68,7 @@ public:
 	Database(fs::path dbPath, const std::string tableName, const std::string keyFieldName, const std::string keyFieldType);
 
 	sql::Database* GetRaw();
+	sql::Database& GetRawRef();
 
 	template<typename T>
 	std::vector<std::unique_ptr<T>> GetFields(sql::Statement& query, FieldKey key) {
@@ -132,13 +133,13 @@ public:
 	}
 
 	template<typename T>
-	std::unique_ptr<T> GetField(FieldKey key, const std::string& playerId) {
+	std::unique_ptr<T> GetField(FieldKey key, const std::string& dbKey) {
 		sql::Statement query = FormatStatement(
-			"SELECT {col} FROM {table} WHERE " + GetKeyFieldName() + " = ?",
+			"SELECT {col} FROM {table} WHERE " + GetKeyFieldName() + " = ? COLLATE NOCASE", 
 			key
 		);
-		query.bind(1, playerId);
-		return GetField<T>(query, key);
+		query.bind(1, dbKey);
+		return std::move(GetField<T>(query, key));
 	}
 
 	sql::Statement FormatStatement(std::string command, FieldKey key);
@@ -180,7 +181,7 @@ public:
 	bool IsFieldPopulated(FieldKey key);
 
 	void SetField(sql::Statement& statement, FieldKey key, const pbuf::Message* object, uint32_t dataBindIndex);
-	void SetField(FieldKey key, const pbuf::Message* object, const std::string& playerId);
+	void SetField(FieldKey key, const pbuf::Message* object, const std::string& ddbKey);
 
 	const std::string& GetFieldName(FieldKey key);
 

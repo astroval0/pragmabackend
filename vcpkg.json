@@ -5,12 +5,14 @@
     "boost-asio",
     "boost-beast",
     "boost-bimap",
+    "boost-uuid",
     "date",
+    "jwt-cpp",
     "nlohmann-json",
+    "picojson",
     "openssl",
     "protobuf",
     "safetyhook",
-    "jwt-cpp",
     "spdlog",
     {
       "name": "sqlite3",
@@ -36,6 +38,7 @@
         "zlib"
       ]
     },
-    "sqlitecpp"
+    "sqlitecpp",
+    "stduuid"
   ]
 }

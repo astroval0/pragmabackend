@@ -54,7 +54,17 @@ void SavePlayerDataProcessor::Process(SpectreWebsocketRequest& packet, SpectreWe
 		spdlog::error("failed to read PlayerConfigData in SavePlayerDataProcessor: {}", status.message());
 		throw;
 	}
-	PlayerDatabase::Get().SetField(FieldKey::PLAYER_DATA, &playerData, sock.GetPlayerId());
+	// mt does this thing where they leave all the other fields blank if they just want to update the data str
+	if (playerData.attackeroutfitloadoutid() == "") {
+		// Only copy the extra data field
+		std::unique_ptr<PlayerData> existingData = PlayerDatabase::Get().GetField<PlayerData>(FieldKey::PLAYER_DATA, sock.GetPlayerId());
+		existingData->mutable_data()->CopyFrom(playerData.data());
+		PlayerDatabase::Get().SetField(FieldKey::PLAYER_DATA, existingData.get(), sock.GetPlayerId());
+	}
+	else {
+		spdlog::warn("attacker outfit loadout id set in SetPlayerData request from {}, this is not seen behavior, likely to cause bugs", sock.GetPlayerId());
+		PlayerDatabase::Get().SetField(FieldKey::PLAYER_DATA, &playerData, sock.GetPlayerId());
+	}
 	std::shared_ptr<json> res = packet.GetBaseJsonResponse();
 	(*res)["payload"]["success"] = true;
 	sock.SendPacket(res);

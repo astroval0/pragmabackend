@@ -63,11 +63,6 @@ void UpdateItemV4Processor::Process(SpectreWebsocketRequest& packet, SpectreWebs
 		}
 		curItem->set_amount(itemUpdate->stackeditemupdate().newamount());
 	}
-	sql::Statement setStatement = PlayerDatabase::Get().FormatStatement(
-		"INSERT OR REPLACE INTO {table} (PlayerId, {col}) VALUES (?, ?)",
-		FieldKey::PLAYER_INVENTORY
-	);
-	setStatement.bind(1, sock.GetPlayerId());
-	PlayerDatabase::Get().SetField(setStatement, FieldKey::PLAYER_INVENTORY, playerI.get(), 2);
+	PlayerDatabase::Get().SetField(FieldKey::PLAYER_INVENTORY, playerI.get(), sock.GetPlayerId());
 	SendSuccessfulUpdate(packet, sock);
 }

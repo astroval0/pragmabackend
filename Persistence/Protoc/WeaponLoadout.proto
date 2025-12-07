@@ -38,3 +38,8 @@ message WeaponData {
 	string itemCatalogId = 5;
 	string attachmentItemCatalogId = 6;
 }
+
+message WeaponLoadoutReference {
+	string playerId = 1;
+	string loadoutId = 2;
+}

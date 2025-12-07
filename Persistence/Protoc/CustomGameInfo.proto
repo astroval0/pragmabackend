@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message CustomGameInfo {
+	repeated TeamAssignment teamAssignments = 1;
+	string map = 2;
+	string mode = 3;
+	string overtimeType = 4;
+}
+
+message TeamAssignment {
+	string playerId = 1;
+	double team = 2;
+}

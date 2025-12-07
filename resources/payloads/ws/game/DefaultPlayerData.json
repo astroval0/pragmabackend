@@ -303,9 +303,8 @@
 		"subdivision": "CO",
 		"primaryGeographicRegion": "uswest-1",
 		"secondaryGeographicRegion": "uscentral-2",
-		"address": "45.42.52.97"
+		"address": "8.8.8.8"
 	},
-	"serverData": {},
 	"banner": {
 		"itemInstanceId": "FF01EF00-D0F2-4583-B4A4-CC56A606B404",
 		"itemType": "",
@@ -341,7 +340,7 @@
 	"attackerOutfitLoadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
 	"defenderOutfitLoadoutId": "53925c2d-5b68-48f8-88de-2d6999f9f3c6",
 	"attackerWeaponLoadoutId": "00f12c51-62e8-4320-b2f2-a07e87d52662",
-	"defenderWeaponLoadoutId": "00f12c51-62e8-4320-b2f2-a07e87d52662",
+	"defenderWeaponLoadoutId": "ebb85cdd-827a-4884-9eb5-0b584d43be19",
 	"lastUpdated": "2025-02-25 17:53:00.065",
 	"playerFlags": 0,
 	"playerServiceData": {
