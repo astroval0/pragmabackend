@@ -3,6 +3,25 @@
 		"stackables": [],
 		"instanced": [
 			{
+				"catalogId": "SpectreBattlePassProgressionItemDef:ProgID_BattlePass_Season1",
+				"instanceId": "69255a40-420a-406d-a191-456094611496",
+				"ext": {
+					"reserved": 0,
+					"activeProgressionData": {
+						"progressByStat": {
+							"PlayerStat.BPXP": "0"
+						},
+						"areObjectivesCompleted": false,
+						"currentObjectiveId": "0",
+						"currentObjectiveIndex": 0,
+						"isPremiumUnlocked": true,
+						"isBundlePurchased": false,
+						"numLevelsPurchased": 0
+					},
+					"viewed": true
+				}
+			},
+			{
 				"catalogId": "SpectreWeaponCosmeticItemDef:WeaponID_SMG_Suppressed_Default",
 				"instanceId": "b4763ebb-d058-4736-a89e-ba07761059a6",
 				"ext": {
@@ -2153,7 +2172,23 @@
 							"f44ca42b-09e6-4283-9d44-5ed4896514d9"
 						],
 						"activeEventQuests": [],
-						"lastRolloverTimestamp": "1740269321817"
+						"lastRolloverTimestamp": "1740269321817",
+						"bpTrackerData": {
+							"seasonEntry": {
+								"seasonNumber": 1,
+								"startTimestampMillis": "1709283600000",
+								"endTimestampMillis": "1740819600000",
+								"lastWeekEndTimestampMillis": "1740819600000",
+								"numberOfWeeksInSeason": 12,
+								"firstWeekStartTimestampMillis": "1709283600000"
+							},
+							"activeBattlePasses": [
+								"69255a40-420a-406d-a191-456094611496"
+							],
+							"bpQuests": [],
+							"activeBpQuests": [],
+							"debugSeasonOffsetMillis": "0"
+						}
 					},
 					"viewed": true
 				}
@@ -5543,7 +5578,33 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Tops",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3"
+								]
+							},
+							{
+								"channelId": "Bottoms",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5675,7 +5736,33 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Tops",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3"
+								]
+							},
+							{
+								"channelId": "Bottoms",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3"
+								]
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
 					},
 					"viewed": true
 				}
