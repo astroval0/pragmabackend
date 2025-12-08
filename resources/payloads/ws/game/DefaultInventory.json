@@ -5435,7 +5435,14 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1", "Option2"
+								]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5446,7 +5453,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": ["Option1", "Option2", "Option3", "Option4"]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5457,7 +5469,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5468,7 +5485,15 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2"
+								]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5479,7 +5504,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5501,7 +5531,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5512,7 +5547,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5523,7 +5563,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations":  ["Option1", "Option2"]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5567,7 +5612,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5615,7 +5665,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5626,7 +5681,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5648,7 +5708,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5659,7 +5724,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5670,7 +5740,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5773,7 +5848,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5784,7 +5864,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5795,7 +5880,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5806,7 +5896,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5817,7 +5912,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5828,7 +5928,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5850,7 +5955,28 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Mesh",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4",
+									"Option5",
+									"Option6"
+								],
+							},
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5861,7 +5987,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5883,7 +6014,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5894,7 +6030,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5916,7 +6057,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -5927,7 +6073,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8006,7 +8157,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8094,7 +8250,17 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [
+									"Option1",
+									"Option2",
+									"Option3",
+									"Option4"
+								]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8215,7 +8381,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8226,7 +8397,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8237,7 +8413,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8270,7 +8451,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8303,7 +8489,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8325,7 +8516,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8336,7 +8532,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8347,7 +8548,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8413,7 +8619,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4", "Option5", "Option6", "Option7", "Option8", "Option9" ]
+							}
+						]
 					},
 					"viewed": true
 				}
@@ -8424,7 +8635,12 @@
 				"ext": {
 					"reserved": 0,
 					"instancedCustomizationData": {
-						"instancedAlterationChannels": []
+						"instancedAlterationChannels": [
+							{
+								"channelId": "Color",
+								"ownedAlterations": [ "Option1", "Option2", "Option3", "Option4", "Option5", "Option6", "Option7", "Option8", "Option9" ]
+							}
+						]
 					},
 					"viewed": true
 				}
