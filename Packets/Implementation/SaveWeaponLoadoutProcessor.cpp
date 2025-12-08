@@ -2,6 +2,7 @@
 #include <SaveWeaponLoadoutMessage.pb.h>
 #include <WeaponLoadout.pb.h>
 #include <PlayerDatabase.h>
+#include <CaseHelper.h>
 
 SaveWeaponLoadoutProcessor::SaveWeaponLoadoutProcessor(SpectreRpcType rpcType) :
 	WebsocketPacketProcessor(rpcType) {
@@ -11,22 +12,31 @@ SaveWeaponLoadoutProcessor::SaveWeaponLoadoutProcessor(SpectreRpcType rpcType) :
 void SaveWeaponLoadoutProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebsocket& sock) {
 	std::unique_ptr<SaveWeaponLoadoutMessage> dataToSave = packet.GetPayloadAsMessage<SaveWeaponLoadoutMessage>();
 	const WeaponLoadout& loadoutToSave = dataToSave->weaponloadoutdata();
-	sql::Statement getLoadout = PlayerDatabase::Get().FormatStatement(
-		"SELECT {col} from {table} WHERE PlayerId = ?",
-		FieldKey::PLAYER_WEAPON_LOADOUT
+
+	std::unique_ptr<WeaponLoadouts> loadouts = PlayerDatabase::Get().GetField<WeaponLoadouts>(
+		FieldKey::PLAYER_WEAPON_LOADOUT,
+		sock.GetPlayerId()
 	);
-	std::unique_ptr<WeaponLoadouts> loadouts = PlayerDatabase::Get().GetField<WeaponLoadouts>(getLoadout, FieldKey::PLAYER_WEAPON_LOADOUT);
+
+	if (!loadouts) loadouts = std::make_unique<WeaponLoadouts>();
+
 	bool dataWritten = false;
 	for (int i = 0; i < loadouts->weaponloadoutdata_size(); i++) {
-		if (loadouts->weaponloadoutdata(i).loadoutid() == loadoutToSave.loadoutid()) {
+
+		if (iequals(loadouts->weaponloadoutdata(i).loadoutid(), loadoutToSave.loadoutid())) {
+
 			loadouts->mutable_weaponloadoutdata(i)->CopyFrom(loadoutToSave);
+			loadouts->mutable_weaponloadoutdata(i)->set_playerid(sock.GetPlayerId());
+
 			dataWritten = true;
 			break;
 		}
 	}
 	if (!dataWritten) {
 		spdlog::warn("didn't find the weapon loadout the game was trying to edit, added it as a new loadout\nLoadout id: {}", loadoutToSave.loadoutid());
-		loadouts->add_weaponloadoutdata()->CopyFrom(loadoutToSave);
+		WeaponLoadout* newLoadout = loadouts->add_weaponloadoutdata();
+		newLoadout->CopyFrom(loadoutToSave);
+		newLoadout->set_playerid(sock.GetPlayerId());
 	}
 	PlayerDatabase::Get().SetField(FieldKey::PLAYER_WEAPON_LOADOUT, loadouts.get(), sock.GetPlayerId());
 	std::shared_ptr<json> res = packet.GetBaseJsonResponse();
