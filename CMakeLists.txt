@@ -24,8 +24,15 @@ add_custom_target(copy_resources ALL
     COMMENT "Copying resources directory to binary dir"
 )
 
+add_custom_target(copy_auth ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/auth.json
+        ${CMAKE_CURRENT_BINARY_DIR}/auth.json
+    COMMENT "copying auth.json to binary dir"
+)
+
 add_executable(pragmabackend main.cpp)
-add_dependencies(pragmabackend copy_resources)
+add_dependencies(pragmabackend copy_resources copy_auth)
 
 find_package(Boost REQUIRED COMPONENTS beast bimap uuid)
 find_package(boost_asio CONFIG REQUIRED)
