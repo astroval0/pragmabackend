@@ -5,6 +5,7 @@
 #include <PlayerDatabase.h>
 #include <ProfileData.pb.h>
 #include <Inventory.pb.h>
+#include <CaseHelper.h>
 
 static const std::string inviteCodeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 static int inviteCodeNChars = 6;
@@ -78,16 +79,18 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	OutfitLoadout* selectedDefenderOutfit = nullptr;
 	for (int i = 0; i < outfitLoadouts->loadouts_size(); i++) {
 		OutfitLoadout* loadout = outfitLoadouts->mutable_loadouts(i);
-		if (loadout->loadoutid() == playerDat->attackeroutfitloadoutid()) {
+
+		if (iequals(loadout->loadoutid(), playerDat->attackeroutfitloadoutid())) {
 			selectedAttackerOutfit = loadout;
 		}
-		if (loadout->loadoutid() == playerDat->defenderoutfitloadoutid()) {
+
+		if (iequals(loadout->loadoutid(), playerDat->defenderoutfitloadoutid())) {
 			selectedDefenderOutfit = loadout;
 		}
 	}
 	if (selectedAttackerOutfit == nullptr || selectedDefenderOutfit == nullptr) {
 		spdlog::error("Could not find selected outfit loadouts for player {}", sock.GetPlayerId());
-		throw;
+		throw std::runtime_error("Could not find selected outfit loadouts");
 	}
 	partyPlayerDat->mutable_attackeroutfitloadout()->CopyFrom(*selectedAttackerOutfit);
 	partyPlayerDat->mutable_defenderoutfitloadout()->CopyFrom(*selectedDefenderOutfit);
@@ -103,7 +106,7 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	sharedData->set_accountidprovider("STEAM");
 	sharedData->set_platformname("STEAM");
 	sharedData->set_crossplayplatformkind("CROSS_PLAY_PLATFORM_PC");
-	
+
 	std::string steamId = PlayerDatabase::Get().GetProviderIdByPlayerId(sock.GetPlayerId(), "STEAM");
 	if (steamId.empty()) {
 		spdlog::error("no steamId, investigate me!!!!!!!");

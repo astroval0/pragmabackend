@@ -1,6 +1,7 @@
 #include <SaveOutfitLoadoutProcessor.h>
 #include <OutfitLoadout.pb.h>
 #include <PlayerDatabase.h>
+#include <CaseHelper.h>
 
 SaveOutfitLoadoutProcessor::SaveOutfitLoadoutProcessor(SpectreRpcType rpcType) :
 	WebsocketPacketProcessor(rpcType) {
@@ -14,15 +15,20 @@ void SaveOutfitLoadoutProcessor::Process(SpectreWebsocketRequest& packet, Spectr
 
 	bool dataWritten = false;
 	for (int i = 0; i < loadouts->loadouts_size(); i++) {
-		if (loadouts->loadouts(i).loadoutid() == loadoutToSave->loadoutid()) {
+		if (iequals(loadouts->loadouts(i).loadoutid(), loadoutToSave->loadoutid())) {
+
 			loadouts->mutable_loadouts(i)->CopyFrom(*loadoutToSave);
+			loadouts->mutable_loadouts(i)->set_playerid(sock.GetPlayerId());
+
 			dataWritten = true;
 			break;
 		}
 	}
 	if (!dataWritten) {
 		spdlog::warn("didn't find the outfit loadout the game was trying to edit, added it as a new loadout\nLoadout id: {}", loadoutToSave->loadoutid());
-		loadouts->add_loadouts()->CopyFrom(*loadoutToSave);
+		OutfitLoadout* newLoadout = loadouts->add_loadouts();
+		newLoadout->CopyFrom(*loadoutToSave);
+		newLoadout->set_playerid(sock.GetPlayerId());
 	}
 	PlayerDatabase::Get().SetField(FieldKey::PLAYER_OUTFIT_LOADOUT, loadouts.get(), sock.GetPlayerId());
 	std::shared_ptr<json> res = packet.GetBaseJsonResponse();
