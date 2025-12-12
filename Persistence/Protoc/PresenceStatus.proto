@@ -1,0 +1,6 @@
+syntax = "proto3";
+import "PresenceState.proto";
+
+message PresenceStatus {
+  PresenceState presence = 1;
+}

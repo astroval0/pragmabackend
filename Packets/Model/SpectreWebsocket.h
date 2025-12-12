@@ -8,6 +8,7 @@
 #include <SpectreRpcType.h>
 #include <nlohmann/json.hpp>
 #include <google/protobuf/message.h>
+#include <mutex>
 
 using tcp = boost::asio::ip::tcp;
 namespace ssl = boost::asio::ssl;
@@ -21,6 +22,7 @@ private:
 	ws& socket;
 	int curSequenceNumber;
 	std::string m_playerId;
+    std::mutex m_sendMtx;
 public:
 	SpectreWebsocket(ws& sock, const http::request<http::string_body>& req);
 	/* 
