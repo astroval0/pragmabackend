@@ -1,4 +1,4 @@
-#pramga once
+#pragma once
 #include <PacketProcessor.h>
 
 class SetPresenceProcessor : public WebsocketPacketProcessor
