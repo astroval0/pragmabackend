@@ -25,6 +25,7 @@
 #include <random>
 #include <string>
 #include <vector>
+#include <AuthCfg.h>
 
 #include "FriendsList.pb.h"
 
@@ -96,10 +97,6 @@ static std::string sign_rs256_b64url(const std::string& signing_input) {
 
     return b64url_bytes(sig.data(), sig.size());
 }
-
-struct AuthCfg {
-    std::string steamApiKey;
-};
 
 static const AuthCfg& GetAuthCfg() {
     static AuthCfg cfg = [] {
