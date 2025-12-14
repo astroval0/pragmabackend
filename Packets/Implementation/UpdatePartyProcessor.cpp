@@ -25,6 +25,7 @@ void UpdatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	broadcastExtra->set_profile(req->requestext().profile());
 	broadcastExtra->set_useteammmr(req->requestext().useteammmr());
 	broadcastExtra->set_hasacceptableregion(req->requestext().acceptableregions_size() > 0);
+	broadcastExtra->mutable_crossplaypreference()->set_platform("CROSS_PLAY_PLATFORM_PC");
 	for (const auto& entry : req->requestext().standard()) {
 		(*broadcastExtra->mutable_standard())[entry.first] = entry.second;
 	}
