@@ -57,6 +57,10 @@ Party PartyDatabase::GetParty(const std::string& partyId) {
 	for (int i = 0; i < members->members_size(); i++) {
 		party.add_partymembers()->CopyFrom(members->members(i));
 	}
+	std::unique_ptr<BroadcastPartyExtraInfo> extbroadcastParty = GetField<BroadcastPartyExtraInfo>(FieldKey::PARTY_EXTRA_BROADCAST_INFO, partyId);
+	party.mutable_extbroadcastparty()->CopyFrom(*extbroadcastParty);
+	std::unique_ptr<BroadcastPrivatePartyExtraInfo> privateExt = GetField<BroadcastPrivatePartyExtraInfo>(FieldKey::PARTY_PRIVATE_EXTRA_BROADCAST_INFO, partyId);
+	party.mutable_extprivateplayer()->CopyFrom(*privateExt);
 	party.set_partyid(partyId);
 	sql::Statement getInviteCode(
 		GetRawRef(),
