@@ -39,6 +39,7 @@ void GetIdentitiesProcessor::Process(SpectreWebsocketRequest& packet, SpectreWeb
     {
         const ProviderAccountId& steamAccId = req->provideraccountids(i);
         std::string pragmaId = PlayerDatabase::Get().LookupPlayerByProvider(steamAccId.idprovidertype(), steamAccId.provideraccountid());
+        if (pragmaId == "") continue;
         PlayerIdentity* curIdentity = res.add_playeridentities();
         curIdentity->set_pragmaplayerid(pragmaId);
         curIdentity->set_pragmasocialid(pragmaId);
