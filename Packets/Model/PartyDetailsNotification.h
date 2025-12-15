@@ -6,9 +6,10 @@ class PartyDetailsNotification : public Notification {
 private:
 	PartyResponse payload;
 public:
-	PartyDetailsNotification(const std::string& partyId, SpectreRpcType notificationType);
-	PartyDetailsNotification(const PartyResponse& partyRes, SpectreRpcType notificationType);
-	PartyDetailsNotification(const Party& party, SpectreRpcType notificationType);
+	PartyDetailsNotification(const std::string& partyId);
+	PartyDetailsNotification(const PartyResponse& partyRes);
+	PartyDetailsNotification(const Party& party);
 
 	void SendTo(SpectreWebsocket& sock) const override;
+	void SendToAllInParty() const;
 };

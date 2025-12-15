@@ -3,6 +3,8 @@
 #include <PartyDatabase.h>
 #include <string>
 
+#include "PartyDetailsNotification.h"
+
 UpdatePartyProcessor::UpdatePartyProcessor(SpectreRpcType rpcType) :
 	WebsocketPacketProcessor(rpcType) {
 
@@ -32,4 +34,6 @@ void UpdatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	party->set_version(std::to_string(stoi(party->version()) + 1));
 	PartyDatabase::Get().SaveParty(res.party());
 	sock.SendPacket(PartyDatabase::SerializePartyToString(res), packet.GetRequestId(), packet.GetResponseType());
+	PartyDetailsNotification partyNotif(res);
+	partyNotif.SendToAllInParty();
 }
