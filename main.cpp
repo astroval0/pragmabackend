@@ -51,6 +51,7 @@
 #include <EnterMatchmakingProcessor.h>
 
 #include "GetFriendsListProcessor.h"
+#include "GetIdentitiesProcessor.h"
 #include "SetPresenceProcessor.h"
 
 #define GAME_PORT 8081
@@ -244,6 +245,9 @@ int main() {
 	    new SetPresenceProcessor(
 	        SpectreRpcType("FriendRpc.SetPresenceV1Request")
 	    );
+		new GetIdentitiesProcessor(
+			SpectreRpcType("AccountRpc.GetPlayerIdentitiesByProviderAccountIdsV1Request")
+		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
 			});
