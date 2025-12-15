@@ -39,11 +39,11 @@ void RegisterStaticWSHandlers() {
 		std::string rpcType = file.path().filename().stem().string();
 		RegisterStaticHandlerFromFile(fs::absolute(file.path()).string(), SpectreRpcType(rpcType));
 	}
-	for (const auto& file : fs::recursive_directory_iterator("resources/payloads/static/ws/social")) {
+	/*for (const auto& file : fs::recursive_directory_iterator("resources/payloads/static/ws/social")) {
 		if (!fs::is_regular_file(file)) continue;
 		std::string rpcType = file.path().filename().stem().string();
 		RegisterStaticHandlerFromFile(fs::absolute(file.path()).string(), SpectreRpcType(rpcType));
-	}
+	} dont have any of these rn and git doesn't sync empty dirs */
 	RegisterRegexHandlerFromFiles(SpectreRpcType("MtnBeaconServiceRpc.GetBeaconEndpointsV1Request"), {
 		{regex("hathora-udp\""), "resources/payloads/ws/game/beacon/hathora-udp.json"},
 		{regex("hathora\""), "resources/payloads/ws/game/beacon/hathora.json"}
