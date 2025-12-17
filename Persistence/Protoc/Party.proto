@@ -30,4 +30,5 @@ message BroadcastPartyExtraInfo {
 	bool useTeamMmr = 11;
 	bool hasAcceptableRegion = 12;
 	CrossplayPreferences crossPlayPreference = 13;
+	repeated DisplayName removePlayers = 14;
 }

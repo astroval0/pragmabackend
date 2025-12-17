@@ -21,6 +21,8 @@ void UpdatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 		broadcastExtra->mutable_custom()->CopyFrom(req->requestext().custom());
 	}
 	// Probably need to handle removePlayers at some point but I don't have a request example atm so leaving it for now
+	broadcastExtra->clear_removeplayers();
+
 	broadcastExtra->set_version(req->requestext().version());
 	broadcastExtra->set_region(req->requestext().region());
 	broadcastExtra->set_tag(req->requestext().tag());
