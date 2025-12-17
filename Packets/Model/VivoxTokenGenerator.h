@@ -14,6 +14,6 @@ class VivoxTokenGenerator {
 
     private:
 
-    static std::string Base64UrlEncode(const std::string &input);
-    static std::string HmacSha256(const std::string& key, const std::string& data);
+    static std::string base64url_encode(const std::string& in);
+    static std::string hmac_sha256_b64url(const std::string& key, const std::string& msg);
 };
