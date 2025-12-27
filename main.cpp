@@ -50,6 +50,10 @@
 #include <UpdatePartyPlayerProcessor.h>
 #include <EnterMatchmakingProcessor.h>
 
+#include "GetFriendsListProcessor.h"
+#include "GetIdentitiesProcessor.h"
+#include "SetPresenceProcessor.h"
+
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
 #define WS_PORT 80
@@ -234,6 +238,15 @@ int main() {
 		);
 		new EnterMatchmakingProcessor(
 			SpectreRpcType("PartyRpc.EnterMatchmakingV1Request")
+		);
+	    new GetFriendsListProcessor(
+	        SpectreRpcType("FriendRpc.GetFriendListAndRegisterOnlineV1Request")
+	    );
+	    new SetPresenceProcessor(
+	        SpectreRpcType("FriendRpc.SetPresenceV1Request")
+	    );
+		new GetIdentitiesProcessor(
+			SpectreRpcType("AccountRpc.GetPlayerIdentitiesByProviderAccountIdsV1Request")
 		);
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game

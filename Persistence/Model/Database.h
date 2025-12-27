@@ -166,6 +166,11 @@ public:
 	void AddPrototype(FieldKey key, std::string defaultFieldValuePath) {
 		AddPrototype<T>(key);
 		std::ifstream defaultFile(defaultFieldValuePath);
+	    if (!defaultFile.is_open())
+	    {
+	        spdlog::error("failed to open default message at path: {}", defaultFieldValuePath);
+	        throw std::runtime_error("Failed to open default message given path");
+	    }
 		std::stringstream buf;
 		buf << defaultFile.rdbuf();
 		std::string data = buf.str();

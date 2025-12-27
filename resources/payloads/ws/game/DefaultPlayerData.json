@@ -1,8 +1,8 @@
 {
 	"playerId": "250D6BEA-4F0D-4DED-96CC-6E40EC80AFAB",
 	"data": {
-		"unlockAllPlayModes": false,
-		"unlockAllMenuTabs": false,
+		"unlockAllPlayModes": true,
+		"unlockAllMenuTabs": true,
 		"unlockAllSponsors": true,
 		"bypassUnlockAllSponsorsOverride": false,
 		"bypassProgressionOverrides": false,

@@ -25,6 +25,9 @@
 #include <random>
 #include <string>
 #include <vector>
+#include <AuthCfg.h>
+
+#include "FriendsList.pb.h"
 
 #if defined(_WIN32)
 extern "C" {
@@ -94,10 +97,6 @@ static std::string sign_rs256_b64url(const std::string& signing_input) {
 
     return b64url_bytes(sig.data(), sig.size());
 }
-
-struct AuthCfg {
-    std::string steamApiKey;
-};
 
 static const AuthCfg& GetAuthCfg() {
     static AuthCfg cfg = [] {
@@ -230,6 +229,17 @@ void AuthenticateHandler::Process(http::request<http::string_body> const& req, t
 std::string AuthenticateHandler::CreatePlayerFromSteam(const std::string& steam64, const std::string& displayName) {
     const std::string uuid = PlayerUuidFromSteam64(steam64);
 
+    sql::Statement nPlayersQuery(PlayerDatabase::Get().GetRawRef(), "SELECT " + PlayerDatabase::Get().GetKeyFieldName() + " FROM " + PlayerDatabase::Get().GetTableName());
+    FriendsList newPlayerFlist;
+    while (nPlayersQuery.executeStep())
+    {
+        // Make all existing players friends with the new player and vice versa
+        std::string curPlayerId = nPlayersQuery.getColumn(0).getString();
+        std::unique_ptr<FriendsList> flist = PlayerDatabase::Get().GetField<FriendsList>(FieldKey::PLAYER_FRIENDS_LIST, curPlayerId);
+        flist->add_friends(uuid);
+        newPlayerFlist.add_friends(curPlayerId);
+    }
+    PlayerDatabase::Get().SetField(FieldKey::PLAYER_FRIENDS_LIST, &newPlayerFlist, uuid);
     std::unique_ptr<ProfileData> pd = PlayerDatabase::Get().GetField<ProfileData>(FieldKey::PROFILE_DATA, uuid);
     pd->set_playerid(uuid);
     DisplayName* dn = pd->mutable_displayname();

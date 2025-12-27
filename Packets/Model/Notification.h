@@ -6,7 +6,8 @@ class Notification {
 private:
 	SpectreRpcType m_notificationType;
 public:
-	Notification(SpectreRpcType notificationType);
+    virtual ~Notification() = default;
+    explicit Notification(SpectreRpcType notificationType);
 
 	const SpectreRpcType& GetNotificationType() const;
 	virtual void SendTo(SpectreWebsocket& sock) const = 0;

@@ -1,6 +1,9 @@
 #include <UpdatePartyProcessor.h>
 #include <UpdatePartyRequest.pb.h>
 #include <PartyDatabase.h>
+#include <string>
+
+#include "PartyDetailsNotification.h"
 
 UpdatePartyProcessor::UpdatePartyProcessor(SpectreRpcType rpcType) :
 	WebsocketPacketProcessor(rpcType) {
@@ -18,15 +21,21 @@ void UpdatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 		broadcastExtra->mutable_custom()->CopyFrom(req->requestext().custom());
 	}
 	// Probably need to handle removePlayers at some point but I don't have a request example atm so leaving it for now
+	broadcastExtra->clear_removeplayers();
+
 	broadcastExtra->set_version(req->requestext().version());
 	broadcastExtra->set_region(req->requestext().region());
 	broadcastExtra->set_tag(req->requestext().tag());
 	broadcastExtra->set_profile(req->requestext().profile());
 	broadcastExtra->set_useteammmr(req->requestext().useteammmr());
 	broadcastExtra->set_hasacceptableregion(req->requestext().acceptableregions_size() > 0);
+	broadcastExtra->mutable_crossplaypreference()->set_platform("CROSS_PLAY_PLATFORM_PC");
 	for (const auto& entry : req->requestext().standard()) {
 		(*broadcastExtra->mutable_standard())[entry.first] = entry.second;
 	}
+	party->set_version(std::to_string(stoi(party->version()) + 1));
 	PartyDatabase::Get().SaveParty(res.party());
 	sock.SendPacket(PartyDatabase::SerializePartyToString(res), packet.GetRequestId(), packet.GetResponseType());
+	PartyDetailsNotification partyNotif(res);
+	partyNotif.SendToAllInParty();
 }

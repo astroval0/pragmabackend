@@ -4,6 +4,7 @@
 #include <nlohmann/json.hpp>
 #include <jwt-cpp/jwt.h>
 #include <jwt-cpp/traits/nlohmann-json/traits.h>
+#include <ConnectionManager.h>
 
 pbuf::util::JsonPrintOptions opts = []() {
 	pbuf::util::JsonPrintOptions options;
@@ -56,6 +57,7 @@ SpectreWebsocket::SpectreWebsocket(ws& sock, const http::request<http::string_bo
 		spdlog::error("no playerid ???? investigate me!");
 		m_playerId = "1";
 	}
+    ConnectionManager::Get().AddNewConnection(m_playerId, this);
 };
 
 const ws& SpectreWebsocket::GetRawSocket() {
@@ -63,6 +65,7 @@ const ws& SpectreWebsocket::GetRawSocket() {
 }
 
 void SpectreWebsocket::SendPacket(std::shared_ptr<json> res) {
+    std::lock_guard<std::mutex> lock(m_sendMtx);
 	json packet;
 	packet["sequenceNumber"] = curSequenceNumber;
 	packet["response"] = *res;
@@ -74,6 +77,7 @@ void SpectreWebsocket::SendPacket(std::shared_ptr<json> res) {
 }
 
 void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::string& resType, int requestId) {
+    std::lock_guard<std::mutex> lock(m_sendMtx);
 	// you shan't comment on this cursedness
 	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
 		+ ",\"response\":{\"requestId\":" + std::to_string(requestId)
@@ -90,6 +94,7 @@ void SpectreWebsocket::SendPacket(const pbuf::Message& payload, const std::strin
 }
 
 void SpectreWebsocket::SendPacket(const std::string& resPayload, int requestId, const std::string& resType) {
+    std::lock_guard<std::mutex> lock(m_sendMtx);
 	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
 		+ ",\"response\":{\"requestId\":" + std::to_string(requestId)
 		+ ",\"type\":\"" + resType + "\",\"payload\":";
@@ -100,6 +105,7 @@ void SpectreWebsocket::SendPacket(const std::string& resPayload, int requestId, 
 }
 
 void SpectreWebsocket::SendNotification(std::shared_ptr<json> notifPayload, const SpectreRpcType& notificationType) {
+    std::lock_guard<std::mutex> lock(m_sendMtx);
 	json packet;
 	packet["sequenceNumber"] = curSequenceNumber;
 	packet["notification"]["type"] = notificationType.GetName();
@@ -111,6 +117,7 @@ void SpectreWebsocket::SendNotification(std::shared_ptr<json> notifPayload, cons
 }
 
 void SpectreWebsocket::SendNotification(const std::string& notifPayload, const SpectreRpcType& notificationType) {
+    std::lock_guard<std::mutex> lock(m_sendMtx);
 	std::string finalPayload = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
 		+ ",\"notification\":{\"type\":\"" + notificationType.GetName() + "\",\"payload\":"
 		+ notifPayload + "}}";
@@ -120,6 +127,7 @@ void SpectreWebsocket::SendNotification(const std::string& notifPayload, const S
 }
 
 void SpectreWebsocket::SendNotification(const pbuf::Message& notif, const SpectreRpcType& notificationType) {
+    std::lock_guard<std::mutex> lock(m_sendMtx);
 	std::string finalRes = "{\"sequenceNumber\":" + std::to_string(curSequenceNumber)
 		+ ",\"notification\":\"type\":\"" + notificationType.GetName() + "\",\"payload\":";
 	std::string payloadComponent;

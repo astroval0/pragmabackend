@@ -95,6 +95,28 @@ void CreatePartyProcessor::Process(SpectreWebsocketRequest& packet, SpectreWebso
 	partyPlayerDat->mutable_attackeroutfitloadout()->CopyFrom(*selectedAttackerOutfit);
 	partyPlayerDat->mutable_defenderoutfitloadout()->CopyFrom(*selectedDefenderOutfit);
 
+	std::unique_ptr<WeaponLoadouts> weaponLoadouts = PlayerDatabase::Get().GetField<WeaponLoadouts>(FieldKey::PLAYER_WEAPON_LOADOUT, sock.GetPlayerId());
+
+	WeaponLoadout* selectedAttackerWeapon = nullptr;
+	WeaponLoadout* selectedDefenderWeapon = nullptr;
+
+	for (int i = 0; i < weaponLoadouts->weaponloadoutdata_size(); i++) {
+		WeaponLoadout* wLoadout = weaponLoadouts->mutable_weaponloadoutdata(i);
+
+		if (iequals(wLoadout->loadoutid(), playerDat->attackerweaponloadoutid())) {
+			selectedAttackerWeapon = wLoadout;
+		}
+		if (iequals(wLoadout->loadoutid(), playerDat->defenderweaponloadoutid())) {
+			selectedDefenderWeapon = wLoadout;
+		}
+	}
+	if (selectedAttackerWeapon == nullptr || selectedDefenderWeapon == nullptr) {
+		spdlog::error("Could not find selected weapon loadouts for player {}", sock.GetPlayerId());
+		throw std::runtime_error("Could not find selected weapon loadouts");
+	}
+	partyPlayerDat->mutable_attackerweaponloadout()->CopyFrom(*selectedAttackerWeapon);
+	partyPlayerDat->mutable_defenderweaponloadout()->CopyFrom(*selectedDefenderWeapon);
+
 	std::unique_ptr<Inventory> invstruct = PlayerDatabase::Get().GetField<Inventory>(FieldKey::PLAYER_INVENTORY, sock.GetPlayerId());
 	const FullInventory& inv = invstruct->full();
 	for (int i = 0; i < inv.instanced_size(); i++) {

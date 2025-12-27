@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message FriendsList {
+  repeated string friends = 1;
+  repeated string sentInvites = 2;
+  repeated string receivedInvites = 3;
+  repeated string blocked = 4;
+  bool acceptNewFriendInvites = 5;
+}

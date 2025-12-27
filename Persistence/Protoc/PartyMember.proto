@@ -28,8 +28,8 @@ message PartyMemberExtraInfo {
 message PartyMemberPlayerData {
 	OutfitLoadout attackerOutfitLoadout = 1;
 	OutfitLoadout defenderOutfitLoadout = 2;
-	WeaponLoadoutReference attackerWeaponLoadout = 3;
-	WeaponLoadoutReference defenderWeaponLoadout = 4;
+	WeaponLoadout attackerWeaponLoadout = 3;
+	WeaponLoadout defenderWeaponLoadout = 4;
 	PlayerMatchmakingData matchmakingData = 5;
 	FlatInstancedItem banner = 6;
 }

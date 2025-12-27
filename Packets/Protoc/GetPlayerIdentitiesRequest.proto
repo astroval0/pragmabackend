@@ -1,0 +1,29 @@
+syntax = "proto3";
+import "DisplayName.proto";
+
+message GetPlayerIdentitiesRequest {
+  string gameShardId = 1;
+  repeated ProviderAccountId providerAccountIds = 2;
+}
+
+message ProviderAccountId {
+  string idProviderType = 1;
+  string providerAccountId = 2;
+}
+
+message GetPlayerIdentitiesResponse {
+  repeated PlayerIdentity playerIdentities = 1;
+}
+
+message PlayerIdentity {
+  string pragmaPlayerId = 1;
+  DisplayName pragmaDisplayName = 2;
+  repeated IdProviderAccount idProviderAccounts = 3;
+  string pragmaSocialId = 4;
+}
+
+message IdProviderAccount {
+  string idProviderType = 1;
+  string accountId = 2;
+  DisplayName providerDisplayName = 3;
+}
