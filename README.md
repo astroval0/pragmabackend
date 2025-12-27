@@ -46,7 +46,7 @@ if you're on the vivox reimplementation branch, append this to auth.json (ofc fi
 after all that, you will want to pull the launcher (https://github.com/astroval0/SpectreLauncher) and edit common.h; replace the BACKEND_ADDRESS value with L"http://127.0.0.1:8081"
 now replace the HOST[] value in page_trigger.cpp with L"127.0.0.1" 
 
-it's best to use Jetbrains CLion IDE to build and run this, use these build settings (ofc change the path to your own) or else it will not compile.
+it's best to use Jetbrains CLion IDE to build and run this, use these build settings (ofc change the paths to your own, just make sure everything after pragmabackend/ is the same.) or else it will not compile.
 
 <img width="1366" height="733" alt="image" src="https://github.com/user-attachments/assets/241ce157-5d1a-4483-be13-dbc68cdad0b3" />
 
