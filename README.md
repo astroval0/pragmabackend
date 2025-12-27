@@ -121,3 +121,5 @@ PRs welcome. If you contribute:
 
 * Change the port defines and rebuild. Make sure whatever client you use is updated too.
 
+**failed to read PlayerConfigData in SavePlayerDataProcessor**
+* Press WIN+R -> type in `%localappdata%` -> press enter -> delete the `Spectre` folder.
