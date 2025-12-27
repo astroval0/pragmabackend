@@ -44,7 +44,7 @@ Create an `auth.json` in the **repo root**:
 
 ### Vivox-Voice branch
 
-If you're on the `vivox reimplementation` branch and you actually want to use voice / text, extend `auth.json` with:
+If you're on the `vivox reimplementation` branch and you actually want to use voice / text, extend `auth.json` with (edit nevermind i forgot to push those changes, will do at some point lol):
 
 ```json
 {
