@@ -5,6 +5,8 @@
 
 > **Status:** on pause for now. PRs welcome.
 
+# Check out the Wiki!
+
 ## What this repo contains
 
 - HTTP handlers (some static, some dynamic)
