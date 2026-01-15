@@ -48,7 +48,7 @@ jobs:
 
       - name: Configure ${{matrix.build_type}}
         run: |
-          /usr/bin/local/cmake . --preset x64-${{matrix.build_type}}-linux
+          /usr/bin/cmake . --preset x64-${{matrix.build_type}}-linux
 
       - name: Build ${{matrix.build_type}}
-        run: /usr/bin/local/cmake --build out/build/x64-release-linux
+        run: /usr/bin/cmake --build out/build/x64-release-linux
