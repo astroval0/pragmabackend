@@ -1,0 +1,52 @@
+name: build.yml
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        build_type: [debug, release]
+      max-parallel: 1
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install compiler
+        run: sudo apt install -y build-essentials
+
+      - name: Install cmake
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common lsb-release
+          sudo apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
+          sudo apt-key adv --fetch-keys https://apt.kitware.com/keys/kitware-archive-latest.asc
+          sudo apt-get update
+          sudo apt-get install -y cmake
+
+      - name: Cache vcpkg archive
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/vcpkg/archives
+          key: vcpkg-${{hashFiles('~/.cache/vcpkg/archives/**')}}
+          restore-keys: |
+            vcpkg-
+
+      - name: Create auth.json
+        run: |
+          # secret isn't actually written since I don't have access to create new secrets, but the file just needs to exist so its okay
+          echo "{\"steamApiKey\": \"${{ secrets.STEAM_API_KEY }}\"}" > auth.json
+
+      - name: Configure ${{matrix.build_type}}
+        run: |
+          cmake . --preset x64-${{matrix.build_type}}-linux
+
+      - name: Build ${{matrix.build_type}}
+        run: cmake --build out/build/x64-release-linux
