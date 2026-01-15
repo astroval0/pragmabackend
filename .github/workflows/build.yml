@@ -20,7 +20,9 @@ jobs:
           submodules: recursive
 
       - name: Install compiler
-        run: sudo apt install -y build-essentials
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential
 
       - name: Install cmake
         run: |
