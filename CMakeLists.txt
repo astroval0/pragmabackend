@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 4.0)
 project(pragmabackend)
 
 set(CMAKE_CXX_STANDARD 20)
-add_compile_definitions(_WIN32_WINNT=0x0A00) # target at least win10
+if(WIN32)
+    add_compile_definitions(_WIN32_WINNT=0x0A00) # target at least win10
+endif()
 add_compile_definitions(FMT_UNICODE=0)
 
 file(GLOB_RECURSE RESOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/resources/*")
