@@ -22,7 +22,7 @@ jobs:
       - name: Install compiler
         run: |
           sudo apt update
-          sudo apt install -y build-essential
+          sudo apt install -y build-essential ninja-build
 
       - name: Install cmake
         run: |
