@@ -26,7 +26,6 @@ jobs:
 
       - name: Install cmake
         run: |
-          sudo rm /usr/bin/cmake
           sudo apt-get update
           sudo apt-get install -y software-properties-common lsb-release
           sudo apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
@@ -49,7 +48,7 @@ jobs:
 
       - name: Configure ${{matrix.build_type}}
         run: |
-          cmake . --preset x64-${{matrix.build_type}}-linux
+          /usr/bin/local/cmake . --preset x64-${{matrix.build_type}}-linux
 
       - name: Build ${{matrix.build_type}}
-        run: cmake --build out/build/x64-release-linux
+        run: /usr/bin/local/cmake --build out/build/x64-release-linux
