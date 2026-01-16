@@ -49,6 +49,7 @@
 #include <SetReadyProcessor.h>
 #include <UpdatePartyPlayerProcessor.h>
 #include <EnterMatchmakingProcessor.h>
+#include <LoginToChatProcessor.h>
 
 #define GAME_PORT 8081
 #define SOCIAL_PORT 8082
@@ -235,6 +236,10 @@ int main() {
 		new EnterMatchmakingProcessor(
 			SpectreRpcType("PartyRpc.EnterMatchmakingV1Request")
 		);
+		new LoginToChatProcessor(
+			SpectreRpcType("MtnChatServiceRpc.LoginToChatV2Request")
+		);
+
 		std::thread gameThread = std::thread([] {
 			ConnectionAcceptor(GAME_PORT); // game
 			});
