@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "PresenceState.proto";
+
+message SetPresenceRequest {
+  PresenceState basicPresence = 1;
+  string gameShardId = 2;
+  PresenceExt requestExt = 3;
+}
+
+message PresenceExt {
+
+}

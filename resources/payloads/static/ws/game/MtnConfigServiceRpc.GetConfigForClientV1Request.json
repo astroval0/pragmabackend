@@ -189,7 +189,7 @@
       },
       {
         "name": "CasualMatchWinThresholdForRanked",
-        "value": 5
+        "value": 0
       },
       {
         "name": "MinSpecWarningDisplayCount",
