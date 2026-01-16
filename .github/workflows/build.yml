@@ -22,6 +22,8 @@ jobs:
       - name: Install compiler
         run: |
           sudo apt update
+          sudo apt-get update
+          sudo apt-get install -y curl zip unzip tar
           sudo apt install -y build-essential ninja-build
           sudo apt-get install -y autoconf autoconf-archive automake libtool
           sudo apt install -y linux-libc-dev pkg-config
@@ -53,4 +55,4 @@ jobs:
           /usr/bin/cmake . --preset x64-${{matrix.build_type}}-linux
 
       - name: Build ${{matrix.build_type}}
-        run: /usr/bin/cmake --build out/build/x64-${{matrix.build_type}}-linux
+        run: /usr/bin/cmake --build out/build/x64-${{matrix.build_type}}-linux --preset x64-${{matrix.build_type}}-linux
