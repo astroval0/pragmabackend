@@ -10,7 +10,7 @@ SpectreWebsocketRequest::SpectreWebsocketRequest(SpectreWebsocket& sock, reqbuf 
 		m_requestType = SpectreRpcType(std::string((*m_reqjson)["type"]));
 	}
 	catch(std::exception e) {
-		spdlog::warn("log type not found for " + (*m_reqjson)["type"].to_string());
+		spdlog::warn("log type not found for " + (*m_reqjson)["type"].get<std::string>());
 	}
 	m_requestId = (*m_reqjson)["requestId"];
 	m_payloadAsStr = (*m_reqjson)["payload"].dump();
