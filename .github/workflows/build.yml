@@ -55,4 +55,4 @@ jobs:
           /usr/bin/cmake . --preset x64-${{matrix.build_type}}-linux
 
       - name: Build ${{matrix.build_type}}
-        run: /usr/bin/cmake --build out/build/x64-${{matrix.build_type}}-linux --preset x64-${{matrix.build_type}}-linux
+        run: /usr/bin/cmake --build out/build/x64-${{matrix.build_type}}-linux
